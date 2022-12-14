@@ -1,9 +1,10 @@
 import { defineConfig } from 'vite'
-const path = require('path')
 import vue from '@vitejs/plugin-vue'
 import eslintPlugin from 'vite-plugin-eslint'
 
-// https://vitejs.dev/config/
+
+import path from "path"
+
 export default defineConfig({
   build: {
     lib: {
@@ -22,5 +23,6 @@ export default defineConfig({
       },
     },
   },
+
   plugins: [vue(), eslintPlugin()],
 })

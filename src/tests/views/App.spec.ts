@@ -1,8 +1,8 @@
-import { mount } from '@vue/test-utils'
+import { describe, it, expect } from "vitest"
 
 describe('HelloWorld', () => {
-    it('Test test', () => {
+  it('Test test', () => {
 
-        expect(true).toBe(true)
-    })
+    expect(true).toBe(true)
+  })
 })
