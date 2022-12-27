@@ -2,27 +2,26 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import eslintPlugin from 'vite-plugin-eslint'
 
-
-import path from "path"
+import path from 'path'
 
 export default defineConfig({
-  build: {
-    lib: {
-      entry: path.resolve(__dirname, 'src/components/index.js'),
-      name: 'MyLib',
-      fileName: (format) => `my-lib.${format}.js`,
-    },
-    rollupOptions: {
-      external: ['vue'],
-      output: {
-        // Provide global variables to use in the UMD build
-        // Add external deps here
-        globals: {
-          vue: 'Vue',
+    build: {
+        lib: {
+            entry: path.resolve(__dirname, 'src/components/index.js'),
+            name: 'MyLib',
+            fileName: format => `my-lib.${format}.js`,
         },
-      },
+        rollupOptions: {
+            external: ['vue'],
+            output: {
+                // Provide global variables to use in the UMD build
+                // Add external deps here
+                globals: {
+                    vue: 'Vue',
+                },
+            },
+        },
     },
-  },
 
-  plugins: [vue(), eslintPlugin()],
+    plugins: [vue(), eslintPlugin()],
 })

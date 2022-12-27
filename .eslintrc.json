@@ -2,7 +2,7 @@
     "parser": "vue-eslint-parser",
     "parserOptions": {
         "sourceType": "module",
-        "paeser" : "@typescript-eslint/parser",
+        "paeser": "@typescript-eslint/parser",
         "ecmaVersion": 2018,
         "ecmaFeatures": {
             "globalReturn": false,
@@ -10,7 +10,7 @@
             "jsx": false
         }
     },
-//    "ignorePatterns": ["dist/*.js"],
+    //    "ignorePatterns": ["dist/*.js"],
     "plugins": ["@typescript-eslint"],
     "env": {
         "node": true
