@@ -1,6 +1,20 @@
-name: Run Unit Tests and Lint Files 
+name: Run Unit Tests and Lint Files
 'on': [push, pull_request]
 jobs:
+    build:
+      name: Prettier
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v1
+        - uses: bahmutov/npm-install@v1
+
+        - run: npm run format
+        - run: git status
+        # commit any changed files
+        # https://github.com/mikeal/publish-to-github-action
+        - uses: mikeal/publish-to-github-action@master
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     test_lint_build:
         runs-on: ubuntu-latest
         steps:
@@ -9,4 +23,4 @@ jobs:
                   npm ci
                   npm run build
                   npm run test
-                  npm run lint               
+                  npm run lint
