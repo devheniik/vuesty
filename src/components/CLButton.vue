@@ -2,6 +2,7 @@
     <button
         disabled
         class="p-2"
+
         @click=";[]"
         @mouseenter=";[]">
         <slot />
