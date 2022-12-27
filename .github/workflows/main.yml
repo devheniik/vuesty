@@ -2,7 +2,7 @@ name: Run Unit Tests and Lint Files
 'on': [push, pull_request]
 jobs:
     build:
-      name: Prettier
+      name: 'Lint by Prettier and commit'
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v1
@@ -16,6 +16,7 @@ jobs:
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     test_lint_build:
+        name: 'Run Unit Tests and Lint Files and Build'
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
