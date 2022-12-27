@@ -29,12 +29,22 @@
     "lint-staged": {
       "*.{ts,vue}": [
         "import-sort-cli --write",
-        "prettier --write ."
+        "prettier --write"
       ],
       "*.{json,md}": ["prettier --write"],
       "*.hbs": ["prettier --write"]
     },
-    "importSort": {
+  "prettier": {
+    "tabWidth": 2,
+    "semi": false,
+    "singleQuote": true,
+    "printWidth": 120,
+    "bracketSpacing": true,
+    "bracketSameLine": true,
+    "arrowParens": "avoid",
+    "endOfLine": "lf"
+  },
+  "importSort": {
       ".js, .ts, .vue": {
         "style": "renke"
       }
