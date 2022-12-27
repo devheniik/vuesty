@@ -13,9 +13,6 @@ jobs:
         # commit any changed files
         # https://github.com/mikeal/publish-to-github-action
         - uses: mikeal/publish-to-github-action@master
-          with:
-            commit_message: "chore: format files"
-            github_token: ${{ secrets.GITHUB_TOKEN }}
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
