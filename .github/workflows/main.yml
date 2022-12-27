@@ -1,5 +1,9 @@
 name: Run Unit Tests and Lint Files
+<<<<<<< HEAD
 'on': push
+=======
+"on": [push, pull_request]
+>>>>>>> f89979393fa6a26e5174b1c5fd0dfa243a657a48
 jobs:
     test_lint_format:
         runs-on: ubuntu-latest
