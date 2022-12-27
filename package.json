@@ -29,7 +29,7 @@
     "lint-staged": {
       "*.{ts,vue}": [
         "import-sort-cli --write",
-        "prettier --write"
+        "prettier --write ."
       ],
       "*.{json,md}": ["prettier --write"],
       "*.hbs": ["prettier --write"]
