@@ -21,6 +21,24 @@
         "test": "vitest",
         "coverage": "vitest run --coverage"
     },
+    "husky": {
+      "hooks": {
+        "pre-commit": "lint-staged"
+      }
+    },
+    "lint-staged": {
+      "*.{ts,vue}": [
+        "import-sort-cli --write",
+        "prettier --write"
+      ],
+      "*.{json,md}": ["prettier --write"],
+      "*.hbs": ["prettier --write"]
+    },
+    "importSort": {
+      ".js, .ts, .vue": {
+        "style": "renke"
+      }
+    },
     "dependencies": {
         "@sentry/tracing": "^7.24.2",
         "@sentry/vue": "^7.24.2",
@@ -42,7 +60,9 @@
         "eslint": "^8.22.0",
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-vue": "^9.8.0",
+        "husky": "^8.0.2",
         "jsdom": "^20.0.3",
+        "lint-staged": "^13.1.0",
         "postcss": "^8.4.19",
         "prettier": "2.8.1",
         "tailwindcss": "^3.2.4",
