@@ -1,11 +1,23 @@
-name: Run Unit Tests and Lint Files
-<<<<<<< HEAD
-'on': push
-=======
-"on": [push, pull_request]
->>>>>>> f89979393fa6a26e5174b1c5fd0dfa243a657a48
+name: Run Unit Tests and Lint Filesb
+'on': [push, pull_request]
 jobs:
-    test_lint_format:
+#    build:
+#      name: 'Lint by Prettier and commit'
+#      runs-on: ubuntu-latest
+#      steps:
+#        - uses: actions/checkout@v1
+#        - uses: bahmutov/npm-install@v1
+#
+#        - run: npm run format
+#        - run: git status
+#        # commit any changed files
+#        # https://github.com/mikeal/publish-to-github-action
+#        - uses: mikeal/publish-to-github-action@master
+#          env:
+#            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    test_lint_build:
+        name: 'Run Unit Tests and Lint Files and Build'
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
@@ -14,4 +26,3 @@ jobs:
                   npm run build
                   npm run test
                   npm run lint
-                  npm run format
