@@ -1,38 +1,38 @@
 {
-    "parser": "vue-eslint-parser",
-    "parserOptions": {
-        "sourceType": "module",
-        "paeser": "@typescript-eslint/parser",
-        "ecmaVersion": 2018,
-        "ecmaFeatures": {
-            "globalReturn": false,
-            "impliedStrict": false,
-            "jsx": false
-        }
-    },
-    //    "ignorePatterns": ["dist/*.js"],
-    "plugins": ["@typescript-eslint"],
-    "env": {
-        "node": true
-    },
-    "extends": [
-        "eslint:recommended",
-        "plugin:vue/vue3-recommended",
-        "prettier",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:vue/base",
-        "@vue/eslint-config-typescript/recommended"
-    ],
-    "rules": {
-        "@typescript-eslint/ban-types": [
-            "error",
-            {
-                "extendDefaults": true,
-                "types": {
-                    "{}": false
-                }
-            }
-        ]
+  "parser": "vue-eslint-parser",
+  "parserOptions": {
+    "sourceType": "module",
+    "paeser": "@typescript-eslint/parser",
+    "ecmaVersion": 2018,
+    "ecmaFeatures": {
+      "globalReturn": false,
+      "impliedStrict": false,
+      "jsx": false
     }
+  },
+  //    "ignorePatterns": ["dist/*.js"],
+  "plugins": ["@typescript-eslint"],
+  "env": {
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:vue/vue3-recommended",
+    "prettier",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:vue/base",
+    "@vue/eslint-config-typescript/recommended"
+  ],
+  "rules": {
+    "@typescript-eslint/ban-types": [
+      "error",
+      {
+        "extendDefaults": true,
+        "types": {
+          "{}": false
+        }
+      }
+    ]
+  }
 }
