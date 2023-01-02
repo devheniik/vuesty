@@ -1,12 +1,10 @@
 <template>
-  <button disabled class="p-2" @click=";[]" @mouseenter=";[]">
+  <button>
     <slot />
   </button>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-const color = ref('red')
 
 </script>
 
