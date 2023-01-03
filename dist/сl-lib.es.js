@@ -1,8 +1,12 @@
-import { defineComponent as i, openBlock as t, createElementBlock as c, normalizeClass as f, createBlock as l, resolveDynamicComponent as a, renderSlot as s } from "vue";
-const u = ["disabled"], h = /* @__PURE__ */ i({
+import { defineComponent as i, openBlock as e, createElementBlock as c, normalizeClass as f, createBlock as l, resolveDynamicComponent as o, renderSlot as s } from "vue";
+const u = ["disabled"], y = /* @__PURE__ */ i({
   __name: "CLButton",
   props: {
     leftIcon: {
+      type: String,
+      default: ""
+    },
+    variant: {
       type: String,
       default: ""
     },
@@ -19,30 +23,30 @@ const u = ["disabled"], h = /* @__PURE__ */ i({
       default: !1
     }
   },
-  setup(e) {
-    return (n, o) => (t(), c("button", {
-      disabled: e.disabled,
-      class: f(["flex btn", { "btn-disabled": e.disabled }])
+  setup(t) {
+    return (n, a) => (e(), c("button", {
+      disabled: t.disabled,
+      class: f(["flex btn", `btn-${t.variant}`, { "btn-disabled": t.disabled }])
     }, [
-      (t(), l(a(e.leftIcon), { class: "w-5 mr-2" })),
+      (e(), l(o(t.leftIcon), { class: "w-5 mr-2" })),
       s(n.$slots, "default"),
-      (t(), l(a(e.rightIcon), { class: "w-5 ml-2" })),
-      (t(), l(a(e.icon), { class: "h-9 w-5" }))
+      (e(), l(o(t.rightIcon), { class: "w-5 ml-2" })),
+      (e(), l(o(t.icon), { class: "h-9 w-5" }))
     ], 10, u));
   }
-}), m = (e, n) => {
-  const o = e.__vccOpts || e;
+}), m = (t, n) => {
+  const a = t.__vccOpts || t;
   for (const [r, d] of n)
-    o[r] = d;
-  return o;
+    a[r] = d;
+  return a;
 }, b = {};
-function _(e, n) {
-  return t(), c("div", null, [
-    s(e.$slots, "default")
+function g(t, n) {
+  return e(), c("div", null, [
+    s(t.$slots, "default")
   ]);
 }
-const p = /* @__PURE__ */ m(b, [["render", _]]);
+const h = /* @__PURE__ */ m(b, [["render", g]]);
 export {
-  p as CLAvatar,
-  h as CLButton
+  h as CLAvatar,
+  y as CLButton
 };

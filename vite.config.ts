@@ -5,11 +5,17 @@ import dts from 'vite-plugin-dts'
 import path from 'path'
 
 export default defineConfig({
-  
+
   build: {
     lib: {
       entry:
-        path.resolve(__dirname, 'src/components/index.js'),
+        [
+
+        path.resolve(__dirname, 'src/components/index.js')
+      ,
+        path.resolve(__dirname, 'src/assets/themes/main/main.css'),
+      ]
+      ,
       name: 'CLib',
       fileName: format => `сl-lib.${format}.js`,
 

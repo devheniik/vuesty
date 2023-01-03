@@ -3,6 +3,10 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         type: StringConstructor;
         default: string;
     };
+    variant: {
+        type: StringConstructor;
+        default: string;
+    };
     rightIcon: {
         type: StringConstructor;
         default: string;
@@ -17,6 +21,10 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
     };
 }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     leftIcon: {
+        type: StringConstructor;
+        default: string;
+    };
+    variant: {
         type: StringConstructor;
         default: string;
     };
@@ -36,6 +44,7 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
     disabled: boolean;
     icon: string;
     leftIcon: string;
+    variant: string;
     rightIcon: string;
 }>, {
     default: (_: {}) => any;

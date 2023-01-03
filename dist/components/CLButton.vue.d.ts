@@ -3,6 +3,10 @@ declare const _sfc_main: import("vue").DefineComponent<{
         type: StringConstructor;
         default: string;
     };
+    variant: {
+        type: StringConstructor;
+        default: string;
+    };
     rightIcon: {
         type: StringConstructor;
         default: string;
@@ -20,6 +24,10 @@ declare const _sfc_main: import("vue").DefineComponent<{
         type: StringConstructor;
         default: string;
     };
+    variant: {
+        type: StringConstructor;
+        default: string;
+    };
     rightIcon: {
         type: StringConstructor;
         default: string;
@@ -34,6 +42,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
     };
 }>>, {
     leftIcon: string;
+    variant: string;
     rightIcon: string;
     icon: string;
     disabled: boolean;
