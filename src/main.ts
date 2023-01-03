@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
 import router from './router'
+import global from './global/index'
 
 // Tools
 import * as Sentry from '@sentry/vue'
@@ -25,5 +26,9 @@ Sentry.init({
   // We recommend adjusting this value in production
   tracesSampleRate: 1.0,
 })
+
+app.use(router)
+
+global(app)
 
 app.mount('#app')

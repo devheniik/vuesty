@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 name: Run Unit Tests and Lint Filesb
 'on': [push, pull_request]
 jobs:
@@ -18,6 +19,12 @@ jobs:
 
   test_lint_build:
     name: 'Run Unit Tests and Lint Files and Build'
+=======
+name: Run Unit Tests and Lint Files
+'on': [push, pull_request]
+jobs:
+  test_lint_build:
+>>>>>>> Stashed changes
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

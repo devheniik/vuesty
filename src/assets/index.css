@@ -1,2 +1,9 @@
+<<<<<<< Updated upstream
 @import './global/tailwind.css';
 @import './themes/main/main.css';
+=======
+@import './tailwind.css';
+@import './global.css';
+
+@import './components/button.css';
+>>>>>>> Stashed changes

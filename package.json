@@ -22,9 +22,20 @@
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
+<<<<<<< Updated upstream
     "@sentry/tracing": "^7.24.2",
     "@sentry/vue": "^7.24.2",
     "vue": "^3.2.45",
+=======
+    "@headlessui/tailwindcss": "^0.1.2",
+    "@headlessui/vue": "^1.7.7",
+    "@heroicons/vue": "^2.0.13",
+    "@jonyak/icons": "^1.0.6",
+    "@sentry/tracing": "^7.24.2",
+    "@sentry/vue": "^7.24.2",
+    "vue": "^3.2.45",
+    "vue-code-highlight": "^0.7.8",
+>>>>>>> Stashed changes
     "vue-router": "^4.1.6"
   },
   "devDependencies": {

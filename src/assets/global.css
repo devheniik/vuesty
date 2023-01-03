@@ -1,0 +1,38 @@
+/* #app{
+    @apply font-body
+} */
+
+.hide-scroll {
+  scrollbar-width: none;
+}
+
+.hide-scroll::-webkit-scrollbar {
+  width: 0px;
+}
+
+.flex-center {
+  @apply flex justify-center items-center;
+}
+
+.fixed-width {
+  width: calc(100% - 288px);
+}
+
+.card {
+  @apply border rounded-md shadow-md p-3;
+}
+
+.card-sm {
+  @apply rounded-md shadow-lg p-2 w-full;
+}
+
+html {
+  @apply bg-white;
+}
+
+:root {
+  --swiper-theme-color: white;
+  --swiper-pagination-color: white;
+}
+
+/* var(--swiper-pagination-color,var(--swiper-theme-color)) */
