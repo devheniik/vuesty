@@ -39,6 +39,12 @@ Secondary.args = {
   label: 'Button',
 };
 
+
+export const Text = Template.bind({});
+Text.args = {
+  label: 'Text',
+};
+
 export const Large = Template.bind({});
 Large.args = {
   size: 'large',

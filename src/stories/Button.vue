@@ -10,6 +10,10 @@ export default {
   name: 'MyButton',
 
   props: {
+    id: { 
+      type: Number,
+      required: true,
+    },
     label: {
       type: String,
       required: true,

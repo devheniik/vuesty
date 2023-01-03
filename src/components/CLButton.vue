@@ -1,8 +1,8 @@
 <template>
   <button
     :disabled="disabled"
-    class="flex btn"
-    :class="{ 'btn-disabled': disabled }">
+    :class="['flex btn', `btn-${variant}`, { 'btn-disabled': disabled }]"
+     >
     <component :is="leftIcon" class="w-5 mr-2" />
     <slot />
     <component :is="rightIcon" class="w-5 ml-2" />
@@ -14,6 +14,10 @@
 
 defineProps({
   leftIcon: {
+    type: String,
+    default: '',
+  },
+  variant: {
     type: String,
     default: '',
   },

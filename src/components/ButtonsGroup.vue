@@ -76,7 +76,10 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
 import {btnClassType, titleType} from '../types/buttons/Buttons'
 
 const props = defineProps<{
-  title: titleType
+  title: {
+    type: titleType,
+    default: 'btn',
+  },
   btnClass: btnClassType
 }>()
 
