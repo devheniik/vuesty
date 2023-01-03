@@ -2,13 +2,6 @@
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-<<<<<<< Updated upstream
-  content: ['./pages/**/*.{html,js}', './components/**/*.{html,js}', './index.html'],
-  theme: {
-    extend: {},
-  },
-  plugins: [require('@tailwindcss/forms')],
-=======
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
     extend: {
@@ -1100,5 +1093,4 @@ module.exports = {
     require('@tailwindcss/forms'),
     require('@headlessui/tailwindcss')
   ],
->>>>>>> Stashed changes
 }
