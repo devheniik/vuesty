@@ -17,7 +17,7 @@ export default defineConfig({
       ]
       ,
       name: 'CLib',
-      fileName: format => `сl-lib.${format}.js`,
+      fileName: format => `vuely.${format}.js`,
 
     },
     // lib: {
