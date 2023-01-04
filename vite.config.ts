@@ -17,7 +17,7 @@ export default defineConfig({
       ]
       ,
       name: 'CLib',
-      fileName: format => `vuely.${format}.js`,
+      fileName: format => `vuesty.${format}.js`,
 
     },
     // lib: {

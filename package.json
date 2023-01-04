@@ -7,17 +7,17 @@
   },
   "license": "MIT",
   "type": "module",
-  "name": "vuely",
+  "name": "vuesty",
   "files": [
     "dist"
   ],
-  "main": "./dist/vuely.umd.js",
-  "module": "./dist/vuely.es.js",
+  "main": "./dist/vuesty.umd.js",
+  "module": "./dist/vuesty.es.js",
   "types": "dist/types/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/vuely.es.js",
-      "require": "./dist/vuely.umd.js"
+      "import": "./dist/vuesty.es.js",
+      "require": "./dist/vuesty.umd.js"
     }
   },
   "scripts": {
