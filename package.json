@@ -7,6 +7,7 @@
   ],
   "main": "./dist/cl-lib.umd.js",
   "module": "./dist/cl-lib.es.js",
+  "types": "dist/types/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/cl-lib.es.js",

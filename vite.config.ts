@@ -13,7 +13,7 @@ export default defineConfig({
 
         path.resolve(__dirname, 'src/components/index.js')
       ,
-        path.resolve(__dirname, 'src/assets/themes/main/main.css'),
+        path.resolve(__dirname, 'src/assets/themes/main/main.css')
       ]
       ,
       name: 'CLib',
