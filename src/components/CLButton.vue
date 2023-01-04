@@ -11,7 +11,6 @@
 </template>
 
 <script setup lang="ts">
-
 defineProps({
   leftIcon: {
     type: String,
@@ -36,4 +35,6 @@ defineProps({
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+  @import '.././assets/themes/main/components/button.scss';
+</style>

@@ -9,13 +9,10 @@ export default createRouter({
       path: '/',
       component: App,
     },
-<<<<<<< Updated upstream
-=======
     {
       path: '/ui',
       name: 'ui',
       component: () => import('../../src/view/ButtonsView.vue'),
     },
->>>>>>> Stashed changes
   ],
 })
