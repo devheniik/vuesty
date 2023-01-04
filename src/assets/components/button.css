@@ -3,13 +3,13 @@
 }
 
 .btn {
-  @apply _btn-common w-auto px-1.5 py-0.5  rounded shadow-sm text-white bg-primary-600 hover:bg-primary-700;
+  @apply _btn-common border-none w-auto px-1.5 py-1  rounded shadow-sm text-white bg-primary-600 hover:bg-primary-700;
 }
 
 
 
 .btn-secondary {
-  @apply _btn-common px-1.5 py-0.5 border border-primary-500  rounded text-primary-500 bg-white hover:bg-indigo-300 hover:text-primary-1000 hover:border-transparent;
+  @apply _btn-common  px-1.5 py-0.5 border-solid border-primary-500  rounded text-primary-500 bg-white hover:bg-indigo-300 hover:text-primary-1000 hover:border-transparent;
 }
 
 .btn-secondary-disabled {
@@ -17,23 +17,23 @@
 }
 
 .btn-light {
-  @apply _btn-common px-1.5 py-0.5  rounded text-primary-600 bg-white  hover:bg-indigo-100 hover:border-transparent;
+  @apply  text-primary-600 bg-white  hover:bg-indigo-100 hover:border-transparent;
 }
 
 .btn-danger {
-  @apply _btn-common px-1.5 py-0.5  rounded text-white bg-danger-600 hover:bg-danger-700 focus:ring-danger-500;
+  @apply  rounded text-white bg-danger-600 hover:bg-danger-700 focus:ring-danger-500;
 }
 
 .btn-indigo {
-  @apply _btn-common px-1.5 py-0.5  rounded text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500;
+  @apply  text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500;
 }
 
 .btn-success {
-  @apply _btn-common px-1.5 py-0.5  rounded shadow-sm text-white bg-success-600 hover:bg-success-700 focus:ring-success-500;
+  @apply shadow-sm text-white bg-success-600 hover:bg-success-700 focus:ring-success-500;
 }
 
 .btn-warning {
-  @apply _btn-common px-1.5 py-0.5  rounded shadow-sm text-white bg-warning-400 hover:bg-warning-500 focus:ring-warning-500;
+  @apply shadow-sm text-white bg-warning-400 hover:bg-warning-500 focus:ring-warning-500;
 }
 
 .btn-gray {
@@ -76,10 +76,6 @@
 
 .btn-small {
   @apply px-[10px] py-[6px] text-[16px] font-semibold leading-5;
-}
-
-.btn-tiny {
-  @apply leading-4;
 }
 
 .btn-icon-secondary {

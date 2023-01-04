@@ -1,4 +1,9 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
+<div></div>
+</template>
+
+<!-- <template>
   <header>
     <div class="wrapper">
       <div>
@@ -47,4 +52,4 @@ export default {
 
   emits: ['login', 'logout', 'createAccount'],
 };
-</script>
+</script> -->

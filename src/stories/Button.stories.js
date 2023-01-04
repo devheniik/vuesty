@@ -1,52 +1,74 @@
-import MyButton from './Button.vue';
+import CLButton from '../components/CLButton.vue'
 
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
-  title: 'Example/Button',
-  component: MyButton,
+  title: 'Button',
+  component: CLButton,
   // More on argTypes: https://storybook.js.org/docs/vue/api/argtypes
   argTypes: {
-    backgroundColor: { control: 'color' },
+    backgroundColor: {
+      control: { type: 'select' },
+      options: ['success', 'danger', 'warning', 'gray', 'indigo']
+    },
     onClick: {},
     size: {
       control: { type: 'select' },
-      options: ['small', 'medium', 'large'],
+      options: ['big', 'small', 'tiny'],
+    },
+    leftIcon: {
+      control: { type: 'select' },
+      options: [''],
+    },
+    rightIcon: {
+      control: { type: 'select' },
+      options: [''],
     },
   },
+  args: {
+    disabled: false
+  }
 };
 
 // More on component templates: https://storybook.js.org/docs/vue/writing-stories/introduction#using-args
 const Template = (args) => ({
   // Components used in your story `template` are defined in the `components` object
-  components: { MyButton },
+  components: { CLButton },
   // The story's `args` need to be mapped into the template through the `setup()` method
   setup() {
     return { args };
   },
   // And then the `args` are bound to your component with `v-bind="args"`
-  template: '<my-button v-bind="args" />',
+  template: '<CLButton v-bind="args">Hallo guys</CLButton>',
 });
 
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/vue/writing-stories/args
 Primary.args = {
-  primary: true,
   label: 'Button',
+  variant: 'primary',
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   label: 'Button',
+  variant: 'secondary',
 };
 
-export const Large = Template.bind({});
-Large.args = {
+
+export const Light = Template.bind({});
+Light.args = {
+  label: 'Light',
+  variant: 'light'
+};
+
+export const RightIcon = Template.bind({});
+RightIcon.args = {
   size: 'large',
-  label: 'Button',
+  label: 'RightIcon',
 };
 
-export const Small = Template.bind({});
-Small.args = {
+export const LeftIcon = Template.bind({});
+LeftIcon.args = {
   size: 'small',
-  label: 'Button',
+  label: 'LeftIcon',
 };
