@@ -1,17 +1,23 @@
 {
   "version": "0.0.1",
+  "author": {
+    "name": "devheniik",
+    "email": "yevhenii_kyrmyzy@icloud.com",
+    "url": "devheniik.com"
+  },
+  "license": "MIT",
   "type": "module",
-  "name": "cl-lib",
+  "name": "vuely",
   "files": [
     "dist"
   ],
-  "main": "./dist/cl-lib.umd.js",
-  "module": "./dist/cl-lib.es.js",
+  "main": "./dist/vuely.umd.js",
+  "module": "./dist/vuely.es.js",
   "types": "dist/types/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/cl-lib.es.js",
-      "require": "./dist/cl-lib.umd.js"
+      "import": "./dist/vuely.es.js",
+      "require": "./dist/vuely.umd.js"
     }
   },
   "scripts": {
