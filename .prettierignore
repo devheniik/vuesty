@@ -1,0 +1,10 @@
+.storybook
+storybook-static
+public
+index.html
+*.json
+postcss.config.cjs
+README.md
+tailwind.config.cjs
+vite.config.ts
+src/stories/assets

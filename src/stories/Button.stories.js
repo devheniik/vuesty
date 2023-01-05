@@ -1,4 +1,5 @@
 import CLButton from '../components/CLButton.vue'
+import {generateSource} from './helpers/showCode'
 
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
@@ -8,7 +9,7 @@ export default {
   argTypes: {
     backgroundColor: {
       control: { type: 'select' },
-      options: ['success', 'danger', 'warning', 'gray', 'indigo']
+      options: ['success', 'danger', 'warning', 'gray', 'indigo'],
     },
     onClick: {},
     size: {
@@ -25,50 +26,55 @@ export default {
     },
   },
   args: {
-    disabled: false
-  }
-};
+    disabled: false,
+    text: 'Button',
+  },
+}
 
 // More on component templates: https://storybook.js.org/docs/vue/writing-stories/introduction#using-args
-const Template = (args) => ({
+const Template = args => ({
   // Components used in your story `template` are defined in the `components` object
   components: { CLButton },
   // The story's `args` need to be mapped into the template through the `setup()` method
   setup() {
-    return { args };
+    return { args }
   },
   // And then the `args` are bound to your component with `v-bind="args"`
-  template: '<CLButton v-bind="args">Hallo guys</CLButton>',
-});
+  template: `<CLButton v-bind="args">
+    <template v-if="${'text' in args}" v-slot:default>${args.text}</template>
+  </CLButton>`,
+})
 
-export const Primary = Template.bind({});
+export const Primary = Template.bind({})
 // More on args: https://storybook.js.org/docs/vue/writing-stories/args
 Primary.args = {
-  label: 'Button',
   variant: 'primary',
-};
+}
 
-export const Secondary = Template.bind({});
+
+Primary.parameters = {
+  docs: {
+    source: { code: generateSource('<CLButton v-bind="args"></CLButton>', Primary.args)
+    },
+  },
+}
+
+export const Secondary = Template.bind({})
 Secondary.args = {
-  label: 'Button',
   variant: 'secondary',
-};
+}
 
-
-export const Light = Template.bind({});
+export const Light = Template.bind({})
 Light.args = {
-  label: 'Light',
-  variant: 'light'
-};
+  variant: 'light',
+}
 
-export const RightIcon = Template.bind({});
+export const RightIcon = Template.bind({})
 RightIcon.args = {
   size: 'large',
-  label: 'RightIcon',
-};
+}
 
-export const LeftIcon = Template.bind({});
+export const LeftIcon = Template.bind({})
 LeftIcon.args = {
   size: 'small',
-  label: 'LeftIcon',
-};
+}

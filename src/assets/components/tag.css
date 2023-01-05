@@ -1,0 +1,59 @@
+.tag {
+  @apply inline-flex items-center rounded px-[10px] py-[5px] font-medium text-base;
+}
+
+.tag-primary {
+  @apply bg-primary-100 text-primary-600;
+}
+
+.tag-success {
+  @apply bg-success-100 text-success-600;
+}
+
+.tag-warning {
+  @apply bg-pink-50 text-warning-400;
+}
+
+.tag-danger {
+  @apply bg-danger-100 text-danger-600;
+}
+
+.tag-indigo {
+  @apply bg-indigo-100 text-indigo-400;
+}
+
+.tag-blue {
+  @apply bg-blue-50 text-blue-500;
+}
+
+.tag-pink {
+  @apply bg-pink-100 text-pink-400;
+}
+
+.tag-gray {
+  @apply bg-gray-100 text-gray-700;
+}
+
+.status {
+  @apply text-gray-900
+}
+
+.status-circle {
+  @apply rounded-full bg-gray-500 w-2 h-2 mr-2
+}
+
+.status-circle-danger {
+  @apply bg-danger-500
+}
+
+.status-circle-danger {
+
+}
+
+.status-circle-danger {
+
+}
+
+.status-circle-danger {
+
+}

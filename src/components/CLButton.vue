@@ -1,17 +1,14 @@
 <template>
-  <button
-    :disabled="disabled"
-    class="flex btn"
-    :class="classes">
-    <component :is="leftIcon" class="w-5 mr-2" />
+  <button :disabled="disabled" class="btn flex" :class="classes">
+    <component :is="leftIcon" class="mr-2 w-5" />
     <slot />
-    <component :is="rightIcon" class="w-5 ml-2" />
+    <component :is="rightIcon" class="ml-2 w-5" />
     <component :is="icon" class="h-9 w-5" />
   </button>
 </template>
 
 <script setup lang="ts">
-import {computed} from 'vue'
+import { computed } from 'vue'
 
 const props = defineProps({
   leftIcon: {
@@ -44,14 +41,12 @@ const props = defineProps({
   },
 })
 
-const classes = computed(() => ([
-  {'btn-disabled' : props.disabled},
+const classes = computed(() => [
+  { 'btn-disabled': props.disabled },
   [`btn-${props.variant}`],
   [`btn-${props.size || 'small'}`],
-  props.variant === 'primary' ?  `btn-${props.backgroundColor}`: ''
-
-]))
-
+  props.variant === 'primary' ? `btn-${props.backgroundColor}` : '',
+])
 </script>
 
 <style scoped></style>
