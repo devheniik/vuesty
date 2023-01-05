@@ -1,16 +1,23 @@
 {
   "version": "0.0.1",
+  "author": {
+    "name": "devheniik",
+    "email": "yevhenii_kyrmyzy@icloud.com",
+    "url": "devheniik.com"
+  },
+  "license": "MIT",
   "type": "module",
-  "name": "cl-lib",
+  "name": "vuesty",
   "files": [
     "dist"
   ],
-  "main": "./dist/cl-lib.umd.js",
-  "module": "./dist/cl-lib.es.js",
+  "main": "./dist/vuesty.umd.js",
+  "module": "./dist/vuesty.es.js",
+  "types": "dist/types/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/cl-lib.es.js",
-      "require": "./dist/cl-lib.umd.js"
+      "import": "./dist/vuesty.es.js",
+      "require": "./dist/vuesty.umd.js"
     }
   },
   "scripts": {
@@ -57,7 +64,7 @@
     "@vue/tsconfig": "^0.1.3",
     "autoprefixer": "^10.4.13",
     "babel-loader": "^8.3.0",
-    "eslint": "^8.22.0",
+    "eslint": "8.22.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-storybook": "^0.6.8",
     "eslint-plugin-vue": "^9.8.0",

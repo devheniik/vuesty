@@ -15,6 +15,10 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  variant: {
+    type: String,
+    default: '',
+  },
   rightIcon: {
     type: String,
     default: '',
