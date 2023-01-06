@@ -19,7 +19,7 @@ export default defineConfig({
       name: 'vuesty',
       // We are building for CJS and ESM, use a function to rename automatically files.
       // Example: my-component-library.esm.js
-      fileName: (format) => `${'vuesty'}.${format}.js`,
+      fileName: (format) => `vuesty.${format}.js`,
     },
     rollupOptions: {
       // Vue is provided by the parent project, don't compile Vue source-code inside our library.
