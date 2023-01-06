@@ -1,0 +1,91 @@
+.avatar {
+  @apply w-10 h-10
+}
+
+.avatar-tiny {
+  @apply w-4 h-4
+}
+
+.avatar-small {
+  @apply w-6 h-6
+}
+
+.avatar-medium {
+  @apply w-8 h-8
+}
+
+.avatar-big {
+  @apply w-10 h-10
+}
+
+.avatar-large {
+  @apply w-12 h-12
+}
+
+/* .avatar-huge {
+  @apply w-15 h-15
+} */
+
+.avatar-gigantic {
+  @apply w-20 h-20
+}
+
+.avatar > img {
+  @apply w-full h-full object-cover rounded-full
+}
+
+.flex-center-rounded {
+  @apply flex justify-center items-center rounded-full
+}
+
+.avatar-letters {
+  @apply flex-center-rounded w-10 h-10 text-white
+}
+
+.avatar-letters-primary {
+  @apply avatar-letters bg-primary-500
+}
+
+.avatar-letters-success {
+  @apply avatar-letters bg-success-500
+}
+
+.avatar-letters-danger {
+  @apply avatar-letters bg-danger-500
+}
+
+.avatar-letters-warning {
+  @apply avatar-letters bg-warning-500
+}
+
+.avatar-letters-primary-tonal {
+  @apply flex-center-rounded text-primary-700  bg-primary-50
+}
+
+.avatar-letters-success-tonal {
+  @apply flex-center-rounded text-success-700  bg-success-50
+}
+
+.avatar-letters-danger-tonal {
+  @apply flex-center-rounded text-danger-700  bg-danger-50
+}
+
+.avatar-letters-warning-tonal {
+  @apply flex-center-rounded text-warning-700  bg-gray-50
+}
+
+/* .avatar-letters-success {
+  @apply bg-primary-500
+}
+
+.avatar-letters-success {
+  @apply bg-primary-500
+}
+
+.avatar-letters-success {
+  @apply bg-primary-500
+}
+
+.avatar-letters-success {
+  @apply bg-primary-500
+} */

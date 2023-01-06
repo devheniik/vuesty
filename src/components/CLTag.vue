@@ -1,6 +1,6 @@
 <template>
   <div class="tag" :class="classes">
-    <div v-if="statusCircle && isBasicColor" class="status-circle" :class="statusCircleClasses"></div>
+    <div v-if="status && isBasicColor" class="status-circle" :class="statusCircleClasses"></div>
     <component :is="icon" v-if="icon" />
     <slot></slot>
   </div>
@@ -10,14 +10,6 @@
 import { computed } from 'vue'
 
 const props = defineProps({
-  // leftIcon: {
-  //   type: String,
-  //   default: '',
-  // },
-  // rightIcon: {
-  //   type: String,
-  //   default: '',
-  // },
   icon: {
     type: String,
     default: '',
@@ -34,18 +26,20 @@ const props = defineProps({
     type: String,
     default: '',
   },
-  statusCircle: {
+  status: {
     type: Boolean,
     default: false,
   }
 })
 
 const classes = computed(() =>
-`tag-${props.backgroundColor}`,
+  [`tag-${props.backgroundColor}`,
+  {'status' : (props.status && isBasicColor.value)}
+  ]
 )
 
 const statusCircleClasses = computed(() =>
-[(props.statusCircle && isBasicColor) ? `status-circle-${props.backgroundColor}` : '']
+[(props.status && isBasicColor) ? `status-circle-${props.backgroundColor}` : '']
 )
 
 

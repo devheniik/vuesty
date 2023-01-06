@@ -1,5 +1,6 @@
 import '../src/assets/components/button.css'
-import '../src/assets/components/tag.css'
+import '../src/assets/components/badge.css'
+import '../src/assets/components/avatar.css'
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {

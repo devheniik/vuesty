@@ -46,14 +46,14 @@
   @apply bg-danger-500
 }
 
-.status-circle-danger {
-
+.status-circle-warning {
+  @apply bg-warning-500
 }
 
-.status-circle-danger {
-
+.status-circle-primary {
+  @apply bg-primary-500
 }
 
-.status-circle-danger {
-
+.status-circle-success {
+  @apply bg-success-500
 }
