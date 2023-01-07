@@ -1,4 +1,0 @@
-{
-  "include": ["src/components/*"],
-  "exclude": ["node_modules", "**/*.cy.ts", "**/*.spec.ts", "**/__tests__/**/*"]
-}

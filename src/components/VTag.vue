@@ -29,19 +29,14 @@ const props = defineProps({
   status: {
     type: Boolean,
     default: false,
-  }
+  },
 })
 
-const classes = computed(() =>
-  [`tag-${props.backgroundColor}`,
-  {'status' : (props.status && isBasicColor.value)}
-  ]
-)
+const classes = computed(() => [`tag-${props.backgroundColor}`, { status: props.status && isBasicColor.value }])
 
-const statusCircleClasses = computed(() =>
-[(props.status && isBasicColor) ? `status-circle-${props.backgroundColor}` : '']
-)
-
+const statusCircleClasses = computed(() => [
+  props.status && isBasicColor ? `status-circle-${props.backgroundColor}` : '',
+])
 
 const isBasicColor = computed(() => {
   const colors = ['primary', 'warning', 'success', 'danger']

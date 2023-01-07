@@ -1,7 +1,8 @@
 <template>
   <div>
-    <label>Click me
-      <input type="text">
+    <label
+      >Click me
+      <input type="text" />
     </label>
   </div>
 </template>
@@ -9,15 +10,13 @@
 <script setup lang="ts">
 defineProps<{
   label: {
-    type: string,
+    type: string
     default: ''
-  },
+  }
   // icon: {
   //   type:
   // }
 }>()
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

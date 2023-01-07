@@ -1,4 +1,4 @@
-import CLTag from '../components/CLTag.vue'
+import CLTag from '../components/VTag.vue'
 // import { generateSource} from './helpers/showCode'
 
 export default {
@@ -19,7 +19,6 @@ export default {
 
 // More on component templates: https://storybook.js.org/docs/vue/writing-stories/introduction#using-args
 
-
 const Template = args => ({
   // Components used in your story `template` are defined in the `components` object
   components: { CLTag },
@@ -28,15 +27,12 @@ const Template = args => ({
     return { args }
   },
   // And then the `args` are bound to your component with `v-bind="args"`
-  template:
-  `
+  template: `
   <CLTag v-bind="args">
     <template v-if="${'text' in args}" v-slot:default>${args.text}</template>
   </CLTag>
   `,
 })
-
-
 
 export const Avatar = Template.bind({})
 // More on args: https://storybook.js.org/docs/vue/writing-stories/args

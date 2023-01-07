@@ -1,39 +1,40 @@
-import { defineConfig } from 'vite'
+import { defineConfig, type PluginOption } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import eslintPlugin from 'vite-plugin-eslint'
+import { visualizer } from 'rollup-plugin-visualizer'
 import dts from 'vite-plugin-dts'
-import path from 'path'
+import { resolve } from 'path'
 
 export default defineConfig({
-
   build: {
+    target: ['edge90', 'chrome90', 'firefox90', 'safari15'],
+    outDir: './dist',
     lib: {
-      entry:
-        [
-
-        path.resolve(__dirname, 'src/components/index.js')
-      ,
-        path.resolve(__dirname, 'src/assets/themes/main/main.css')
-      ]
-      ,
-      name: 'CLib',
-      fileName: format => `vuesty.${format}.js`,
-
+      formats: ['es', 'cjs'],
+      entry: resolve(__dirname, './src/components/index.ts'),
+      name: 'Vuesty',
+      fileName: 'index',
     },
-    // lib: {
-    //   entry: path.resolve(__dirname, 'src/components/index.js')
-    // },
     rollupOptions: {
       external: ['vue'],
-      output: {
-        // Provide global variables to use in the UMD build
-        // Add external deps here
-        globals: {
-          vue: 'Vue',
-        },
-      }
+      output: { globals: { vue: 'Vue' } },
     },
   },
+  plugins: [vue(), eslintPlugin(),
+    dts({
+      beforeWriteFile: (filePath, content) => {
+        const newFilePath = filePath
+          .replace('/src', '/types');
 
-  plugins: [vue(), eslintPlugin(), dts()],
+        return {
+          filePath: newFilePath,
+          content,
+        };
+      },
+      skipDiagnostics: true,
+    }),
+    visualizer({
+      emitFile: true
+    }) as PluginOption
+  ],
 })

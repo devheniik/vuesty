@@ -1,72 +1,63 @@
-import CLButton from '../components/CLButton.vue'
-import {generateSource} from './helpers/showCode'
+import VButton from '../components/VButton.vue'
+import generateSource from './helpers/showCode'
 
-// More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
+import { defineComponent } from 'vue'
+
 export default {
   title: 'Button',
-  component: CLButton,
-  // More on argTypes: https://storybook.js.org/docs/vue/api/argtypes
+  component: VButton,
   argTypes: {
     backgroundColor: {
       control: { type: 'select' },
       options: ['success', 'danger', 'warning', 'gray', 'indigo'],
     },
-    onClick: {},
     size: {
       control: { type: 'select' },
       options: ['big', 'small', 'tiny'],
     },
-    leftIcon: {
-      control: { type: 'select' },
-      options: [''],
-    },
-    rightIcon: {
-      control: { type: 'select' },
-      options: [''],
-    },
-  },
-  args: {
-    disabled: false,
-    text: 'Button',
-  },
+    default: {
+      control: 'text',
+      description: 'Slot content',
+      defaultValue: 'Button'
+    }
+  }
 }
 
-// More on component templates: https://storybook.js.org/docs/vue/writing-stories/introduction#using-args
-const Template = args => ({
-  // Components used in your story `template` are defined in the `components` object
-  components: { CLButton },
-  // The story's `args` need to be mapped into the template through the `setup()` method
-  setup() {
-    return { args }
-  },
-  // And then the `args` are bound to your component with `v-bind="args"`
-  template: `<CLButton v-bind="args">
-    <template v-if="${'text' in args}" v-slot:default>${args.text}</template>
-  </CLButton>`,
+const template = `<v-button>{{ args.default }}</v-button>`
+
+export const Template = args => defineComponent({
+  components: { VButton },
+  setup: () => ({ args }),
+  template: template
 })
 
-export const Primary = Template.bind({})
-// More on args: https://storybook.js.org/docs/vue/writing-stories/args
-Primary.args = {
-  variant: 'primary',
-}
 
+export const Primary = Template.bind({
+
+})
+
+Primary.args = {
+  variant: 'primary'
+}
 
 Primary.parameters = {
   docs: {
-    source: { code: generateSource('<CLButton v-bind="args"></CLButton>', Primary.args)
-    },
+    source: { code: generateSource(template, Primary.args) },
   },
 }
 
-export const Secondary = Template.bind({})
-Secondary.args = {
-  variant: 'secondary',
-}
+// export const Secondary = Template.bind({})
+// Secondary.args = {
+//   variant: 'secondary',
+//   docs: {
+//     source: { code: generateSource(template, Primary.args) },
+//   },
+// }
 
 export const Light = Template.bind({})
 Light.args = {
   variant: 'light',
+
 }
 
 export const RightIcon = Template.bind({})

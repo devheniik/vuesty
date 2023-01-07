@@ -1,25 +1,25 @@
 .avatar {
-  @apply w-10 h-10
+  @apply h-10 w-10;
 }
 
 .avatar-tiny {
-  @apply w-4 h-4
+  @apply h-4 w-4;
 }
 
 .avatar-small {
-  @apply w-6 h-6
+  @apply h-6 w-6;
 }
 
 .avatar-medium {
-  @apply w-8 h-8
+  @apply h-8 w-8;
 }
 
 .avatar-big {
-  @apply w-10 h-10
+  @apply h-10 w-10;
 }
 
 .avatar-large {
-  @apply w-12 h-12
+  @apply h-12 w-12;
 }
 
 /* .avatar-huge {
@@ -27,51 +27,51 @@
 } */
 
 .avatar-gigantic {
-  @apply w-20 h-20
+  @apply h-20 w-20;
 }
 
 .avatar > img {
-  @apply w-full h-full object-cover rounded-full
+  @apply h-full w-full rounded-full object-cover;
 }
 
 .flex-center-rounded {
-  @apply flex justify-center items-center rounded-full
+  @apply flex items-center justify-center rounded-full;
 }
 
 .avatar-letters {
-  @apply flex-center-rounded w-10 h-10 text-white
+  @apply flex-center-rounded h-10 w-10 text-white;
 }
 
 .avatar-letters-primary {
-  @apply avatar-letters bg-primary-500
+  @apply avatar-letters bg-primary-500;
 }
 
 .avatar-letters-success {
-  @apply avatar-letters bg-success-500
+  @apply avatar-letters bg-success-500;
 }
 
 .avatar-letters-danger {
-  @apply avatar-letters bg-danger-500
+  @apply avatar-letters bg-danger-500;
 }
 
 .avatar-letters-warning {
-  @apply avatar-letters bg-warning-500
+  @apply avatar-letters bg-warning-500;
 }
 
 .avatar-letters-primary-tonal {
-  @apply flex-center-rounded text-primary-700  bg-primary-50
+  @apply flex-center-rounded bg-primary-50  text-primary-700;
 }
 
 .avatar-letters-success-tonal {
-  @apply flex-center-rounded text-success-700  bg-success-50
+  @apply flex-center-rounded bg-success-50  text-success-700;
 }
 
 .avatar-letters-danger-tonal {
-  @apply flex-center-rounded text-danger-700  bg-danger-50
+  @apply flex-center-rounded bg-danger-50  text-danger-700;
 }
 
 .avatar-letters-warning-tonal {
-  @apply flex-center-rounded text-warning-700  bg-gray-50
+  @apply flex-center-rounded bg-gray-50  text-warning-700;
 }
 
 /* .avatar-letters-success {

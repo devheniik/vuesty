@@ -1,4 +1,4 @@
-import CLAvatar from '../components/CLAvatar.vue'
+import CLAvatar from '../components/VAvatar.vue'
 // import { generateSource} from './helpers/showCode'
 
 export default {
@@ -7,25 +7,29 @@ export default {
   argTypes: {
     color: {
       control: { type: 'select' },
-      options: ['primary', 'success', 'danger', 'warning', 'primary-tonal', 'success-tonal', 'danger-tonal', 'warning-tonal', ],
+      options: [
+        'primary',
+        'success',
+        'danger',
+        'warning',
+        'primary-tonal',
+        'success-tonal',
+        'danger-tonal',
+        'warning-tonal',
+      ],
     },
     size: {
       control: {
-        type: 'select'
+        type: 'select',
       },
-      options: [
-        'tiny', 'small', 'medium', 'big', 'large', 'huge', 'gigantic'
-      ]
+      options: ['tiny', 'small', 'medium', 'big', 'large', 'huge', 'gigantic'],
     },
     onClick: {},
   },
-  args: {
-
-  },
+  args: {},
 }
 
 // More on component templates: https://storybook.js.org/docs/vue/writing-stories/introduction#using-args
-
 
 const Template = args => ({
   // Components used in your story `template` are defined in the `components` object
@@ -35,27 +39,24 @@ const Template = args => ({
     return { args }
   },
   // And then the `args` are bound to your component with `v-bind="args"`
-  template:
-  `
+  template: `
   <CLAvatar v-bind="args">
     <template v-if="${'slot' in args}" v-slot:default>${args.slot}</template>
   </CLAvatar>
   `,
 })
 
-
-
 export const Avatar = Template.bind({})
 // More on args: https://storybook.js.org/docs/vue/writing-stories/args
 Avatar.args = {
   variant: 'primary',
   slot: `<img  src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"/>`,
-};
+}
 
 export const Letters = Template.bind({})
 Letters.args = {
   slot: 'SD',
-  color: 'success'
+  color: 'success',
 }
 
 // Tags.parameters = {
@@ -63,4 +64,3 @@ Letters.args = {
 //   source: { code: generateSource(BtnTemplate, Tags.args) },
 //   },
 // };
-

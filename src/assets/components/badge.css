@@ -1,5 +1,5 @@
 .tag {
-  @apply inline-flex items-center rounded px-[10px] py-[5px] font-medium text-base;
+  @apply inline-flex items-center rounded px-[10px] py-[5px] text-base font-medium;
 }
 
 .tag-primary {
@@ -35,25 +35,25 @@
 }
 
 .status {
-  @apply text-gray-900
+  @apply text-gray-900;
 }
 
 .status-circle {
-  @apply rounded-full bg-gray-500 w-2 h-2 mr-2
+  @apply mr-2 h-2 w-2 rounded-full bg-gray-500;
 }
 
 .status-circle-danger {
-  @apply bg-danger-500
+  @apply bg-danger-500;
 }
 
 .status-circle-warning {
-  @apply bg-warning-500
+  @apply bg-warning-500;
 }
 
 .status-circle-primary {
-  @apply bg-primary-500
+  @apply bg-primary-500;
 }
 
 .status-circle-success {
-  @apply bg-success-500
+  @apply bg-success-500;
 }
