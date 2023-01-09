@@ -1,5 +1,5 @@
 /*! For license information please see 8.65ec2749796fb05c258c.manager.bundle.js.LICENSE.txt */
-;(window.webpackJsonp = window.webpackJsonp || []).push([
+(window.webpackJsonp = window.webpackJsonp || []).push([
   [8],
   {
     776: function (module, __webpack_exports__, __webpack_require__) {
@@ -33,7 +33,7 @@
         __webpack_require__(13),
         __webpack_require__(18),
         __webpack_require__(16)
-      var _index_681e4b07_js__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(2),
+      const _index_681e4b07_js__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(2),
         react__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(0),
         react__WEBPACK_IMPORTED_MODULE_23___default = __webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_23__)
       __webpack_require__(23), __webpack_require__(50), __webpack_require__(76)
@@ -52,9 +52,9 @@
           _typeof(obj)
         )
       }
-      var OverlayScrollbars$1 = { exports: {} }
+      const OverlayScrollbars$1 = { exports: {} }
       !(function (module) {
-        var global
+        let global
         ;(global = 'undefined' != typeof window ? window : _index_681e4b07_js__WEBPACK_IMPORTED_MODULE_22__.F),
           (module.exports = (function (window, document, undefined$1) {
             var _targets,
@@ -88,7 +88,7 @@
                 bCR: 'getBoundingClientRect',
               },
               VENDORS = (function () {
-                var jsCache = {},
+                const jsCache = {},
                   cssCache = {},
                   cssPrefixes = ['-webkit-', '-moz-', '-o-', '-ms-'],
                   jsPrefixes = ['WebKit', 'Moz', 'O', 'MS']
@@ -99,7 +99,7 @@
                   _cssPrefixes: cssPrefixes,
                   _jsPrefixes: jsPrefixes,
                   _cssProperty: function _cssProperty(name) {
-                    var result = cssCache[name]
+                    let result = cssCache[name]
                     if (cssCache[LEXICON.hOP](name)) return result
                     for (
                       var resultPossibilities,
@@ -130,7 +130,7 @@
                     return (cssCache[name] = result), result
                   },
                   _cssPropertyValue: function _cssPropertyValue(property, values, suffix) {
-                    var name = property + ' ' + values,
+                    let name = property + ' ' + values,
                       result = cssCache[name]
                     if (cssCache[LEXICON.hOP](name)) return result
                     for (
@@ -155,7 +155,7 @@
                     return (cssCache[name] = result), result
                   },
                   _jsAPI: function _jsAPI(name, isInterface, fallback) {
-                    var i = 0,
+                    let i = 0,
                       result = jsCache[name]
                     if (!jsCache[LEXICON.hOP](name)) {
                       for (result = window[name]; i < jsPrefixes[LEXICON.l]; i++)
@@ -176,7 +176,7 @@
                 }
                 function bind(func, thisObj) {
                   if (_typeof(func) != TYPES.f) throw "Can't bind function!"
-                  var proto = LEXICON.p,
+                  const proto = LEXICON.p,
                     aArgs = Array[proto].slice.call(arguments, 2),
                     fNOP = function fNOP() {},
                     fBound = function fBound() {
@@ -208,7 +208,7 @@
                     event.preventDefault && event.cancelable ? event.preventDefault() : (event.returnValue = !1)
                   },
                   page: function page(event) {
-                    var strPage = 'page',
+                    const strPage = 'page',
                       strClient = 'client',
                       strX = 'X',
                       strY = 'Y',
@@ -218,7 +218,7 @@
                       doc = eventDoc.documentElement,
                       body = eventDoc.body
                     if (event.touches !== undefined$1) {
-                      var touch = event.touches[0]
+                      const touch = event.touches[0]
                       return { x: touch[strPage + strX], y: touch[strPage + strY] }
                     }
                     return !event[strPage + strX] && event[strClient + strX] && null != event[strClient + strX]
@@ -235,7 +235,7 @@
                       : { x: event[strPage + strX], y: event[strPage + strY] }
                   },
                   mBtn: function mBtn(event) {
-                    var button = event.button
+                    const button = event.button
                     return event.which || button === undefined$1
                       ? event.which
                       : 1 & button
@@ -247,14 +247,14 @@
                       : 0
                   },
                   inA: function inA(item, arr) {
-                    for (var i = 0; i < arr[LEXICON.l]; i++)
+                    for (let i = 0; i < arr[LEXICON.l]; i++)
                       try {
                         if (arr[i] === item) return i
                       } catch (e) {}
                     return -1
                   },
                   isA: function isA(arr) {
-                    var def = Array.isArray
+                    const def = Array.isArray
                     return def ? def(arr) : this.type(arr) == TYPES.a
                   },
                   type: function type(obj) {
@@ -362,7 +362,7 @@
                       : (c / 2) * (_easingsMath.t(1 - (t -= 2) * t) + 1) + b
                   },
                   easeInElastic: function easeInElastic(x, t, b, c, d) {
-                    var s = _easingsMath.o,
+                    let s = _easingsMath.o,
                       p = 0,
                       a = c
                     return 0 == t
@@ -379,7 +379,7 @@
                           b)
                   },
                   easeOutElastic: function easeOutElastic(x, t, b, c, d) {
-                    var s = _easingsMath.o,
+                    let s = _easingsMath.o,
                       p = 0,
                       a = c
                     return 0 == t
@@ -395,7 +395,7 @@
                           b)
                   },
                   easeInOutElastic: function easeInOutElastic(x, t, b, c, d) {
-                    var s = _easingsMath.o,
+                    let s = _easingsMath.o,
                       p = 0,
                       a = c
                     return 0 == t
@@ -437,7 +437,7 @@
                     return c - this.easeOutBounce(x, d - t, 0, c, d) + b
                   },
                   easeOutBounce: function easeOutBounce(x, t, b, c, d) {
-                    var o = 7.5625
+                    const o = 7.5625
                     return (t /= d) < 1 / 2.75
                       ? c * (o * t * t) + b
                       : t < 2 / 2.75
@@ -453,7 +453,7 @@
                   },
                 }),
               FRAMEWORK = (function () {
-                var _rnothtmlwhite = /[^\x20\t\r\n\f]+/g,
+                const _rnothtmlwhite = /[^\x20\t\r\n\f]+/g,
                   _strSpace = ' ',
                   _strEmpty = '',
                   _strScrollLeft = 'scrollLeft',
@@ -476,7 +476,7 @@
                     zoom: !0,
                   }
                 function extend() {
-                  var src,
+                  let src,
                     copyIsArray,
                     copy,
                     name,
@@ -506,19 +506,19 @@
                   return target
                 }
                 function inArray(item, arr, fromIndex) {
-                  for (var i = fromIndex || 0; i < arr[LEXICON.l]; i++) if (arr[i] === item) return i
+                  for (let i = fromIndex || 0; i < arr[LEXICON.l]; i++) if (arr[i] === item) return i
                   return -1
                 }
                 function isFunction(obj) {
                   return _type(obj) == TYPES.f
                 }
                 function isEmptyObject(obj) {
-                  for (var name in obj) return !1
+                  for (const name in obj) return !1
                   return !0
                 }
                 function isPlainObject(obj) {
                   if (!obj || _type(obj) != TYPES.o) return !1
-                  var key,
+                  let key,
                     proto = LEXICON.p,
                     hasOwnProperty = Object[proto].hasOwnProperty,
                     hasOwnConstructor = hasOwnProperty.call(obj, 'constructor'),
@@ -531,13 +531,13 @@
                   return _type(key) == TYPES.u || hasOwnProperty.call(obj, key)
                 }
                 function _each(obj, callback) {
-                  var i = 0
+                  let i = 0
                   if (isArrayLike(obj)) for (; i < obj[LEXICON.l] && !1 !== callback.call(obj[i], i, obj[i]); i++);
                   else for (i in obj) if (!1 === callback.call(obj[i], i, obj[i])) break
                   return obj
                 }
                 function isArrayLike(obj) {
-                  var length = !!obj && [LEXICON.l] in obj && obj[LEXICON.l],
+                  const length = !!obj && [LEXICON.l] in obj && obj[LEXICON.l],
                     t = _type(obj)
                   return (
                     !isFunction(t) &&
@@ -549,7 +549,7 @@
                 }
                 function matches(elem, selector) {
                   for (
-                    var nodeList = (elem.parentNode || document).querySelectorAll(selector) || [],
+                    let nodeList = (elem.parentNode || document).querySelectorAll(selector) || [],
                       i = nodeList[LEXICON.l];
                     i--;
 
@@ -559,7 +559,7 @@
                 }
                 function insertAdjacentElement(el, strategy, child) {
                   if (COMPATIBILITY.isA(child))
-                    for (var i = 0; i < child[LEXICON.l]; i++) insertAdjacentElement(el, strategy, child[i])
+                    for (let i = 0; i < child[LEXICON.l]; i++) insertAdjacentElement(el, strategy, child[i])
                   else
                     _type(child) == TYPES.s
                       ? el.insertAdjacentHTML(strategy, child)
@@ -574,7 +574,7 @@
                   return _cssNumber[prop.toLowerCase()] || _type(val) != TYPES.n || (val += 'px'), val
                 }
                 function startNextAnimationInQ(animObj, removeFromQ) {
-                  var index, nextAnim
+                  let index, nextAnim
                   !1 !== removeFromQ && animObj.q.splice(0, 1),
                     animObj.q[LEXICON.l] > 0
                       ? ((nextAnim = animObj.q[0]),
@@ -585,7 +585,7 @@
                   prop === _strScrollLeft || prop === _strScrollTop ? (el[prop] = value) : setCSSVal(el, prop, value)
                 }
                 function _animate(el, props, options, easing, complete, guaranteedNext) {
-                  var key,
+                  let key,
                     animObj,
                     progress,
                     step,
@@ -702,7 +702,7 @@
                 }
                 function FakejQuery(selector) {
                   if (0 === arguments[LEXICON.l]) return this
-                  var elms,
+                  let elms,
                     el,
                     base = new FakejQuery(),
                     elements = selector,
@@ -734,7 +734,7 @@
                 return (
                   (FakejQuery[LEXICON.p] = {
                     on: function on(eventName, handler) {
-                      var el,
+                      let el,
                         eventNameLength = (eventName = (eventName || _strEmpty).match(_rnothtmlwhite) || [_strEmpty])[
                           LEXICON.l
                         ],
@@ -750,7 +750,7 @@
                       })
                     },
                     off: function off(eventName, handler) {
-                      var el,
+                      let el,
                         eventNameLength = (eventName = (eventName || _strEmpty).match(_rnothtmlwhite) || [_strEmpty])[
                           LEXICON.l
                         ],
@@ -769,9 +769,9 @@
                       return (
                         (eventName = (eventName || _strEmpty).match(_rnothtmlwhite) || [_strEmpty]),
                         this.each(function () {
-                          var el = FakejQuery(this)
+                          const el = FakejQuery(this)
                           FakejQuery.each(eventName, function (i, oneEventName) {
-                            var oneHandler = function oneHandler(e) {
+                            const oneHandler = function oneHandler(e) {
                               handler.call(this, e), el.off(oneEventName, oneHandler)
                             }
                             el.on(oneEventName, oneHandler)
@@ -780,9 +780,9 @@
                       )
                     },
                     trigger: function trigger(eventName) {
-                      var el, event
+                      let el, event
                       return this.each(function () {
-                        ;(el = this),
+                        (el = this),
                           document.createEvent
                             ? ((event = document.createEvent('HTMLEvents')).initEvent(eventName, !0, !1),
                               el.dispatchEvent(event))
@@ -811,19 +811,19 @@
                     },
                     remove: function remove() {
                       return this.each(function () {
-                        var el = this,
+                        const el = this,
                           parentNode = el.parentNode
                         null != parentNode && parentNode.removeChild(el)
                       })
                     },
                     unwrap: function unwrap() {
-                      var i,
+                      let i,
                         el,
                         parent,
                         parents = []
                       for (
                         this.each(function () {
-                          ;-1 === inArray((parent = this.parentNode), parents) && parents.push(parent)
+                          -1 === inArray((parent = this.parentNode), parents) && parents.push(parent)
                         }),
                           i = 0;
                         i < parents[LEXICON.l];
@@ -849,12 +849,12 @@
                         deepest = deepest.childNodes[0]
                       for (i = 0; nodes[LEXICON.l] - i; deepest.firstChild === nodes[0] && i++)
                         deepest.appendChild(nodes[i])
-                      var nextSibling = previousSibling ? previousSibling.nextSibling : parent.firstChild
+                      const nextSibling = previousSibling ? previousSibling.nextSibling : parent.firstChild
                       return parent.insertBefore(wrapper, nextSibling), this
                     },
                     wrapInner: function wrapInner(wrapperHTML) {
                       return this.each(function () {
-                        var el = FakejQuery(this),
+                        const el = FakejQuery(this),
                           contents = el.contents()
                         contents[LEXICON.l] ? contents.wrapAll(wrapperHTML) : el.append(wrapperHTML)
                       })
@@ -865,7 +865,7 @@
                       })
                     },
                     css: function css(styles, val) {
-                      var el,
+                      let el,
                         key,
                         cptStyle,
                         getCptStyle = window.getComputedStyle
@@ -903,7 +903,7 @@
                       return !1
                     },
                     addClass: function addClass(className) {
-                      var classes,
+                      let classes,
                         elem,
                         cur,
                         curValue,
@@ -932,7 +932,7 @@
                       return this
                     },
                     removeClass: function removeClass(className) {
-                      var classes,
+                      let classes,
                         elem,
                         cur,
                         curValue,
@@ -984,13 +984,13 @@
                       })
                     },
                     offset: function offset() {
-                      var rect = this[0][LEXICON.bCR](),
+                      const rect = this[0][LEXICON.bCR](),
                         scrollLeft = window.pageXOffset || document.documentElement[_strScrollLeft],
                         scrollTop = window.pageYOffset || document.documentElement[_strScrollTop]
                       return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
                     },
                     position: function position() {
-                      var el = this[0]
+                      const el = this[0]
                       return { top: el.offsetTop, left: el.offsetLeft }
                     },
                     scrollLeft: function scrollLeft(value) {
@@ -1008,7 +1008,7 @@
                       return this
                     },
                     val: function val(value) {
-                      var el = this[0]
+                      const el = this[0]
                       return value ? ((el.value = value), this) : el.value
                     },
                     first: function first() {
@@ -1021,18 +1021,18 @@
                       return FakejQuery(this[index >= 0 ? index : this[LEXICON.l] + index])
                     },
                     find: function find(selector) {
-                      var i,
+                      let i,
                         children = []
                       return (
                         this.each(function () {
-                          var ch = this.querySelectorAll(selector)
+                          const ch = this.querySelectorAll(selector)
                           for (i = 0; i < ch[LEXICON.l]; i++) children.push(ch[i])
                         }),
                         FakejQuery(children)
                       )
                     },
                     children: function children(selector) {
-                      var el,
+                      let el,
                         ch,
                         i,
                         children = []
@@ -1048,18 +1048,18 @@
                       )
                     },
                     parent: function parent(selector) {
-                      var parent,
+                      let parent,
                         parents = []
                       return (
                         this.each(function () {
-                          ;(parent = this.parentNode),
+                          (parent = this.parentNode),
                             (selector && !FakejQuery(parent).is(selector)) || parents.push(parent)
                         }),
                         FakejQuery(parents)
                       )
                     },
                     is: function is(selector) {
-                      var el, i
+                      let el, i
                       for (i = 0; i < this[LEXICON.l]; i++) {
                         if (((el = this[i]), ':visible' === selector)) return elementIsVisible(el)
                         if (':hidden' === selector) return !elementIsVisible(el)
@@ -1068,7 +1068,7 @@
                       return !1
                     },
                     contents: function contents() {
-                      var childs,
+                      let childs,
                         i,
                         contents = []
                       return (
@@ -1106,11 +1106,11 @@
                 ((_targets = []),
                 (_instancePropertyString = '__overlayScrollbars__'),
                 function (target, instance) {
-                  var argLen = arguments[LEXICON.l]
+                  const argLen = arguments[LEXICON.l]
                   if (argLen < 1) return _targets
                   if (instance) (target[_instancePropertyString] = instance), _targets.push(target)
                   else {
-                    var index = COMPATIBILITY.inA(target, _targets)
+                    const index = COMPATIBILITY.inA(target, _targets)
                     if (index > -1) {
                       if (!(argLen > 1)) return _targets[index][_instancePropertyString]
                       delete target[_instancePropertyString], _targets.splice(index, 1)
@@ -1118,7 +1118,7 @@
                   }
                 }),
               PLUGIN = (function () {
-                var _plugin,
+                let _plugin,
                   _pluginsGlobals,
                   _pluginsAutoUpdateLoop,
                   type,
@@ -1200,7 +1200,7 @@
                     {
                       _defaults: (convert = function convert(template) {
                         return (function recursive(obj) {
-                          var key, val, valType
+                          let key, val, valType
                           for (key in obj)
                             obj[LEXICON.hOP](key) &&
                               ((val = obj[key]),
@@ -1212,7 +1212,7 @@
                       })(),
                       _template: convert(!0),
                       _validate: function _validate(obj, template, writeErrors, diffObj) {
-                        var validatedOptions = {},
+                        const validatedOptions = {},
                           validatedOptionsPrepared = {},
                           objectCopy = FRAMEWORK.extend(!0, {}, obj),
                           inArray = FRAMEWORK.inArray,
@@ -1319,7 +1319,7 @@
                                           dataValueType.toUpperCase() +
                                           ' ] with the value of "' +
                                           dataValue +
-                                          '".\r\nAccepted types are: [ ' +
+                                          '".\r\nAccepted global are: [ ' +
                                           errorPossibleTypes.join(', ').toUpperCase() +
                                           ' ].' +
                                           (errorRestrictedStrings[length] > 0
@@ -1359,7 +1359,7 @@
                       (_pluginsAutoUpdateLoop = new OverlayScrollbarsAutoUpdateLoop(_pluginsGlobals))
                 }
                 function OverlayScrollbarsGlobals(defaultOptions) {
-                  var _base = this,
+                  const _base = this,
                     strOverflow = 'overflow',
                     strHidden = 'hidden',
                     strScroll = 'scroll',
@@ -1368,10 +1368,10 @@
                     scrollbarDummyElement0 = scrollbarDummyElement[0],
                     dummyContainerChild = FRAMEWORK(scrollbarDummyElement.children('div').eq(0))
                   bodyElement.append(scrollbarDummyElement), scrollbarDummyElement.hide().show()
-                  var nativeScrollbarSize = calcNativeScrollbarSize(scrollbarDummyElement0),
+                  const nativeScrollbarSize = calcNativeScrollbarSize(scrollbarDummyElement0),
                     nativeScrollbarIsOverlaid = { x: 0 === nativeScrollbarSize.x, y: 0 === nativeScrollbarSize.y },
                     msie = (function () {
-                      var result,
+                      let result,
                         ua = window.navigator.userAgent,
                         strIndexOf = 'indexOf',
                         strSubString = 'substring',
@@ -1404,7 +1404,7 @@
                     nativeScrollbarSize: nativeScrollbarSize,
                     nativeScrollbarIsOverlaid: nativeScrollbarIsOverlaid,
                     nativeScrollbarStyling: (function () {
-                      var result = !1
+                      let result = !1
                       scrollbarDummyElement.addClass('os-viewport-native-scrollbars-invisible')
                       try {
                         result =
@@ -1420,19 +1420,19 @@
                     cssCalc: VENDORS._cssPropertyValue('width', 'calc', '(1px)') || null,
                     restrictedMeasuring: (function () {
                       scrollbarDummyElement.css(strOverflow, strHidden)
-                      var scrollSize = { w: scrollbarDummyElement0[LEXICON.sW], h: scrollbarDummyElement0[LEXICON.sH] }
+                      const scrollSize = { w: scrollbarDummyElement0[LEXICON.sW], h: scrollbarDummyElement0[LEXICON.sH] }
                       scrollbarDummyElement.css(strOverflow, 'visible')
-                      var scrollSize2 = { w: scrollbarDummyElement0[LEXICON.sW], h: scrollbarDummyElement0[LEXICON.sH] }
+                      const scrollSize2 = { w: scrollbarDummyElement0[LEXICON.sW], h: scrollbarDummyElement0[LEXICON.sH] }
                       return scrollSize.w - scrollSize2.w != 0 || scrollSize.h - scrollSize2.h != 0
                     })(),
                     rtlScrollBehavior: (function () {
                       scrollbarDummyElement
                         .css({ 'overflow-y': strHidden, 'overflow-x': strScroll, direction: 'rtl' })
                         .scrollLeft(0)
-                      var dummyContainerOffset = scrollbarDummyElement.offset(),
+                      const dummyContainerOffset = scrollbarDummyElement.offset(),
                         dummyContainerChildOffset = dummyContainerChild.offset()
                       scrollbarDummyElement.scrollLeft(-999)
-                      var dummyContainerChildOffsetAfterScroll = dummyContainerChild.offset()
+                      const dummyContainerChildOffsetAfterScroll = dummyContainerChild.offset()
                       return {
                         i: dummyContainerOffset.left === dummyContainerChildOffset.left,
                         n: dummyContainerChildOffset.left !== dummyContainerChildOffsetAfterScroll.left,
@@ -1441,7 +1441,7 @@
                     supportTransform: !!VENDORS._cssProperty('transform'),
                     supportTransition: !!VENDORS._cssProperty('transition'),
                     supportPassiveEvents: (function () {
-                      var supportsPassive = !1
+                      let supportsPassive = !1
                       try {
                         window.addEventListener(
                           'test',
@@ -1467,12 +1467,12 @@
                           windowDpr = getWindowDPR(),
                           onResize = function onResize() {
                             if (INSTANCES().length > 0) {
-                              var newW = COMPATIBILITY.wW(),
+                              const newW = COMPATIBILITY.wW(),
                                 newH = COMPATIBILITY.wH(),
                                 deltaW = newW - windowWidth,
                                 deltaH = newH - windowHeight
                               if (0 === deltaW && 0 === deltaH) return
-                              var newScrollbarSize,
+                              let newScrollbarSize,
                                 deltaWRatio = MATH.round(newW / (windowWidth / 100)),
                                 deltaHRatio = MATH.round(newH / (windowHeight / 100)),
                                 absDeltaW = abs(deltaW),
@@ -1502,19 +1502,19 @@
                         FRAMEWORK(window).on('resize', onResize)
                       }
                       function differenceIsBiggerThanOne(valOne, valTwo) {
-                        var absValOne = abs(valOne),
+                        const absValOne = abs(valOne),
                           absValTwo = abs(valTwo)
                         return !(absValOne === absValTwo || absValOne + 1 === absValTwo || absValOne - 1 === absValTwo)
                       }
                       function getWindowDPR() {
-                        var dDPI = window.screen.deviceXDPI || 0,
+                        const dDPI = window.screen.deviceXDPI || 0,
                           sDPI = window.screen.logicalXDPI || 1
                         return window.devicePixelRatio || dDPI / sDPI
                       }
                     })()
                 }
                 function OverlayScrollbarsAutoUpdateLoop(globals) {
-                  var _loopID,
+                  let _loopID,
                     _base = this,
                     _inArray = FRAMEWORK.inArray,
                     _getNow = COMPATIBILITY.now,
@@ -1532,7 +1532,7 @@
                         _loopID = COMPATIBILITY.rAF()(function () {
                           loop()
                         })
-                        var lowestInterval,
+                        let lowestInterval,
                           instance,
                           instanceOptions,
                           instanceAutoUpdateAllowed,
@@ -1541,9 +1541,9 @@
                           timeNew = _getNow(),
                           timeDelta = timeNew - _loopTimeOld
                         if (timeDelta > _loopInterval) {
-                          ;(_loopTimeOld = timeNew - (timeDelta % _loopInterval)),
+                          (_loopTimeOld = timeNew - (timeDelta % _loopInterval)),
                             (lowestInterval = _loopIntervalDefault)
-                          for (var i = 0; i < _loopingInstances[_strLength]; i++)
+                          for (let i = 0; i < _loopingInstances[_strLength]; i++)
                             (instance = _loopingInstances[i]) !== undefined$1 &&
                               ((instanceAutoUpdateAllowed = (instanceOptions = instance.options())[_strAutoUpdate]),
                               (instanceAutoUpdateInterval = MATH.max(1, instanceOptions[_strAutoUpdateInterval])),
@@ -1558,7 +1558,7 @@
                       } else _loopInterval = _loopIntervalDefault
                     }
                   ;(_base.add = function (instance) {
-                    ;-1 === _inArray(instance, _loopingInstances) &&
+                    -1 === _inArray(instance, _loopingInstances) &&
                       (_loopingInstances.push(instance),
                       _loopingInstancesIntervalCache.push(_getNow()),
                       _loopingInstances[_strLength] > 0 &&
@@ -1566,7 +1566,7 @@
                         ((_loopIsActive = !0), (globals.autoUpdateLoop = _loopIsActive), loop()))
                   }),
                     (_base.remove = function (instance) {
-                      var index = _inArray(instance, _loopingInstances)
+                      const index = _inArray(instance, _loopingInstances)
                       index > -1 &&
                         (_loopingInstancesIntervalCache.splice(index, 1),
                         _loopingInstances.splice(index, 1),
@@ -1578,14 +1578,14 @@
                     })
                 }
                 function OverlayScrollbarsInstance(pluginTargetElement, options, extensions, globals, autoUpdateLoop) {
-                  var type = COMPATIBILITY.type,
+                  const type = COMPATIBILITY.type,
                     inArray = FRAMEWORK.inArray,
                     each = FRAMEWORK.each,
                     _base = new _plugin(),
                     _frameworkProto = FRAMEWORK[LEXICON.p]
                   if (isHTMLElement(pluginTargetElement)) {
                     if (INSTANCES(pluginTargetElement)) {
-                      var inst = INSTANCES(pluginTargetElement)
+                      const inst = INSTANCES(pluginTargetElement)
                       return inst.options(options), inst
                     }
                     var _nativeScrollbarIsOverlaid,
@@ -1830,7 +1830,7 @@
                         _sleeping = !0
                       }),
                       (_base.update = function (force) {
-                        var attrsChanged, contentSizeC, doUpdateAuto, mutHost, mutContent
+                        let attrsChanged, contentSizeC, doUpdateAuto, mutHost, mutContent
                         if (!_destroyed)
                           return (
                             type(force) == TYPES.s
@@ -1858,7 +1858,7 @@
                           )
                       }),
                       (_base.options = function (newOptions, value) {
-                        var changedOps,
+                        let changedOps,
                           option = {}
                         if (FRAMEWORK.isEmptyObject(newOptions) || !FRAMEWORK.isPlainObject(newOptions)) {
                           if (type(newOptions) != TYPES.s) return _currentOptions
@@ -1869,7 +1869,7 @@
                       }),
                       (_base.destroy = function () {
                         if (!_destroyed) {
-                          for (var extName in (autoUpdateLoop.remove(_base),
+                          for (const extName in (autoUpdateLoop.remove(_base),
                           disconnectMutationObservers(),
                           setupResizeObserver(_sizeObserverElement),
                           setupResizeObserver(_sizeAutoObserverElement),
@@ -1883,7 +1883,7 @@
                             setupScrollbarsDOM(!0),
                             setupScrollbarCornerDOM(!0),
                             setupStructureDOM(!0)
-                          for (var i = 0; i < _updateOnLoadElms[LEXICON.l]; i++)
+                          for (let i = 0; i < _updateOnLoadElms[LEXICON.l]; i++)
                             FRAMEWORK(_updateOnLoadElms[i]).off(_updateOnLoadEventName, updateOnLoadCallback)
                           ;(_updateOnLoadElms = undefined$1),
                             (_destroyed = !0),
@@ -1894,7 +1894,7 @@
                       }),
                       (_base.scroll = function (coordinates, duration, easing, complete) {
                         if (0 === arguments.length || coordinates === undefined$1) {
-                          var infoX = _scrollHorizontalInfo,
+                          let infoX = _scrollHorizontalInfo,
                             infoY = _scrollVerticalInfo,
                             normalizeInvert = _normalizeRTLCache && _isRTL && _rtlScrollBehavior.i,
                             normalizeNegate = _normalizeRTLCache && _isRTL && _rtlScrollBehavior.n,
@@ -1920,7 +1920,7 @@
                           )
                         }
                         _base.update(_strSync)
-                        var i,
+                        let i,
                           doScrollLeft,
                           doScrollTop,
                           animationOptions,
@@ -1968,7 +1968,7 @@
                           return !1
                         }
                         function getRawScroll(isX, coordinates) {
-                          var coordinateProps = isX ? coordinatesXAxisProps : coordinatesYAxisProps
+                          const coordinateProps = isX ? coordinatesXAxisProps : coordinatesYAxisProps
                           if (
                             ((coordinates =
                               type(coordinates) == TYPES.s || type(coordinates) == TYPES.n
@@ -1982,7 +1982,7 @@
                               if (coordinateProps[i] in coordinates) return coordinates[coordinateProps[i]]
                         }
                         function getFinalScroll(isX, rawScroll) {
-                          var operator,
+                          let operator,
                             amount,
                             finalValue,
                             possibleOperator,
@@ -2019,7 +2019,7 @@
                               : (amount = rawScroll),
                             amount !== undefined$1 && !isNaN(amount) && type(amount) == TYPES.n)
                           ) {
-                            var normalizeIsRTLisX = normalizeRTL && isRTLisX,
+                            let normalizeIsRTLisX = normalizeRTL && isRTLisX,
                               operatorCurrScroll = currScroll * (normalizeIsRTLisX && _rtlScrollBehavior.n ? -1 : 1),
                               invert = normalizeIsRTLisX && _rtlScrollBehavior.i,
                               negate = normalizeIsRTLisX && _rtlScrollBehavior.n
@@ -2042,7 +2042,7 @@
                               default:
                                 finalValue = amount
                             }
-                            ;(finalValue = invert ? maxScroll - finalValue : finalValue),
+                            (finalValue = invert ? maxScroll - finalValue : finalValue),
                               (finalValue *= negate ? -1 : 1),
                               (finalValue =
                                 isRTLisX && _rtlScrollBehavior.n
@@ -2052,7 +2052,7 @@
                           return finalValue === currScroll ? undefined$1 : finalValue
                         }
                         function getPerAxisValue(value, valueInternalType, defaultValue, allowedValues) {
-                          var valueArrLength,
+                          let valueArrLength,
                             valueArrItem,
                             resultDefault = [defaultValue, defaultValue],
                             valueType = type(value)
@@ -2077,7 +2077,7 @@
                           return { x: value[0], y: value[1] }
                         }
                         function generateMargin(marginTopRightBottomLeftArray) {
-                          var currValue,
+                          let currValue,
                             currValueType,
                             result = [],
                             valueDirections = [_strTop, _strRight, _strBottom, _strLeft]
@@ -2097,7 +2097,7 @@
                           return result
                         }
                         if (possibleElementIsJQuery || possibleElementIsHTMLElement) {
-                          var marginLength,
+                          let marginLength,
                             margin = coordinatesIsElementObj ? coordinates.margin : 0,
                             axis = coordinatesIsElementObj ? coordinates.axis : 0,
                             scroll = coordinatesIsElementObj ? coordinates.scroll : 0,
@@ -2109,7 +2109,7 @@
                               strLength
                             ] > 0
                           ) {
-                            ;(margin =
+                            (margin =
                               marginType == TYPES.n || marginType == TYPES.b
                                 ? generateMargin([margin, margin, margin, margin])
                                 : marginType == TYPES.a
@@ -2142,7 +2142,7 @@
                                 elementObjSettingsBlockValues
                               )),
                               (settingsMargin = margin)
-                            var viewportScroll = {
+                            const viewportScroll = {
                                 l: _scrollHorizontalInfo._currentScroll,
                                 t: _scrollVerticalInfo._currentScroll,
                               },
@@ -2154,7 +2154,7 @@
                               }
                             ;(elementOffset[_strTop] -= settingsMargin[0]),
                               (elementOffset[_strLeft] -= settingsMargin[3])
-                            var elementScrollCoordinates = {
+                            const elementScrollCoordinates = {
                               x: MATH.round(elementOffset[_strLeft] - viewportOffset[_strLeft] + viewportScroll.l),
                               y: MATH.round(elementOffset[_strTop] - viewportOffset[_strTop] + viewportScroll.t),
                             }
@@ -2179,7 +2179,7 @@
                                 settingsScroll.y == strIfNeeded ||
                                 _isRTL)
                             ) {
-                              var measuringElm = finalElement[0],
+                              const measuringElm = finalElement[0],
                                 rawElementSize = _supportTransform
                                   ? measuringElm[LEXICON.bCR]()
                                   : { width: measuringElm[LEXICON.oW], height: measuringElm[LEXICON.oH] },
@@ -2188,7 +2188,7 @@
                                   h: rawElementSize[_strHeight] + settingsMargin[0] + settingsMargin[2],
                                 },
                                 finalizeBlock = function finalizeBlock(isX) {
-                                  var vars = getScrollbarVars(isX),
+                                  let vars = getScrollbarVars(isX),
                                     wh = vars._w_h,
                                     lt = vars._left_top,
                                     xy = vars._x_y,
@@ -2228,7 +2228,7 @@
                               (coordinates = elementScrollCoordinates)
                           }
                         }
-                        ;(finalScroll[_strScrollLeft] = getFinalScroll(!0, getRawScroll(!0, coordinates))),
+                        (finalScroll[_strScrollLeft] = getFinalScroll(!0, getRawScroll(!0, coordinates))),
                           (finalScroll[_strScrollTop] = getFinalScroll(!1, getRawScroll(!1, coordinates))),
                           (doScrollLeft = finalScroll[_strScrollLeft] !== undefined$1),
                           (doScrollTop = finalScroll[_strScrollTop] !== undefined$1),
@@ -2251,7 +2251,7 @@
                         return _viewportElement.stop(param1, param2, param3), _base
                       }),
                       (_base.getElements = function (elementName) {
-                        var obj = {
+                        const obj = {
                           target: _targetElementNative,
                           host: _hostElementNative,
                           padding: _paddingElementNative,
@@ -2274,7 +2274,7 @@
                       (_base.getState = function (stateProperty) {
                         function prepare(obj) {
                           if (!FRAMEWORK.isPlainObject(obj)) return obj
-                          var extended = extendDeep({}, obj),
+                          const extended = extendDeep({}, obj),
                             changePropertyName = function changePropertyName(from, to) {
                               extended[LEXICON.hOP](from) && ((extended[to] = extended[from]), delete extended[from])
                             }
@@ -2285,7 +2285,7 @@
                             extended
                           )
                         }
-                        var obj = {
+                        const obj = {
                           destroyed: !!prepare(_destroyed),
                           sleeping: !!prepare(_sleeping),
                           autoUpdate: prepare(!_mutationObserversConnected),
@@ -2303,7 +2303,7 @@
                         return type(stateProperty) == TYPES.s ? getObjectPropVal(obj, stateProperty) : obj
                       }),
                       (_base.ext = function (extName) {
-                        var result,
+                        let result,
                           privateMethods = _extensionsPrivateMethods.split(' '),
                           i = 0
                         if (type(extName) == TYPES.s) {
@@ -2314,7 +2314,7 @@
                         return result
                       }),
                       (_base.addExt = function (extName, extensionOptions) {
-                        var instance,
+                        let instance,
                           instanceAdded,
                           instanceContract,
                           contractResult,
@@ -2345,7 +2345,7 @@
                         } else console.warn('A extension with the name "' + extName + '" isn\'t registered.')
                       }),
                       (_base.removeExt = function (extName) {
-                        var instanceRemoved,
+                        let instanceRemoved,
                           instance = _extensions[extName]
                         return (
                           !!instance &&
@@ -2361,7 +2361,7 @@
                     )
                   }
                   function setupResponsiveEventListener(element, eventNames, listener, remove, passiveOrOptions) {
-                    var collected = COMPATIBILITY.isA(eventNames) && COMPATIBILITY.isA(listener),
+                    let collected = COMPATIBILITY.isA(eventNames) && COMPATIBILITY.isA(listener),
                       method = remove ? 'removeEventListener' : 'addEventListener',
                       onOff = remove ? 'off' : 'on',
                       events = !collected && eventNames.split(_strSpace),
@@ -2390,7 +2390,7 @@
                   }
                   function setupResizeObserver(targetElement, onElementResizedCallback) {
                     if (targetElement) {
-                      var resizeObserver = COMPATIBILITY.rO(),
+                      const resizeObserver = COMPATIBILITY.rO(),
                         strAnimationStartEvent =
                           'animationstart mozAnimationStart webkitAnimationStart MSAnimationStart',
                         strChildNodes = 'childNodes',
@@ -2433,7 +2433,7 @@
                               )
                             )
                           )
-                          var isDirty,
+                          let isDirty,
                             rAFId,
                             currWidth,
                             currHeight,
@@ -2450,7 +2450,7 @@
                                 shrinkElement[_strScrollLeft](constScroll)[_strScrollTop](constScroll)
                             },
                             onResized = function onResized() {
-                              ;(rAFId = 0),
+                              (rAFId = 0),
                                 isDirty && ((widthCache = currWidth), (heightCache = currHeight), callback())
                             },
                             onScroll = function onScroll(event) {
@@ -2485,7 +2485,7 @@
                             expandElementChild.css(expandChildCSS),
                             reset()
                         } else {
-                          var attachEvent = _documentElementNative.attachEvent,
+                          const attachEvent = _documentElementNative.attachEvent,
                             isIE = _msieVersion !== undefined$1
                           if (attachEvent)
                             targetElement.prepend(generateDiv(_classNameResizeObserverElement)),
@@ -2494,11 +2494,11 @@
                                 callback
                               )
                           else {
-                            var obj = _documentElementNative.createElement(TYPES.o)
+                            const obj = _documentElementNative.createElement(TYPES.o)
                             obj.setAttribute(LEXICON.ti, '-1'),
                               obj.setAttribute(LEXICON.c, _classNameResizeObserverElement),
                               (obj.onload = function () {
-                                var wnd = this.contentDocument.defaultView
+                                const wnd = this.contentDocument.defaultView
                                 wnd.addEventListener('resize', callback),
                                   (wnd.document.documentElement.style.display = 'none')
                               }),
@@ -2510,8 +2510,8 @@
                           }
                         }
                         if (targetElement[0] === _sizeObserverElementNative) {
-                          var directionChanged = function directionChanged() {
-                            var dir = _hostElement.css('direction'),
+                          const directionChanged = function directionChanged() {
+                            let dir = _hostElement.css('direction'),
                               css = {},
                               scrollLeftValue = 0,
                               result = !1
@@ -2550,7 +2550,7 @@
                   }
                   function createMutationObservers() {
                     if (_supportMutationObserver) {
-                      var mutationTarget,
+                      let mutationTarget,
                         mutationAttrName,
                         mutationIsClass,
                         oldMutationVal,
@@ -2564,7 +2564,7 @@
                         mutationObserver = COMPATIBILITY.mO(),
                         contentLastUpdate = COMPATIBILITY.now()
                       ;(_mutationObserverContentCallback = function _mutationObserverContentCallback(mutations) {
-                        var doUpdate = !1
+                        let doUpdate = !1
                         return (
                           _initialized &&
                             !_sleeping &&
@@ -2591,7 +2591,7 @@
                       }),
                         (_mutationObserverHost = new mutationObserver(
                           (_mutationObserverHostCallback = function _mutationObserverHostCallback(mutations) {
-                            var mutation,
+                            let mutation,
                               doUpdate = !1,
                               doUpdateForce = !1,
                               mutatedAttrs = []
@@ -2599,7 +2599,7 @@
                               _initialized &&
                                 !_sleeping &&
                                 (each(mutations, function () {
-                                  ;(mutationTarget = (mutation = this).target),
+                                  (mutationTarget = (mutation = this).target),
                                     (mutationAttrName = mutation.attributeName),
                                     (mutationIsClass = mutationAttrName === LEXICON.c),
                                     (oldMutationVal = mutation.oldValue),
@@ -2662,7 +2662,7 @@
                   }
                   function hostOnResized() {
                     if (!_sleeping) {
-                      var changed,
+                      let changed,
                         hostSize = {
                           w: _sizeObserverElementNative[LEXICON.sW],
                           h: _sizeObserverElementNative[LEXICON.sH],
@@ -2692,7 +2692,7 @@
                     return COMPATIBILITY.prvD(event), !1
                   }
                   function updateOnLoadCallback(event) {
-                    var elm = FRAMEWORK(event.target)
+                    const elm = FRAMEWORK(event.target)
                     eachUpdateOnLoad(function (i, updateOnLoadSelector) {
                       elm.is(updateOnLoadSelector) && update({ _contentSizeChanged: !0 })
                     })
@@ -2716,7 +2716,7 @@
                       _initialized || destroy || _hostElement.one('mouseover', hostOnMouseEnter)
                   }
                   function bodyMinSizeChanged() {
-                    var bodyMinSize = {}
+                    const bodyMinSize = {}
                     return (
                       _isBody &&
                         _contentArrangeElement &&
@@ -2729,7 +2729,7 @@
                     )
                   }
                   function hostClassNamesChanged(oldClassNames, newClassNames) {
-                    var i,
+                    let i,
                       regex,
                       currClasses = _typeof(newClassNames) == TYPES.s ? newClassNames.split(_strSpace) : [],
                       diff = getArrayDifferences(
@@ -2743,7 +2743,7 @@
                     return !1
                   }
                   function isUnknownMutation(mutation) {
-                    var attributeName = mutation.attributeName,
+                    const attributeName = mutation.attributeName,
                       mutationTarget = mutation.target,
                       mutationType = mutation.type,
                       strClosest = 'closest'
@@ -2767,7 +2767,7 @@
                   }
                   function updateAutoContentSizeChanged() {
                     if (_sleeping) return !1
-                    var float,
+                    let float,
                       bodyMinSizeC,
                       changed,
                       contentElementScrollSize,
@@ -2796,7 +2796,7 @@
                   }
                   function meaningfulAttrsChanged() {
                     if (!_sleeping && !_mutationObserversConnected) {
-                      var elem,
+                      let elem,
                         curr,
                         cache,
                         changedAttrs = [],
@@ -2806,9 +2806,9 @@
                         ]
                       return (
                         each(checks, function (index, check) {
-                          ;(elem = check._elem) &&
+                          (elem = check._elem) &&
                             each(check._attrs, function (index, attr) {
-                              ;(curr = ':' === attr.charAt(0) ? elem.is(attr) : elem.attr(attr)),
+                              (curr = ':' === attr.charAt(0) ? elem.is(attr) : elem.attr(attr)),
                                 (cache = _updateAutoCache[attr]),
                                 checkCache(curr, cache) && changedAttrs.push(attr),
                                 (_updateAutoCache[attr] = curr)
@@ -2821,7 +2821,7 @@
                   }
                   function isSizeAffectingCSSProperty(propertyName) {
                     if (!_initialized) return !0
-                    var flexGrow = 'flex-grow',
+                    let flexGrow = 'flex-grow',
                       flexShrink = 'flex-shrink',
                       flexBasis = 'flex-basis',
                       affectingPropsX = [
@@ -2868,7 +2868,7 @@
                       checkX = _overflowBehaviorCache.x === _strS || _overflowBehaviorCache.x === _strVS,
                       sizeIsAffected = !1,
                       checkPropertyName = function checkPropertyName(arr, name) {
-                        for (var i = 0; i < arr[LEXICON.l]; i++) if (arr[i] === name) return !0
+                        for (let i = 0; i < arr[LEXICON.l]; i++) if (arr[i] === name) return !0
                         return !1
                       }
                     return (
@@ -2887,7 +2887,7 @@
                   function updateViewportAttrsFromTarget(attrs) {
                     each((attrs = attrs || _viewportAttrsFromTarget), function (index, attr) {
                       if (COMPATIBILITY.inA(attr, _viewportAttrsFromTarget) > -1) {
-                        var targetAttr = _targetElement.attr(attr)
+                        const targetAttr = _targetElement.attr(attr)
                         type(targetAttr) == TYPES.s
                           ? _viewportElement.attr(attr, targetAttr)
                           : _viewportElement.removeAttr(attr)
@@ -2896,7 +2896,7 @@
                   }
                   function textareaUpdate() {
                     if (!_sleeping) {
-                      var origWidth,
+                      let origWidth,
                         width,
                         origHeight,
                         height,
@@ -2939,7 +2939,7 @@
                       (_swallowedUpdateHints._hostSizeChanged |= updateHints._hostSizeChanged),
                       (_swallowedUpdateHints._contentSizeChanged |= updateHints._contentSizeChanged),
                       (_swallowedUpdateHints._force |= updateHints._force)
-                    var displayIsHidden,
+                    let displayIsHidden,
                       now = COMPATIBILITY.now(),
                       hostSizeChanged = !!_swallowedUpdateHints._hostSizeChanged,
                       contentSizeChanged = !!_swallowedUpdateHints._contentSizeChanged,
@@ -2963,7 +2963,7 @@
                         'inline' === _hostElement.css('display')
                       ))
                     ) {
-                      ;(_lastUpdateTime = now),
+                      (_lastUpdateTime = now),
                         (_swallowedUpdateHints = {}),
                         !_nativeScrollbarStyling || (_nativeScrollbarIsOverlaid.x && _nativeScrollbarIsOverlaid.y)
                           ? (_nativeScrollbarSize = extendDeep({}, globals.nativeScrollbarSize))
@@ -2973,7 +2973,7 @@
                           y: 3 * (_nativeScrollbarSize.y + (_nativeScrollbarIsOverlaid.y ? 0 : 3)),
                         }),
                         (changedOptions = changedOptions || {})
-                      var checkCacheAutoForce = function checkCacheAutoForce() {
+                      let checkCacheAutoForce = function checkCacheAutoForce() {
                           return checkCache.apply(this, [].slice.call(arguments).concat([force]))
                         },
                         currScroll = { x: _viewportElement[_strScrollLeft](), y: _viewportElement[_strScrollTop]() },
@@ -3073,12 +3073,12 @@
                           )
                             _sizeAutoObserverElement.show()
                           else {
-                            ;(_sizeAutoObserverElement = FRAMEWORK(generateDiv(_classNameSizeAutoObserverElement))),
+                            (_sizeAutoObserverElement = FRAMEWORK(generateDiv(_classNameSizeAutoObserverElement))),
                               (_sizeAutoObserverElementNative = _sizeAutoObserverElement[0]),
                               _contentGlueElement.before(_sizeAutoObserverElement)
-                            var oldSize = { w: -1, h: -1 }
+                            let oldSize = { w: -1, h: -1 }
                             setupResizeObserver(_sizeAutoObserverElement, function () {
-                              var newSize = {
+                              const newSize = {
                                 w: _sizeAutoObserverElementNative[LEXICON.oW],
                                 h: _sizeAutoObserverElementNative[LEXICON.oH],
                               }
@@ -3101,7 +3101,7 @@
                         _sizeAutoObserverAdded && _sizeAutoObserverElement.find('*').trigger(_strScroll)),
                         (displayIsHidden =
                           displayIsHidden === undefined$1 ? _hostElement.is(':hidden') : displayIsHidden)
-                      var sizeAutoObserverElementBCRect,
+                      let sizeAutoObserverElementBCRect,
                         textareaAutoWrapping = !!_isTextarea && 'off' !== _targetElement.attr('wrap'),
                         textareaAutoWrappingChanged = checkCacheAutoForce(
                           textareaAutoWrapping,
@@ -3120,7 +3120,7 @@
                         return
                       }
                       _isBorderBox = 'border-box' === boxSizing
-                      var isRTLLeft = (_isRTL = 'rtl' === cssDirection) ? _strLeft : _strRight,
+                      let isRTLLeft = (_isRTL = 'rtl' === cssDirection) ? _strLeft : _strRight,
                         isRTLRight = _isRTL ? _strRight : _strLeft,
                         widthAutoResizeDetection = !1,
                         widthAutoObserverDetection =
@@ -3128,10 +3128,10 @@
                           0 === MATH.round(sizeAutoObserverElementBCRect.right - sizeAutoObserverElementBCRect.left) &&
                           (!!paddingAbsolute || _hostElementNative[LEXICON.cW] - _paddingX > 0)
                       if (sizeAutoCapable && !widthAutoObserverDetection) {
-                        var tmpCurrHostWidth = _hostElementNative[LEXICON.oW],
+                        const tmpCurrHostWidth = _hostElementNative[LEXICON.oW],
                           tmpCurrContentGlueWidth = _contentGlueElement.css(_strWidth)
                         _contentGlueElement.css(_strWidth, _strAuto)
-                        var tmpNewHostWidth = _hostElementNative[LEXICON.oW]
+                        let tmpNewHostWidth = _hostElementNative[LEXICON.oW]
                         _contentGlueElement.css(_strWidth, tmpCurrContentGlueWidth),
                           (widthAutoResizeDetection = tmpCurrHostWidth !== tmpNewHostWidth) ||
                             (_contentGlueElement.css(_strWidth, tmpCurrHostWidth + 1),
@@ -3139,7 +3139,7 @@
                             _contentGlueElement.css(_strWidth, tmpCurrContentGlueWidth),
                             (widthAutoResizeDetection = tmpCurrHostWidth !== tmpNewHostWidth))
                       }
-                      var widthAuto =
+                      let widthAuto =
                           (widthAutoObserverDetection || widthAutoResizeDetection) &&
                           sizeAutoCapable &&
                           !displayIsHidden,
@@ -3225,7 +3225,7 @@
                           _targetElement.css(textareaCSS)
                       }
                       _viewportSize = getViewportSize()
-                      var textareaSize = !!_isTextarea && textareaUpdate(),
+                      const textareaSize = !!_isTextarea && textareaUpdate(),
                         textareaSizeChanged = _isTextarea && checkCacheAutoForce(textareaSize, _textareaSizeCache),
                         textareaDynOrigSize =
                           _isTextarea && textareaSize
@@ -3289,7 +3289,7 @@
                           textareaDynHeightChanged ||
                           textareaAutoWrappingChanged)
                       ) {
-                        var strOverflow = 'overflow',
+                        const strOverflow = 'overflow',
                           strOverflowX = strOverflow + '-x',
                           strOverflowY = strOverflow + '-y',
                           strHidden = 'hidden',
@@ -3311,7 +3311,7 @@
                           setTopRightBottomLeft(viewportElementResetCSS, _strEmpty),
                             _viewportElement.css(viewportElementResetCSS)
                         }
-                        var contentMeasureElement = getContentMeasureElement(),
+                        let contentMeasureElement = getContentMeasureElement(),
                           contentSize = {
                             w: textareaDynOrigSize.w || contentMeasureElement[LEXICON.cW],
                             h: textareaDynOrigSize.h || contentMeasureElement[LEXICON.cH],
@@ -3322,7 +3322,7 @@
                           (viewportElementResetCSS[isRTLLeft] = wasWidthAuto ? _strEmpty : resetXTmp),
                           _viewportElement.css(viewportElementResetCSS)),
                           (_viewportSize = getViewportSize())
-                        var hostSize = getHostSize(),
+                        let hostSize = getHostSize(),
                           hostAbsoluteRectSize = {
                             w: hostSize.w - _marginX - _borderX - (_isBorderBox ? 0 : _paddingX),
                             h: hostSize.h - _marginY - _borderY - (_isBorderBox ? 0 : _paddingY),
@@ -3342,7 +3342,7 @@
                           (_contentGlueSizeCache = contentGlueSize),
                           sizeAutoCapable)
                         ) {
-                          ;(contentGlueSize.c || heightAuto || widthAuto) &&
+                          (contentGlueSize.c || heightAuto || widthAuto) &&
                             ((contentGlueElementCSS[_strWidth] = contentGlueSize.w),
                             (contentGlueElementCSS[_strHeight] = contentGlueSize.h),
                             _isTextarea ||
@@ -3350,9 +3350,9 @@
                                 w: contentMeasureElement[LEXICON.cW],
                                 h: contentMeasureElement[LEXICON.cH],
                               }))
-                          var textareaCoverCSS = {},
+                          const textareaCoverCSS = {},
                             setContentGlueElementCSSfunction = function setContentGlueElementCSSfunction(horizontal) {
-                              var scrollbarVars = getScrollbarVars(horizontal),
+                              const scrollbarVars = getScrollbarVars(horizontal),
                                 wh = scrollbarVars._w_h,
                                 strWH = scrollbarVars._width_height,
                                 autoSize = horizontal ? widthAuto : heightAuto,
@@ -3384,7 +3384,7 @@
                             (contentElementCSS[_strFloat] = 'none'),
                           _contentElement.css(contentElementCSS),
                           (contentElementCSS = {})
-                        var contentScrollSize = {
+                        const contentScrollSize = {
                           w: contentMeasureElement[LEXICON.sW],
                           h: contentMeasureElement[LEXICON.sH],
                         }
@@ -3394,7 +3394,7 @@
                           (_viewportSize = getViewportSize()),
                           (hostSizeChanged = checkCacheAutoForce((hostSize = getHostSize()), _hostSizeCache)),
                           (_hostSizeCache = hostSize)
-                        var hideOverflowForceTextarea = _isTextarea && (0 === _viewportSize.w || 0 === _viewportSize.h),
+                        const hideOverflowForceTextarea = _isTextarea && (0 === _viewportSize.w || 0 === _viewportSize.h),
                           previousOverflowAmount = _overflowAmountCache,
                           overflowBehaviorIsVS = {},
                           overflowBehaviorIsVH = {},
@@ -3405,7 +3405,7 @@
                           canScroll = {},
                           viewportRect = _paddingElementNative[LEXICON.bCR](),
                           setOverflowVariables = function setOverflowVariables(horizontal) {
-                            var scrollbarVars = getScrollbarVars(horizontal),
+                            const scrollbarVars = getScrollbarVars(horizontal),
                               xyI = getScrollbarVars(!horizontal)._x_y,
                               xy = scrollbarVars._x_y,
                               wh = scrollbarVars._w_h,
@@ -3452,7 +3452,7 @@
                           (_hideOverflowCache = hideOverflow),
                           _nativeScrollbarIsOverlaid.x || _nativeScrollbarIsOverlaid.y)
                         ) {
-                          var setContentElementCSS,
+                          let setContentElementCSS,
                             borderDesign = 'px solid transparent',
                             contentArrangeElementCSS = {},
                             arrangeContent = {},
@@ -3482,7 +3482,7 @@
                               ] =
                                 _strEmpty),
                               (setContentElementCSS = function setContentElementCSS(horizontal) {
-                                var scrollbarVars = getScrollbarVars(horizontal),
+                                const scrollbarVars = getScrollbarVars(horizontal),
                                   scrollbarVarsInverted = getScrollbarVars(!horizontal),
                                   xy = scrollbarVars._x_y,
                                   strDirection = horizontal ? _strBottom : isRTLLeft,
@@ -3522,7 +3522,7 @@
                               _contentArrangeElement.css(contentArrangeElementCSS)),
                             _contentElement.css(contentElementCSS)
                         }
-                        var setViewportCSS,
+                        let setViewportCSS,
                           viewportElementCSS = {}
                         if (
                           ((paddingElementCSS = {}),
@@ -3538,13 +3538,13 @@
                             heightAutoChanged) &&
                             ((viewportElementCSS[isRTLRight] = _strEmpty),
                             (setViewportCSS = function setViewportCSS(horizontal) {
-                              var scrollbarVars = getScrollbarVars(horizontal),
+                              const scrollbarVars = getScrollbarVars(horizontal),
                                 scrollbarVarsInverted = getScrollbarVars(!horizontal),
                                 xy = scrollbarVars._x_y,
                                 XY = scrollbarVars._X_Y,
                                 strDirection = horizontal ? _strBottom : isRTLLeft,
                                 reset = function reset() {
-                                  ;(viewportElementCSS[strDirection] = _strEmpty),
+                                  (viewportElementCSS[strDirection] = _strEmpty),
                                     (_contentBorderSize[scrollbarVarsInverted._w_h] = 0)
                                 }
                               hasOverflow[xy] && hideOverflow[xy + 's']
@@ -3598,7 +3598,7 @@
                             (hasOverflow.c || boxSizingChanged || widthAutoChanged || heightAutoChanged) &&
                               (!_nativeScrollbarIsOverlaid.x || !_nativeScrollbarIsOverlaid.y)))
                         ) {
-                          var elementStyle = _contentElementNative[LEXICON.s]
+                          const elementStyle = _contentElementNative[LEXICON.s]
                           ;(elementStyle.webkitTransform = 'scale(1)'),
                             (elementStyle.display = 'run-in'),
                             (elementStyle.display = _strEmpty),
@@ -3606,7 +3606,7 @@
                         }
                         if (((contentElementCSS = {}), cssDirectionChanged || widthAutoChanged || heightAutoChanged))
                           if (_isRTL && widthAuto) {
-                            var floatTmp = _contentElement.css(_strFloat),
+                            const floatTmp = _contentElement.css(_strFloat),
                               posLeftWithoutFloat = MATH.round(
                                 _contentElement.css(_strFloat, _strEmpty).css(_strLeft, _strEmpty).position().left
                               )
@@ -3615,9 +3615,9 @@
                                 (contentElementCSS[_strLeft] = posLeftWithoutFloat)
                           } else contentElementCSS[_strLeft] = _strEmpty
                         if ((_contentElement.css(contentElementCSS), _isTextarea && contentSizeChanged)) {
-                          var textareaInfo = getTextareaInfo()
+                          const textareaInfo = getTextareaInfo()
                           if (textareaInfo) {
-                            var textareaRowsChanged =
+                            const textareaRowsChanged =
                                 _textareaInfoCache === undefined$1 || textareaInfo._rows !== _textareaInfoCache._rows,
                               cursorRow = textareaInfo._cursorRow,
                               cursorCol = textareaInfo._cursorColumn,
@@ -3661,11 +3661,11 @@
                           widthAuto && _hostElement[_strScrollLeft](0),
                           heightAuto && _hostElement[_strScrollTop](0),
                           _viewportElement[_strScrollLeft](currScroll.x)[_strScrollTop](currScroll.y)
-                        var scrollbarsVisibilityVisible = 'v' === scrollbarsVisibility,
+                        const scrollbarsVisibilityVisible = 'v' === scrollbarsVisibility,
                           scrollbarsVisibilityHidden = 'h' === scrollbarsVisibility,
                           scrollbarsVisibilityAuto = 'a' === scrollbarsVisibility,
                           refreshScrollbarsVisibility = function refreshScrollbarsVisibility(showX, showY) {
-                            ;(showY = showY === undefined$1 ? showX : showY),
+                            (showY = showY === undefined$1 ? showX : showY),
                               refreshScrollbarAppearance(!0, showX, canScroll.x),
                               refreshScrollbarAppearance(!1, showY, canScroll.y)
                           }
@@ -3782,7 +3782,7 @@
                       })
                   }
                   function setOptions(newOptions) {
-                    var validatedOpts = _pluginsOptions._validate(
+                    const validatedOpts = _pluginsOptions._validate(
                       newOptions,
                       _pluginsOptions._template,
                       !0,
@@ -3795,14 +3795,14 @@
                     )
                   }
                   function setupStructureDOM(destroy) {
-                    var strParent = 'parent',
+                    let strParent = 'parent',
                       classNameResizeObserverHost = 'os-resize-observer-host',
                       classNameTextareaElementFull = _classNameTextareaElement + _strSpace + _classNameTextInherit,
                       textareaClass = _isTextarea ? _strSpace + _classNameTextInherit : _strEmpty,
                       adoptAttrs = _currentPreparedOptions.textarea.inheritedAttrs,
                       adoptAttrsMap = {},
                       applyAdoptedAttrs = function applyAdoptedAttrs() {
-                        var applyAdoptedAttrsElm = destroy ? _targetElement : _hostElement
+                        const applyAdoptedAttrsElm = destroy ? _targetElement : _hostElement
                         each(adoptAttrsMap, function (key, value) {
                           type(value) == TYPES.s &&
                             (key == LEXICON.c
@@ -3912,7 +3912,7 @@
                           updateViewportAttrsFromTarget())
                   }
                   function setupStructureEvents() {
-                    var textareaUpdateIntervalID,
+                    let textareaUpdateIntervalID,
                       scrollStopTimeoutId,
                       textareaKeyDownRestrictedKeyCodes = [
                         112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 123, 33, 34, 37, 38, 39, 40, 16, 17, 18, 19,
@@ -3941,23 +3941,23 @@
                       }, 50)
                     }
                     function textareaOnFocus() {
-                      ;(_textareaHasFocus = !0), addClass(_hostElement, strFocus)
+                      (_textareaHasFocus = !0), addClass(_hostElement, strFocus)
                     }
                     function textareaOnFocusout() {
-                      ;(_textareaHasFocus = !1),
+                      (_textareaHasFocus = !1),
                         (textareaKeyDownKeyCodesList = []),
                         removeClass(_hostElement, strFocus),
                         updateTextarea(!0)
                     }
                     function textareaOnKeyDown(event) {
-                      var keyCode = event.keyCode
+                      const keyCode = event.keyCode
                       inArray(keyCode, textareaKeyDownRestrictedKeyCodes) < 0 &&
                         (textareaKeyDownKeyCodesList[LEXICON.l] ||
                           (updateTextarea(), (textareaUpdateIntervalID = setInterval(updateTextarea, 1e3 / 60))),
                         inArray(keyCode, textareaKeyDownKeyCodesList) < 0 && textareaKeyDownKeyCodesList.push(keyCode))
                     }
                     function textareaOnKeyUp(event) {
-                      var keyCode = event.keyCode,
+                      const keyCode = event.keyCode,
                         index = inArray(keyCode, textareaKeyDownKeyCodesList)
                       inArray(keyCode, textareaKeyDownRestrictedKeyCodes) < 0 &&
                         (index > -1 && textareaKeyDownKeyCodesList.splice(index, 1),
@@ -4004,10 +4004,10 @@
                       addDestroyEventListener(_viewportElement, _strScroll, viewportOnScroll, !0)
                   }
                   function setupScrollbarsDOM(destroy) {
-                    var horizontalElements,
+                    let horizontalElements,
                       verticalElements,
                       selectOrGenerateScrollbarDOM = function selectOrGenerateScrollbarDOM(isHorizontal) {
-                        var scrollbar = selectOrGenerateDivByClass(
+                        const scrollbar = selectOrGenerateDivByClass(
                             _classNameScrollbar +
                               _strSpace +
                               (isHorizontal ? _classNameScrollbarHorizontal : _classNameScrollbarVertical),
@@ -4021,7 +4021,7 @@
                         )
                       }
                     function resetScrollbarDOM(isHorizontal) {
-                      var scrollbarVars = getScrollbarVars(isHorizontal),
+                      const scrollbarVars = getScrollbarVars(isHorizontal),
                         scrollbar = scrollbarVars._scrollbar,
                         track = scrollbarVars._track,
                         handle = scrollbarVars._handle
@@ -4046,7 +4046,7 @@
                           _paddingElement.after(_scrollbarHorizontalElement)))
                   }
                   function setupScrollbarEvents(isHorizontal) {
-                    var trackTimeout,
+                    let trackTimeout,
                       mouseDownScroll,
                       mouseDownOffset,
                       mouseDownInvertedScale,
@@ -4083,7 +4083,7 @@
                       inArray(event.keyCode, increaseDecreaseScrollAmountKeyCodes) > -1 && decreaseTrackScrollAmount()
                     }
                     function onMouseTouchDownContinue(event) {
-                      var isTouchEvent = (event.originalEvent || event).touches !== undefined$1
+                      const isTouchEvent = (event.originalEvent || event).touches !== undefined$1
                       return (
                         !(
                           _sleeping ||
@@ -4097,7 +4097,7 @@
                     }
                     function documentDragMove(event) {
                       if (onMouseTouchDownContinue(event)) {
-                        var trackLength = scrollbarVarsInfo._trackLength,
+                        let trackLength = scrollbarVarsInfo._trackLength,
                           handleLength = scrollbarVarsInfo._handleLength,
                           scrollDelta =
                             scrollbarVarsInfo._maxScroll *
@@ -4151,7 +4151,7 @@
                           (_base.scrollStop(), clearTimeout(trackTimeout), (trackTimeout = undefined$1)),
                         event)
                       ) {
-                        var rect = _hostElementNative[LEXICON.bCR]()
+                        const rect = _hostElementNative[LEXICON.bCR]()
                         ;(event.clientX >= rect.left &&
                           event.clientX <= rect.right &&
                           event.clientY >= rect.top &&
@@ -4164,7 +4164,7 @@
                       onMouseTouchDownContinue(event) && onHandleMouseTouchDownAction(event)
                     }
                     function onHandleMouseTouchDownAction(event) {
-                      ;(mouseDownScroll = _viewportElement[scroll]()),
+                      (mouseDownScroll = _viewportElement[scroll]()),
                         (mouseDownScroll = isNaN(mouseDownScroll) ? 0 : mouseDownScroll),
                         ((_isRTL && isHorizontal && !_rtlScrollBehavior.n) || !_isRTL) &&
                           (mouseDownScroll = mouseDownScroll < 0 ? 0 : mouseDownScroll),
@@ -4189,7 +4189,7 @@
                     }
                     function onTrackMouseTouchDown(event) {
                       if (onMouseTouchDownContinue(event)) {
-                        var decreaseScroll,
+                        let decreaseScroll,
                           handleToViewportRatio =
                             scrollbarVars._info._handleLength /
                             Math.round(
@@ -4215,7 +4215,7 @@
                           },
                           scrollAction = function scrollAction() {
                             if (!_destroyed) {
-                              var mouseOffset = (mouseDownOffset - trackOffset) * mouseDownInvertedScale,
+                              let mouseOffset = (mouseDownOffset - trackOffset) * mouseDownInvertedScale,
                                 handleOffset = scrollbarVarsInfo._handleOffset,
                                 trackLength = scrollbarVarsInfo._trackLength,
                                 handleLength = scrollbarVarsInfo._handleLength,
@@ -4310,11 +4310,11 @@
                       }
                     }
                     function onTrackMouseTouchEnter(event) {
-                      ;(_scrollbarsHandleHovered = !0),
+                      (_scrollbarsHandleHovered = !0),
                         (_scrollbarsAutoHideScroll || _scrollbarsAutoHideMove) && refreshScrollbarsAutoHide(!0)
                     }
                     function onTrackMouseTouchLeave(event) {
-                      ;(_scrollbarsHandleHovered = !1),
+                      (_scrollbarsHandleHovered = !1),
                         (_scrollbarsAutoHideScroll || _scrollbarsAutoHideMove) && refreshScrollbarsAutoHide(!1)
                     }
                     function onScrollbarMouseTouchDown(event) {
@@ -4338,7 +4338,7 @@
                         })
                   }
                   function refreshScrollbarAppearance(isHorizontal, shallBeVisible, canScroll) {
-                    var scrollbarElement = isHorizontal ? _scrollbarHorizontalElement : _scrollbarVerticalElement
+                    const scrollbarElement = isHorizontal ? _scrollbarHorizontalElement : _scrollbarVerticalElement
                     addRemoveClass(
                       _hostElement,
                       isHorizontal ? _classNameHostScrollbarHorizontalHidden : _classNameHostScrollbarVerticalHidden,
@@ -4351,7 +4351,7 @@
                       removeClass(_scrollbarHorizontalElement, _classNameScrollbarAutoHidden),
                         removeClass(_scrollbarVerticalElement, _classNameScrollbarAutoHidden)
                     else {
-                      var anyActive,
+                      let anyActive,
                         strActive = 'active',
                         hide = function hide() {
                           _scrollbarsHandleHovered ||
@@ -4371,7 +4371,7 @@
                     }
                   }
                   function refreshScrollbarHandleLength(isHorizontal) {
-                    var handleCSS = {},
+                    const handleCSS = {},
                       scrollbarVars = getScrollbarVars(isHorizontal),
                       scrollbarVarsInfo = scrollbarVars._info,
                       digit = 1e6,
@@ -4386,7 +4386,7 @@
                       (scrollbarVarsInfo._handleLengthRatio = handleRatio)
                   }
                   function refreshScrollbarHandleOffset(isHorizontal, scrollOrTransition) {
-                    var transformOffset,
+                    let transformOffset,
                       translateValue,
                       transition = type(scrollOrTransition) == TYPES.b,
                       transitionDuration = 250,
@@ -4413,7 +4413,7 @@
                         return isNaN(base / maxScroll) ? 0 : MATH.max(0, MATH.min(1, base / maxScroll))
                       },
                       getHandleOffset = function getHandleOffset(scrollRatio) {
-                        var offset = handleTrackDiff * scrollRatio
+                        let offset = handleTrackDiff * scrollRatio
                         return (
                           (offset = isNaN(offset) ? 0 : offset),
                           (offset =
@@ -4457,7 +4457,7 @@
                       (scrollbarVarsInfo._trackLength = trackLength)
                   }
                   function refreshScrollbarsInteractive(isTrack, value) {
-                    var action = value ? 'removeClass' : 'addClass',
+                    const action = value ? 'removeClass' : 'addClass',
                       element2 = isTrack ? _scrollbarVerticalTrackElement : _scrollbarVerticalHandleElement,
                       className = isTrack ? _classNameScrollbarTrackOff : _classNameScrollbarHandleOff
                     ;(isTrack ? _scrollbarHorizontalTrackElement : _scrollbarHorizontalHandleElement)[action](
@@ -4482,7 +4482,7 @@
                     }
                   }
                   function setupScrollbarCornerDOM(destroy) {
-                    ;(_scrollbarCornerElement =
+                    (_scrollbarCornerElement =
                       _scrollbarCornerElement || selectOrGenerateDivByClass(_classNameScrollbarCorner, !0)),
                       destroy
                         ? _domExists && _initialized
@@ -4491,14 +4491,14 @@
                         : _domExists || _hostElement.append(_scrollbarCornerElement)
                   }
                   function setupScrollbarCornerEvents() {
-                    var reconnectMutationObserver,
+                    let reconnectMutationObserver,
                       insideIFrame = _windowElementNative.top !== _windowElementNative,
                       mouseDownPosition = {},
                       mouseDownSize = {},
                       mouseDownInvertedScale = {}
                     function documentDragMove(event) {
                       if (onMouseTouchDownContinue(event)) {
-                        var pageOffset = getCoordinates(event),
+                        const pageOffset = getCoordinates(event),
                           hostElementCSS = {}
                         ;(_resizeHorizontal || _resizeBoth) &&
                           (hostElementCSS[_strWidth] =
@@ -4511,7 +4511,7 @@
                       } else documentMouseTouchUp(event)
                     }
                     function documentMouseTouchUp(event) {
-                      var eventIsTrusted = event !== undefined$1
+                      const eventIsTrusted = event !== undefined$1
                       setupResponsiveEventListener(
                         _documentElement,
                         [_strSelectStartEvent, _strMouseTouchMoveEvent, _strMouseTouchUpEvent],
@@ -4525,7 +4525,7 @@
                         (reconnectMutationObserver = !1)
                     }
                     function onMouseTouchDownContinue(event) {
-                      var isTouchEvent = (event.originalEvent || event).touches !== undefined$1
+                      const isTouchEvent = (event.originalEvent || event).touches !== undefined$1
                       return !_sleeping && !_destroyed && (1 === COMPATIBILITY.mBtn(event) || isTouchEvent)
                     }
                     function getCoordinates(event) {
@@ -4556,7 +4556,7 @@
                   function dispatchCallback(name, args, dependent) {
                     if (!1 !== dependent)
                       if (_initialized) {
-                        var ext,
+                        let ext,
                           callback = _currentPreparedOptions.callbacks[name],
                           extensionOnName = name
                         'on' === extensionOnName.substr(0, 2) &&
@@ -4568,7 +4568,7 @@
                       } else _destroyed || _callbacksInitQeueue.push({ n: name, a: args })
                   }
                   function setTopRightBottomLeft(targetCSSObject, prefix, values) {
-                    ;(values = values || [_strEmpty, _strEmpty, _strEmpty, _strEmpty]),
+                    (values = values || [_strEmpty, _strEmpty, _strEmpty, _strEmpty]),
                       (targetCSSObject[(prefix = prefix || _strEmpty) + _strTop] = values[0]),
                       (targetCSSObject[prefix + _strRight] = values[1]),
                       (targetCSSObject[prefix + _strBottom] = values[2]),
@@ -4587,7 +4587,7 @@
                     )
                   }
                   function getCSSTransitionString(element) {
-                    var transitionStr = VENDORS._cssProperty('transition'),
+                    const transitionStr = VENDORS._cssProperty('transition'),
                       assembledValue = element.css(transitionStr)
                     if (assembledValue) return assembledValue
                     for (
@@ -4618,7 +4618,7 @@
                     return result.join(', ')
                   }
                   function createHostClassNameRegExp(withCurrClassNameOption, withOldClassNameOption) {
-                    var i,
+                    let i,
                       split,
                       appendix,
                       appendClasses = function appendClasses(classes, condition) {
@@ -4637,14 +4637,14 @@
                     )
                   }
                   function getHostElementInvertedScale() {
-                    var rect = _paddingElementNative[LEXICON.bCR]()
+                    const rect = _paddingElementNative[LEXICON.bCR]()
                     return {
                       x: (_supportTransform && 1 / (MATH.round(rect.width) / _paddingElementNative[LEXICON.oW])) || 1,
                       y: (_supportTransform && 1 / (MATH.round(rect.height) / _paddingElementNative[LEXICON.oH])) || 1,
                     }
                   }
                   function isHTMLElement(o) {
-                    var strOwnerDocument = 'ownerDocument',
+                    const strOwnerDocument = 'ownerDocument',
                       strHTMLElement = 'HTMLElement',
                       wnd = (o && o[strOwnerDocument] && o[strOwnerDocument].parentWindow) || window
                     return _typeof(wnd[strHTMLElement]) == TYPES.o
@@ -4652,7 +4652,7 @@
                       : o && _typeof(o) == TYPES.o && null !== o && 1 === o.nodeType && _typeof(o.nodeName) == TYPES.s
                   }
                   function getArrayDifferences(a1, a2) {
-                    var i,
+                    let i,
                       k,
                       a = [],
                       diff = []
@@ -4662,13 +4662,13 @@
                     return diff
                   }
                   function parseToZeroOrNumber(value, toFloat) {
-                    var num = toFloat ? parseFloat(value) : parseInt(value, 10)
+                    const num = toFloat ? parseFloat(value) : parseInt(value, 10)
                     return isNaN(num) ? 0 : num
                   }
                   function getTextareaInfo() {
-                    var textareaCursorPosition = _targetElementNative.selectionStart
+                    const textareaCursorPosition = _targetElementNative.selectionStart
                     if (textareaCursorPosition !== undefined$1) {
-                      var rowCols,
+                      let rowCols,
                         i,
                         textareaValue = _targetElement.val(),
                         textareaLength = textareaValue[LEXICON.l],
@@ -4709,7 +4709,7 @@
                         ? type(classesOrAttrs) == TYPES.s
                           ? 'class="' + classesOrAttrs + '"'
                           : (function () {
-                              var key,
+                              let key,
                                 attrs = _strEmpty
                               if (FRAMEWORK.isPlainObject(classesOrAttrs))
                                 for (key in classesOrAttrs)
@@ -4723,7 +4723,7 @@
                     )
                   }
                   function selectOrGenerateDivByClass(className, selectParentOrOnlyChildren) {
-                    var onlyChildren = type(selectParentOrOnlyChildren) == TYPES.b,
+                    const onlyChildren = type(selectParentOrOnlyChildren) == TYPES.b,
                       selectParent = onlyChildren ? _hostElement : selectParentOrOnlyChildren || _hostElement
                     return _domExists && !selectParent[LEXICON.l]
                       ? null
@@ -4754,14 +4754,14 @@
                     FRAMEWORK.extend(obj, extendObjRoot, !0)
                   }
                   function eachUpdateOnLoad(action) {
-                    var updateOnLoad = _currentPreparedOptions.updateOnLoad
+                    let updateOnLoad = _currentPreparedOptions.updateOnLoad
                     ;(updateOnLoad = type(updateOnLoad) == TYPES.s ? updateOnLoad.split(_strSpace) : updateOnLoad),
                       COMPATIBILITY.isA(updateOnLoad) && !_destroyed && each(updateOnLoad, action)
                   }
                   function checkCache(current, cache, force) {
                     if (force) return force
                     if (type(current) != TYPES.o || type(cache) != TYPES.o) return current !== cache
-                    for (var prop in current)
+                    for (const prop in current)
                       if ('c' !== prop) {
                         if (!current[LEXICON.hOP](prop) || !cache[LEXICON.hOP](prop)) return !0
                         if (checkCache(current[prop], cache[prop])) return !0
@@ -4787,7 +4787,7 @@
                     return _frameworkProto.find.call(el, selector).eq(0)
                   }
                   function construct(targetElement, options, extensions) {
-                    var initBodyScroll, _bodyMouseTouchDownListener
+                    let initBodyScroll, _bodyMouseTouchDownListener
                     return (
                       (_defaultOptions = globals.defaultOptions),
                       (_nativeScrollbarStyling = globals.nativeScrollbarStyling),
@@ -4900,7 +4900,7 @@
                   (_plugin = window[PLUGINNAME] =
                     function (pluginTargetElements, options, extensions) {
                       if (0 === arguments[LEXICON.l]) return this
-                      var inst,
+                      let inst,
                         result,
                         arr = [],
                         optsIsPlainObj = FRAMEWORK.isPlainObject(options)
@@ -4913,7 +4913,7 @@
                           pluginTargetElements[LEXICON.l] > 0 &&
                             (optsIsPlainObj
                               ? FRAMEWORK.each(pluginTargetElements, function (i, v) {
-                                  ;(inst = v) !== undefined$1 &&
+                                  (inst = v) !== undefined$1 &&
                                     arr.push(
                                       OverlayScrollbarsInstance(
                                         inst,
@@ -4925,7 +4925,7 @@
                                     )
                                 })
                               : FRAMEWORK.each(pluginTargetElements, function (i, v) {
-                                  ;(inst = INSTANCES(v)),
+                                  (inst = INSTANCES(v)),
                                     (('!' === options && _plugin.valid(inst)) ||
                                       (COMPATIBILITY.type(options) == TYPES.f && options(v, inst)) ||
                                       options === undefined$1) &&
@@ -4939,12 +4939,12 @@
                     }),
                   (_plugin.globals = function () {
                     initOverlayScrollbarsStatics()
-                    var globals = FRAMEWORK.extend(!0, {}, _pluginsGlobals)
+                    const globals = FRAMEWORK.extend(!0, {}, _pluginsGlobals)
                     return delete globals.msie, globals
                   }),
                   (_plugin.defaultOptions = function (newDefaultOptions) {
                     initOverlayScrollbarsStatics()
-                    var currDefaultOptions = _pluginsGlobals.defaultOptions
+                    const currDefaultOptions = _pluginsGlobals.defaultOptions
                     if (newDefaultOptions === undefined$1) return FRAMEWORK.extend(!0, {}, currDefaultOptions)
                     _pluginsGlobals.defaultOptions = FRAMEWORK.extend(
                       !0,
@@ -4958,7 +4958,7 @@
                     return osInstance instanceof _plugin && !osInstance.getState().destroyed
                   }),
                   (_plugin.extension = function (extensionName, extension, defaultOptions) {
-                    var extNameTypeString = COMPATIBILITY.type(extensionName) == TYPES.s,
+                    let extNameTypeString = COMPATIBILITY.type(extensionName) == TYPES.s,
                       argLen = arguments[LEXICON.l],
                       i = 0
                     if (argLen < 1 || !extNameTypeString)
@@ -4984,7 +4984,7 @@
               JQUERY &&
                 JQUERY.fn &&
                 (JQUERY.fn.overlayScrollbars = function (options, extensions) {
-                  var _elements = this
+                  const _elements = this
                   return JQUERY.isPlainObject(options)
                     ? (JQUERY.each(_elements, function () {
                         PLUGIN(this, options, extensions)
@@ -4998,7 +4998,7 @@
       })(OverlayScrollbars$1)
       var OverlayScrollbars = OverlayScrollbars$1.exports,
         OverlayScrollbarsComponent = function OverlayScrollbarsComponent(_a) {
-          var _a$options = _a.options,
+          const _a$options = _a.options,
             options = void 0 === _a$options ? {} : _a$options,
             extensions = _a.extensions,
             className = _a.className,
@@ -5081,7 +5081,7 @@
         }
       function mergeHostClassNames(osInstance, className) {
         if (OverlayScrollbars.valid(osInstance)) {
-          var host = osInstance.getElements().host,
+          const host = osInstance.getElements().host,
             regex = new RegExp(
               '(^os-host([-_].+|)$)|'.concat(osInstance.options().className.replace(/\s/g, '$|'), '$'),
               'g'

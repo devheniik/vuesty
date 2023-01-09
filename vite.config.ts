@@ -2,8 +2,16 @@ import { defineConfig, type PluginOption } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import eslintPlugin from 'vite-plugin-eslint'
 import { visualizer } from 'rollup-plugin-visualizer'
+import type { UserConfig as VitestUserConfigInterface } from "vitest/config"
 import dts from 'vite-plugin-dts'
 import { resolve } from 'path'
+
+const vitestConfig: VitestUserConfigInterface = {
+  test: {
+    globals: true,
+    environment: "jsdom",
+  },
+}
 
 export default defineConfig({
   build: {
@@ -20,11 +28,12 @@ export default defineConfig({
       output: { globals: { vue: 'Vue' } },
     },
   },
+  test: vitestConfig.test,
   plugins: [vue(), eslintPlugin(),
     dts({
       beforeWriteFile: (filePath, content) => {
         const newFilePath = filePath
-          .replace('/src', '/types');
+          .replace('/src', '/global');
 
         return {
           filePath: newFilePath,

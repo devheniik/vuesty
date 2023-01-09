@@ -16,7 +16,6 @@
     "outDir": "dist",
     "declaration": true,
     "paths": {
-      "@iconify/vue": ["./node_modules/@iconify/vue"]
     }
   }
 }

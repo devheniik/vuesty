@@ -1,4 +1,4 @@
-import VButton from '../components/VButton.vue'
+import VButton from '../components/Button/VButton.vue'
 import generateSource from './helpers/showCode'
 
 import { defineComponent } from 'vue'

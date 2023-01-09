@@ -1,4 +1,4 @@
-import CLAvatar from '../components/VAvatar.vue'
+import CLAvatar from '../components/Avatar/VAvatar.vue'
 // import { generateSource} from './helpers/showCode'
 
 export default {

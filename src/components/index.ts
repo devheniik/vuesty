@@ -1,4 +1,4 @@
-export { default as CLButton } from './VButton.vue'
-export { default as CLAvatar } from './VAvatar.vue'
+export { default as VButton } from './Button/VButton.vue'
+export { default as VAvatar } from './Avatar/VAvatar.vue'
 
 // Other components you plan to publish go here

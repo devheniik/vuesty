@@ -2,4 +2,4 @@
 @import './tailwind.css';
 @import './global.css';
 
-@import './components/button.css';
+@import './themes/main/main.css';
