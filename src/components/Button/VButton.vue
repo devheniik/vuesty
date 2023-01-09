@@ -1,24 +1,22 @@
 <script setup lang="ts">
 import {computed} from 'vue'
+import type { Colors, Sizes, FontWeight } from '@/types/global/global';
 
 const props = withDefaults(defineProps<{
-  variant?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark', // !TODO pass variants
   disabled: boolean,
-  size?: 'tiny' | 'small' | 'medium' | 'large', // !TODO pass sizes and add default size !(Now your default type is 'small' it bad)
-  backgroundColor?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark', // !TODO pass colors
-  colorBold?: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900,
+  size?: Sizes
+  variantColor?: Colors
+  fontWeight?: FontWeight,
   href?: string,
   tag?: string,
   to?: string | Record<string, any>,
   target?: '_self' | '_blank' | '_parent' | '_top',
   loading?: boolean,
-  // ALSO add your fixes too global
 }>(), {
-  variant: 'primary',
   disabled: false,
   size: 'small',
-  backgroundColor: 'primary',
-  colorBold: 500
+  variantColor: 'primary',
+  fontWeight: 500
 })
 
 const component = computed<string>(() => {
@@ -68,12 +66,7 @@ const attrs = computed<AttributesInterface>(() => {
   return attributes
 
 })
-
-
-
-
 </script>
-
 
 <template>
   <component
@@ -82,9 +75,8 @@ const attrs = computed<AttributesInterface>(() => {
     :class="[
       'btn flex',
       { 'btn-disabled': disabled },
-      `btn-${variant}`,
       `btn-${size}`,
-      `btn-${backgroundColor}-${colorBold}`,
+      `btn-${variantColor}`,
     ]"
     :disabled="disabled"
     @click="onClick"

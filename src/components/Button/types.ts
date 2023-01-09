@@ -6,9 +6,9 @@ export interface VButtonEvents {
 
 export interface VButtonProps extends VButtonEvents {
   variant?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark', // !TODO pass variants
-  disabled: boolean,
+  disabled?: boolean,
   size?: 'tiny' | 'small' | 'medium' | 'large', // !TODO pass sizes and add default size !(Now your default type is 'small' it bad)
-  backgroundColor?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark', // !TODO pass colors
+  variantColor?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark', // !TODO pass colors
   colorBold?: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900,
   href?: string,
   tag?: string,
