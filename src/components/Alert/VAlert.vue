@@ -5,13 +5,23 @@ import {XMarkIcon} from '@devheniik/icons'
 import VButton from '../Button/VButton.vue';
 
 interface Emits {
-  (e: 'click'): void;
+  (e: 'closeClicked'): void;
+  (e: 'okClicked'): void;
+  (e: 'cancelClicked'): void;
 }
 
 const emit = defineEmits<Emits>();
 
-const onClick = () => {
-  emit('click')
+const closeClicked = () => {
+  emit('closeClicked')
+}
+
+const okClicked = () => {
+  emit('okClicked')
+}
+
+const cancelClicked = () => {
+  emit('cancelClicked')
 }
 
 withDefaults(defineProps<{
@@ -39,20 +49,32 @@ withDefaults(defineProps<{
       <h4 class="text-base leading-5 font-semibold">{{label}}</h4>
       <p class="text-sm"><slot /></p>
       <div v-if="controls" class="flex mt-2">
-        <v-button size="tiny" class="text-sm">{{ okButton }}</v-button>
-        <v-button variant-color="light" size="tiny" class="text-sm ml-2.5">{{ cancelButton }}</v-button>
+        <v-button
+        size="tiny"
+        class="text-sm"
+        @click="okClicked">
+        {{ okButton }}
+        </v-button>
+
+        <v-button
+        variant-color="light"
+        size="tiny"
+        class="text-sm ml-2.5"
+        @click="cancelClicked">
+        {{ cancelButton }}
+        </v-button>
       </div>
     </main>
-    <button class="self-start" @click="onClick">
+    <button class="self-start" @click="closeClicked">
       <XMarkIcon
       :class="`${(!$slots.default && !controls) ? 'mt-2' : 'mt-4' } w-4 h-4`" />
     </button>
     </div>
   <!-- <div>
     <div class="p-5 text-success-500 rounded-full bg-danger-500">text</div>
-    <div class="p-5 rounded-full bg-success-500">text</div>
-    <div class="p-5 rounded-full bg-warning-500"></div>
-    <div class="p-5 rounded-full bg-primary-500"></div>
+    <div class="p-5 text-warning-500 rounded-full bg-success-500">text</div>
+    <div class="p-5 text-danger-500 rounded-full bg-warning-500"></div>
+    <div class="p-5 text-primary-500 rounded-full bg-primary-500"></div>
   </div> -->
 </template>
 
