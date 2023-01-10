@@ -1,5 +1,6 @@
 .tag {
-  @apply inline-flex items-center rounded px-[10px] py-[5px] text-base font-medium;
+  @apply inline-flex items-center rounded px-2.5 py-1.5 text-sm
+  leading-3 font-medium;
 }
 
 .tag-primary {

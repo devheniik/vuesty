@@ -1,6 +1,1 @@
-export type Colors =
-| 'primary'
-| 'success'
-| 'warning'
-| 'danger'
-
+export type Colors = 'primary' | 'success' | 'warning' | 'danger'

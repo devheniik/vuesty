@@ -8,8 +8,7 @@ export declare const VAvatar: ComponentConstructor<VAvatarComponent>
 
 declare module '@vue/runtime-core' {
   interface GlobalComponents {
-    VButton: GlobalComponentConstructor<VButtonProps, VButtonSlots>,
-    VAvatar: GlobalComponentConstructor<VAvatarProps>,
+    VButton: GlobalComponentConstructor<VButtonProps, VButtonSlots>
+    VAvatar: GlobalComponentConstructor<VAvatarProps>
   }
 }
-

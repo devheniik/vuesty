@@ -11,8 +11,8 @@ describe('VButton', () => {
         disabled: false,
         size: 'small',
         backgroundColor: 'primary',
-        colorBold: 500
-      }
+        colorBold: 500,
+      },
     })
 
     expect(wrapper.html()).toMatchSnapshot()
@@ -25,8 +25,8 @@ describe('VButton', () => {
         disabled: false,
         size: 'small',
         backgroundColor: 'primary',
-        colorBold: 500
-      }
+        colorBold: 500,
+      },
     })
 
     wrapper.find('button').trigger('click')
@@ -40,8 +40,8 @@ describe('VButton', () => {
         disabled: false,
         size: 'small',
         backgroundColor: 'primary',
-        colorBold: 500
-      }
+        colorBold: 500,
+      },
     })
 
     expect(wrapper.vm.component).toBe('button')

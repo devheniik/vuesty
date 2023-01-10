@@ -7,7 +7,7 @@
 }
 
 .btn-secondary {
-  @apply _btn-common  rounded border-solid border-primary-500 bg-white  px-1.5 py-0.5 text-primary-500 hover:border-transparent hover:bg-indigo-300 hover:text-primary-1000;
+  @apply _btn-common  hover:bg-indigo-300 rounded border-solid border-primary-500  bg-white px-1.5 py-0.5 text-primary-500 hover:border-transparent hover:text-primary-1000;
 }
 
 .btn-secondary-disabled {
@@ -15,7 +15,7 @@
 }
 
 .btn-light {
-  @apply bg-white text-primary-600  hover:border-transparent hover:bg-indigo-100;
+  @apply hover:bg-indigo-100 bg-white  text-primary-600 hover:border-transparent;
 }
 
 .btn-danger {
@@ -23,7 +23,7 @@
 }
 
 .btn-indigo {
-  @apply bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-500;
+  @apply bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 text-white;
 }
 
 .btn-success {
@@ -75,9 +75,9 @@
 }
 
 .btn-icon-secondary {
-  @apply rounded border  border-primary-500 bg-white text-primary-500 hover:bg-indigo-400 hover:text-primary-700;
+  @apply hover:bg-indigo-400 rounded  border border-primary-500 bg-white text-primary-500 hover:text-primary-700;
 }
 
 .btn-icon-light {
-  @apply _btn-common rounded-md  border-none   bg-white px-0.7 py-0.7 leading-4 text-primary-700  shadow-sm hover:bg-indigo-200;
+  @apply _btn-common px-0.7  py-0.7   hover:bg-indigo-200 rounded-md border-none bg-white leading-4  text-primary-700 shadow-sm;
 }

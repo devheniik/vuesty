@@ -16,26 +16,25 @@ export default {
     default: {
       control: 'text',
       description: 'Slot content',
-      defaultValue: 'Button'
-    }
-  }
+      defaultValue: 'Button',
+    },
+  },
 }
 
 const template = `<v-button>{{ args.default }}</v-button>`
 
-const Template = (args) => ({
+const Template = args => ({
   components: { VButton },
   setup() {
-    return {args}
+    return { args }
   },
-  template: `<v-button>{{ args.default }}</v-button>`
+  template: `<v-button>{{ args.default }}</v-button>`,
 })
-
 
 export const Primary = Template.bind({})
 
 Primary.args = {
-  variant: 'primary'
+  variant: 'primary',
 }
 
 // Primary.parameters = {
