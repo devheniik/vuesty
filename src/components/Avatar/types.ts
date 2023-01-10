@@ -1,12 +1,19 @@
 import type { ComponentPublicInstance } from 'vue'
+import type { Sizes, Colors } from '@/types/global/global';
+
+export type MainColors =
+  | 'primary'
+  | 'warning'
+  | 'success'
+  | 'danger'
 
 export interface VAvatarEvents {
   onClick?: () => void
 }
 
 export interface VAvatarProps extends VAvatarEvents {
-  size?: 'tiny' | 'small' | 'medium' | 'large' // !TODO pass sizes and add default size !(Now your default type is 'small' it bad)
-  color?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' // !TODO pass colors
+  size?: Sizes
+  color?: Colors
   src?: string
   alt?: string
   width?: number

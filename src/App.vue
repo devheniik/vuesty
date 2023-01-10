@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import VAvatarGroup from './components/Avatar/VAvatarGroup.vue';
 import VButton from './components/Button/VButton.vue'
 import VAvatar from './components/Avatar/VAvatar.vue'
 import VSelect from './components/Select/VSelect.vue'
@@ -19,19 +20,47 @@ const selected = ref('')
   </div>
 
   <div class="m-10 flex items-center justify-center space-x-2 p-10 shadow-2xl">
-    <v-avatar text="ШК" />
+    <v-avatar text="ГВ" />
+    <v-avatar src="src/assets/components/avatar.svg" size="small" />
+    <v-avatar src="src/assets/components/avatar.svg" size="medium" />
+    <v-avatar src="src/assets/components/avatar.svg" size="big" status="success"/>
+    <v-avatar src="src/assets/components/avatar.svg" size="large" status="warning" />
+    <v-avatar src="src/assets/components/avatar.svg" size="huge" status="primary" />
+    <v-avatar src="src/assets/components/avatar.svg" size="gigantic" status="danger" />
+
+  </div>
+
+  <div class="m-10 flex items-center justify-center space-x-2 p-10 shadow-2xl">
+    <v-avatar-group size="huge">
+      <v-avatar src="src/assets/components/avatar.svg" />
+      <v-avatar src="src/assets/components/avatar.svg" />
+      <v-avatar src="src/assets/components/avatar.svg" />
+      <v-avatar src="src/assets/components/avatar.svg" />
+      <v-avatar src="src/assets/components/avatar.svg" />
+      <v-avatar src="src/assets/components/avatar.svg" />
+    </v-avatar-group>
   </div>
 
   <div class="m-10 flex items-center justify-center space-x-2 p-10 shadow-2xl">
     <v-select v-model="selected" />
   </div>
 
-  <div class="m-10 flex items-center justify-center space-x-2 p-10 shadow-2xl">
-    <v-badge variant-color="success" status> Label </v-badge>
-    <v-badge variant-color="success"> Label </v-badge>
-    <v-badge variant-color="danger" status> Label </v-badge>
-    <v-badge variant-color="danger"> Label </v-badge>
-    <v-badge variant-color="danger" closeable> Label </v-badge>
+  <div class="m-10 flex flex-col items-center justify-center p-10 space-y-4 shadow-2xl">
+    <div class="space-x-2 flex items-center justify-center">
+      <v-badge variant-color="success" status />
+      <v-badge variant-color="success" />
+      <v-badge variant-color="danger" status />
+      <v-badge variant-color="danger" />
+      <v-badge variant-color="danger" label="Other Label" />
+      <v-badge variant-color="success" icon><UserIcon /></v-badge>
+    </div>
+    <div class="space-x-2">
+      <v-badge variant-color="success" chip />
+      <v-badge variant-color="danger" chip />
+      <v-badge variant-color="warning" chip />
+      <v-badge variant-color="primary" chip />
+
+    </div>
   </div>
 
   <div class="m-10 flex flex-col items-center justify-center space-y-5 bg-gray-50 p-10 shadow-2xl">
@@ -65,6 +94,7 @@ const selected = ref('')
      Lorem ipsum dolor sit amet.
     </v-alert>
   </div>
+
 </template>
 
 <style scoped></style>
