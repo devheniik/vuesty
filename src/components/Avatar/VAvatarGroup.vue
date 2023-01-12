@@ -2,7 +2,6 @@
 import { computed } from 'vue'
 import type { Sizes, Colors as GlobalColors } from '@/types/global/global';
 import type {MainColors} from './types'
-import VAvatar from './VAvatar.vue';
 
 const props = withDefaults(
   defineProps<{

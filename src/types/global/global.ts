@@ -8,6 +8,7 @@ export type Colors =
   | 'upgrade'
   | 'tertiary'
   | 'info'
+  | 'neutral'
 
 export type Sizes = 'tiny' | 'small' | 'medium' | 'big' | 'large' | 'huge' | 'gigantic'
 

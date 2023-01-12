@@ -6,7 +6,15 @@ import VAvatar from './components/Avatar/VAvatar.vue'
 import VSelect from './components/Select/VSelect.vue'
 import VBadge from './components/Badge/VBadge.vue'
 import VAlert from './components/Alert/VAlert.vue'
+import VNotification from './components/Notification/VNotification.vue'
+import VAccordion from './components/Accordion/VAccordion.vue'
+import VPagination from './components/Pagination/VPagination.vue'
+import VTimeline from './components/Timeline/VTimeline.vue'
+import VMenu from './components/Menu/VMenu.vue'
 import { UserIcon } from '@jonyak/icons/24/outline'
+import { MenuItem } from '@headlessui/vue';
+
+const test = ['20.08', '30.05', '40.05', '59.81', '04,03']
 
 const selected = ref('')
 </script>
@@ -17,6 +25,51 @@ const selected = ref('')
       <UserIcon class="btn-left-icon" />
       Click
     </v-button>
+  </div>
+
+  <div class="my-10 mx-auto p-10 shadow-2xl">
+    <v-menu>
+      <template #menuItems>
+        <MenuItem>
+          <a  href="#">
+            Documentation
+          </a>
+        </MenuItem>
+        <MenuItem disabled>
+          <span class="opacity-75">Invite a friend (coming soon!)</span>
+        </MenuItem>
+      </template>
+
+    </v-menu>
+  </div>
+
+
+
+  <div class="m-10 flex flex-col  p-10 shadow-2xl items-center space-y-5">
+    <v-timeline :time-line="test"></v-timeline>
+  </div>
+
+  <div class="m-10 flex flex-col  p-10 shadow-2xl items-center space-y-5">
+    <v-pagination :total-pages="32"/>
+    <v-pagination :total-pages="4"/>
+    <v-pagination :total-pages="1" />
+    <v-pagination :total-pages="6" />
+    <v-pagination :total-pages="122"/>
+  </div>
+
+  <div class="m-10 flex flex-col items-center justify-center p-10 shadow-2xl">
+    <v-accordion label="title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium incidunt temporibus in fuga culpa. Esse rem dolor velit praesentium accusamus ullam deserunt illum! Corporis id, vel vitae quasi vero esse dolorem impedit reiciendis tempore molestias est cupiditate quisquam minus dolor aliquid ratione ea consectetur magni ipsa facilis! Soluta, porro nesciunt.</v-accordion>
+    <v-accordion>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium incidunt temporibus in fuga culpa. Esse rem dolor velit praesentium accusamus ullam deserunt illum! Corporis id, vel vitae quasi vero esse dolorem impedit reiciendis tempore molestias est cupiditate quisquam minus dolor aliquid ratione ea consectetur magni ipsa facilis! Soluta, porro nesciunt.</v-accordion>
+    <v-accordion label="Label">Lorem ipsum dolor sit amet.</v-accordion>
+    <v-accordion label="title">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id ipsum voluptatem dolores! Quasi animi omnis quis? Enim voluptas corporis officiis hic repellat quaerat pariatur praesentium? Doloremque aspernatur eveniet corrupti quaerat qui ipsum sapiente odio, eos voluptatem repudiandae enim laudantium possimus deleniti molestiae quasi accusamus dignissimos vitae consequuntur. Dolore, incidunt! Excepturi expedita placeat repellat distinctio cumque nam unde voluptas neque molestias. Ea aut ducimus debitis nobis iste optio sit enim est incidunt. Numquam illo officiis quidem, placeat sequi tenetur voluptatum esse sunt ipsa laboriosam ut? Beatae, deleniti nisi officiis blanditiis delectus vel repellat ipsa. Quasi deserunt aliquam voluptatem odit eos et!</v-accordion>
+  </div>
+
+  <div class="m-10 flex items-center justify-center space-x-5 p-10 shadow-2xl">
+    <v-notification :number="2" />
+    <v-notification :number="20" />
+    <v-notification :number="137" />
+    <v-notification :number="4981" />
+    <v-notification/>
   </div>
 
   <div class="m-10 flex items-center justify-center space-x-2 p-10 shadow-2xl">
@@ -31,7 +84,7 @@ const selected = ref('')
   </div>
 
   <div class="m-10 flex items-center justify-center space-x-2 p-10 shadow-2xl">
-    <v-avatar-group size="huge">
+    <v-avatar-group size="gigantic">
       <v-avatar src="src/assets/components/avatar.svg" />
       <v-avatar src="src/assets/components/avatar.svg" />
       <v-avatar src="src/assets/components/avatar.svg" />

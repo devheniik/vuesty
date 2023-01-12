@@ -31,8 +31,8 @@
   @apply bg-upgrade-100 text-upgrade-400;
 }
 
-.tag-gray {
-  @apply bg-gray-100 text-gray-700;
+.tag-neutral {
+  @apply bg-gray-100 text-neutral-700;
 }
 
 .status {
@@ -57,4 +57,20 @@
 
 .status-circle-success {
   @apply bg-success-500;
+}
+
+.status-circle-info {
+  @apply bg-info-500;
+}
+
+.status-circle-tertiary {
+  @apply bg-tertiary-500;
+}
+
+.status-circle-upgrade {
+  @apply bg-upgrade-500;
+}
+
+.status-circle-neutral {
+  @apply bg-neutral-500;
 }
