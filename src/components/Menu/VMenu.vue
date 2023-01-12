@@ -1,6 +1,6 @@
 <template>
     <Menu>
-      <MenuButton>
+      <MenuButton class="mb-1">
         <slot>
           <div
           class="flex items-center justify-center rounded-md border-2 border-primary-500 text-primary-500"
