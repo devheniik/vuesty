@@ -26,6 +26,6 @@ const show = ref(false)
 
 <style>
 [id^='headlessui-menu-item']{
-@apply border-b hover:border-primary-500
+@apply border-b hover:border-primary-500 text-sm font-semibold text-primary-500
 }
 </style>
