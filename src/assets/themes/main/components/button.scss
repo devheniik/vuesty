@@ -3,7 +3,7 @@
 }
 
 .btn {
-  @apply _btn-common w-auto rounded bg-primary-600  px-1.5 py-0.5 text-white shadow-sm hover:bg-primary-700;
+  @apply _btn-common flex w-auto rounded bg-primary-600  px-1.5 py-0.5 text-white shadow-sm hover:bg-primary-700;
 }
 
 .btn-secondary {
@@ -86,14 +86,14 @@
   @apply _btn-common rounded-md  border-none   bg-white px-0.7 py-0.7 leading-4 text-primary-700  shadow-sm hover:bg-indigo-200;
 }
 
-.btn-left-icon{
+.btn-left-icon {
   @apply mr-2 w-5;
 }
 
-.btn-right-icon{
+.btn-right-icon {
   @apply ml-2 w-5;
 }
 
-.btn-icon{
+.btn-icon {
   @apply h-9 w-5;
 }

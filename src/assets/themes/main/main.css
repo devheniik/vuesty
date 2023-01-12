@@ -2,4 +2,10 @@
 @import 'components/avatar.scss';
 @import 'components/badge.scss';
 @import 'components/input.scss';
+@import 'components/select.scss';
 @import 'components/animations.scss';
+
+
+.scrollbar::-webkit-scrollbar {
+  display: none;
+}

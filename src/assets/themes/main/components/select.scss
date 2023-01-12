@@ -1,0 +1,88 @@
+.select {
+  @apply relative mt-1 w-full;
+}
+
+.select-head {
+  @apply relative flex flex-row justify-between items-center h-9 w-full rounded-md border border-gray-300 border-gray-300 py-1 px-2 pl-3 text-left text-lg text-black placeholder-gray-400 shadow-sm;
+}
+
+.select-head-focus{
+  @apply border-primary-500 border-primary-500 border-indigo-500 outline-none ring-1 ring-primary-500;
+}
+
+.select-head-main {
+  @apply font-normal text-left flex items-end;
+}
+
+.select-head-start {
+  @apply flex flex-row items-center w-min;
+}
+
+.select-main-input{
+  @apply border-0 w-10/12 border-gray-900 h-full focus:outline-none focus:ring-0;
+}
+
+._select {
+  @apply border p-2 text-lg text-black;
+}
+
+.select-text {
+  @apply truncate text-sm sm:text-lg;
+}
+
+.select-icon-box-left {
+  @apply mr-1;
+}
+
+.select-icon-box {
+  @apply flex flex-row items-center justify-center;
+}
+
+
+.select-icon {
+  @apply h-6 w-6 text-gray-400 group-focus:text-gray-700 hover:text-gray-700;
+}
+
+.select-menu {
+  @apply absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none;
+}
+
+.select-menu-item {
+  @apply relative flex flex-wrap  cursor-default select-none py-2 pl-10 pr-4 text-gray-900 hover:bg-primary-500 hover:text-white;
+}
+
+.select-menu-item-selected-icon-box {
+  @apply absolute inset-y-0 left-0 flex items-center pl-3 text-primary-600 group-hover:text-white;
+}
+
+.select-menu-item-selected-icon {
+  @apply h-5 w-5;
+}
+
+.select-menu-item-text {
+  @apply block truncate font-normal;
+}
+
+.select-menu-item-text-selected {
+  @apply font-medium;
+}
+
+.placeholder-text {
+  @apply text-gray-400 text-lg;
+}
+
+/* TAGS */
+.tag-box{
+  @apply flex flex-row items-center justify-start w-full h-auto overflow-x-auto;
+}
+
+.tag{
+  @apply whitespace-nowrap py-0.5 px-1.5 rounded-sm text-sm font-medium text-gray-50 bg-primary-500 mr-1;
+}
+
+
+/* Icons */
+
+.focus-none{
+  @apply focus:outline-none focus:ring-0;
+}

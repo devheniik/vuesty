@@ -1,25 +1,142 @@
 <script lang="ts" setup>
-import {ref} from 'vue'
-import {ChevronUpDownIcon} from '@devheniik/icons'
+import { computed, onMounted, ref } from 'vue'
+import { onClickOutside } from '@vueuse/core'
+import { ChevronUpDownIcon, CheckIcon, MagnifyingGlassIcon, XMarkIcon } from '@devheniik/icons'
 
-const props = withDefaults(defineProps<{
-  modelValue: string | number | null | string[] | number[],
-  openDefault?: boolean,
-}>(),
+
+const props = withDefaults(
+  defineProps<{
+    modelValue: any
+    openDefault?: boolean
+    multiple?: boolean
+    options: any[]
+    labelKey?: string
+    valueKey?: string
+    searchable?: boolean,
+    placeholder?: string,
+    deselect?: boolean,
+  }>(),
   {
     openDefault: false,
+    multiple: false,
+    labelKey: 'label',
+    valueKey: 'value',
+    searchable: false,
+    deselect: false,
+    placeholder: 'Select'
   }
 )
 
+// * Emits
+
 interface Emits {
-  (e: 'focus'): void,
-  (e: 'focusOut'): void,
-  (e: 'click'): void,
-  (e: 'openPanel'): void,
-  (e: 'closePanel'): void,
+  (e: 'focus'): void
+
+  (e: 'update:modelValue', value: any): void
+
+  (e: 'select'): void
+
+  (e: 'click'): void
+
+  (e: 'openPanel'): void
+
+  (e: 'closePanel'): void
+
+  (e: 'clear'): void
 }
 
-const emit = defineEmits<Emits>();
+// const value = ref(props.modelValue)
+
+const emit = defineEmits<Emits>()
+
+// Select
+
+const isOptionObject = () => {
+  if (props.options.length > 0) {
+    return typeof props.options[0] === 'object'
+  }
+}
+
+// Created
+
+const getLabel = (option: any) => {
+  if (isOptionObject()) {
+    return option[props.labelKey]
+  }
+
+    return option
+}
+
+const getLabelByValue = (value: any) => {
+  if (isOptionObject()) {
+    return props.options.find((option: any) => option[props.valueKey] === value)[props.labelKey]
+  }
+
+  return value
+}
+
+const isSelected = (option: any) => {
+    if (props.multiple) {
+      return props.modelValue.includes(getValue(option))
+    }
+
+    return getValue(option) === props.modelValue
+}
+
+const getValue = (option: any) => {
+  if (isOptionObject()) {
+    return option[props.valueKey]
+  }
+
+    return option
+}
+
+const clear = () => {
+  if (isOptionObject()){
+    emit('update:modelValue', [])
+  } else {
+    emit('update:modelValue', null)
+  }
+
+  emit('clear')
+}
+
+const onSelect = (option: any) => {
+    if (props.multiple){
+      if (props.modelValue.length || props.multiple){
+        if (isSelected(option)){
+          emit('update:modelValue', props.modelValue.filter((item: any) => item !== getValue(option)))
+        } else {
+          emit('update:modelValue', [ ...props.modelValue, getValue(option)])
+        }
+      } else {
+        emit('update:modelValue', [getValue(option)])
+      }
+    } else {
+      emit('update:modelValue', getValue(option))
+    }
+
+
+    if (!props.multiple){
+      closePanel()
+    }
+
+  emit('select')
+  console.log('Select')
+}
+
+
+const filteredOptions = computed(() => {
+  return props.options
+  // console.log(inputRef)
+  // return props.options.filter((option) => {
+  //   return getLabel(option).toLowerCase().includes(inputRef.value.toLowerCase())
+  // })
+})
+
+
+
+
 
 // * Panel functions
 
@@ -35,59 +152,115 @@ const closePanel = () => {
   emit('closePanel')
 }
 
-
 // * Emits functions
 
 // Focus emits
 
 const onFocus = () => {
   openPanel()
+  visibleFocus()
   emit('focus')
 }
 
-const onFocusOut = () => {
+const outFocus = () => {
   closePanel()
-  emit('focusOut')
+  hideFocus()
+  emit('focus')
 }
 
+const visibleFocus = () => {
+  isFocused.value = true
+}
+
+const hideFocus = () => {
+  isFocused.value = false
+}
+
+// Element
+
+const selectRef = ref()
+
+const label = () => {
+  if (!isOptionObject()){
+    return String(props.modelValue)
+  }
+
+  return false
+}
+
+const headRef = ref()
+const inputRef = ref()
+
+const isFocused = ref(false)
+
+onClickOutside(selectRef, () => {
+  if (open.value) {
+    outFocus()
+  }
+})
+
+onMounted(() => {
+  if(isOptionObject()){
+    if(props.modelValue === null || props.modelValue === undefined) {
+      emit('update:modelValue', [])
+    } else if (String(typeof  props.modelValue) !== 'array'){
+      if (props.modelValue.length === 0){
+        emit('update:modelValue', [])
+      }
+    }
+  }
+})
 </script>
 
 <template>
-    <div class="relative mt-1 w-full">
-      <button type="button" class="relative h-8 w-full cursor-default rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 text-left shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm" aria-haspopup="select" aria-expanded="true" aria-labelledby="select-label" @focusout="onFocusOut" @focus="onFocus">
-        <span class="block truncate">Tom Cook</span>
-        <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-        <ChevronUpDownIcon class="h-5 w-5 text-gray-400"/>
-      </span>
-      </button>
-      <transition leave-active-class="transition ease-in duration-100" leave-from-class="opacity-100" leave-to-class="opacity-0">
-        <ul v-show="open" class="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm" tabindex="-1" role="select" aria-labelledby="select-label" aria-activedescendant="select-option-3">
-          <!--
-            Select option, manage highlight styles based on mouseenter/mouseleave and keyboard navigation.
-
-            Highlighted: "text-white bg-indigo-600", Not Highlighted: "text-gray-900"
-          -->
-          <li class="text-gray-900 relative cursor-default select-none py-2 pl-8 pr-4" role="option">
-            <!-- Selected: "font-semibold", Not Selected: "font-normal" -->
-            <span class="font-normal block truncate">Wade Cooper</span>
-
-            <!--
-              Checkmark, only display for selected option.
-
-              Highlighted: "text-white", Not Highlighted: "primary-600"
-            -->
-            <span class="primary-600 absolute inset-y-0 left-0 flex items-center pl-1.5">
-            <!-- Heroicon name: mini/check -->
-            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
-            </svg>
+  <div ref="selectRef" class="select">
+    <button ref="headRef" type="button" :aria-expanded="open" aria-haspopup="menu" :class="['select-head group', { 'select-head-focus': isFocused  }]" @focus="onFocus" @focusout='outFocus'>
+      <div class="select-head-start">
+        <span  class="select-icon-box-left">
+          <MagnifyingGlassIcon class="select-icon" />
+        </span>
+        <span class="select-head-main">
+          <div v-if="multiple && modelValue.length" class="tag-box">
+            <slot v-for="(value, index) in modelValue" :key="index" name="tag" :option="value">
+              <div class="tag">
+                {{ getLabelByValue(value) }}
+              </div>
+            </slot>
+          </div>
+          <template v-else-if="true">
+            <input v-if="false" ref="inputRef" :placeholder="placeholder" type="text" class="select-main-input" value="Text" @focus="onFocus" />
+            <span v-else-if="label()" class="select-text">{{ label() }}</span>
+          </template>
+          <span v-else class="placeholder-text">{{ placeholder }}</span>
+        </span>
+      </div>
+      <div class="select-icon-box">
+        <XMarkIcon class="select-icon focus-none" @click.stop="clear" @focus.stop="clear" />
+        <ChevronUpDownIcon class="select-icon focus-none" />
+      </div>
+    </button>
+    <transition
+      leave-active-class="transition ease-in duration-100"
+      leave-from-class="opacity-100"
+      leave-to-class="opacity-0">
+      <ul v-if="open" aria-labelledby="select-label" class="select-menu scrollbar" role="menu" tabindex="-1">
+        <li
+          v-for="(option, index) in filteredOptions"
+          :key="index"
+          class="select-menu-item group"
+          role="option"
+          @click="onSelect(option)"
+          @keyup.enter="onSelect(option)">
+          <span :class="[`select-menu-item-text`, { 'select-menu-item-text-selected': isSelected(option) }]">{{
+            getLabel(option)
+          }}</span>
+          <span v-show="isSelected(option)" class="select-menu-item-selected-icon-box">
+            <CheckIcon class="select-menu-item-selected-icon" />
           </span>
-          </li>
-        </ul>
-      </transition>
-    </div>
+        </li>
+      </ul>
+    </transition>
+  </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

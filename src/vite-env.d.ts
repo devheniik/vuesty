@@ -1,1 +1,1 @@
-/// <reference global="vite/client" />
+// <reference global="vite/client" />

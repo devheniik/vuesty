@@ -41,6 +41,7 @@
     "@headlessui/vue": "^1.7.7",
     "@heroicons/vue": "^2.0.13",
     "@jonyak/icons": "^1.0.6",
+    "@vueuse/core": "^9.10.0",
     "rollup-plugin-visualizer": "^5.9.0",
     "vue": "^3.2.45",
     "vue-lazyload": "^3.0.0-rc.2",
