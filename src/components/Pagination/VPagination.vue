@@ -1,6 +1,6 @@
 <template>
   <div class="flex">
-    <button class="item rounded-l text-primary-500 font-bold" @click="previousPage">&lt;</button>
+    <button class="item rounded-l text-primary-500 font-bold" @click="previousPage"><ChevronLeftIcon class="h-4" /></button>
     <div class="flex">
       <div v-for="n in showArr" :key="n">
         <div
@@ -11,13 +11,14 @@
         </div>
       </div>
     </div>
-    <button class="item rounded-r text-primary-500 font-bold" @click="nextPage">&gt;</button>
+    <button class="item rounded-r text-primary-500 font-bold" @click="nextPage"><ChevronRightIcon class="h-4" /></button>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import type { Ref } from 'vue';
+import {ChevronRightIcon, ChevronLeftIcon} from '@devheniik/icons'
 
 const props = defineProps<{
   totalPages: number,
@@ -98,7 +99,7 @@ const nextPage = () => {
 
 <style scoped>
 .item {
-  @apply p-2 border border-primary-200 hover:border-primary-500 cursor-pointer
+  @apply flex items-center justify-center w-8 h-8 border border-primary-200 hover:border-primary-500 cursor-pointer
 }
 
 .active {

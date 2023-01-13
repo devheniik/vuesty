@@ -10,7 +10,7 @@
         </slot>
 
       </MenuButton>
-      <MenuItems class="flex flex-col w-fit py-2 px-4 bg-white border border-primary-500 rounded-md shadow-md space-y-2 items-group">
+      <MenuItems class="flex flex-col absolute w-fit py-2 px-4 bg-white border border-primary-500 rounded-md shadow-md space-y-2 items-group">
         <slot name="menuItems" />
       </MenuItems>
   </Menu>

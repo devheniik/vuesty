@@ -158,10 +158,15 @@ const selected = ref('')
   </div>
 
   <div class="m-10 flex flex-col items-center justify-center p-10 shadow-2xl">
-    <v-accordion label="title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium incidunt temporibus in fuga culpa. Esse rem dolor velit praesentium accusamus ullam deserunt illum! Corporis id, vel vitae quasi vero esse dolorem impedit reiciendis tempore molestias est cupiditate quisquam minus dolor aliquid ratione ea consectetur magni ipsa facilis! Soluta, porro nesciunt.</v-accordion>
+    <v-accordion>
+      <template #header>
+        Label
+      </template>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium incidunt temporibus in fuga culpa. Esse rem dolor velit praesentium accusamus ullam deserunt illum! Corporis id, vel vitae quasi vero esse dolorem impedit reiciendis tempore molestias est cupiditate quisquam minus dolor aliquid ratione ea consectetur magni ipsa facilis! Soluta, porro nesciunt.
+     </v-accordion>
     <v-accordion>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium incidunt temporibus in fuga culpa. Esse rem dolor velit praesentium accusamus ullam deserunt illum! Corporis id, vel vitae quasi vero esse dolorem impedit reiciendis tempore molestias est cupiditate quisquam minus dolor aliquid ratione ea consectetur magni ipsa facilis! Soluta, porro nesciunt.</v-accordion>
     <v-accordion label="Label">Lorem ipsum dolor sit amet.</v-accordion>
-    <v-accordion label="title">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id ipsum voluptatem dolores! Quasi animi omnis quis? Enim voluptas corporis officiis hic repellat quaerat pariatur praesentium? Doloremque aspernatur eveniet corrupti quaerat qui ipsum sapiente odio, eos voluptatem repudiandae enim laudantium possimus deleniti molestiae quasi accusamus dignissimos vitae consequuntur. Dolore, incidunt! Excepturi expedita placeat repellat distinctio cumque nam unde voluptas neque molestias. Ea aut ducimus debitis nobis iste optio sit enim est incidunt. Numquam illo officiis quidem, placeat sequi tenetur voluptatum esse sunt ipsa laboriosam ut? Beatae, deleniti nisi officiis blanditiis delectus vel repellat ipsa. Quasi deserunt aliquam voluptatem odit eos et!</v-accordion>
+    <v-accordion :bg="false" label="title">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id ipsum voluptatem dolores! Quasi animi omnis quis? Enim voluptas corporis officiis hic repellat quaerat pariatur praesentium? Doloremque aspernatur eveniet corrupti quaerat qui ipsum sapiente odio, eos voluptatem repudiandae enim laudantium possimus deleniti molestiae quasi accusamus dignissimos vitae consequuntur. Dolore, incidunt! Excepturi expedita placeat repellat distinctio cumque nam unde voluptas neque molestias. Ea aut ducimus debitis nobis iste optio sit enim est incidunt. Numquam illo officiis quidem, placeat sequi tenetur voluptatum esse sunt ipsa laboriosam ut? Beatae, deleniti nisi officiis blanditiis delectus vel repellat ipsa. Quasi deserunt aliquam voluptatem odit eos et!</v-accordion>
   </div>
 
   <div class="m-10 flex items-center justify-center space-x-5 p-10 shadow-2xl">
@@ -170,6 +175,7 @@ const selected = ref('')
     <v-notification :number="137" />
     <v-notification :number="4981" />
     <v-notification/>
+    <v-notification><UserIcon /></v-notification>
   </div>
 
   <div class="m-10 flex items-center justify-center space-x-2 p-10 shadow-2xl">
@@ -184,7 +190,7 @@ const selected = ref('')
   </div>
 
   <div class="m-10 flex items-center justify-center space-x-2 p-10 shadow-2xl">
-    <v-avatar-group size="gigantic">
+    <v-avatar-group size="large">
       <v-avatar src="src/assets/components/avatar.svg" />
       <v-avatar src="src/assets/components/avatar.svg" />
       <v-avatar src="src/assets/components/avatar.svg" />
