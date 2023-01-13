@@ -13,7 +13,7 @@ import VTimeline from './components/Timeline/VTimeline.vue'
 import VMenu from './components/Menu/VMenu.vue'
 import VTabs from './components/Tabs/VTabs.vue'
 import { UserIcon } from '@jonyak/icons/24/outline'
-import { MenuItem, TabPanel, Tab } from '@headlessui/vue';
+import { MenuItem, TabPanel } from '@headlessui/vue';
 
 const test = ['20.08', '30.05', '40.05', '59.81', '04,03']
 
@@ -68,6 +68,8 @@ const categories = ref({
   ],
 })
 
+const tabs = [{name: 'one', badge: 'label1'}, {name: 'two', badge: 'label1'}, {name: 'three', badge: 'label1'}, {name: 'four', badge: 'label1'},]
+
 const selected = ref('')
 </script>
 
@@ -80,38 +82,11 @@ const selected = ref('')
   </div>
 
   <div class="m-10 flex items-center justify-center space-x-2 p-10 shadow-2xl">
-    <v-tabs>
-      <template #default>
-        <Tab
-          v-for="category in Object.keys(categories)"
-          :key="category"
-          v-slot="{ selected }"
-          as="template"
-        >
-          <button
-            :class="[
-              'w-full outline-none py-2.5 text-base  font-medium leading-5  border-b-2 border-transparent',
-              selected
-                ? 'border-b-primary-500'
-                : 'text-blue-100 ',
-            ]"
-          >
-            {{ category }}
-            <span
-            class="tag tag-primary"
-            :class="{'text-white bg-primary-500' : selected}"
-            >Label</span>
-          </button>
-        </Tab>
-      </template>
+    <v-tabs :tabs="tabs">
       <template #panels>
         <TabPanel
           v-for="(posts, idx) in Object.values(categories)"
           :key="idx"
-          :class="[
-            'rounded-xl bg-white p-3',
-            'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2',
-          ]"
         >
           <ul>
             <li
@@ -270,4 +245,6 @@ const selected = ref('')
 
 </template>
 
-<style scoped></style>
+<style scoped>
+
+</style>
