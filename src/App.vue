@@ -12,6 +12,7 @@ import VPagination from './components/Pagination/VPagination.vue'
 import VTimeline from './components/Timeline/VTimeline.vue'
 import VMenu from './components/Menu/VMenu.vue'
 import VTabs from './components/Tabs/VTabs.vue'
+import VSwitch from './components/Switch/VSwitch.vue'
 import { UserIcon } from '@jonyak/icons/24/outline'
 import { MenuItem, TabPanel } from '@headlessui/vue';
 
@@ -79,6 +80,10 @@ const selected = ref('')
       <UserIcon class="btn-left-icon" />
       Click
     </v-button>
+  </div>
+
+  <div class="m-10 flex items-center justify-center space-x-2 p-10 shadow-2xl">
+    <v-switch></v-switch>
   </div>
 
   <div class="m-10 flex items-center justify-center space-x-2 p-10 shadow-2xl">
