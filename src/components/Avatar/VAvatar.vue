@@ -1,18 +1,21 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import type { Sizes, Colors as GlobalColors } from '@/types/global/global'
+import type { MainColors } from './types'
 
 const props = withDefaults(
   defineProps<{
-    size?: 'tiny' | 'small' | 'medium' | 'large' // !TODO pass sizes and add default size !(Now your default type is 'small' it bad)
-    color?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' // !TODO pass colors
+    size?: Sizes // !TODO pass sizes and add default size !(Now your default type is 'small' it bad)
+    color?: GlobalColors
     src?: string
     alt?: string
     width?: number
     height?: number
     text?: string
+    status?: MainColors
   }>(),
   {
-    size: 'small',
+    size: 'medium',
     color: 'primary',
   }
 )
@@ -63,11 +66,21 @@ const formatter = (text: string) => {
 </script>
 
 <template>
-  <div :class="['avatar', `avatar-${size}`, color ? `avatar-letters-${color}` : '']">
-    <img v-if="src" :src="src" v-bind="attrs" :alt="alt" />
+  <div :class="['avatar', `avatar-${size}`, text ? `avatar-letters-${color}` : '', 'relative']">
+    <img v-if="src" :src="src" v-bind="attrs" :alt="alt" class="border-2 border-white" />
     <div v-else>
-      {{ formatter(text) }}
+      {{ text ? formatter(text) : '' }}
     </div>
+    <div
+      v-if="status"
+      class="absolute bottom-0 right-0 h-2 w-2 rounded-full border border-white"
+      :class="[
+        [`bg-${status}-500`],
+        { 'right-1': size === 'big' },
+        { 'right-1 h-2.5 !w-2.5': size === 'large' },
+        { 'right-1.5 h-3 !w-3': size === 'huge' },
+        { 'right-1 bottom-2 h-3 !w-3': size === 'gigantic' },
+      ]"></div>
   </div>
 </template>
 

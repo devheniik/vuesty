@@ -1,8 +1,7 @@
 <script lang="ts" setup>
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, ref, nextTick } from 'vue'
 import { onClickOutside } from '@vueuse/core'
-import { ChevronUpDownIcon, CheckIcon, MagnifyingGlassIcon, XMarkIcon } from '@devheniik/icons'
-
+import { ChevronUpDownIcon, CheckIcon, MagnifyingGlassIcon, XMarkIcon, DocumentMagnifyingGlassIcon } from '@devheniik/icons'
 
 const props = withDefaults(
   defineProps<{
@@ -12,9 +11,11 @@ const props = withDefaults(
     options: any[]
     labelKey?: string
     valueKey?: string
-    searchable?: boolean,
-    placeholder?: string,
-    deselect?: boolean,
+    searchable?: boolean
+    placeholder?: string
+    deselect?: boolean
+    searchPlaceholder?: string
+    emptyText?: string
   }>(),
   {
     openDefault: false,
@@ -23,7 +24,9 @@ const props = withDefaults(
     valueKey: 'value',
     searchable: false,
     deselect: false,
-    placeholder: 'Select'
+    placeholder: 'Select',
+    searchPlaceholder: 'Search',
+    emptyText: 'No results found',
   }
 )
 
@@ -50,11 +53,44 @@ interface Emits {
 const emit = defineEmits<Emits>()
 
 // Select
+const selectRef = ref()
+const search = ref<string>('')
+
+const label = () => {
+  if (!isOptionObject()) {
+    return String(props.modelValue)
+  }
+
+  return false
+}
+
+const headRef = ref()
+const inputRef = ref()
+
+const isFocused = ref(false)
+
+onClickOutside(selectRef, () => {
+  if (open.value) {
+    outFocus()
+  }
+})
+
+const isMultipleFilled = () => {
+  return props.multiple && (props.modelValue ? props.modelValue.length > 0 : false) && !isFocused.value
+}
+
+const isSingleFilled = () => {
+  return props.multiple && (props.modelValue ? props.modelValue.length > 0 : false) && !isFocused.value
+}
 
 const isOptionObject = () => {
-  if (props.options.length > 0) {
-    return typeof props.options[0] === 'object'
+  if (props.options) {
+    if (props.options.length > 0) {
+      return typeof props.options[0] === 'object'
+    }
   }
+
+  return false
 }
 
 // Created
@@ -64,7 +100,7 @@ const getLabel = (option: any) => {
     return option[props.labelKey]
   }
 
-    return option
+  return option
 }
 
 const getLabelByValue = (value: any) => {
@@ -76,11 +112,11 @@ const getLabelByValue = (value: any) => {
 }
 
 const isSelected = (option: any) => {
-    if (props.multiple) {
-      return props.modelValue.includes(getValue(option))
-    }
+  if (props.multiple) {
+    return props.modelValue.includes(getValue(option))
+  }
 
-    return getValue(option) === props.modelValue
+  return getValue(option) === props.modelValue
 }
 
 const getValue = (option: any) => {
@@ -88,11 +124,11 @@ const getValue = (option: any) => {
     return option[props.valueKey]
   }
 
-    return option
+  return option
 }
 
 const clear = () => {
-  if (isOptionObject()){
+  if (isOptionObject()) {
     emit('update:modelValue', [])
   } else {
     emit('update:modelValue', null)
@@ -102,41 +138,41 @@ const clear = () => {
 }
 
 const onSelect = (option: any) => {
-    if (props.multiple){
-      if (props.modelValue.length || props.multiple){
-        if (isSelected(option)){
-          emit('update:modelValue', props.modelValue.filter((item: any) => item !== getValue(option)))
-        } else {
-          emit('update:modelValue', [ ...props.modelValue, getValue(option)])
-        }
+  if (props.multiple) {
+    if (props.modelValue.length || props.multiple) {
+      if (isSelected(option)) {
+        emit(
+          'update:modelValue',
+          props.modelValue.filter((item: any) => item !== getValue(option))
+        )
       } else {
-        emit('update:modelValue', [getValue(option)])
+        emit('update:modelValue', [...props.modelValue, getValue(option)])
       }
     } else {
-      emit('update:modelValue', getValue(option))
+      emit('update:modelValue', [getValue(option)])
     }
+  } else {
+    emit('update:modelValue', getValue(option))
+  }
 
-
-    if (!props.multiple){
-      closePanel()
-    }
+  if (!props.multiple) {
+    closePanel()
+  } else {
+    openPanel()
+  }
 
   emit('select')
   console.log('Select')
 }
 
-
 const filteredOptions = computed(() => {
-  return props.options
-  // console.log(inputRef)
-  // return props.options.filter((option) => {
-  //   return getLabel(option).toLowerCase().includes(inputRef.value.toLowerCase())
-  // })
+  if (search.value === '' || search.value.length === 0) {
+    return props.options
+  }
+  return props.options.filter(option => {
+    return getLabel(option).toLowerCase().includes(search.value.toLowerCase())
+  })
 })
-
-
-
-
 
 // * Panel functions
 
@@ -170,6 +206,9 @@ const outFocus = () => {
 
 const visibleFocus = () => {
   isFocused.value = true
+  nextTick(() => {
+    inputRef.value.focus()
+  })
 }
 
 const hideFocus = () => {
@@ -178,33 +217,12 @@ const hideFocus = () => {
 
 // Element
 
-const selectRef = ref()
-
-const label = () => {
-  if (!isOptionObject()){
-    return String(props.modelValue)
-  }
-
-  return false
-}
-
-const headRef = ref()
-const inputRef = ref()
-
-const isFocused = ref(false)
-
-onClickOutside(selectRef, () => {
-  if (open.value) {
-    outFocus()
-  }
-})
-
 onMounted(() => {
-  if(isOptionObject()){
-    if(props.modelValue === null || props.modelValue === undefined) {
+  if (isOptionObject()) {
+    if (props.modelValue === null || props.modelValue === undefined) {
       emit('update:modelValue', [])
-    } else if (String(typeof  props.modelValue) !== 'array'){
-      if (props.modelValue.length === 0){
+    } else if (String(typeof props.modelValue) !== 'array') {
+      if (props.modelValue.length === 0) {
         emit('update:modelValue', [])
       }
     }
@@ -213,37 +231,53 @@ onMounted(() => {
 </script>
 
 <template>
-  <div ref="selectRef" class="select">
-    <button ref="headRef" type="button" :aria-expanded="open" aria-haspopup="menu" :class="['select-head group', { 'select-head-focus': isFocused  }]" @focus="onFocus" @focusout='outFocus'>
-      <div class="select-head-start">
-        <span  class="select-icon-box-left">
-          <MagnifyingGlassIcon class="select-icon" />
-        </span>
-        <span class="select-head-main">
-          <div v-if="multiple && modelValue.length" class="tag-box">
-            <slot v-for="(value, index) in modelValue" :key="index" name="tag" :option="value">
-              <div class="tag">
-                {{ getLabelByValue(value) }}
-              </div>
-            </slot>
-          </div>
-          <template v-else-if="true">
-            <input v-if="false" ref="inputRef" :placeholder="placeholder" type="text" class="select-main-input" value="Text" @focus="onFocus" />
-            <span v-else-if="label()" class="select-text">{{ label() }}</span>
-          </template>
-          <span v-else class="placeholder-text">{{ placeholder }}</span>
-        </span>
-      </div>
+  <div ref="selectRef" class="select" @click="onFocus">
+    <div
+      ref="headRef"
+      type="button"
+      :aria-expanded="open"
+      aria-haspopup="menu"
+      :class="['select-head scrollbar group', { 'select-head-focus': isFocused }]">
+      <span class="select-icon-box-left">
+        <MagnifyingGlassIcon :class="[ 'select-icon', { 'select-icon-focus' : isFocused }]" />
+      </span>
+      <span class="select-head-main">
+        <input
+          v-show="isFocused"
+          ref="inputRef"
+          v-model="search"
+          :placeholder="searchPlaceholder"
+          type="text"
+          class="select-main-input" />
+        <div v-if="isMultipleFilled()" class="tag-box scrollbar">
+          <slot v-for="(value, index) in modelValue" :key="index" name="tag" :option="value">
+            <div class="tag">
+              {{ getLabelByValue(value) }}
+            </div>
+          </slot>
+        </div>
+        <span v-else-if="isSingleFilled()" class="select-text">{{ label() }}</span>
+        <span v-else-if="!isFocused" class="placeholder-text">{{ placeholder }}</span>
+      </span>
       <div class="select-icon-box">
-        <XMarkIcon class="select-icon focus-none" @click.stop="clear" @focus.stop="clear" />
-        <ChevronUpDownIcon class="select-icon focus-none" />
+        <XMarkIcon :class="[ 'select-icon focus-none', { 'select-icon-focus' : isFocused }]" @click.stop="clear" @focus.stop="clear" />
+        <ChevronUpDownIcon :class="[ 'select-icon focus-none', { 'select-icon-focus' : isFocused }]" />
       </div>
-    </button>
+    </div>
     <transition
       leave-active-class="transition ease-in duration-100"
       leave-from-class="opacity-100"
       leave-to-class="opacity-0">
       <ul v-if="open" aria-labelledby="select-label" class="select-menu scrollbar" role="menu" tabindex="-1">
+        <div v-if="props.multiple" class="select-empty-box">
+
+        </div>
+        <div v-if="filteredOptions.length === 0" class="select-empty-box">
+          <DocumentMagnifyingGlassIcon class="select-icon-empty" />
+          <span>
+            {{emptyText}}
+          </span>
+        </div>
         <li
           v-for="(option, index) in filteredOptions"
           :key="index"

@@ -1,5 +1,6 @@
 .tag {
-  @apply inline-flex items-center rounded px-[10px] py-[5px] text-base font-medium;
+  @apply inline-flex items-center rounded px-2.5 py-1.5 text-sm
+  font-medium leading-3;
 }
 
 .tag-primary {
@@ -11,27 +12,27 @@
 }
 
 .tag-warning {
-  @apply bg-pink-50 text-warning-400;
+  @apply bg-upgrade-50 text-warning-400;
 }
 
 .tag-danger {
   @apply bg-danger-100 text-danger-600;
 }
 
-.tag-indigo {
-  @apply bg-indigo-100 text-indigo-400;
+.tag-tertiary {
+  @apply bg-tertiary-100 text-tertiary-400;
 }
 
-.tag-blue {
-  @apply bg-blue-50 text-blue-500;
+.tag-info {
+  @apply bg-info-50 text-info-500;
 }
 
-.tag-pink {
-  @apply bg-pink-100 text-pink-400;
+.tag-upgrade {
+  @apply bg-upgrade-100 text-upgrade-400;
 }
 
-.tag-gray {
-  @apply bg-gray-100 text-gray-700;
+.tag-neutral {
+  @apply bg-gray-100 text-neutral-700;
 }
 
 .status {
@@ -56,4 +57,20 @@
 
 .status-circle-success {
   @apply bg-success-500;
+}
+
+.status-circle-info {
+  @apply bg-info-500;
+}
+
+.status-circle-tertiary {
+  @apply bg-tertiary-500;
+}
+
+.status-circle-upgrade {
+  @apply bg-upgrade-500;
+}
+
+.status-circle-neutral {
+  @apply bg-neutral-500;
 }

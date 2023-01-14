@@ -5,7 +5,6 @@
 @import 'components/select.scss';
 @import 'components/animations.scss';
 
-
 .scrollbar::-webkit-scrollbar {
   display: none;
 }
