@@ -1,49 +1,69 @@
 <template>
   <div
-  class="w-full  rounded-md shadow-sm "
-  :class="{'bg-gray-100' : (bg && show)}"
-  @click="show = !show"
+    :class="['v_accordion', {'bg-gray-100' : (bg && show)}]"
+    @click="handleShow"
   >
     <div
-    class="flex justify-between w-full p-3 border-b">
+    :class="['v_accordion__header', { 'v_accordion__header__border' : border}]">
       <slot name="header">
-        <h4 class="text-base font-bold"> label </h4>
+        <h4 class="v_accordion__header__label"> {{ label }} </h4>
       </slot>
       <button>
-        <ChevronDownIcon v-if="!show" class="w-2.5" />
-        <ChevronUpIcon v-else class="w-2.5" />
+        <ChevronDownIcon v-if="!show" class="v_accordion__header__icon" />
+        <ChevronUpIcon v-else class="v_accordion__header__icon" />
       </button>
     </div>
-    <div
-    class="inner text-sm font-normal pl-3"
-    :class="`
-    ${!show ? 'max-h-0 overflow-hidden accordion-transition' :
-    'max-h-96 overflow-auto hide-scroll mt-3 accordion-transition'}`">
-      <slot>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum enim corrupti modi illo doloremque quo blanditiis aliquid corporis eligendi explicabo.</slot>
-    </div>
+    <!-- TODO: animation-->
+    <transition
+      enter-active-class="transition duration-100 ease-out"
+      enter-from-class="transform scale-95 opacity-0"
+      enter-to-class="transform scale-100 opacity-100"
+      leave-active-class="transition duration-75 ease-out"
+      leave-from-class="transform scale-100 opacity-100"
+      leave-to-class="transform scale-95 opacity-0"
+    >
+      <div v-show="show" class="v_accordion__body">
+        <slot>
+
+        </slot>
+      </div>
+    </transition>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
 import {ChevronDownIcon, ChevronUpIcon} from '@devheniik/icons'
-withDefaults(
+const props = withDefaults(
   defineProps<{
     bg: boolean
+    modelValue?: boolean
+    label?: string
+    border?: boolean
   }>(),
   {
     bg: true,
+    border: false,
+    modelValue: false,
+    label: 'Label',
   }
 )
 
-const show = ref(false)
+interface Emits {
+  (event: 'update:modelValue', value: boolean): void
+}
+
+const emit = defineEmits<Emits>()
+
+const show = ref<boolean>(props.modelValue)
+console.log(show.value, props.modelValue)
+
+const handleShow = () => {
+  show.value = !show.value
+  emit('update:modelValue', show.value)
+}
 </script>
 
-<style scoped>
-
-.accordion-transition {
-  transition-property: margin max-height ;
-  transition-timing-function: ease-out;
-  transition-duration: 300ms;
-}
+<style scoped lang="scss">
+@import '../../assets/themes/main/components/accordion.scss';
 </style>

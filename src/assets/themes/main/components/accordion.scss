@@ -1,0 +1,27 @@
+.v_accordion{
+  @apply w-full rounded-md shadow-sm px-2;
+}
+
+// HEAD
+
+.v_accordion__header{
+  @apply flex justify-between w-full p-3 cursor-pointer;
+}
+
+.v_accordion__header__border{
+  @apply border-b;
+}
+
+.v_accordion__header__label{
+  @apply text-base font-bold;
+}
+
+.v_accordion__header__icon{
+  @apply w-2.5;
+}
+
+// BODY
+.v_accordion__body{
+  @apply w-full rounded-md shadow-sm;
+}
+
