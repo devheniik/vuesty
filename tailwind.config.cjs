@@ -60,7 +60,7 @@ module.exports = {
         1000: '#C10A00',
       },
       gray: colors.gray,
-      info: colors.blue,
+      info: colors.teal,
       orange: colors.orange,
       stone: colors.stone,
       neutral: colors.neutral,

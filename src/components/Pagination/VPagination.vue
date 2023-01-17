@@ -1,20 +1,3 @@
-<template>
-  <div class="flex">
-    <button class="item rounded-l text-primary-500 font-bold" @click="previousPage"><ChevronLeftIcon class="h-4" /></button>
-    <div class="flex">
-      <div v-for="n in showArr" :key="n">
-        <div
-        class="item"
-        :class="{'active' : activeIndex === n}"
-        @click="pickPage(n)">
-          {{ n }}
-        </div>
-      </div>
-    </div>
-    <button class="item rounded-r text-primary-500 font-bold" @click="nextPage"><ChevronRightIcon class="h-4" /></button>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import type { Ref } from 'vue';
@@ -96,6 +79,23 @@ const nextPage = () => {
 }
 
 </script>
+
+<template>
+  <div class="flex">
+    <button class="item rounded-l text-primary-500 font-bold" @click="previousPage"><ChevronLeftIcon class="h-4" /></button>
+    <div class="flex">
+      <div v-for="n in showArr" :key="n">
+        <div
+        class="item"
+        :class="{'active' : activeIndex === n}"
+        @click="pickPage(n)">
+          {{ n }}
+        </div>
+      </div>
+    </div>
+    <button class="item rounded-r text-primary-500 font-bold" @click="nextPage"><ChevronRightIcon class="h-4" /></button>
+  </div>
+</template>
 
 <style scoped>
 .item {

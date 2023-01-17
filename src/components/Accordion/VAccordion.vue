@@ -5,20 +5,21 @@
   @click="show = !show"
   >
     <div
-    class="flex justify-between w-full p-3"
-    :class="`${!show ? 'border-b' : 'border-b'}`">
-      <slot name="header"><h4 class="text-base font-bold"> label </h4></slot>
+    class="flex justify-between w-full p-3 border-b">
+      <slot name="header">
+        <h4 class="text-base font-bold"> label </h4>
+      </slot>
       <button>
         <ChevronDownIcon v-if="!show" class="w-2.5" />
         <ChevronUpIcon v-else class="w-2.5" />
       </button>
     </div>
     <div
-    class="inner  text-sm font-normal pl-3"
+    class="inner text-sm font-normal pl-3"
     :class="`
     ${!show ? 'max-h-0 overflow-hidden accordion-transition' :
-    'max-h-96  overflow-auto hide-scroll mt-3 accordion-transition'}`">
-      <slot  />
+    'max-h-96 overflow-auto hide-scroll mt-3 accordion-transition'}`">
+      <slot>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum enim corrupti modi illo doloremque quo blanditiis aliquid corporis eligendi explicabo.</slot>
     </div>
   </div>
 </template>
@@ -34,7 +35,6 @@ withDefaults(
     bg: true,
   }
 )
-
 
 const show = ref(false)
 </script>

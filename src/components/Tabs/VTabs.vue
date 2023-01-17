@@ -1,3 +1,17 @@
+<script setup lang="ts">
+import { TabGroup, TabList, TabPanels, Tab  } from '@headlessui/vue'
+
+export interface VTabs {
+  name: string,
+  badge: string,
+}
+
+defineProps<{
+  tabs: VTabs[]
+}>()
+
+</script>
+
 <template>
   <div class=" max-w-md px-2 py-16 sm:px-0">
     <TabGroup>
@@ -21,20 +35,6 @@
     </TabGroup>
   </div>
 </template>
-
-<script setup lang="ts">
-import { TabGroup, TabList, TabPanels, Tab  } from '@headlessui/vue'
-
-export interface VTabs {
-  name: string,
-  badge: string,
-}
-
-defineProps<{
-  tabs: VTabs[]
-}>()
-
-</script>
 
 <style lang="scss">
 [id^=headlessui-tabs-tab-] {

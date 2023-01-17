@@ -5,13 +5,13 @@ export default {
   title: 'Button',
   component: VButton,
   argTypes: {
-    backgroundColor: {
+    variantColor: {
       control: { type: 'select' },
-      options: ['success', 'danger', 'warning', 'gray', 'indigo'],
+      options: ['primary', 'success', 'danger', 'warning', 'indigo', 'upgrade', 'tertiary', 'info', 'neutral']
     },
     size: {
       control: { type: 'select' },
-      options: ['big', 'small', 'tiny'],
+      options: ['big', 'small'],
     },
     default: {
       control: 'text',
@@ -21,20 +21,20 @@ export default {
   },
 }
 
-const template = `<v-button>{{ args.default }}</v-button>`
+// const template = `<v-button>{{ args.default }}</v-button>`
 
-const Template = args => ({
+const Template = (args) => ({
   components: { VButton },
   setup() {
     return { args }
   },
-  template: `<v-button>{{ args.default }}</v-button>`,
+  template: `<v-button v-bind="args">{{args.default}}</v-button>`,
 })
 
 export const Primary = Template.bind({})
 
 Primary.args = {
-  variant: 'primary',
+  size: 'small'
 }
 
 // Primary.parameters = {

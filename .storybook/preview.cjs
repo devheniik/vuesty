@@ -1,6 +1,4 @@
-import '../src/assets/components/button.css'
-import '../src/assets/themes/main/components/badge.scss'
-import '../src/assets/themes/main/components/avatar.scss'
+import '../src/assets/index.css'
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {

@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { Colors, Sizes, FontWeight } from '@/types/global/global'
+import type { Colors, Sizes } from '@/types/global/global'
 
 const props = withDefaults(
   defineProps<{
     disabled: boolean
     size?: Sizes
     variantColor?: Colors
-    fontWeight?: FontWeight
     href?: string
     tag?: string
     to?: string | Record<string, any>
@@ -16,7 +15,7 @@ const props = withDefaults(
   }>(),
   {
     disabled: false,
-    size: 'small',
+    // size: 'small',
     variantColor: 'primary',
     fontWeight: 500,
   }

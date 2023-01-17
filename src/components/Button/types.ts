@@ -4,12 +4,13 @@ export interface VButtonEvents {
   onClick?: () => void
 }
 
+type Sizes = 'small' | 'big'
+type ColorVariants = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light'
+
 export interface VButtonProps extends VButtonEvents {
-  variant?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark' // !TODO pass variants
   disabled?: boolean
-  size?: 'tiny' | 'small' | 'medium' | 'large' // !TODO pass sizes and add default size !(Now your default type is 'small' it bad)
-  variantColor?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark' // !TODO pass colors
-  colorBold?: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900
+  size?: Sizes
+  variantColor?: ColorVariants
   href?: string
   tag?: string
   to?: string | Record<string, any>

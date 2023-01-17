@@ -1,12 +1,11 @@
 <script setup lang="ts">
-import type { Colors, Sizes, FontWeight } from '@/types/global/global'
+import type { Colors } from '@/types/global/global'
 import { XMarkIcon } from '@devheniik/icons'
+import {computed} from 'vue'
 
 const props = withDefaults(
   defineProps<{
-    size?: Sizes
     variantColor?: Colors
-    fontWeight?: FontWeight
     status?: boolean
     label: string
     icon?: boolean
@@ -32,25 +31,78 @@ const emit = defineEmits<Emits>()
 const onClose = () => {
   emit('onClose')
 }
-</script>
 
+const sizes = computed(() => {
+  return {
+    tiny: 'tag-tiny',
+    small: 'tag-small',
+    medium: 'tag-medium',
+    big: 'tag-big',
+    large:  'tag-large',
+    huge: 'tag-huge',
+    gigantic: 'tag-gigantic',
+  }
+})
+
+const colors = computed(() => {
+  if(props.chip) {
+
+    return {
+      primary: "bg-primary-900",
+      success:  "bg-success-900",
+      secondary: "bg-secondary-900",
+      light: "bg-light-900",
+      warning: "bg-warning-900",
+      danger: "bg-danger-900",
+      upgrade: "bg-upgrade-900",
+      tertiary: "bg-tertiary-900",
+      info: "bg-info-900",
+      neutral: "bg-neutral-900",
+  }}
+  else {
+    return {
+      primary: "tag-primary",
+      success:  "tag-success",
+      secondary: "tag-secondary",
+      light: "tag-light",
+      warning: "tag-warning",
+      danger: "tag-danger",
+      upgrade: "tag-upgrade",
+      tertiary: "tag-tertiary",
+      info: "tag-info",
+      neutral: "tag-neutral",
+    }
+  }
+})
+
+</script>
 <template>
-  <div :class="[{ status: status }, `tag`, [!chip ? `tag-${props.variantColor}` : `bg-${props.variantColor}-900 text-white`], `tag-${props.size}`]">
-    <div v-if="status" :class="`status-circle status-circle-${props.variantColor}`"></div>
-    <div v-if="icon" class="w-3.5 mr-1">
+  <div
+  class="tag"
+  :class="[
+    {'text-white': chip},
+    {'status': status},
+    colors[variantColor]
+  ]">
+
+    <div
+    v-if="status"
+    :class="`status-circle status-circle-${props.variantColor}`"></div>
+    <div
+    v-if="icon"
+    class="w-3.5 mr-1">
       <slot></slot>
     </div>
 
     {{ label }}
-    <button v-if="chip" class="pl-2" @click="onClose">
+    <button
+    v-if="chip"
+    class="pl-2"
+    @click="onClose">
       <XMarkIcon class="w-3 opacity-50 stroke-2" />
     </button>
-
-    <!-- <Icon v-if="icon" class="w-4 h-4" /> -->
-    <!-- <div class="bg-success-1000 bg-danger-700 bg-warning-700 bg-primary-700"></div> -->
   </div>
 </template>
 
-<style scoped>
-
+<style>
 </style>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import VAvatarGroup from './components/Avatar/VAvatarGroup.vue';
+import VAvatarGroup from './components/AvatarGroup/VAvatarGroup.vue';
 import VButton from './components/Button/VButton.vue'
 import VAvatar from './components/Avatar/VAvatar.vue'
 import VSelect from './components/Select/VSelect.vue'
@@ -9,14 +9,15 @@ import VAlert from './components/Alert/VAlert.vue'
 import VNotification from './components/Notification/VNotification.vue'
 import VAccordion from './components/Accordion/VAccordion.vue'
 import VPagination from './components/Pagination/VPagination.vue'
-import VTimeline from './components/Timeline/VTimeline.vue'
+// import VTimeline from './components/Timeline/VTimeline.vue'
 import VMenu from './components/Menu/VMenu.vue'
 import VTabs from './components/Tabs/VTabs.vue'
 import VSwitch from './components/Switch/VSwitch.vue'
-import { UserIcon } from '@jonyak/icons/24/outline'
+import VProgress from './components/Progress/VProgress.vue'
+import { UserIcon } from '@devheniik/icons'
 import { MenuItem, TabPanel } from '@headlessui/vue';
 
-const test = ['20.08', '30.05', '40.05', '59.81', '04,03']
+// const test = ['20.08', '30.05', '40.05', '59.81', '04,03']
 
 const categories = ref({
   Recent: [
@@ -69,7 +70,9 @@ const categories = ref({
   ],
 })
 
-const tabs = [{name: 'one', badge: 'label1'}, {name: 'two', badge: 'label1'}, {name: 'three', badge: 'label1'}, {name: 'four', badge: 'label1'},]
+const tabs = [
+  {name: 'one', badge: 'label1'}, {name: 'two', badge: 'label1'}, {name: 'three', badge: 'label1'}, {name: 'four', badge: 'label1'}
+]
 
 const selected = ref('')
 </script>
@@ -82,7 +85,12 @@ const selected = ref('')
     </v-button>
   </div>
 
+  <div class="m-10 p-10 ">
+    <v-progress progress="20%"></v-progress>
+  </div>
+
   <div class="m-10 flex items-center justify-center space-x-2 p-10 shadow-2xl">
+    <v-switch><UserIcon class="text-white"></UserIcon></v-switch>
     <v-switch></v-switch>
   </div>
 
@@ -144,10 +152,10 @@ const selected = ref('')
   </div>
 
 
-
+<!--
   <div class="m-10 flex flex-col  p-10 shadow-2xl items-center space-y-5">
     <v-timeline :time-line="test"></v-timeline>
-  </div>
+  </div> -->
 
   <div class="m-10 flex flex-col  p-10 shadow-2xl items-center space-y-5">
     <v-pagination :total-pages="32"/>
@@ -170,16 +178,16 @@ const selected = ref('')
   </div>
 
   <div class="m-10 flex items-center justify-center space-x-5 p-10 shadow-2xl">
-    <v-notification :number="2" />
-    <v-notification :number="20" />
-    <v-notification :number="137" />
-    <v-notification :number="4981" />
+    <v-notification :count="2" />
+    <v-notification :count="20" />
+    <v-notification :count="137" />
+    <v-notification :count="4981" />
     <v-notification/>
     <v-notification><UserIcon /></v-notification>
   </div>
 
   <div class="m-10 flex items-center justify-center space-x-2 p-10 shadow-2xl">
-    <v-avatar text="ГВ" />
+    <v-avatar text="Гtyf Вdsffs" />
     <v-avatar src="src/assets/components/avatar.svg" size="small" />
     <v-avatar src="src/assets/components/avatar.svg" size="medium" />
     <v-avatar src="src/assets/components/avatar.svg" size="big" status="success"/>
@@ -190,7 +198,7 @@ const selected = ref('')
   </div>
 
   <div class="m-10 flex items-center justify-center space-x-2 p-10 shadow-2xl">
-    <v-avatar-group size="large">
+    <v-avatar-group>
       <v-avatar src="src/assets/components/avatar.svg" />
       <v-avatar src="src/assets/components/avatar.svg" />
       <v-avatar src="src/assets/components/avatar.svg" />

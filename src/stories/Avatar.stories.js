@@ -1,23 +1,10 @@
-import CLAvatar from '../components/Avatar/VAvatar.vue'
-// import { generateSource} from './helpers/showCode'
+import VAvatar from '../components/Avatar/VAvatar.vue'
+import VAvatarGroup from '../components/AvatarGroup/VAvatarGroup.vue'
 
 export default {
   title: 'Avatar',
-  component: CLAvatar,
+  component: VAvatar,
   argTypes: {
-    color: {
-      control: { type: 'select' },
-      options: [
-        'primary',
-        'success',
-        'danger',
-        'warning',
-        'primary-tonal',
-        'success-tonal',
-        'danger-tonal',
-        'warning-tonal',
-      ],
-    },
     size: {
       control: {
         type: 'select',
@@ -26,41 +13,77 @@ export default {
     },
     onClick: {},
   },
-  args: {},
 }
 
-// More on component templates: https://storybook.js.org/docs/vue/writing-stories/introduction#using-args
-
 const Template = args => ({
-  // Components used in your story `template` are defined in the `components` object
-  components: { CLAvatar },
-  // The story's `args` need to be mapped into the template through the `setup()` method
+  components: { VAvatar },
+
   setup() {
     return { args }
   },
-  // And then the `args` are bound to your component with `v-bind="args"`
+
   template: `
-  <CLAvatar v-bind="args">
-    <template v-if="${'slot' in args}" v-slot:default>${args.slot}</template>
-  </CLAvatar>
+  <v-avatar v-bind="args">
+
+  </v-avatar>
   `,
 })
 
 export const Avatar = Template.bind({})
-// More on args: https://storybook.js.org/docs/vue/writing-stories/args
 Avatar.args = {
-  variant: 'primary',
-  slot: `<img  src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"/>`,
+  src: "src/assets/components/avatar.svg",
 }
 
-export const Letters = Template.bind({})
-Letters.args = {
-  slot: 'SD',
-  color: 'success',
+export const withWords = Template.bind({})
+
+withWords.argTypes = {
+  color: {
+    control: { type: 'select' },
+    options: [
+      'primary',
+      'success',
+      'danger',
+      'warning',
+      'primary-tonal',
+      'success-tonal',
+      'danger-tonal',
+      'warning-tonal',
+    ],
+  },
 }
 
-// Tags.parameters = {
-//   docs: {
-//   source: { code: generateSource(BtnTemplate, Tags.args) },
-//   },
-// };
+withWords.args=  {
+  text: "George Martin",
+}
+
+
+
+const TemplateAvatarGroup = args => ({
+  components: { VAvatarGroup, VAvatar },
+
+  setup() {
+    return { args }
+  },
+
+  template: `
+  <v-avatar-group v-bind="args">
+    <v-avatar src="src/assets/components/avatar.svg" />
+    <v-avatar src="src/assets/components/avatar.svg" />
+    <v-avatar src="src/assets/components/avatar.svg" />
+    <v-avatar src="src/assets/components/avatar.svg" />
+    <v-avatar src="src/assets/components/avatar.svg" />
+    <v-avatar src="src/assets/components/avatar.svg" />
+  </v-avatar-group>
+  `,
+})
+
+export const AvatarGroup = TemplateAvatarGroup.bind({})
+
+AvatarGroup.argTypes = {
+  size: {
+    control: {
+      type: 'select',
+    },
+    options: ['tiny', 'small', 'medium', 'big', 'large', 'huge', 'gigantic'],
+  }
+}

@@ -1,46 +1,42 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { Sizes, Colors as GlobalColors } from '@/types/global/global';
-import type {MainColors} from './types'
 
 const props = withDefaults(
   defineProps<{
     size?: Sizes
     color?: GlobalColors
-    src?: string
-    alt?: string
-    width?: number
-    height?: number
     text?: string
-    status?: MainColors
   }>(),
   {
-    // size: 'medium',
+    size: 'large',
     color: 'primary',
   }
 )
 
 const sizes = computed(() => {
   if (props.size === 'tiny') {
-    return ['h-4', 'w-4']
+    return '[&>.avatar]:h-4 [&>.avatar]:w-4 [&>.avatar]:-mr-1.5'
   }
   if (props.size === 'small') {
-    return ['h-6', 'w-6']
+    return '[&>.avatar]:h-6 [&>.avatar]:w-6 [&>.avatar]:-mr-2'
   }
   if (props.size === 'medium') {
-    return ['h-8', 'w-8']
+    return '[&>.avatar]:h-8 [&>.avatar]:w-8 [&>.avatar]:-mr-3'
   }
   if (props.size === 'big') {
-    return ['h-10', 'w-10']
+    return '[&>.avatar]:h-10 [&>.avatar]:w-10 [&>.avatar]:-mr-3'
   }
   if (props.size === 'large') {
-    return ['h-12', 'w-12']
+    return '[&>.avatar]:h-12 [&>.avatar]:w-12 [&>.avatar]:-mr-4'
   }
+
   if (props.size === 'huge') {
-    return ['h-16', 'w-16']
+    return '[&>.avatar]:h-16 [&>.avatar]:w-16 [&>.avatar]:-mr-5'
   }
+
   if (props.size === 'gigantic') {
-    return ['h-20', 'w-20']
+    return '[&>.avatar]:h-20 [&>.avatar]:w-20 [&>.avatar]:-mr-6'
   }
   else return ''
 })
@@ -48,14 +44,7 @@ const sizes = computed(() => {
 </script>
 
 <template>
-  <span>{{ sizes[0] }}</span>
-  <span>{{ sizes[1] }}</span>
-
-  <div
-  :class="`flex avatar-group
-  [&>.avatar]:-mr-3
-  [&>.avatar]:${sizes[0]}
-  [&>.avatar]:${sizes[1]} `">
+  <div class="flex avatar-group [&>.avatar]:-mr-3" :class="`${sizes}`">
     <slot />
   </div>
 </template>

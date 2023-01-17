@@ -3,6 +3,24 @@ import type { Colors } from './types'
 import { InformationCircleIcon } from '@devheniik/icons'
 import { XMarkIcon } from '@devheniik/icons'
 import VButton from '../Button/VButton.vue'
+import {computed} from 'vue'
+
+const props = withDefaults(
+  defineProps<{
+    variantColor?: Colors
+    label: string
+    okButton?: string
+    cancelButton?: string
+    controls?: boolean
+  }>(),
+  {
+    variantColor: 'primary',
+    label: 'Label',
+    okButton: 'Ok',
+    cancelButton: 'Cancel',
+    controls: true,
+  }
+)
 
 interface Emits {
   (e: 'closeClicked'): void
@@ -24,52 +42,46 @@ const cancelClicked = () => {
   emit('cancelClicked')
 }
 
-withDefaults(
-  defineProps<{
-    variantColor?: Colors
-    label: string
-    okButton?: string
-    cancelButton?: string
-    controls?: boolean
-  }>(),
-  {
-    variantColor: 'primary',
-    label: 'Label',
-    okButton: 'Ok',
-    cancelButton: 'Cancel',
-    controls: true,
-  }
-)
+const bgColor = computed(() => {
+  return `bg-${props.variantColor}-medium`
+})
+
+const textColor = computed(() => {
+  return `text-${props.variantColor}-medium`
+})
+
 </script>
 
 <template>
-  <div class="flex w-[500px] justify-between rounded bg-white pr-4 shadow-md">
-    <div :class="`bg-${variantColor}-500 w-1 rounded-tl-md rounded-bl-md`"></div>
+  <div class="alertWrapper">
+    <div
+    class="leftColorBorder"
+    :class="bgColor"></div>
     <InformationCircleIcon
-      :class="`w-5 text-${variantColor}-500 self-start ${!$slots.default && !controls ? 'mt-2' : 'mt-2.5'}`" />
-    <main class="flex w-10/12 flex-col py-2">
-      <h4 class="text-base font-semibold leading-5">{{ label }}</h4>
-      <p class="text-sm"><slot /></p>
-      <div v-if="controls" class="mt-2 flex">
-        <v-button size="tiny" class="text-sm" @click="okClicked">
+    class="infoIcon"
+    :class="textColor" />
+    <main class="alertMain">
+      <h4 class="alertLabel">{{ label }}</h4>
+      <p class="alertText">
+        <slot />
+      </p>
+      <div v-if="controls" class="alertControls">
+        <v-button size="small"  @click="okClicked">
           {{ okButton }}
         </v-button>
 
-        <v-button variant-color="light" size="tiny" class="ml-2.5 text-sm" @click="cancelClicked">
+        <v-button variant-color="light" size="small" class="alertControlsCancel" @click="cancelClicked">
           {{ cancelButton }}
         </v-button>
       </div>
     </main>
-    <button class="self-start" @click="closeClicked">
-      <XMarkIcon :class="`${!$slots.default && !controls ? 'mt-2' : 'mt-4'} opacity-50 stroke-2 w-4`" />
+    <button class="closeIconWrapper" @click="closeClicked">
+      <XMarkIcon :class="`${!$slots.default && !controls ? 'lowMT' : 'highMT'} alertCloseIcon`" />
+
     </button>
   </div>
-  <!-- <div>
-    <div class="p-5 text-success-500 rounded-full bg-danger-500">text</div>
-    <div class="p-5 text-warning-500 rounded-full bg-success-500">text</div>
-    <div class="p-5 text-danger-500 rounded-full bg-warning-500"></div>
-    <div class="p-5 text-primary-500 rounded-full bg-primary-500"></div>
-  </div> -->
+
 </template>
 
-<style scoped></style>
+<style scoped>
+</style>

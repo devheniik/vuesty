@@ -5,7 +5,7 @@ import type {MainColors} from './types'
 
 const props = withDefaults(
   defineProps<{
-    size?: Sizes  // !TODO pass sizes and add default size !(Now your default type is 'small' it bad)
+    size?: Sizes
     color?: GlobalColors
     src?: string
     alt?: string
@@ -66,7 +66,8 @@ const formatter = (text: string) => {
 </script>
 
 <template>
-  <div :class="['avatar', `avatar-${size}`,  text ? `avatar-letters-${color}` : '', 'relative']">
+  <div
+  :class="['avatar', `avatar-${size}`,  text ? `avatar-letters-${color}` : '', 'relative']">
     <img v-if="src" :src="src" v-bind="attrs" :alt="alt" class="border-2 border-white" />
     <div v-else>
       {{ text ? formatter(text) : '' }}

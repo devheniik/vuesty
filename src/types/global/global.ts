@@ -10,6 +10,12 @@ export type Colors =
   | 'info'
   | 'neutral'
 
-export type Sizes = 'tiny' | 'small' | 'medium' | 'big' | 'large' | 'huge' | 'gigantic'
+export type Sizes =
+  | 'tiny'
+  | 'small'
+  | 'medium'
+  | 'big'
+  | 'large'
+  | 'huge'
+  | 'gigantic'
 
-export type FontWeight = 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900

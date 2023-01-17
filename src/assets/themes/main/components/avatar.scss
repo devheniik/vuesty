@@ -1,13 +1,13 @@
 .avatar {
-  @apply h-10 w-10;
+  @apply avatar-big;
 }
 
 .avatar-tiny {
-  @apply h-4 w-4;
+  @apply h-4 w-4 text-[8px];
 }
 
 .avatar-small {
-  @apply h-6 w-6;
+  @apply h-6 w-6 text-[10px];
 }
 
 .avatar-medium {
@@ -19,15 +19,15 @@
 }
 
 .avatar-large {
-  @apply h-12 w-12;
+  @apply h-12 w-12 text-lg;
 }
 
 .avatar-huge {
-  @apply w-16 h-16
+  @apply w-16 h-16 text-xl
 }
 
 .avatar-gigantic {
-  @apply h-20 w-20;
+  @apply h-20 w-20 text-2xl;
 }
 
 .avatar > img {
@@ -39,7 +39,7 @@
 }
 
 .avatar-letters {
-  @apply flex-center-rounded h-10 w-10 text-white;
+  @apply flex-center-rounded text-white;
 }
 
 .avatar-letters-primary {
@@ -73,19 +73,3 @@
 .avatar-letters-warning-tonal {
   @apply flex-center-rounded bg-gray-50  text-warning-700;
 }
-
-/* .avatar-letters-success {
-  @apply bg-primary-500
-}
-
-.avatar-letters-success {
-  @apply bg-primary-500
-}
-
-.avatar-letters-success {
-  @apply bg-primary-500
-}
-
-.avatar-letters-success {
-  @apply bg-primary-500
-} */
