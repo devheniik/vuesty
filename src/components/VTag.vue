@@ -1,6 +1,9 @@
 <template>
   <div class="tag" :class="classes">
-    <div v-if="status && isBasicColor" class="status-circle" :class="statusCircleClasses"></div>
+    <div
+      v-if="status && isBasicColor"
+      class="status-circle"
+      :class="statusCircleClasses"></div>
     <component :is="icon" v-if="icon" />
     <slot></slot>
   </div>
@@ -32,7 +35,10 @@ const props = defineProps({
   },
 })
 
-const classes = computed(() => [`tag-${props.backgroundColor}`, { status: props.status && isBasicColor.value }])
+const classes = computed(() => [
+  `tag-${props.backgroundColor}`,
+  { status: props.status && isBasicColor.value },
+])
 
 const statusCircleClasses = computed(() => [
   props.status && isBasicColor ? `status-circle-${props.backgroundColor}` : '',

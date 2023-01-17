@@ -10,11 +10,15 @@ import type {
   ComponentCustomProps,
 } from 'vue'
 
-export type StringDictionary<T extends string> = Required<{ [index in T]: string }>
+export type StringDictionary<T extends string> = Required<{
+  [index in T]: string
+}>
 
 // Needed to prevent TS to collapse `'value1' | 'value2' | string` to `string`, which breaks first parameter autocomplete
 // See: https://github.com/microsoft/TypeScript/issues/29729#issuecomment-832522611
-export type LiteralUnion<T extends U, U = string> = T | (U & Record<never, never>)
+export type LiteralUnion<T extends U, U = string> =
+  | T
+  | (U & Record<never, never>)
 
 // See: https://stackoverflow.com/a/49936686/7931540
 export type DeepPartial<T> = {
@@ -30,7 +34,13 @@ export type DeepPartial<T> = {
 // This type is compatible with the Vue private `ComponentPublicInstanceConstructor` type
 // https://github.com/vuejs/vue-next/blob/011dee8644bb52f5bdc6365c6e8404936d57e2cd/packages/runtime-core/src/componentPublicInstance.ts#L111
 export type ComponentConstructor<
-  Component extends ComponentPublicInstance<Props, RawBindings, D, C, M> = ComponentPublicInstance<any>,
+  Component extends ComponentPublicInstance<
+    Props,
+    RawBindings,
+    D,
+    C,
+    M
+  > = ComponentPublicInstance<any>,
   Props = any,
   RawBindings = any,
   D = any,
@@ -38,7 +48,9 @@ export type ComponentConstructor<
   M extends MethodOptions = MethodOptions
 > = { new (): Component } & ComponentOptions<Props, RawBindings, D, C, M>
 
-export type PublicProps = VNodeProps & AllowedComponentProps & ComponentCustomProps
+export type PublicProps = VNodeProps &
+  AllowedComponentProps &
+  ComponentCustomProps
 
 // Can't use `DefineComponent` because of the false prop inferring behavior, it doesn't pick up the required global when an interface is passed
 // This PR will probably solve the problem as it moves the prop inferring behavior to `defineComponent` function: https://github.com/vuejs/vue-next/pull/4465

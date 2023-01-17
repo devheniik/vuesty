@@ -1,20 +1,49 @@
 <template>
   <div class="flex">
-    <button class="item rounded-l font-bold text-primary-500" @click="previousPage">&lt;</button>
+    <<<<<<< HEAD
+    <button
+      class="item rounded-l font-bold text-primary-500"
+      @click="previousPage">
+      &lt;
+    </button>
+    =======
+    <button
+      class="item rounded-l font-bold text-primary-500"
+      @click="previousPage">
+      <ChevronLeftIcon class="h-4" />
+    </button>
+    >>>>>>> 4ca898895455f5bf8d24b13d301d67683ddb61c1
     <div class="flex">
       <div v-for="n in showArr" :key="n">
-        <div class="item" :class="{ active: activeIndex === n }" @click="pickPage(n)">
+        <div
+          class="item"
+          :class="{ active: activeIndex === n }"
+          @click="pickPage(n)">
           {{ n }}
         </div>
       </div>
     </div>
-    <button class="item rounded-r font-bold text-primary-500" @click="nextPage">&gt;</button>
+    <<<<<<< HEAD
+    <button class="item rounded-r font-bold text-primary-500" @click="nextPage">
+      &gt;
+    </button>
+    =======
+    <button class="item rounded-r font-bold text-primary-500" @click="nextPage">
+      <ChevronRightIcon class="h-4" />
+    </button>
+    >>>>>>> 4ca898895455f5bf8d24b13d301d67683ddb61c1
   </div>
 </template>
 
 <script setup lang="ts">
+<<<<<<< HEAD
 import { ref, computed } from 'vue'
 import type { Ref } from 'vue'
+=======
+import { ref, computed } from 'vue';
+import type { Ref } from 'vue';
+import {ChevronRightIcon, ChevronLeftIcon} from '@devheniik/icons'
+>>>>>>> 4ca898895455f5bf8d24b13d301d67683ddb61c1
 
 const props = defineProps<{
   totalPages: number
@@ -93,7 +122,11 @@ const nextPage = () => {
 
 <style scoped>
 .item {
+<<<<<<< HEAD
   @apply cursor-pointer border border-primary-200 p-2 hover:border-primary-500;
+=======
+  @apply flex items-center justify-center w-8 h-8 border border-primary-200 hover:border-primary-500 cursor-pointer
+>>>>>>> 4ca898895455f5bf8d24b13d301d67683ddb61c1
 }
 
 .active {

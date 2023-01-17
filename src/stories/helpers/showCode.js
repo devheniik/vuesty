@@ -10,7 +10,11 @@ const stringifyArguments = (key, value) => {
 }
 
 export default function (templateSource, args) {
-  const stringifiesArguments = Object.keys(args).map(key => stringifyArguments(key, args[key]))
+  const stringifiesArguments = Object.keys(args).map(key =>
+    stringifyArguments(key, args[key])
+  )
 
-  return templateSource.replace('v-bind="args"', stringifiesArguments).replace('{{ args.default }}', ` <!-- slot --> `)
+  return templateSource
+    .replace('v-bind="args"', stringifiesArguments)
+    .replace('{{ args.default }}', ` <!-- slot --> `)
 }

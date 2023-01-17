@@ -1,6 +1,13 @@
-import { GlobalComponentConstructor, ComponentConstructor } from './utils/ts-helper'
+import {
+  GlobalComponentConstructor,
+  ComponentConstructor,
+} from './utils/ts-helper'
 
-import { VButtonComponent, VButtonProps, VButtonSlots } from '../components/Button/types'
+import {
+  VButtonComponent,
+  VButtonProps,
+  VButtonSlots,
+} from '../components/Button/types'
 import { VAvatarComponent, VAvatarProps } from '../components/Avatar/types'
 
 export declare const VButton: ComponentConstructor<VButtonComponent>

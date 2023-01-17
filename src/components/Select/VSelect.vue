@@ -1,7 +1,14 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 import { computed, onMounted, ref, nextTick } from 'vue'
 import { onClickOutside } from '@vueuse/core'
-import { ChevronUpDownIcon, CheckIcon, MagnifyingGlassIcon, XMarkIcon, DocumentMagnifyingGlassIcon } from '@devheniik/icons'
+import {
+  ChevronUpDownIcon,
+  CheckIcon,
+  MagnifyingGlassIcon,
+  XMarkIcon,
+  DocumentMagnifyingGlassIcon,
+  PlusIcon,
+} from '@devheniik/icons'
 
 const props = withDefaults(
   defineProps<{
@@ -16,6 +23,7 @@ const props = withDefaults(
     deselect?: boolean
     searchPlaceholder?: string
     emptyText?: string
+    maxShow?: number
   }>(),
   {
     openDefault: false,
@@ -27,6 +35,7 @@ const props = withDefaults(
     placeholder: 'Select',
     searchPlaceholder: 'Search',
     emptyText: 'No results found',
+    maxShow: 2,
   }
 )
 
@@ -75,12 +84,26 @@ onClickOutside(selectRef, () => {
   }
 })
 
-const isMultipleFilled = () => {
-  return props.multiple && (props.modelValue ? props.modelValue.length > 0 : false) && !isFocused.value
+const isMultipleFilledWithoutFocus = () => {
+  return (
+    props.multiple &&
+    (props.modelValue ? props.modelValue.length > 0 : false) &&
+    !isFocused.value
+  )
 }
 
-const isSingleFilled = () => {
-  return props.multiple && (props.modelValue ? props.modelValue.length > 0 : false) && !isFocused.value
+const isMultipleFilled = () => {
+  return (
+    props.multiple && (props.modelValue ? props.modelValue.length > 0 : false)
+  )
+}
+
+const isSingleFilledWithoutFocus = () => {
+  return (
+    props.multiple &&
+    (props.modelValue ? props.modelValue.length > 0 : false) &&
+    !isFocused.value
+  )
 }
 
 const isOptionObject = () => {
@@ -105,7 +128,9 @@ const getLabel = (option: any) => {
 
 const getLabelByValue = (value: any) => {
   if (isOptionObject()) {
-    return props.options.find((option: any) => option[props.valueKey] === value)[props.labelKey]
+    return props.options.find(
+      (option: any) => option[props.valueKey] === value
+    )[props.labelKey]
   }
 
   return value
@@ -165,14 +190,52 @@ const onSelect = (option: any) => {
   console.log('Select')
 }
 
-const filteredOptions = computed(() => {
-  if (search.value === '' || search.value.length === 0) {
-    return props.options
+const deselectItem = (value: any) => {
+  console.log(value)
+  if (!props.deselect) {
+    emit(
+      'update:modelValue',
+      props.modelValue.filter((item: any) => item !== value)
+    )
   }
-  return props.options.filter(option => {
+}
+
+const filteredOptions = computed(() => {
+  let response = []
+
+  if (search.value === '' || search.value.length === 0) {
+    response = props.options
+  }
+  response = props.options.filter(option => {
     return getLabel(option).toLowerCase().includes(search.value.toLowerCase())
   })
+
+  return response
 })
+
+const visibleTags = () => {
+  let response = []
+
+  if (props.modelValue) {
+    if (props.modelValue.length > props.maxShow) {
+      response = props.modelValue.slice(0, props.maxShow)
+    } else {
+      response = props.modelValue
+    }
+  }
+
+  return response
+}
+
+const excessQuantity = () => {
+  if (props.modelValue) {
+    if (props.modelValue.length > props.maxShow) {
+      return props.modelValue.length - props.maxShow
+    }
+  }
+
+  return 0
+}
 
 // * Panel functions
 
@@ -228,6 +291,9 @@ onMounted(() => {
     }
   }
 })
+
+
+
 </script>
 
 <template>
@@ -237,9 +303,13 @@ onMounted(() => {
       type="button"
       :aria-expanded="open"
       aria-haspopup="menu"
-      :class="['select-head scrollbar group', { 'select-head-focus': isFocused }]">
+      :class="[
+        'select-head scrollbar group',
+        { 'select-head-focus': isFocused },
+      ]">
       <span class="select-icon-box-left">
-        <MagnifyingGlassIcon :class="[ 'select-icon', { 'select-icon-focus' : isFocused }]" />
+        <MagnifyingGlassIcon
+          :class="['select-icon', { 'select-icon-focus': isFocused }]" />
       </span>
       <span class="select-head-main">
         <input
@@ -249,33 +319,76 @@ onMounted(() => {
           :placeholder="searchPlaceholder"
           type="text"
           class="select-main-input" />
-        <div v-if="isMultipleFilled()" class="tag-box scrollbar">
-          <slot v-for="(value, index) in modelValue" :key="index" name="tag" :option="value">
+        <div v-if="isMultipleFilledWithoutFocus()" class="tag-box scrollbar">
+          <slot
+            v-for="(value, index) in visibleTags()"
+            :key="index"
+            name="tag"
+            :option="value">
             <div class="tag">
               {{ getLabelByValue(value) }}
             </div>
           </slot>
+          <template v-if="excessQuantity()">
+            <slot name="excess" :quantity="excessQuantity()">
+              <div class="tag">+ {{ excessQuantity() }}</div>
+            </slot>
+          </template>
         </div>
-        <span v-else-if="isSingleFilled()" class="select-text">{{ label() }}</span>
-        <span v-else-if="!isFocused" class="placeholder-text">{{ placeholder }}</span>
+        <span v-else-if="isSingleFilledWithoutFocus()" class="select-text">{{
+          label()
+        }}</span>
+        <span v-else-if="!isFocused" class="placeholder-text">{{
+          placeholder
+        }}</span>
       </span>
       <div class="select-icon-box">
-        <XMarkIcon :class="[ 'select-icon focus-none', { 'select-icon-focus' : isFocused }]" @click.stop="clear" @focus.stop="clear" />
-        <ChevronUpDownIcon :class="[ 'select-icon focus-none', { 'select-icon-focus' : isFocused }]" />
+        <XMarkIcon
+          :class="[
+            'select-icon focus-none',
+            { 'select-icon-focus': isFocused },
+          ]"
+          @click.stop="clear"
+          @focus.stop="clear" />
+        <ChevronUpDownIcon
+          :class="[
+            'select-icon focus-none',
+            { 'select-icon-focus': isFocused },
+          ]" />
       </div>
     </div>
     <transition
       leave-active-class="transition ease-in duration-100"
       leave-from-class="opacity-100"
       leave-to-class="opacity-0">
-      <ul v-if="open" aria-labelledby="select-label" class="select-menu scrollbar" role="menu" tabindex="-1">
-        <div v-if="props.multiple" class="select-empty-box">
-
+      <ul
+        v-if="open"
+        aria-labelledby="select-label"
+        class="select-menu scrollbar"
+        role="menu"
+        tabindex="-1">
+        <div v-if="isMultipleFilled()" class="select-tag-block-box">
+          <slot
+            v-for="(value, index) in modelValue"
+            :key="index"
+            name="tag"
+            :option="value"
+            class="group"
+            :deselect-item="deselectItem"
+            @click.stop="deselectItem(value)">
+            <div class="tag-block">
+              {{ getLabelByValue(value) }}
+              <XMarkIcon
+                :class="['select-tag-deselect-icon focus-none']"
+                @click.stop="deselectItem(value)" />
+            </div>
+          </slot>
+          <div class="select-empty-box-border"></div>
         </div>
-        <div v-if="filteredOptions.length === 0" class="select-empty-box">
+        <div v-if="!filteredOptions.length" class="select-empty-box">
           <DocumentMagnifyingGlassIcon class="select-icon-empty" />
           <span>
-            {{emptyText}}
+            {{ emptyText }}
           </span>
         </div>
         <li
@@ -285,12 +398,24 @@ onMounted(() => {
           role="option"
           @click="onSelect(option)"
           @keyup.enter="onSelect(option)">
-          <span :class="[`select-menu-item-text`, { 'select-menu-item-text-selected': isSelected(option) }]">{{
-            getLabel(option)
-          }}</span>
-          <span v-show="isSelected(option)" class="select-menu-item-selected-icon-box">
-            <CheckIcon class="select-menu-item-selected-icon" />
-          </span>
+          <slot
+            name="option"
+            :option="option"
+            :is-selected="isSelected(option)"
+            :label="getLabel(option)">
+            <span
+              :class="[
+                `select-menu-item-text`,
+                { 'select-menu-item-text-selected': isSelected(option) },
+              ]"
+              >{{ getLabel(option) }}</span
+            >
+            <span
+              v-show="isSelected(option)"
+              class="select-menu-item-selected-icon-box">
+              <CheckIcon class="select-menu-item-selected-icon" />
+            </span>
+          </slot>
         </li>
       </ul>
     </transition>

@@ -1,5 +1,6 @@
 <template>
-  <div class="grid w-full grid-cols-5 rounded-md border-2 border-primary-200 text-lg">
+  <div
+    class="grid w-full grid-cols-5 rounded-md border-2 border-primary-200 text-lg">
     <div
       v-for="(item, id) of timeLine"
       :key="id"

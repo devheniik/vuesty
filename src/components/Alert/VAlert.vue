@@ -44,9 +44,12 @@ withDefaults(
 
 <template>
   <div class="flex w-[500px] justify-between rounded bg-white pr-4 shadow-md">
-    <div :class="`bg-${variantColor}-500 w-1 rounded-tl-md rounded-bl-md`"></div>
+    <div
+      :class="`bg-${variantColor}-500 w-1 rounded-tl-md rounded-bl-md`"></div>
     <InformationCircleIcon
-      :class="`w-5 text-${variantColor}-500 self-start ${!$slots.default && !controls ? 'mt-2' : 'mt-2.5'}`" />
+      :class="`w-5 text-${variantColor}-500 self-start ${
+        !$slots.default && !controls ? 'mt-2' : 'mt-2.5'
+      }`" />
     <main class="flex w-10/12 flex-col py-2">
       <h4 class="text-base font-semibold leading-5">{{ label }}</h4>
       <p class="text-sm"><slot /></p>
@@ -55,13 +58,20 @@ withDefaults(
           {{ okButton }}
         </v-button>
 
-        <v-button variant-color="light" size="tiny" class="ml-2.5 text-sm" @click="cancelClicked">
+        <v-button
+          variant-color="light"
+          size="tiny"
+          class="ml-2.5 text-sm"
+          @click="cancelClicked">
           {{ cancelButton }}
         </v-button>
       </div>
     </main>
     <button class="self-start" @click="closeClicked">
-      <XMarkIcon :class="`${!$slots.default && !controls ? 'mt-2' : 'mt-4'} w-4 stroke-2 opacity-50`" />
+      <XMarkIcon
+        :class="`${
+          !$slots.default && !controls ? 'mt-2' : 'mt-4'
+        } w-4 stroke-2 opacity-50`" />
     </button>
   </div>
   <!-- <div>

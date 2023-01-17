@@ -39,10 +39,16 @@ const onClose = () => {
     :class="[
       { status: status },
       `tag`,
-      [!chip ? `tag-${props.variantColor}` : `bg-${props.variantColor}-900 text-white`],
+      [
+        !chip
+          ? `tag-${props.variantColor}`
+          : `bg-${props.variantColor}-900 text-white`,
+      ],
       `tag-${props.size}`,
     ]">
-    <div v-if="status" :class="`status-circle status-circle-${props.variantColor}`"></div>
+    <div
+      v-if="status"
+      :class="`status-circle status-circle-${props.variantColor}`"></div>
     <div v-if="icon" class="mr-1 w-3.5">
       <slot></slot>
     </div>

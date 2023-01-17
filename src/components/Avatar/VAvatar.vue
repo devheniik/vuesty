@@ -46,11 +46,18 @@ const formatter = (text: string) => {
     const secondLetter = words[1] ? words[1].charAt(0).toUpperCase() : ''
 
     return `${firstLetter}${secondLetter}`
-  } else if (text.match(/^[A-Za-z]+$/) || /[А-ЯІЇЄ]{2,}/i.test(text) || text.match(/^[а-яёА-ЯЁ]+$/)) {
+  } else if (
+    text.match(/^[A-Za-z]+$/) ||
+    /[А-ЯІЇЄ]{2,}/i.test(text) ||
+    text.match(/^[а-яёА-ЯЁ]+$/)
+  ) {
     let count = 0
     let result = ''
     for (const character of text) {
-      if (character !== ' ' && /^[\u0400-\u04FF\u0041-\u005A\u0061-\u007A]$/.test(character)) {
+      if (
+        character !== ' ' &&
+        /^[\u0400-\u04FF\u0041-\u005A\u0061-\u007A]$/.test(character)
+      ) {
         result += character.toUpperCase()
         count++
         if (count === 2) {
@@ -66,8 +73,19 @@ const formatter = (text: string) => {
 </script>
 
 <template>
-  <div :class="['avatar', `avatar-${size}`, text ? `avatar-letters-${color}` : '', 'relative']">
-    <img v-if="src" :src="src" v-bind="attrs" :alt="alt" class="border-2 border-white" />
+  <div
+    :class="[
+      'avatar',
+      `avatar-${size}`,
+      text ? `avatar-letters-${color}` : '',
+      'relative',
+    ]">
+    <img
+      v-if="src"
+      :src="src"
+      v-bind="attrs"
+      :alt="alt"
+      class="border-2 border-white" />
     <div v-else>
       {{ text ? formatter(text) : '' }}
     </div>

@@ -7,7 +7,15 @@ export default {
   argTypes: {
     backgroundColor: {
       control: { type: 'select' },
-      options: ['primary', 'success', 'danger', 'warning', 'gray', 'indigo', 'blue'],
+      options: [
+        'primary',
+        'success',
+        'danger',
+        'warning',
+        'gray',
+        'indigo',
+        'blue',
+      ],
     },
     onClick: {},
   },
