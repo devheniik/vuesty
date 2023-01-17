@@ -1,4 +1,4 @@
-import '../src/assets/components/button.css'
+
 import '../src/assets/themes/main/components/badge.scss'
 import '../src/assets/themes/main/components/avatar.scss'
 export const parameters = {

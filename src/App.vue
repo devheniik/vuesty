@@ -1,20 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import VSelect from './components/Select/VSelect.vue'
-import VAvatarGroup from './components/Avatar/VAvatarGroup.vue'
-import VButton from './components/Button/VButton.vue'
-import VAvatar from './components/Avatar/VAvatar.vue'
-import VBadge from './components/Badge/VBadge.vue'
-import VAlert from './components/Alert/VAlert.vue'
-import VNotification from './components/Notification/VNotification.vue'
-import VAccordion from './components/Accordion/VAccordion.vue'
-import VPagination from './components/Pagination/VPagination.vue'
-import VTimeline from './components/Timeline/VTimeline.vue'
-import VMenu from './components/Menu/VMenu.vue'
-import VTabs from './components/Tabs/VTabs.vue'
-import VSwitch from './components/Switch/VSwitch.vue'
-import { UserIcon } from '@jonyak/icons/24/outline'
-import { MenuItem, TabPanel, Tab } from '@headlessui/vue'
 
 const selected = ref(null)
 

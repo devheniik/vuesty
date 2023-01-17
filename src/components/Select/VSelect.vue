@@ -213,7 +213,7 @@ const filteredOptions = computed(() => {
   return response
 })
 
-const visibleTags = () => {
+const visibleTags = computed(() => {
   let response = []
 
   if (props.modelValue) {
@@ -225,7 +225,7 @@ const visibleTags = () => {
   }
 
   return response
-}
+})
 
 const excessQuantity = () => {
   if (props.modelValue) {
@@ -321,7 +321,7 @@ onMounted(() => {
           class="select-main-input" />
         <div v-if="isMultipleFilledWithoutFocus()" class="tag-box scrollbar">
           <slot
-            v-for="(value, index) in visibleTags()"
+            v-for="(value, index) in visibleTags"
             :key="index"
             name="tag"
             :option="value">
@@ -335,12 +335,12 @@ onMounted(() => {
             </slot>
           </template>
         </div>
-        <span v-else-if="isSingleFilledWithoutFocus()" class="select-text">{{
-          label()
-        }}</span>
-        <span v-else-if="!isFocused" class="placeholder-text">{{
-          placeholder
-        }}</span>
+        <span v-else-if="isSingleFilledWithoutFocus()" class="select-text">
+          {{ label() }}
+        </span>
+        <span v-else-if="!isFocused" class="placeholder-text">
+          {{ placeholder }}
+          </span>
       </span>
       <div class="select-icon-box">
         <XMarkIcon
@@ -422,4 +422,6 @@ onMounted(() => {
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+@import '../../assets/themes/main/components/select.scss';
+</style>
