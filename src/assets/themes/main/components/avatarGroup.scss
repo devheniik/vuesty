@@ -1,0 +1,31 @@
+.avatar-group {
+  @apply flex [&>.avatar]:-mr-3
+}
+
+.avatar-group_tiny {
+  @apply [&>.avatar]:h-4 [&>.avatar]:w-4 [&>.avatar]:-mr-1.5
+}
+
+.avatar-group_small {
+  @apply [&>.avatar]:h-6 [&>.avatar]:w-6 [&>.avatar]:-mr-2
+}
+
+.avatar-group_medium {
+  @apply [&>.avatar]:h-8 [&>.avatar]:w-8 [&>.avatar]:-mr-3
+}
+
+.avatar-group_big {
+  @apply [&>.avatar]:h-10 [&>.avatar]:w-10 [&>.avatar]:-mr-3
+}
+
+.avatar-group_large {
+  @apply [&>.avatar]:h-12 [&>.avatar]:w-12 [&>.avatar]:-mr-4
+}
+
+.avatar-group_huge {
+  @apply [&>.avatar]:h-16 [&>.avatar]:w-16 [&>.avatar]:-mr-5
+}
+
+.avatar-group_gigantic {
+  @apply [&>.avatar]:h-20 [&>.avatar]:w-20 [&>.avatar]:-mr-6
+}
