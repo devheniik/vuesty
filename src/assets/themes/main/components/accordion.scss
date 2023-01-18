@@ -2,7 +2,7 @@
   @apply w-full rounded-md px-2 shadow-sm;
 }
 
-// HEAD
+ /* HEAD */
 
 .v_accordion__header {
   @apply flex w-full cursor-pointer justify-between p-3;
@@ -20,7 +20,26 @@
   @apply w-2.5;
 }
 
-// BODY
-.v_accordion__body {
-  @apply w-full rounded-md shadow-sm;
+ /* BODY */
+
+.v_accordion__body{
+  @apply w-full rounded-md shadow-sm overflow-hidden pl-3;
+}
+
+/* Animation */
+
+.v_accordion-show {
+  @apply transition-[max-height] ease-in
+}
+
+.v_accordion-close {
+  @apply transition-[max-height] ease-out
+}
+
+.v_accordion-show-h {
+  @apply max-h-96
+}
+
+.v_accordion-close-h {
+  @apply max-h-0
 }
