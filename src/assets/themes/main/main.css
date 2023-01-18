@@ -7,5 +7,6 @@
 @import 'components/notification.scss';
 @import 'components/menu.scss';
 @import 'components/pagination.scss';
+@import 'components/tabs.scss';
 @import './bg.css';
 @import './textColor.css';
