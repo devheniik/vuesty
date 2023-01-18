@@ -88,8 +88,6 @@
   @apply _btn-common rounded-md  border-none   bg-white p-1 leading-4 text-primary-700  shadow-sm hover:bg-tertiary-200;
 }
 
-
-
 .btn-disabled {
   @apply opacity-50 hover:cursor-not-allowed;
 }

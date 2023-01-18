@@ -1,27 +1,26 @@
-.v_accordion{
-  @apply w-full rounded-md shadow-sm px-2;
+.v_accordion {
+  @apply w-full rounded-md px-2 shadow-sm;
 }
 
 // HEAD
 
-.v_accordion__header{
-  @apply flex justify-between w-full p-3 cursor-pointer;
+.v_accordion__header {
+  @apply flex w-full cursor-pointer justify-between p-3;
 }
 
-.v_accordion__header__border{
+.v_accordion__header__border {
   @apply border-b;
 }
 
-.v_accordion__header__label{
+.v_accordion__header__label {
   @apply text-base font-bold;
 }
 
-.v_accordion__header__icon{
+.v_accordion__header__icon {
   @apply w-2.5;
 }
 
 // BODY
-.v_accordion__body{
+.v_accordion__body {
   @apply w-full rounded-md shadow-sm;
 }
-

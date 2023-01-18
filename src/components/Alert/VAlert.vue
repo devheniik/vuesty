@@ -3,7 +3,7 @@ import type { Colors } from './types'
 import { InformationCircleIcon } from '@devheniik/icons'
 import { XMarkIcon } from '@devheniik/icons'
 import VButton from '../Button/VButton.vue'
-import {computed} from 'vue'
+import { computed } from 'vue'
 
 const props = withDefaults(
   defineProps<{
@@ -49,24 +49,19 @@ const bgColor = computed(() => {
 const textColor = computed(() => {
   return `text-${props.variantColor}-medium`
 })
-
 </script>
 
 <template>
   <div class="alertWrapper">
-    <div
-    class="leftColorBorder"
-    :class="bgColor"></div>
-    <InformationCircleIcon
-    class="infoIcon"
-    :class="textColor" />
+    <div class="leftColorBorder" :class="bgColor"></div>
+    <InformationCircleIcon class="infoIcon" :class="textColor" />
     <main class="alertMain">
       <h4 class="alertLabel">{{ label }}</h4>
       <p class="alertText">
         <slot />
       </p>
       <div v-if="controls" class="alertControls">
-        <v-button size="small"  @click="okClicked">
+        <v-button size="small" @click="okClicked">
           {{ okButton }}
         </v-button>
 
@@ -77,11 +72,8 @@ const textColor = computed(() => {
     </main>
     <button class="closeIconWrapper" @click="closeClicked">
       <XMarkIcon :class="`${!$slots.default && !controls ? 'lowMT' : 'highMT'} alertCloseIcon`" />
-
     </button>
   </div>
-
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>

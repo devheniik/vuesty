@@ -5,13 +5,13 @@ export default {
   component: VPagination,
   argTypes: {
     totalPages: {
-      defaultValue: 32
-    }
-  }
+      defaultValue: 32,
+    },
+  },
 }
 
 const Template = args => ({
-  components: {VPagination} ,
+  components: { VPagination },
 
   setup() {
     return { args }

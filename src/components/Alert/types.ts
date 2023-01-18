@@ -8,7 +8,6 @@ export interface VAvatarEvents {
   cancelClicked?: () => void
 }
 
-
 export interface VAvatarProps extends VAvatarEvents {
   variantColor?: Colors
   label: string

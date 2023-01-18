@@ -1,12 +1,8 @@
 <template>
-  <div
-    :class="['v_accordion', {'bg-gray-100' : (bg && show)}]"
-    @click="handleShow"
-  >
-    <div
-    :class="['v_accordion__header', { 'v_accordion__header__border' : border}]">
+  <div :class="['v_accordion', { 'bg-gray-100': bg && show }]" @click="handleShow">
+    <div :class="['v_accordion__header', { v_accordion__header__border: border }]">
       <slot name="header">
-        <h4 class="v_accordion__header__label"> {{ label }} </h4>
+        <h4 class="v_accordion__header__label">{{ label }}</h4>
       </slot>
       <button>
         <ChevronDownIcon v-if="!show" class="v_accordion__header__icon" />
@@ -20,20 +16,17 @@
       enter-to-class="transform scale-100 opacity-100"
       leave-active-class="transition duration-75 ease-out"
       leave-from-class="transform scale-100 opacity-100"
-      leave-to-class="transform scale-95 opacity-0"
-    >
+      leave-to-class="transform scale-95 opacity-0">
       <div v-show="show" class="v_accordion__body">
-        <slot>
-
-        </slot>
+        <slot> </slot>
       </div>
     </transition>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import {ChevronDownIcon, ChevronUpIcon} from '@devheniik/icons'
+import { ref } from 'vue'
+import { ChevronDownIcon, ChevronUpIcon } from '@devheniik/icons'
 const props = withDefaults(
   defineProps<{
     bg: boolean

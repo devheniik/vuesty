@@ -1,47 +1,47 @@
 .alertWrapper {
-  @apply flex w-[500px] justify-between rounded bg-white pr-4 shadow-md
+  @apply flex w-[500px] justify-between rounded bg-white pr-4 shadow-md;
 }
 
 .leftColorBorder {
-  @apply w-1 rounded-tl-md rounded-bl-md
+  @apply w-1 rounded-tl-md rounded-bl-md;
 }
 
 .infoIcon {
-  @apply w-5 self-start mt-2
+  @apply mt-2 w-5 self-start;
 }
 
 .alertMain {
-  @apply flex w-10/12 flex-col py-2
+  @apply flex w-10/12 flex-col py-2;
 }
 
 .alertLabel {
-  @apply text-base font-semibold leading-5
+  @apply text-base font-semibold leading-5;
 }
 
 .alertText {
-  @apply text-sm
+  @apply text-sm;
 }
 
 .alertControls {
-  @apply mt-2 flex
+  @apply mt-2 flex;
 }
 
 .alertControlsCancel {
-  @apply ml-2.5 text-sm
+  @apply ml-2.5 text-sm;
 }
 
 .alertCloseIcon {
-  @apply opacity-50 stroke-2 w-4
+  @apply w-4 stroke-2 opacity-50;
 }
 
 .closeIconWrapper {
-  @apply self-start
+  @apply self-start;
 }
 
 .highMT {
- @apply mt-4
+  @apply mt-4;
 }
 
 .lowMT {
-  @apply mt-2
+  @apply mt-2;
 }

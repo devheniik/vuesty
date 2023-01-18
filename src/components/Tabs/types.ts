@@ -5,8 +5,8 @@ export interface VTabsEvents {
 }
 
 export interface VTabs {
-  name: string,
-  badge: string,
+  name: string
+  badge: string
 }
 
 export interface VTabsProps extends VTabsEvents {
