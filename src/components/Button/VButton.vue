@@ -4,7 +4,7 @@ import type { Colors, Sizes } from '@/types/global/global'
 
 const props = withDefaults(
   defineProps<{
-    disabled: boolean
+    disabled?: boolean
     size?: Sizes
     variantColor?: Colors
     href?: string

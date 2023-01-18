@@ -1,0 +1,19 @@
+.v_menu-button {
+  @apply mb-1
+}
+
+.v_menu-button__slot {
+  @apply flex items-center justify-center rounded-md border-2 border-primary-500 text-primary-500
+}
+
+.v_menu-button__slot__inner {
+  @apply px-1 pb-[15px] pt-1 leading-[0px]
+}
+
+.v_menu-items {
+  @apply absolute flex w-fit flex-col space-y-2 rounded-md border border-primary-500 bg-white py-2 px-4 shadow-md
+}
+
+[id^='headlessui-menu-item'] {
+  @apply border-b text-sm font-semibold text-primary-500 hover:border-primary-500;
+}
