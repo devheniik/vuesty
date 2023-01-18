@@ -8,5 +8,6 @@
 @import 'components/menu.scss';
 @import 'components/pagination.scss';
 @import 'components/tabs.scss';
+@import 'components/switch.scss';
 @import './bg.css';
 @import './textColor.css';

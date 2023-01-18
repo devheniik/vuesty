@@ -1,7 +1,7 @@
 import type { ComponentPublicInstance, Ref } from 'vue'
 
 export interface VPaginationEvents {
-  (e: 'paginationClick', page: Ref<number>): () => void
+  (e: 'onPaginationClick', page: Ref<number>): () => void
 }
 
 export interface VPaginationProps extends VPaginationEvents {

@@ -1,7 +1,7 @@
 import type { ComponentPublicInstance, VNode } from 'vue'
 
 export interface VSwitchEvents {
-  (e: 'switch', page: boolean): () => void
+  (e: 'onSwitch', page: boolean): () => void
 }
 
 export interface VSwitchSlots {
