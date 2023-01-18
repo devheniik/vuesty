@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { BellIcon } from '@devheniik/icons'
-withDefaults(
+import { computed } from 'vue';
+const props = withDefaults(
   defineProps<{
     count?: number
   }>(),
@@ -18,15 +19,19 @@ const emit = defineEmits<Emits>()
 const onNotification = () => {
   emit('onNotification')
 }
+
+const countSpacer = computed(() => {
+  return String(props.count).length > 2 ? 'v_right-medium' : 'v_right-small'
+})
 </script>
 
 <template>
-  <button class="notification-icon relative" @click="onNotification">
+  <button class="v_notification-btn" @click="onNotification">
     <slot>
       <BellIcon />
     </slot>
 
-    <div class="notification" :class="`${String(count).length > 2 ? '-right-4' : '-right-1'}`">
+    <div class="v_notification" :class="countSpacer">
       {{ count }}
     </div>
   </button>

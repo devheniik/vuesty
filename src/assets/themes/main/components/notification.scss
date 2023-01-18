@@ -1,7 +1,19 @@
-.notification {
+.v_notification {
   @apply absolute top-0 flex items-center justify-center  rounded-full border-2 border-white bg-primary-500 py-px px-[3px]  text-[10px] font-bold leading-[10px] text-white;
 }
 
-.notification-icon > svg {
+.v_notification-btn {
+  @apply relative
+}
+
+.v_notification-btn > svg {
   @apply w-6;
+}
+
+.v_right-small {
+  @apply -right-1
+}
+
+.v_right-medium {
+  @apply -right-4
 }
