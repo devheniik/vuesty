@@ -15,7 +15,7 @@ const props = withDefaults(
   }>(),
   {
     disabled: false,
-    // size: 'small',
+    size: 'small',
     variantColor: 'primary',
     fontWeight: 500,
   }
@@ -73,7 +73,7 @@ const attrs = computed<AttributesInterface>(() => {
   <component
     v-bind="attrs"
     :is="component"
-    :class="['btn flex', { 'btn-disabled': disabled }, `btn-${size}`, `btn-${variantColor}`]"
+    :class="[{ 'v_btn_disabled': disabled }, `v_btn-${size}`, `v_btn-${variantColor}`, 'v_btn']"
     :disabled="disabled"
     @click="onClick">
     <slot v-if="loading" name="loadingSlot">
