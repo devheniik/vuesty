@@ -17,7 +17,7 @@ import VProgress from './components/Progress/VProgress.vue'
 import { UserIcon } from '@devheniik/icons'
 import { MenuItem, TabPanel } from '@headlessui/vue'
 
-const log = (text: string) => console.log(text)
+const log = (text: any) => console.log(text)
 // const test = ['20.08', '30.05', '40.05', '59.81', '04,03']
 
 const categories = ref({
@@ -222,7 +222,7 @@ const selected = ref('')
       <v-badge color="success" icon><UserIcon /></v-badge>
     </div>
     <div class="space-x-2">
-      <v-badge color="success" @close="log($event)" chip />
+      <v-badge color="success" chip @close="log($event)" />
       <v-badge color="danger" chip />
       <v-badge color="warning" chip />
       <v-badge color="primary" chip />

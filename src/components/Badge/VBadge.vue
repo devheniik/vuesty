@@ -16,7 +16,7 @@ const props = withDefaults(
       | 'info'
       | 'neutral'
     status?: boolean
-    label: string
+    label?: string
     icon?: boolean
     chip?: boolean
   }>(),

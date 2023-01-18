@@ -11,12 +11,13 @@
     </div>
     <!-- TODO: animation-->
     <transition
-      enter-active-class="transition duration-100 ease-out"
-      enter-from-class="transform scale-95 opacity-0"
-      enter-to-class="transform scale-100 opacity-100"
-      leave-active-class="transition duration-75 ease-out"
-      leave-from-class="transform scale-100 opacity-100"
-      leave-to-class="transform scale-95 opacity-0">
+      enter-active-class="v_accordion-show"
+      enter-from-class="v_accordion-close-h"
+      enter-to-class="v_accordion-show-h"
+      leave-active-class="v_accordion-close"
+      leave-from-class="v_accordion-show-h"
+      leave-to-class="v_accordion-close-h"
+    >
       <div v-show="show" class="v_accordion__body">
         <slot> </slot>
       </div>
@@ -29,7 +30,7 @@ import { ref } from 'vue'
 import { ChevronDownIcon, ChevronUpIcon } from '@devheniik/icons'
 const props = withDefaults(
   defineProps<{
-    bg: boolean
+    bg?: boolean
     modelValue?: boolean
     label?: string
     border?: boolean
@@ -49,7 +50,6 @@ interface Emits {
 const emit = defineEmits<Emits>()
 
 const show = ref<boolean>(props.modelValue)
-console.log(show.value, props.modelValue)
 
 const handleShow = () => {
   show.value = !show.value

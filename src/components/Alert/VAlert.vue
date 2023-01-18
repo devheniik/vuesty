@@ -3,9 +3,8 @@ import type { Colors } from './types'
 import { InformationCircleIcon } from '@devheniik/icons'
 import { XMarkIcon } from '@devheniik/icons'
 import VButton from '../Button/VButton.vue'
-import { computed } from 'vue'
 
-const props = withDefaults(
+withDefaults(
   defineProps<{
     variantColor?: Colors
     label: string
@@ -42,36 +41,34 @@ const cancelClicked = () => {
   emit('cancelClicked')
 }
 
-const bgColor = computed(() => {
-  return `bg-${props.variantColor}-medium`
-})
-
-const textColor = computed(() => {
-  return `text-${props.variantColor}-medium`
-})
 </script>
 
 <template>
-  <div class="alertWrapper">
-    <div class="leftColorBorder" :class="bgColor"></div>
-    <InformationCircleIcon class="infoIcon" :class="textColor" />
-    <main class="alertMain">
-      <h4 class="alertLabel">{{ label }}</h4>
-      <p class="alertText">
+  <div class="v-alert">
+    <div
+    :class="`v-alert__left-border bg-${variantColor}-medium`"></div>
+    <InformationCircleIcon
+    :class="`v-alert__info-icon text-${variantColor}-medium`" />
+    <main class="v-alert__main">
+      <h4 class="v-alert__label">{{ label }}</h4>
+      <p class="v-alert__text">
         <slot />
       </p>
-      <div v-if="controls" class="alertControls">
-        <v-button size="small" @click="okClicked">
+      <div v-if="controls" class="v-alert__controls">
+        <v-button size="small"  @click="okClicked">
           {{ okButton }}
         </v-button>
 
-        <v-button variant-color="light" size="small" class="alertControlsCancel" @click="cancelClicked">
+        <v-button variant-color="light" size="small" class="v-alert__controls__cancel" @click="cancelClicked">
           {{ cancelButton }}
         </v-button>
       </div>
     </main>
-    <button class="closeIconWrapper" @click="closeClicked">
-      <XMarkIcon :class="`${!$slots.default && !controls ? 'lowMT' : 'highMT'} alertCloseIcon`" />
+    <button
+    :class="[{'v-alert__close_flat' : !$slots.default && !controls}, 'v-alert__close']"
+    @click="closeClicked">
+      <XMarkIcon class="v-alert__close-icon" />
+
     </button>
   </div>
 </template>
