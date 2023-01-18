@@ -1,76 +1,94 @@
 <script setup lang="ts">
-import type { Colors } from './types'
-import { InformationCircleIcon } from '@devheniik/icons'
-import { XMarkIcon } from '@devheniik/icons'
+import { InformationCircleIcon, XMarkIcon, ExclamationTriangleIcon, CheckCircleIcon  } from '@devheniik/icons'
 import VButton from '../Button/VButton.vue'
+import {computed, FunctionalComponent, HTMLAttributes, VNodeProps} from "vue"
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
-    variantColor?: Colors
+    variant?: 'primary' | 'success' | 'warning' | 'danger'
     label: string
-    okButton?: string
+    acceptButton?: string
     cancelButton?: string
     controls?: boolean
   }>(),
   {
-    variantColor: 'primary',
+    variant: 'primary',
     label: 'Label',
-    okButton: 'Ok',
+    acceptButton: 'Accept',
     cancelButton: 'Cancel',
     controls: true,
   }
 )
 
 interface Emits {
-  (e: 'closeClicked'): void
-  (e: 'okClicked'): void
-  (e: 'cancelClicked'): void
+  (e: 'close'): void
+  (e: 'accept'): void
+  (e: 'cancel'): void
 }
 
 const emit = defineEmits<Emits>()
 
-const closeClicked = () => {
-  emit('closeClicked')
+const close = () => {
+  emit('close')
 }
 
-const okClicked = () => {
-  emit('okClicked')
+const accept = () => {
+  emit('accept')
 }
 
-const cancelClicked = () => {
-  emit('cancelClicked')
+const cancel = () => {
+  emit('cancel')
 }
 
+const icon = computed<FunctionalComponent<HTMLAttributes & VNodeProps> | string>(() => {
+  let icon = InformationCircleIcon
+
+  switch (props.variant) {
+    case 'primary':
+      icon = InformationCircleIcon
+      break
+    case 'success':
+      icon = CheckCircleIcon
+      break
+    case 'warning':
+      icon = ExclamationTriangleIcon
+      break
+    case 'danger':
+      icon = ExclamationTriangleIcon
+      break
+  }
+
+  return icon
+})
 </script>
 
 <template>
   <div class="v-alert">
-    <div
-    :class="`v-alert__left-border bg-${variantColor}-medium`"></div>
-    <InformationCircleIcon
-    :class="`v-alert__info-icon text-${variantColor}-medium`" />
+    <div :class="['v-alert__left-border', `bg-${variant}-medium`]"></div>
+    <slot name="icon">
+      <component :is="icon" :class="['v-alert__info-icon', `text-${variant}-medium`]" />
+    </slot>
     <main class="v-alert__main">
       <h4 class="v-alert__label">{{ label }}</h4>
       <p class="v-alert__text">
         <slot />
       </p>
       <div v-if="controls" class="v-alert__controls">
-        <v-button size="small"  @click="okClicked">
-          {{ okButton }}
+        <v-button size="small" @click="accept">
+          {{ acceptButton }}
         </v-button>
 
-        <v-button variant-color="light" size="small" class="v-alert__controls__cancel" @click="cancelClicked">
+        <v-button variant-color="light" size="small" class="v-alert__controls__cancel" @click="cancel">
           {{ cancelButton }}
         </v-button>
       </div>
     </main>
-    <button
-    :class="[{'v-alert__close_flat' : !$slots.default && !controls}, 'v-alert__close']"
-    @click="closeClicked">
+    <button :class="[{ 'v-alert__close_flat': !$slots.default && !controls }, 'v-alert__close']" @click="close">
       <XMarkIcon class="v-alert__close-icon" />
-
     </button>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+@import '../../assets/themes/main/components/alert.scss';
+</style>

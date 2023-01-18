@@ -66,6 +66,7 @@ const formatter = (text: string) => {
 </script>
 
 <template>
+<<<<<<< HEAD
   <div
   :class="['avatar', `avatar-${size}`, text ? `avatar-letters-${color}` : '']">
 
@@ -79,6 +80,23 @@ const formatter = (text: string) => {
     v-if="status"
     :class="[`v_bg-${status}-medium`, `status-circle_${size}`, 'avatar__status-circle']">
     </div>
+=======
+  <div :class="['avatar', `avatar-${size}`, text ? `avatar-letters-${color}` : '', 'relative']">
+    <img v-if="src" :src="src" v-bind="attrs" :alt="alt" class="border-2 border-white" />
+    <div v-else>
+      {{ text ? formatter(text) : '' }}
+    </div>
+    <div
+      v-if="status"
+      class="absolute bottom-0 right-0 h-2 w-2 rounded-full border border-white"
+      :class="[
+        [`bg-${status}-500`],
+        { 'right-1': size === 'big' },
+        { 'right-1 h-2.5 !w-2.5': size === 'large' },
+        { 'right-1.5 h-3 !w-3': size === 'huge' },
+        { 'right-1 bottom-2 h-3 !w-3': size === 'gigantic' },
+      ]"></div>
+>>>>>>> valert
   </div>
 </template>
 

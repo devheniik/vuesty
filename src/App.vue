@@ -226,25 +226,38 @@ const selected = ref('')
       <v-badge color="danger" chip />
       <v-badge color="warning" chip />
       <v-badge color="primary" chip />
+      <v-badge variant-color="success" status />
+      <v-badge variant-color="success" />
+      <v-badge variant-color="danger" status />
+      <v-badge variant-color="danger" />
+      <v-badge variant-color="danger" label="Other Label" />
+      <v-badge variant-color="success" icon><UserIcon /></v-badge>
+    </div>
+    <div class="space-x-2">
+      <v-badge variant-color="success" chip />
+      <v-badge variant-color="danger" chip />
+      <v-badge variant-color="warning" chip />
+      <v-badge variant-color="primary" chip />
     </div>
   </div>
 
   <div class="m-10 flex flex-col items-center justify-center space-y-5 bg-gray-50 p-10 shadow-2xl">
     <v-alert variant-color="primary" label="Label primary">
+    <v-alert variant="primary" label="Label primary">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates aperiam aliquid reiciendis minus amet vel
       exercitationem sequi, nobis rerum ad.
     </v-alert>
 
-    <v-alert variant-color="warning" label="Label warning" ok-button="Yes" cancel-button="No">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. A quibusdam minima atque possimus exercitationem
       repellendus adipisci tenetur aliquid ab optio in odio distinctio placeat, suscipit recusandae, est nulla dicta
       nemo fugiat nobis dolores debitis quisquam. Temporibus excepturi illo assumenda culpa velit fuga, accusantium
       dicta ipsam totam, deserunt accusamus iste qui.
     </v-alert>
 
-    <v-alert variant-color="success" label="Label success" :controls="false" />
+    <v-alert variant="success" label="Label success" :controls="false" />
 
-    <v-alert variant-color="danger" label="Label danger" :controls="false"> Lorem ipsum dolor sit amet. </v-alert>
+    <v-alert variant="danger" label="Label danger" :controls="false"> Lorem ipsum dolor sit amet. </v-alert>
+
   </div>
 </template>
 

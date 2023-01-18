@@ -16,8 +16,7 @@
       enter-to-class="v_accordion-show-h"
       leave-active-class="v_accordion-close"
       leave-from-class="v_accordion-show-h"
-      leave-to-class="v_accordion-close-h"
-    >
+      leave-to-class="v_accordion-close-h">
       <div v-show="show" class="v_accordion__body">
         <slot> </slot>
       </div>
