@@ -1,42 +1,49 @@
-import { defineConfig } from 'vite'
+import { defineConfig, type PluginOption } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import eslintPlugin from 'vite-plugin-eslint'
-import { visualizer } from "rollup-plugin-visualizer"
-// import dts from 'vite-plugin-dts'
-import path from 'path'
+import { visualizer } from 'rollup-plugin-visualizer'
+import type { UserConfig as VitestUserConfigInterface } from "vitest/config"
+import dts from 'vite-plugin-dts'
+import { resolve } from 'path'
+
+const vitestConfig: VitestUserConfigInterface = {
+  test: {
+    globals: true,
+    environment: "jsdom",
+  },
+}
 
 export default defineConfig({
   build: {
-    // Output compiled files to /dist.
+    target: ['edge90', 'chrome90', 'firefox90', 'safari15'],
     outDir: './dist',
     lib: {
-      // Set the entry point (file that contains our components exported).
-      entry: [
-        path.resolve(__dirname, 'src/components/index.ts'),
-        // path.resolve(__dirname, 'src/assets/themes/main/main.css'),
-      ],
-      // Name of the library.
-      name: 'vuesty',
-      // We are building for CJS and ESM, use a function to rename automatically files.
-      // Example: my-component-library.esm.js
-      fileName: (format) => `vuesty.${format}.js`,
+      formats: ['es', 'cjs'],
+      entry: resolve(__dirname, './src/components/index.ts'),
+      name: 'Vuesty',
+      fileName: 'index',
     },
     rollupOptions: {
-      // Vue is provided by the parent project, don't compile Vue source-code inside our library.
       external: ['vue'],
       output: { globals: { vue: 'Vue' } },
     },
   },
+  test: vitestConfig.test,
+  plugins: [vue(), eslintPlugin(),
+    dts({
+      beforeWriteFile: (filePath, content) => {
+        const newFilePath = filePath
+          .replace('/src', '/global');
 
-
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  plugins: [vue({ style: { filename: 'style.css' } }), eslintPlugin(),
+        return {
+          filePath: newFilePath,
+          content,
+        };
+      },
+      skipDiagnostics: true,
+    }),
     visualizer({
-      emitFile: true,
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      file: 'stats.html'
-    })
+      emitFile: true
+    }) as PluginOption
   ],
 })

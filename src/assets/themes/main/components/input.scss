@@ -1,0 +1,11 @@
+._input {
+  @apply border p-2 text-lg text-black;
+}
+
+.input-text {
+  @apply _input border-primary-50 hover:border-primary-200 active:border-primary-600;
+}
+
+.input-text-error {
+  @apply _input border-danger-600;
+}

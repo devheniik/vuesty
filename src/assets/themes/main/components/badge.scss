@@ -1,0 +1,76 @@
+.tag {
+  @apply inline-flex items-center rounded px-2.5 py-1.5 text-sm
+  leading-3 font-medium;
+}
+
+.tag-primary {
+  @apply bg-primary-100 text-primary-600;
+}
+
+.tag-success {
+  @apply bg-success-100 text-success-600;
+}
+
+.tag-warning {
+  @apply bg-upgrade-50 text-warning-400;
+}
+
+.tag-danger {
+  @apply bg-danger-100 text-danger-600;
+}
+
+.tag-tertiary {
+  @apply bg-tertiary-100 text-tertiary-400;
+}
+
+.tag-info {
+  @apply bg-info-50 text-info-500;
+}
+
+.tag-upgrade {
+  @apply bg-upgrade-100 text-upgrade-400;
+}
+
+.tag-neutral {
+  @apply bg-gray-100 text-neutral-700;
+}
+
+.status {
+  @apply text-gray-900;
+}
+
+.status-circle {
+  @apply mr-2 h-2 w-2 rounded-full bg-gray-500;
+}
+
+.status-circle-danger {
+  @apply bg-danger-500;
+}
+
+.status-circle-warning {
+  @apply bg-warning-500;
+}
+
+.status-circle-primary {
+  @apply bg-primary-500;
+}
+
+.status-circle-success {
+  @apply bg-success-500;
+}
+
+.status-circle-info {
+  @apply bg-info-500;
+}
+
+.status-circle-tertiary {
+  @apply bg-tertiary-500;
+}
+
+.status-circle-upgrade {
+  @apply bg-upgrade-500;
+}
+
+.status-circle-neutral {
+  @apply bg-neutral-500;
+}

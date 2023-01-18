@@ -1,1 +1,9 @@
-@import "components/button.scss";
+@import 'components/button.scss';
+@import 'components/avatar.scss';
+@import 'components/badge.scss';
+@import 'components/input.scss';
+@import 'components/animations.scss';
+@import 'components/alert.scss';
+@import 'components/notification.scss';
+@import './bg.css';
+@import './textColor.css';

@@ -11,7 +11,7 @@
 }
 
 .flex-center {
-  @apply flex justify-center items-center;
+  @apply flex items-center justify-center;
 }
 
 .fixed-width {
@@ -19,11 +19,11 @@
 }
 
 .card {
-  @apply border rounded-md shadow-md p-3;
+  @apply rounded-md border p-3 shadow-md;
 }
 
 .card-sm {
-  @apply rounded-md shadow-lg p-2 w-full;
+  @apply w-full rounded-md p-2 shadow-lg;
 }
 
 html {

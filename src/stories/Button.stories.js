@@ -1,58 +1,44 @@
-import MyButton from './Button.vue';
+import VButton from '../components/Button/VButton.vue'
+// import generateSource from './helpers/showCode'
 
-// More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
 export default {
-  title: 'Example/Button',
-  component: MyButton,
-  // More on argTypes: https://storybook.js.org/docs/vue/api/argtypes
+  title: 'Button',
+  component: VButton,
   argTypes: {
-    backgroundColor: { control: 'color' },
-    onClick: {},
+    variantColor: {
+      control: { type: 'select' },
+      options: ['primary', 'success', 'danger', 'warning', 'indigo', 'upgrade', 'tertiary', 'info', 'neutral']
+    },
     size: {
       control: { type: 'select' },
-      options: ['small', 'medium', 'large'],
+      options: ['big', 'small'],
+    },
+    default: {
+      control: 'text',
+      description: 'Slot content',
+      defaultValue: 'Button',
     },
   },
-};
+}
 
-// More on component templates: https://storybook.js.org/docs/vue/writing-stories/introduction#using-args
+// const template = `<v-button>{{ args.default }}</v-button>`
+
 const Template = (args) => ({
-  // Components used in your story `template` are defined in the `components` object
-  components: { MyButton },
-  // The story's `args` need to be mapped into the template through the `setup()` method
+  components: { VButton },
   setup() {
-    return { args };
+    return { args }
   },
-  // And then the `args` are bound to your component with `v-bind="args"`
-  template: '<my-button v-bind="args" />',
-});
+  template: `<v-button v-bind="args">{{args.default}}</v-button>`,
+})
 
-export const Primary = Template.bind({});
-// More on args: https://storybook.js.org/docs/vue/writing-stories/args
+export const Primary = Template.bind({})
+
 Primary.args = {
-  primary: true,
-  label: 'Button',
-};
+  size: 'small'
+}
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  label: 'Button',
-};
-
-
-export const Text = Template.bind({});
-Text.args = {
-  label: 'Text',
-};
-
-export const Large = Template.bind({});
-Large.args = {
-  size: 'large',
-  label: 'Button',
-};
-
-export const Small = Template.bind({});
-Small.args = {
-  size: 'small',
-  label: 'Button',
-};
+// Primary.parameters = {
+//   docs: {
+//     source: { code: generateSource(template, Primary.args) },
+//   },
+// }

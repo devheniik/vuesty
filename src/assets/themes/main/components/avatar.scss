@@ -1,0 +1,75 @@
+.avatar {
+  @apply avatar-big;
+}
+
+.avatar-tiny {
+  @apply h-4 w-4 text-[8px];
+}
+
+.avatar-small {
+  @apply h-6 w-6 text-[10px];
+}
+
+.avatar-medium {
+  @apply h-8 w-8;
+}
+
+.avatar-big {
+  @apply h-10 w-10;
+}
+
+.avatar-large {
+  @apply h-12 w-12 text-lg;
+}
+
+.avatar-huge {
+  @apply w-16 h-16 text-xl
+}
+
+.avatar-gigantic {
+  @apply h-20 w-20 text-2xl;
+}
+
+.avatar > img {
+  @apply h-full w-full rounded-full object-cover;
+}
+
+.flex-center-rounded {
+  @apply flex items-center justify-center rounded-full;
+}
+
+.avatar-letters {
+  @apply flex-center-rounded text-white;
+}
+
+.avatar-letters-primary {
+  @apply avatar-letters bg-primary-500;
+}
+
+.avatar-letters-success {
+  @apply avatar-letters bg-success-500;
+}
+
+.avatar-letters-danger {
+  @apply avatar-letters bg-danger-500;
+}
+
+.avatar-letters-warning {
+  @apply avatar-letters bg-warning-500;
+}
+
+.avatar-letters-primary-tonal {
+  @apply flex-center-rounded bg-primary-50  text-primary-700;
+}
+
+.avatar-letters-success-tonal {
+  @apply flex-center-rounded bg-success-50  text-success-700;
+}
+
+.avatar-letters-danger-tonal {
+  @apply flex-center-rounded bg-danger-50  text-danger-700;
+}
+
+.avatar-letters-warning-tonal {
+  @apply flex-center-rounded bg-gray-50  text-warning-700;
+}
