@@ -30,7 +30,7 @@ import { ref } from 'vue'
 import { ChevronDownIcon, ChevronUpIcon } from '@devheniik/icons'
 const props = withDefaults(
   defineProps<{
-    bg: boolean
+    bg?: boolean
     modelValue?: boolean
     label?: string
     border?: boolean

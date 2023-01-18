@@ -76,15 +76,9 @@ const formatter = (text: string) => {
     </div>
 
     <div
-    v-if="status" class="avatar__status-circle"
-    :class="[
-      `bg-${status}-medium`,
-      {'status-circle_big' : size === 'big'},
-      {'status-circle_large' : size === 'large'},
-      {'status-circle_huge' : size === 'huge'},
-      {'status-circle_gigantic' : size === 'gigantic'}
-
-    ]"></div>
+    v-if="status"
+    :class="[`v_bg-${status}-medium`, `status-circle_${size}`, 'avatar__status-circle']">
+    </div>
   </div>
 </template>
 
