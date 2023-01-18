@@ -2,7 +2,7 @@ import VAccordion from '../components/Accordion/VAccordion.vue'
 
 export default {
   title: 'Accordion',
-  component: VAccordion
+  component: VAccordion,
 }
 
 const Template = args => ({

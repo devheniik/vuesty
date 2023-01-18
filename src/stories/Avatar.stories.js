@@ -31,7 +31,7 @@ const Template = args => ({
 
 export const Avatar = Template.bind({})
 Avatar.args = {
-  src: "src/assets/components/avatar.svg",
+  src: 'src/assets/components/avatar.svg',
 }
 
 export const withWords = Template.bind({})
@@ -52,11 +52,9 @@ withWords.argTypes = {
   },
 }
 
-withWords.args=  {
-  text: "George Martin",
+withWords.args = {
+  text: 'George Martin',
 }
-
-
 
 const TemplateAvatarGroup = args => ({
   components: { VAvatarGroup, VAvatar },
@@ -85,5 +83,5 @@ AvatarGroup.argTypes = {
       type: 'select',
     },
     options: ['tiny', 'small', 'medium', 'big', 'large', 'huge', 'gigantic'],
-  }
+  },
 }
