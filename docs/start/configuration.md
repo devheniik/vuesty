@@ -1,9 +1,28 @@
-/** @type {import('tailwindcss').Config} */
+---
+title: Configuration
+---
+
+# Configuration
+
+## Step. 1: Tailwind css
+
+Install tailwind css, full guide [here](https://tailwindcss.com/docs/installation)
+
+
+
+## Step. 2: Install your style
+
+Add Vuesty and Vue for the project.
+
+This styles which we use in library you can change for yourself
+
+
+
+```javascript [tailwind.config.js]
 const colors = require('tailwindcss/colors')
 
-module.exports = {
-  content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
-  theme: {
+// ...
+ theme: {
     colors: {
       transparent: 'transparent',
       primary: {
@@ -67,41 +86,7 @@ module.exports = {
       white: colors.white,
       tertiary: colors.indigo,
     },
-    fontFamily: {
-      sans: [
-        'ui-sans-serif',
-        'system-ui',
-        '-apple-system',
-        'BlinkMacSystemFont',
-        '"Segoe UI"',
-        'Roboto',
-        '"Helvetica Neue"',
-        'Arial',
-        '"Noto Sans"',
-        'sans-serif',
-        '"Apple Color Emoji"',
-        '"Segoe UI Emoji"',
-        '"Segoe UI Symbol"',
-        '"Noto Color Emoji"',
-      ],
-      serif: ['ui-serif', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
-      mono: [
-        'ui-monospace',
-        'SFMono-Regular',
-        'Menlo',
-        'Monaco',
-        'Consolas',
-        '"Liberation Mono"',
-        '"Courier New"',
-        'monospace',
-      ],
-    },
+    // ...
 
-    textColor: theme => theme('colors'),
-
-    },
-  plugins: [
-    require('@tailwindcss/forms')
-  ],
-}
+```
 
