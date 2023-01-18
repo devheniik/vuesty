@@ -1,47 +1,43 @@
-.alertWrapper {
+.v-alert {
   @apply flex w-[500px] justify-between rounded bg-white pr-4 shadow-md
 }
 
-.leftColorBorder {
+.v-alert__left-border {
   @apply w-1 rounded-tl-md rounded-bl-md
 }
 
-.infoIcon {
+.v-alert__info-icon {
   @apply w-5 self-start mt-2
 }
 
-.alertMain {
+.v-alert__main {
   @apply flex w-10/12 flex-col py-2
 }
 
-.alertLabel {
+.v-alert__label {
   @apply text-base font-semibold leading-5
 }
 
-.alertText {
+.v-alert__text {
   @apply text-sm
 }
 
-.alertControls {
+.v-alert__controls {
   @apply mt-2 flex
 }
 
-.alertControlsCancel {
+.v-alert__controls__cancel {
   @apply ml-2.5 text-sm
 }
 
-.alertCloseIcon {
+.v-alert__close-icon {
   @apply opacity-50 stroke-2 w-4
 }
 
-.closeIconWrapper {
-  @apply self-start
+.v-alert__close {
+  @apply self-start mt-4
 }
 
-.highMT {
- @apply mt-4
-}
-
-.lowMT {
+.v-alert__close_flat {
   @apply mt-2
 }

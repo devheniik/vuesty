@@ -60,29 +60,31 @@ const formatter = (text: string) => {
     }
     return result
   } else {
-    return 'IФ'
+    return 'GT'
   }
 }
 </script>
 
 <template>
   <div
-  :class="['avatar', `avatar-${size}`,  text ? `avatar-letters-${color}` : '', 'relative']">
-    <img v-if="src" :src="src" v-bind="attrs" :alt="alt" class="border-2 border-white" />
+  :class="['avatar', `avatar-${size}`, text ? `avatar-letters-${color}` : '']">
+
+    <img v-if="src" :src="src" v-bind="attrs" :alt="alt" class="avatar__img" />
+
     <div v-else>
       {{ text ? formatter(text) : '' }}
     </div>
-    <div
-    v-if="status" class="w-2 h-2 rounded-full absolute bottom-0 right-0 border border-white"
-    :class="[
-      [`bg-${status}-500`],
-      {'right-1' : size === 'big'},
-      {'!w-2.5 h-2.5 right-1' : size === 'large'},
-      {'!w-3 h-3 right-1.5' : size === 'huge'},
-      {'!w-3 h-3 right-1 bottom-2' : size === 'gigantic'}
 
-    ]"
-    ></div>
+    <div
+    v-if="status" class="avatar__status-circle"
+    :class="[
+      `bg-${status}-medium`,
+      {'status-circle_big' : size === 'big'},
+      {'status-circle_large' : size === 'large'},
+      {'status-circle_huge' : size === 'huge'},
+      {'status-circle_gigantic' : size === 'gigantic'}
+
+    ]"></div>
   </div>
 </template>
 
