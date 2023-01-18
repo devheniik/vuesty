@@ -14,9 +14,10 @@ const emit = defineEmits<Emits>()
 
 const activeIndex = ref<number>(1)
 
-const showArr = computed(() => {
+const paginationArr = computed(() => {
   if (props.totalPages > 6) {
     const middleNums: Ref<number[]> = ref([])
+
     if (activeIndex.value) {
       for (let i = activeIndex.value - 2; i <= activeIndex.value + 2; i++) {
         middleNums.value.push(i)
@@ -79,29 +80,26 @@ const nextPage = () => {
 </script>
 
 <template>
-  <div class="flex">
-    <button class="item rounded-l font-bold text-primary-500" @click="previousPage">
-      <ChevronLeftIcon class="h-4" />
+  <div class="v_pagination">
+    <button class="v_pagination__arrow v_pagination__arrow_left" @click="previousPage">
+      <ChevronLeftIcon class="v_pagination__arrow_size" />
     </button>
-    <div class="flex">
-      <div v-for="n in showArr" :key="n">
-        <div class="item" :class="{ active: activeIndex === n }" @click="pickPage(n)">
+
+    <div class="v_pagination__body">
+      <div v-for="n in paginationArr" :key="n">
+        <div
+        :class="[{ 'v_pagination__body__item_active': activeIndex === n }, 'v_pagination__body__item']" @click="pickPage(n)">
           {{ n }}
         </div>
       </div>
     </div>
-    <button class="item rounded-r font-bold text-primary-500" @click="nextPage">
-      <ChevronRightIcon class="h-4" />
+
+    <button class="v_pagination__arrow v_pagination__arrow_left" @click="nextPage">
+      <ChevronRightIcon class="v_pagination__arrow_size" />
     </button>
   </div>
 </template>
 
 <style scoped>
-.item {
-  @apply flex h-8 w-8 cursor-pointer items-center justify-center border border-primary-200 hover:border-primary-500;
-}
 
-.active {
-  @apply !bg-primary-100 text-primary-500;
-}
 </style>
