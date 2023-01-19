@@ -78,7 +78,7 @@ const icon = computed<FunctionalComponent<HTMLAttributes & VNodeProps> | string>
           {{ acceptButton }}
         </v-button>
 
-        <v-button variant-color="light" size="small" class="v-alert__controls__cancel" @click="cancel">
+        <v-button color="light" size="small" class="v-alert__controls__cancel" @click="cancel">
           {{ cancelButton }}
         </v-button>
       </div>

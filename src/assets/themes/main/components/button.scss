@@ -1,64 +1,64 @@
-._btn_common {
+.v-button-common {
   @apply inline-flex cursor-pointer items-center justify-center whitespace-nowrap text-lg font-medium focus:outline-none focus:ring-0 focus:ring-offset-0;
 }
 
-.v_btn {
-  @apply _btn_common w-auto rounded border-none bg-primary-600  px-1.5 py-1 text-white shadow-sm hover:bg-primary-700;
+.v-button {
+  @apply v-button-common w-auto rounded border-none bg-primary-600 px-1.5 py-1 text-white shadow-sm hover:bg-primary-700;
 }
 
 /* Colors */
 
-.v_btn_light {
+.v-button-light {
   @apply bg-white text-primary-600  hover:border-transparent hover:bg-tertiary-100;
 }
 
-.v_btn_secondary {
-  @apply _btn_common  rounded border-solid border-primary-500 bg-white  px-1.5 py-0.5 text-primary-500 hover:border-transparent hover:bg-tertiary-300 hover:text-primary-1000;
+.v-button-secondary {
+  @apply v-button-common  rounded border-solid border-primary-500 bg-white  px-1.5 py-0.5 text-primary-500 hover:border-transparent hover:bg-tertiary-300 hover:text-primary-1000;
 }
 
-.v_btn_danger {
+.v-button-danger {
   @apply rounded bg-danger-600 text-white hover:bg-danger-700 focus:ring-danger-500;
 }
 
-.v_btn_tertiary {
+.v-button-tertiary {
   @apply bg-tertiary-600 text-white hover:bg-tertiary-700 focus:ring-tertiary-500;
 }
 
-.v_btn_info {
+.v-button-info {
   @apply bg-info-400 text-white hover:bg-info-600 focus:ring-info-500;
 }
 
-.v_btn_upgrade {
+.v-button-upgrade {
   @apply bg-upgrade-400 text-white hover:bg-upgrade-600 focus:ring-upgrade-500;
 }
 
-.v_btn_success {
+.v-button-success {
   @apply bg-success-600 text-white shadow-sm hover:bg-success-700 focus:ring-success-500;
 }
 
-.v_btn_warning {
+.v-button-warning {
   @apply bg-warning-400 text-white shadow-sm hover:bg-warning-500 focus:ring-warning-500;
 }
 
-.v_btn_neutral {
-  @apply _btn_common rounded bg-neutral-600  px-1.5 py-0.5 text-white shadow-sm hover:bg-neutral-700 focus:ring-neutral-500;
+.v-button-neutral {
+  @apply v-button-common rounded bg-neutral-600  px-1.5 py-0.5 text-white shadow-sm hover:bg-neutral-700 focus:ring-neutral-500;
 }
 
-.v_btn_white {
-  @apply _btn_common rounded border border-neutral-300 bg-white px-1.5 py-0.5 text-neutral-700 shadow-sm hover:bg-neutral-50;
+.v-button-white {
+  @apply v-button-common rounded border border-neutral-300 bg-white px-1.5 py-0.5 text-neutral-700 shadow-sm hover:bg-neutral-50;
 }
 
 /* Sizes */
 
-.v_btn_small {
+.v-button-small {
   @apply px-2 py-1 text-sm font-semibold leading-4;
 }
 
-.v_btn_medium {
-  @apply v_btn
+.v-button-medium {
+  @apply v-button
 }
 
-.v_btn-big {
+.v-button-big {
   @apply px-3 py-2 text-lg font-semibold leading-5;
 }
 
@@ -68,34 +68,34 @@
   @apply -ml-0.5 mr-2 h-4 w-4;
 }
 
-.v_btn-icon {
-  @apply _btn_common h-9 w-12 rounded bg-primary-600 leading-4 shadow-sm hover:bg-primary-700;
+.v-button-icon {
+  @apply v-button-common h-9 w-12 rounded bg-primary-600 leading-4 shadow-sm hover:bg-primary-700;
 }
 
-.v_btn-icon_small {
+.v-button-icon_small {
   @apply h-8 w-11  rounded-md leading-4 shadow-sm;
 }
 
-.v_btn-icon_tiny {
+.v-button-icon_tiny {
   @apply h-8 w-11  rounded leading-4 shadow-sm;
 }
 
-.v_btn-icon_big {
-  @apply v_btn-icon;
+.v-button-icon_big {
+  @apply v-button-icon;
 }
 
-.v_btn-icon_secondary {
+.v-button-icon_secondary {
   @apply rounded border  border-primary-500 bg-white text-primary-500 hover:bg-tertiary-400 hover:text-primary-700;
 }
 
-.v_btn-icon_light {
-  @apply _btn_common rounded-md  border-none   bg-white p-1 leading-4 text-primary-700  shadow-sm hover:bg-tertiary-200;
+.v-button-icon_light {
+  @apply v-button-common rounded-md  border-none   bg-white p-1 leading-4 text-primary-700  shadow-sm hover:bg-tertiary-200;
 }
 
-.v_btn_disabled {
+.v-button-disabled {
   @apply opacity-50 hover:cursor-not-allowed;
 }
 
-.v_btn_secondary_disabled {
+.v-button-secondary_disabled {
   @apply border-gray-500 text-gray-500;
 }

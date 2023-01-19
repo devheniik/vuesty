@@ -1,12 +1,21 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { Colors, Sizes } from '@/types/global/global'
 
 const props = withDefaults(
   defineProps<{
-    disabled: boolean
-    size?: Sizes
-    variantColor?: Colors
+    disabled?: boolean
+    size?: 'tiny' | 'small' | 'medium' | 'big' | 'large' | 'huge' | 'gigantic'
+    color?:
+      | 'primary'
+      | 'secondary'
+      | 'light'
+      | 'success'
+      | 'warning'
+      | 'danger'
+      | 'upgrade'
+      | 'tertiary'
+      | 'info'
+      | 'neutral'
     href?: string
     tag?: string
     to?: string | Record<string, any>
@@ -15,8 +24,8 @@ const props = withDefaults(
   }>(),
   {
     disabled: false,
-    size: 'small',
-    variantColor: 'primary',
+    size: 'medium',
+    color: 'primary',
     fontWeight: 500,
   }
 )
@@ -38,6 +47,7 @@ const component = computed<string>(() => {
 interface Emits {
   (e: 'click'): void
 }
+
 const emit = defineEmits<Emits>()
 
 const onClick = () => {
@@ -73,11 +83,11 @@ const attrs = computed<AttributesInterface>(() => {
   <component
     v-bind="attrs"
     :is="component"
-    :class="[{ 'v_btn_disabled': disabled }, `v_btn-${size}`, `v_btn-${variantColor}`, 'v_btn']"
+    :class="[{ 'v-button-disabled': disabled }, `v-button-${size}`, `v-button-${color}`, 'v-button']"
     :disabled="disabled"
     @click="onClick">
     <slot v-if="loading" name="loadingSlot">
-      <svg class="animated-spinner" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+      <svg class="v-animated-spinner" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
         <path
           class="opacity-75"

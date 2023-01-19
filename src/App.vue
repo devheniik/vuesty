@@ -83,7 +83,7 @@ const selected = ref('')
 
 <template>
   <div class="m-10 flex items-center justify-center space-x-2 p-10 shadow-2xl">
-    <v-button background-color="success">
+    <v-button color="success">
       <UserIcon class="btn-left-icon" />
       Click
     </v-button>
@@ -243,11 +243,6 @@ const selected = ref('')
 
   <div class="m-10 flex flex-col items-center justify-center space-y-5 bg-gray-50 p-10 shadow-2xl">
     <v-alert variant-color="primary" label="Label primary">
-    <v-alert variant="primary" label="Label primary">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates aperiam aliquid reiciendis minus amet vel
-      exercitationem sequi, nobis rerum ad.
-    </v-alert>
-
       Lorem ipsum dolor sit amet consectetur adipisicing elit. A quibusdam minima atque possimus exercitationem
       repellendus adipisci tenetur aliquid ab optio in odio distinctio placeat, suscipit recusandae, est nulla dicta
       nemo fugiat nobis dolores debitis quisquam. Temporibus excepturi illo assumenda culpa velit fuga, accusantium
