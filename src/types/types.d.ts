@@ -1,7 +1,7 @@
 import { GlobalComponentConstructor, ComponentConstructor } from './utils/ts-helper'
 
 import { VButtonComponent, VButtonProps, VButtonSlots } from '../components/Button/types'
-import { VAccordionComponent, VAccordionSlots,  VAccordionProps } from '../components/Accordion/types'
+import { VAccordionComponent, VAccordionSlots, VAccordionProps } from '../components/Accordion/types'
 import { VAlertComponent, VAlertProps, VAlertSlots, VAvatarSlots } from '../components/Alert/types'
 import { VAvatarComponent, VAvatarProps } from '../components/Avatar/types'
 import { VAvatarGroupComponent, VAvatarGroupProps, VAvatarGroupSlots } from '../components/AvatarGroup/types'

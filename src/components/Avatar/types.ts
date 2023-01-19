@@ -1,11 +1,7 @@
 import type { ComponentPublicInstance } from 'vue'
-import type { Sizes, Colors } from '@/types/global/global';
+import type { Sizes, Colors } from '@/types/global/global'
 
-export type MainColors =
-  | 'primary'
-  | 'warning'
-  | 'success'
-  | 'danger'
+export type MainColors = 'primary' | 'warning' | 'success' | 'danger'
 
 export interface VAvatarEvents {
   onClick?: () => void

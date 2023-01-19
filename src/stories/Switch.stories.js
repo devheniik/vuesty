@@ -7,7 +7,7 @@ export default {
 }
 
 const Template = args => ({
-  components: {VSwitch, UserIcon} ,
+  components: { VSwitch, UserIcon },
 
   setup() {
     return { args }
@@ -20,9 +20,8 @@ const Template = args => ({
 
 export const Switch = Template.bind({})
 
-
 const TemplateCustomSlot = args => ({
-  components: {VSwitch, UserIcon} ,
+  components: { VSwitch, UserIcon },
 
   setup() {
     return { args }

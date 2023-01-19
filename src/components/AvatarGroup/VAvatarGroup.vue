@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { Sizes, Colors as GlobalColors } from '@/types/global/global';
+import type { Sizes, Colors as GlobalColors } from '@/types/global/global'
 
 const props = withDefaults(
   defineProps<{
@@ -37,17 +37,14 @@ const sizes = computed(() => {
 
   if (props.size === 'gigantic') {
     return '[&>.avatar]:h-20 [&>.avatar]:w-20 [&>.avatar]:-mr-6'
-  }
-  else return ''
+  } else return ''
 })
-
 </script>
 
 <template>
-  <div class="flex avatar-group [&>.avatar]:-mr-3" :class="`${sizes}`">
+  <div class="avatar-group flex [&>.avatar]:-mr-3" :class="`${sizes}`">
     <slot />
   </div>
 </template>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

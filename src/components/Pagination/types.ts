@@ -5,7 +5,7 @@ export interface VPaginationEvents {
 }
 
 export interface VPaginationProps extends VPaginationEvents {
-  totalPages: number,
+  totalPages: number
 }
 
 export type VPaginationComponent = ComponentPublicInstance<VPaginationProps>

@@ -61,17 +61,11 @@ module.exports = {
       },
       gray: colors.gray,
       info: colors.teal,
-      orange: colors.orange,
-      stone: colors.stone,
       neutral: colors.neutral,
       upgrade: colors.pink,
-      purple: colors.purple,
-      green: colors.emerald,
       black: colors.black,
       white: colors.white,
       tertiary: colors.indigo,
-      red: colors.red,
-      yellow: colors.yellow,
     },
     fontFamily: {
       sans: [

@@ -1,6 +1,5 @@
 import type { ComponentPublicInstance, VNode } from 'vue'
-import type { Sizes, Colors } from '@/types/global/global';
-
+import type { Sizes, Colors } from '@/types/global/global'
 
 export interface VAvatarGroupProps {
   size?: Sizes

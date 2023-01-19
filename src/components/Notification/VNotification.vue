@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { BellIcon } from "@devheniik/icons";
+import { BellIcon } from '@devheniik/icons'
 withDefaults(
   defineProps<{
     count?: number
   }>(),
   {
-    count: 0
+    count: 0,
   }
 )
 
@@ -21,20 +21,15 @@ const onNotification = () => {
 </script>
 
 <template>
-  <button class="relative notification-icon" @click="onNotification">
+  <button class="notification-icon relative" @click="onNotification">
     <slot>
       <BellIcon />
     </slot>
 
-    <div
-    class="notification"
-    :class="`${(String(count).length > 2) ? '-right-4' : '-right-1'}`"
-    >
-    {{ count }}
+    <div class="notification" :class="`${String(count).length > 2 ? '-right-4' : '-right-1'}`">
+      {{ count }}
     </div>
   </button>
 </template>
 
-<style>
-
-</style>
+<style></style>

@@ -1,32 +1,31 @@
 .text-success-medium {
-  @apply text-success-500
+  @apply text-success-500;
 }
 
 .text-primary-medium {
-  @apply text-primary-500
+  @apply text-primary-500;
 }
 
 .text-warning-medium {
-  @apply text-warning-500
+  @apply text-warning-500;
 }
 
 .text-danger-medium {
-  @apply text-danger-500
+  @apply text-danger-500;
 }
 
 .text-upgrade-medium {
-  @apply text-upgrade-500
+  @apply text-upgrade-500;
 }
 
 .text-info-medium {
-  @apply text-info-400
+  @apply text-info-400;
 }
 
 .text-tertiary-medium {
-  @apply text-tertiary-500
+  @apply text-tertiary-500;
 }
 
 .text-neutral-medium {
-  @apply text-neutral-500
+  @apply text-neutral-500;
 }
-

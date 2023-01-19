@@ -15,21 +15,18 @@ const enabled = ref(false)
   <div class="py-16">
     <Switch
       v-model="enabled"
-      :class="enabled ? 'bg-success-800 hover:bg-success-1000 [&>svg]:translate-x-2' : 'bg-gray-500 hover:bg-gray-700 [&>svg]:translate-x-0'"
-      class="
-      [&>svg]:transition [&>svg]:duration-200 [&>svg]:ease-in-out
-      transition duration-200 ease-in-out
-      relative inline-flex h-3.5 w-[22px] shrink-0 cursor-pointer rounded-full border-2 border-transparent
-      focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75
+      :class="
+        enabled
+          ? 'bg-success-800 hover:bg-success-1000 [&>svg]:translate-x-2'
+          : 'bg-gray-500 hover:bg-gray-700 [&>svg]:translate-x-0'
       "
-    >
-    <slot>
-      <span
-        aria-hidden="true"
-        :class="enabled ? 'translate-x-2' : 'translate-x-0'"
-        class="pointer-events-none inline-block h-2.5 w-2.5 transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out"
-      />
-    </slot>
+      class="relative inline-flex h-3.5 w-[22px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition duration-200 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 [&>svg]:transition [&>svg]:duration-200 [&>svg]:ease-in-out">
+      <slot>
+        <span
+          aria-hidden="true"
+          :class="enabled ? 'translate-x-2' : 'translate-x-0'"
+          class="pointer-events-none inline-block h-2.5 w-2.5 transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out" />
+      </slot>
     </Switch>
   </div>
 </template>
