@@ -83,10 +83,31 @@ const selected = ref('')
 </script>
 
 <template>
-  <div class="m-10 flex items-center justify-center space-x-2 p-10 shadow-2xl">
+  <div class="m-10 flex flex-wrap items-center justify-center space-x-2 space-y-4 p-10 shadow-2xl">
+    <v-button color="danger">
+      prim
+    </v-button>
+    <v-button color="warning">
+      prim
+    </v-button>
     <v-button color="success">
       <UserIcon class="btn-left-icon" />
-      Click
+      success
+    </v-button>
+    <v-button color="light">
+      light
+    </v-button>
+    <v-button color="secondary">
+      secondary
+    </v-button>
+    <v-button :disabled="true" color="primary">
+      primary disabled
+    </v-button>
+    <v-button :disabled="true" color="secondary">
+      secondary disabled
+    </v-button>
+    <v-button :disabled="true" color="light">
+      light disabled
     </v-button>
   </div>
 

@@ -77,13 +77,29 @@ const attrs = computed<AttributesInterface>(() => {
 
   return attributes
 })
-</script>
 
+const isPrimary = computed(() => {
+  return !['light', 'secondary'].includes(props.color)
+})
+
+const isSecondary = computed(() => {
+  return props.color === 'secondary'
+})
+
+const isLight = computed(() => {
+  return props.color === 'light'
+})
+
+</script>
+<!-- v-button_light_disabled -->
 <template>
   <component
     v-bind="attrs"
     :is="component"
-    :class="[{ 'v-button-disabled': disabled }, `v-button-${size}`, `v-button-${color}`, 'v-button']"
+    :class="[{ 'v-button_disabled': disabled && isPrimary },
+    {'v-button_secondary_disabled' : (disabled && isSecondary)},
+    {'v-button_light_disabled' : (disabled && isLight)},
+    `v-button-${size}`, `v-button-${color}`, 'v-button']"
     :disabled="disabled"
     @click="onClick">
     <slot v-if="loading" name="loadingSlot">
