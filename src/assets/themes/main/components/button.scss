@@ -1,97 +1,101 @@
-._btn-common {
+._btn_common {
   @apply inline-flex cursor-pointer items-center justify-center whitespace-nowrap text-lg font-medium focus:outline-none focus:ring-0 focus:ring-offset-0;
 }
 
-.btn {
-  @apply _btn-common w-auto rounded border-none bg-primary-600  px-1.5 py-1 text-white shadow-sm hover:bg-primary-700;
+.v_btn {
+  @apply _btn_common w-auto rounded border-none bg-primary-600  px-1.5 py-1 text-white shadow-sm hover:bg-primary-700;
 }
 
 /* Colors */
 
-.btn-light {
+.v_btn_light {
   @apply bg-white text-primary-600  hover:border-transparent hover:bg-tertiary-100;
 }
 
-.btn-secondary {
-  @apply _btn-common  rounded border-solid border-primary-500 bg-white  px-1.5 py-0.5 text-primary-500 hover:border-transparent hover:bg-tertiary-300 hover:text-primary-1000;
+.v_btn_secondary {
+  @apply _btn_common  rounded border-solid border-primary-500 bg-white  px-1.5 py-0.5 text-primary-500 hover:border-transparent hover:bg-tertiary-300 hover:text-primary-1000;
 }
 
-.btn-danger {
+.v_btn_danger {
   @apply rounded bg-danger-600 text-white hover:bg-danger-700 focus:ring-danger-500;
 }
 
-.btn-tertiary {
+.v_btn_tertiary {
   @apply bg-tertiary-600 text-white hover:bg-tertiary-700 focus:ring-tertiary-500;
 }
 
-.btn-info {
+.v_btn_info {
   @apply bg-info-400 text-white hover:bg-info-600 focus:ring-info-500;
 }
 
-.btn-upgrade {
+.v_btn_upgrade {
   @apply bg-upgrade-400 text-white hover:bg-upgrade-600 focus:ring-upgrade-500;
 }
 
-.btn-success {
+.v_btn_success {
   @apply bg-success-600 text-white shadow-sm hover:bg-success-700 focus:ring-success-500;
 }
 
-.btn-warning {
+.v_btn_warning {
   @apply bg-warning-400 text-white shadow-sm hover:bg-warning-500 focus:ring-warning-500;
 }
 
-.btn-neutral {
-  @apply _btn-common rounded bg-neutral-600  px-1.5 py-0.5 text-white shadow-sm hover:bg-neutral-700 focus:ring-neutral-500;
+.v_btn_neutral {
+  @apply _btn_common rounded bg-neutral-600  px-1.5 py-0.5 text-white shadow-sm hover:bg-neutral-700 focus:ring-neutral-500;
 }
 
-.btn-white {
-  @apply _btn-common rounded border border-neutral-300 bg-white px-1.5 py-0.5 text-neutral-700 shadow-sm hover:bg-neutral-50;
+.v_btn_white {
+  @apply _btn_common rounded border border-neutral-300 bg-white px-1.5 py-0.5 text-neutral-700 shadow-sm hover:bg-neutral-50;
 }
 
 /* Sizes */
 
-.btn-big {
-  @apply px-3 py-2 text-lg font-semibold leading-5;
+.v_btn_small {
+  @apply px-2 py-1 text-sm font-semibold leading-4;
 }
 
-.btn-small {
-  @apply px-2 py-1 text-sm font-semibold leading-4;
+.v_btn_medium {
+  @apply v_btn
+}
+
+.v_btn-big {
+  @apply px-3 py-2 text-lg font-semibold leading-5;
 }
 
 /* Icons */
 
-.icon {
+.v_icon {
   @apply -ml-0.5 mr-2 h-4 w-4;
 }
 
-.btn-icon {
-  @apply _btn-common h-9 w-12 rounded bg-primary-600 leading-4 shadow-sm hover:bg-primary-700;
+.v_btn-icon {
+  @apply _btn_common h-9 w-12 rounded bg-primary-600 leading-4 shadow-sm hover:bg-primary-700;
 }
 
-.btn-icon-small {
+.v_btn-icon_small {
   @apply h-8 w-11  rounded-md leading-4 shadow-sm;
 }
 
-.btn-icon-tiny {
+.v_btn-icon_tiny {
   @apply h-8 w-11  rounded leading-4 shadow-sm;
 }
 
-.btn-icon-big {
-  @apply btn-icon;
+.v_btn-icon_big {
+  @apply v_btn-icon;
 }
 
-.btn-icon-secondary {
+.v_btn-icon_secondary {
   @apply rounded border  border-primary-500 bg-white text-primary-500 hover:bg-tertiary-400 hover:text-primary-700;
 }
 
-.btn-icon-light {
-  @apply _btn-common rounded-md  border-none   bg-white p-1 leading-4 text-primary-700  shadow-sm hover:bg-tertiary-200;
+.v_btn-icon_light {
+  @apply _btn_common rounded-md  border-none   bg-white p-1 leading-4 text-primary-700  shadow-sm hover:bg-tertiary-200;
 }
 
-.btn-disabled {
+.v_btn_disabled {
   @apply opacity-50 hover:cursor-not-allowed;
 }
 
-.btn-secondary-disabled {
+.v_btn_secondary_disabled {
   @apply border-gray-500 text-gray-500;
 }
