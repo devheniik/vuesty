@@ -1,18 +1,24 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { Sizes, Colors as GlobalColors } from '@/types/global/global'
-import type { MainColors } from './types'
 
 const props = withDefaults(
   defineProps<{
-    size?: Sizes
-    color?: GlobalColors
+    size?: 'tiny' | 'small' | 'medium' | 'big' | 'large' | 'huge' | 'gigantic'
+    color?:
+      | 'primary'
+      | 'secondary'
+      | 'light'
+      | 'success'
+      | 'warning'
+      | 'danger'
+      | 'upgrade'
+      | 'tertiary'
+      | 'info'
+      | 'neutral'
     src?: string
     alt?: string
-    width?: number
-    height?: number
     text?: string
-    status?: MainColors
+    status?: 'primary' | 'warning' | 'success' | 'danger'
   }>(),
   {
     size: 'medium',
@@ -28,12 +34,35 @@ interface AvatarAttributesInterface {
 const attrs = computed<AvatarAttributesInterface>(() => {
   const attributes: AvatarAttributesInterface = {}
 
-  if (props.width) {
-    attributes.width = props.width
-  }
-
-  if (props.height) {
-    attributes.height = props.height
+  switch (props.size) {
+    case 'tiny':
+      attributes.width = 16
+      attributes.height = 16
+      break
+    case 'small':
+      attributes.width = 24
+      attributes.height = 24
+      break
+    case 'medium':
+      attributes.width = 32
+      attributes.height = 32
+      break
+    case 'big':
+      attributes.width = 40
+      attributes.height = 40
+      break
+    case 'large':
+      attributes.width = 48
+      attributes.height = 48
+      break
+    case 'huge':
+      attributes.width = 64
+      attributes.height = 64
+      break
+    case 'gigantic':
+      attributes.width = 80
+      attributes.height = 80
+      break
   }
 
   return attributes
@@ -67,17 +96,17 @@ const formatter = (text: string) => {
 
 <template>
   <div
-  :class="['avatar', `avatar-${size}`, text ? `avatar-letters-${color}` : '']">
+  :class="['v-avatar', `v-avatar-${size}`, text && `v-avatar-letters-${color}`]">
 
-    <img v-if="src" :src="src" v-bind="attrs" :alt="alt" class="avatar__img" />
+    <img v-if="src" :src="src" v-bind="attrs" :alt="alt" class="v-avatar__img" loading="lazy"/>
 
     <div v-else>
-      {{ text ? formatter(text) : '' }}
+      {{ text && formatter(text) }}
     </div>
 
     <div
     v-if="status"
-    :class="[`v_bg-${status}-medium`, `status-circle_${size}`, 'avatar__status-circle']">
+    :class="[`v_bg-${status}-medium`, `v-avatar__status-circle_${size}`, 'v-avatar__status-circle']">
     </div>
   </div>
 </template>
