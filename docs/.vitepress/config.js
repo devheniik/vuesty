@@ -19,6 +19,12 @@ export default defineConfig({
           { text: 'Configuration', link: '/start/configuration' },
         ],
       },
+      {
+        text: 'Components',
+        items: [
+          { text: 'Button', link: '/components/button' }
+        ]
+      }
     ],
   },
 

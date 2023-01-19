@@ -9,6 +9,7 @@ import VAlert from './components/Alert/VAlert.vue'
 import VNotification from './components/Notification/VNotification.vue'
 import VAccordion from './components/Accordion/VAccordion.vue'
 import VPagination from './components/Pagination/VPagination.vue'
+import VPanel from './components/Panel/VPanel.vue'
 // import VTimeline from './components/Timeline/VTimeline.vue'
 import VMenu from './components/Menu/VMenu.vue'
 import VTabs from './components/Tabs/VTabs.vue'
@@ -254,6 +255,12 @@ const selected = ref('')
     <v-alert variant="danger" label="Label danger" :controls="false"> Lorem ipsum dolor sit amet. </v-alert>
 
   </div>
+  <div class="m-10 flex flex-col items-center justify-center space-y-5 bg-gray-50 p-10 shadow-2xl">
+    <v-panel>
+      tets
+    </v-panel>
+  </div>
+
 </template>
 
 <style scoped></style>

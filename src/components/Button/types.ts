@@ -6,7 +6,7 @@ export interface VButtonEvents {
 
 export interface VButtonProps extends VButtonEvents {
   disabled?: boolean
-  size?: 'tiny' | 'small' | 'medium' | 'big' | 'large' | 'huge' | 'gigantic'
+  size?: 'small' | 'medium' | 'big'
   color?:
     | 'primary'
     | 'secondary'

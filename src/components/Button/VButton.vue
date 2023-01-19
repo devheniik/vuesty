@@ -4,7 +4,7 @@ import { computed } from 'vue'
 const props = withDefaults(
   defineProps<{
     disabled?: boolean
-    size?: 'tiny' | 'small' | 'medium' | 'big' | 'large' | 'huge' | 'gigantic'
+    size?: 'small' | 'medium' | 'big'
     color?:
       | 'primary'
       | 'secondary'
