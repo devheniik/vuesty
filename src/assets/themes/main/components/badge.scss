@@ -1,94 +1,94 @@
-.v_tag {
+.v-tag {
   @apply inline-flex items-center rounded px-2.5 py-1.5 text-sm
   font-medium leading-3;
 }
 
-.v_tag-primary {
+.v-tag-primary {
   @apply bg-primary-100 text-primary-600;
 }
 
-.v_tag-success {
+.v-tag-success {
   @apply bg-success-100 text-success-600;
 }
 
-.v_tag-warning {
+.v-tag-warning {
   @apply bg-upgrade-50 text-warning-400;
 }
 
-.v_tag-danger {
+.v-tag-danger {
   @apply bg-danger-100 text-danger-600;
 }
 
-.v_tag-tertiary {
+.v-tag-tertiary {
   @apply bg-tertiary-100 text-tertiary-400;
 }
 
-.v_tag-info {
+.v-tag-info {
   @apply bg-info-50 text-info-500;
 }
 
-.v_tag-upgrade {
+.v-tag-upgrade {
   @apply bg-upgrade-100 text-upgrade-400;
 }
 
-.v_tag-neutral {
+.v-tag-neutral {
   @apply bg-gray-100 text-neutral-700;
 }
 
-.v_tag-status-text {
+.v-tag-status-text {
   @apply text-gray-700;
 }
 
-.v_tag-chip-text {
+.v-tag-chip-text {
   @apply text-white;
 }
 
-.v_tag__status-circle {
+.v-tag__status-circle {
   @apply mr-2 h-2 w-2 rounded-full bg-gray-500;
 }
 
-.v_tag__status-circle_danger {
+.v-tag__status-circle_danger {
   @apply bg-danger-500;
 }
 
-.v_tag__status-circle_warning {
+.v-tag__status-circle_warning {
   @apply bg-warning-500;
 }
 
-.v_tag__status-circle_primary {
+.v-tag__status-circle_primary {
   @apply bg-primary-500;
 }
 
-.v_tag__status-circle_success {
+.v-tag__status-circle_success {
   @apply bg-success-500;
 }
 
-.v_tag__status-circle_info {
+.v-tag__status-circle_info {
   @apply bg-info-500;
 }
 
-.v_tag__status-circle_tertiary {
+.v-tag__status-circle_tertiary {
   @apply bg-tertiary-500;
 }
 
-.v_tag__status-circle_upgrade {
+.v-tag__status-circle_upgrade {
   @apply bg-upgrade-500;
 }
 
-.v_tag__status-circle-neutral {
+.v-tag__status-circle-neutral {
   @apply bg-neutral-500;
 }
 
 /* Icons*/
 
-.v_tag__icon{
+.v-tag__icon{
   @apply mr-1 w-3.5;
 }
 
-.v_tag__chip{
+.v-tag__chip{
   @apply pl-2;
 }
 
-.v_tag__chip__icon{
+.v-tag__chip__icon{
   @apply w-3 stroke-2 opacity-50;
 }

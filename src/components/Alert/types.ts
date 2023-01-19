@@ -1,7 +1,5 @@
 import type { VNode, ComponentPublicInstance } from 'vue'
 
-export type Colors = 'primary' | 'success' | 'warning' | 'danger'
-
 export interface VAvatarEvents {
   onCloseClicked?: () => void
   okClicked?: () => void

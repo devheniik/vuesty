@@ -41,20 +41,20 @@ const onClose = () => {
 }
 
 const chipColor = computed(() => `v_bg-${props.color}-heavy`)
-const tagColor = computed(() => `v_tag-${props.color}`)
+const tagColor = computed(() => `v-tag-${props.color}`)
 </script>
 
 <template>
-  <div :class="[{ 'v_tag-chip-text': chip }, { 'v_tag-status-text': status }, chip && chipColor, !chip && tagColor, 'v_tag']">
-    <div v-if="status" :class="['v_tag__status-circle', `v_tag__status-circle_${props.color}`]"></div>
+  <div :class="[{ 'v-tag-chip-text': chip }, { 'v-tag-status-text': status }, chip && chipColor, !chip && tagColor, 'v-tag']">
+    <div v-if="status" :class="['v-tag__status-circle', `v-tag__status-circle_${props.color}`]"></div>
 
-    <div v-if="icon" class="v_tag__icon">
+    <div v-if="icon" class="v-tag__icon">
       <slot></slot>
     </div>
 
-    {{ label }} 
-    <button v-if="chip" class="v_tag__chip" @click="onClose">
-      <XMarkIcon class="v_tag__chip__icon" />
+    {{ label }}
+    <button v-if="chip" class="v-tag__chip" @click="onClose">
+      <XMarkIcon class="v-tag__chip__icon" />
     </button>
   </div>
 </template>
