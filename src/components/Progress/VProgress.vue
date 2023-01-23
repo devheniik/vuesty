@@ -49,3 +49,7 @@ const progressPercent = computed(() => {
 
   </div>
 </template>
+
+<style>
+@import "src/assets/themes/main/components/progress.scss";
+</style>
