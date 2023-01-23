@@ -112,7 +112,7 @@ const selected = ref('')
   </div>
 
   <div class="m-10 p-10">
-    <v-progress progress="20%"></v-progress>
+    <v-progress :total="335" :current="172" measure="кг"></v-progress>
   </div>
 
   <div class="m-10 flex items-center justify-center space-x-2 p-10 shadow-2xl">
