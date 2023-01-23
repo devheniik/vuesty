@@ -80,26 +80,26 @@ const nextPage = () => {
 </script>
 
 <template>
-  <div class="v_pagination">
-    <button class="v_pagination__arrow v_pagination__arrow_left" @click="previousPage">
-      <ChevronLeftIcon class="v_pagination__arrow_size" />
+  <div class="v-pagination">
+    <button class="v-pagination__arrow v-pagination__arrow_left" @click="previousPage">
+      <ChevronLeftIcon class="v-pagination__arrow_size" />
     </button>
 
-    <div class="v_pagination__body">
+    <div class="v-pagination__body">
       <div v-for="n in paginationArr" :key="n">
         <div
-        :class="[{ 'v_pagination__body__item_active': activeIndex === n }, 'v_pagination__body__item']" @click="pickPage(n)">
+        :class="[{ 'v-pagination__body__item_active': activeIndex === n }, 'v-pagination__body__item']" @click="pickPage(n)">
           {{ n }}
         </div>
       </div>
     </div>
 
-    <button class="v_pagination__arrow v_pagination__arrow_left" @click="nextPage">
-      <ChevronRightIcon class="v_pagination__arrow_size" />
+    <button class="v-pagination__arrow v-pagination__arrow_left" @click="nextPage">
+      <ChevronRightIcon class="v-pagination__arrow_size" />
     </button>
   </div>
 </template>
 
 <style scoped>
-
+@import "src/assets/themes/main/components/pagination.scss";
 </style>
