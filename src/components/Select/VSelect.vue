@@ -231,49 +231,49 @@ onMounted(() => {
 </script>
 
 <template>
-  <div ref="selectRef" class="select" @click="onFocus">
+  <div ref="selectRef" class="v-select" @click="onFocus">
     <div
       ref="headRef"
       type="button"
       :aria-expanded="open"
       aria-haspopup="menu"
-      :class="['select-head scrollbar group', { 'select-head-focus': isFocused }]">
-      <span class="select-icon-box-left">
-        <MagnifyingGlassIcon :class="[ 'select-icon', { 'select-icon-focus' : isFocused }]" />
+      :class="['v-select__head scrollbar group', { 'v-select__head_focus': isFocused }]">
+      <span class="v-select__icon-box_left">
+        <MagnifyingGlassIcon :class="[ 'v-select__icon', { 'v-select__icon_focus' : isFocused }]" />
       </span>
-      <span class="select-head-main">
+      <span class="v-select__head__main">
         <input
           v-show="isFocused"
           ref="inputRef"
           v-model="search"
           :placeholder="searchPlaceholder"
           type="text"
-          class="select-main-input" />
-        <div v-if="isMultipleFilled()" class="tag-box scrollbar">
+          class="v-select__main__input" />
+        <div v-if="isMultipleFilled()" class="v-tag__box scrollbar">
           <slot v-for="(value, index) in modelValue" :key="index" name="tag" :option="value">
-            <div class="tag">
+            <div class="v-tag">
               {{ getLabelByValue(value) }}
             </div>
           </slot>
         </div>
-        <span v-else-if="isSingleFilled()" class="select-text">{{ label() }}</span>
+        <span v-else-if="isSingleFilled()" class="v-select__text">{{ label() }}</span>
         <span v-else-if="!isFocused" class="placeholder-text">{{ placeholder }}</span>
       </span>
-      <div class="select-icon-box">
-        <XMarkIcon :class="[ 'select-icon focus-none', { 'select-icon-focus' : isFocused }]" @click.stop="clear" @focus.stop="clear" />
-        <ChevronUpDownIcon :class="[ 'select-icon focus-none', { 'select-icon-focus' : isFocused }]" />
+      <div class="v-select__icon-box">
+        <XMarkIcon :class="[ 'v-select__icon focus-none', { 'v-select__icon_focus' : isFocused }]" @click.stop="clear" @focus.stop="clear" />
+        <ChevronUpDownIcon :class="[ 'v-select__icon focus-none', { 'v-select__icon_focus' : isFocused }]" />
       </div>
     </div>
     <transition
       leave-active-class="transition ease-in duration-100"
       leave-from-class="opacity-100"
       leave-to-class="opacity-0">
-      <ul v-if="open" aria-labelledby="select-label" class="select-menu scrollbar" role="menu" tabindex="-1">
-        <div v-if="props.multiple" class="select-empty-box">
+      <ul v-if="open" aria-labelledby="select-label" class="v-select__menu scrollbar" role="menu" tabindex="-1">
+        <div v-if="props.multiple" class="v-select__empty-box">
 
         </div>
-        <div v-if="filteredOptions.length === 0" class="select-empty-box">
-          <DocumentMagnifyingGlassIcon class="select-icon-empty" />
+        <div v-if="filteredOptions.length === 0" class="v-select__empty-box">
+          <DocumentMagnifyingGlassIcon class="v-select__icon_empty" />
           <span>
             {{emptyText}}
           </span>
@@ -281,15 +281,15 @@ onMounted(() => {
         <li
           v-for="(option, index) in filteredOptions"
           :key="index"
-          class="select-menu-item group"
+          class="v-select__menu__item group"
           role="option"
           @click="onSelect(option)"
           @keyup.enter="onSelect(option)">
-          <span :class="[`select-menu-item-text`, { 'select-menu-item-text-selected': isSelected(option) }]">{{
+          <span :class="[`v-select__menu__item__text`, { 'v-select__menu__item__text_selected': isSelected(option) }]">{{
             getLabel(option)
           }}</span>
-          <span v-show="isSelected(option)" class="select-menu-item-selected-icon-box">
-            <CheckIcon class="select-menu-item-selected-icon" />
+          <span v-show="isSelected(option)" class="v-select__menu__item_selected__icon-box">
+            <CheckIcon class="v-select__menu__item_selected__icon" />
           </span>
         </li>
       </ul>
@@ -297,4 +297,6 @@ onMounted(() => {
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+@import "src/assets/themes/main/components/select.scss";
+</style>
