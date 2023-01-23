@@ -5,5 +5,6 @@
 @import 'components/animations.scss';
 @import 'components/alert.scss';
 @import 'components/notification.scss';
+@import 'components/progress.scss';
 @import './bg.css';
 @import './textColor.css';
