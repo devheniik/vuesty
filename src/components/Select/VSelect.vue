@@ -297,6 +297,6 @@ onMounted(() => {
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 @import "src/assets/themes/main/components/select.scss";
 </style>
