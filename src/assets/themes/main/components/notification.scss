@@ -1,19 +1,19 @@
-.v_notification {
+.v-notification {
   @apply absolute top-0 flex items-center justify-center  rounded-full border-2 border-white bg-primary-500 py-px px-[3px]  text-[10px] font-bold leading-[10px] text-white;
 }
 
-.v_notification-btn {
+.v-notification__btn {
   @apply relative
 }
 
-.v_notification-btn > svg {
+.v-notification__btn > svg {
   @apply w-6;
 }
 
-.v_right-small {
+.v-right-small {
   @apply -right-1
 }
 
-.v_right-medium {
+.v-right-medium {
   @apply -right-4
 }
