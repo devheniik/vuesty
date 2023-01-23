@@ -7,22 +7,22 @@ const show = ref(false)
 
 <template>
   <Menu>
-    <MenuButton class="v_menu-button">
+    <MenuButton class="v-menu-button">
       <slot>
         <div
-          class="v_menu-button__slot"
+          class="v-menu-button__slot"
           @click="show = !show">
-          <button class="v_menu-button__slot__inner">...</button>
+          <button class="v-menu-button__slot__inner">...</button>
         </div>
       </slot>
     </MenuButton>
     <MenuItems
-      class="v_menu-items">
+      class="v-menu-items">
       <slot name="menuItems" />
     </MenuItems>
   </Menu>
 </template>
 
 <style>
-
+@import "src/assets/themes/main/components/menu.scss";
 </style>
