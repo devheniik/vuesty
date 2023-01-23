@@ -1,0 +1,37 @@
+.v-pagination {
+  @apply flex
+}
+
+.v-pagination__body {
+  @apply flex
+}
+
+.v-pagination__body__item {
+  @apply flex h-8 w-8 cursor-pointer items-center justify-center border border-primary-200 hover:border-primary-500;
+}
+
+.v-pagination__body__item_active {
+  @apply !bg-primary-100 text-primary-500;
+}
+
+
+.v-pagination__arrow {
+  @apply v-pagination__body__item font-bold text-primary-500
+}
+
+.v-pagination__arrow_size {
+  @apply h-4
+}
+
+.v-pagination__arrow_left {
+  @apply rounded-l
+}
+
+.v-pagination__arrow_right {
+  @apply rounded-r
+}
+
+
+
+
+
