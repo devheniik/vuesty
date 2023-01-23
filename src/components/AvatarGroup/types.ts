@@ -1,5 +1,25 @@
 import type { ComponentPublicInstance, VNode } from 'vue'
-import type { Sizes, Colors } from '@/types/global/global'
+
+type Colors =
+  | 'primary'
+  | 'secondary'
+  | 'light'
+  | 'success'
+  | 'warning'
+  | 'danger'
+  | 'upgrade'
+  | 'tertiary'
+  | 'info'
+  | 'neutral'
+
+type Sizes =
+  | 'tiny'
+  | 'small'
+  | 'medium'
+  | 'big'
+  | 'large'
+  | 'huge'
+  | 'gigantic'
 
 export interface VAvatarGroupProps {
   size?: Sizes
