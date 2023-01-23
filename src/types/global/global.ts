@@ -10,12 +10,4 @@ export type Colors =
   | 'info'
   | 'neutral'
 
-export type Sizes =
-  | 'tiny'
-  | 'small'
-  | 'medium'
-  | 'big'
-  | 'large'
-  | 'huge'
-  | 'gigantic'
-
+export type Sizes = 'tiny' | 'small' | 'medium' | 'big' | 'large' | 'huge' | 'gigantic'

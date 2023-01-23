@@ -6,7 +6,7 @@ export default {
   argTypes: {
     variantColor: {
       control: { type: 'select' },
-      options: ['primary' ,'success' , 'warning' , 'danger'],
+      options: ['primary', 'success', 'warning', 'danger'],
     },
     label: '',
     okButton: '',
@@ -17,7 +17,6 @@ export default {
 
 const Template = args => ({
   components: { VAlert },
-
 
   setup() {
     return { args }

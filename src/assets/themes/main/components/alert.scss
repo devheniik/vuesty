@@ -1,43 +1,43 @@
 .v-alert {
-  @apply flex w-[500px] justify-between rounded bg-white pr-4 shadow-md
+  @apply flex w-[500px] justify-between rounded bg-white pr-4 shadow-md;
 }
 
 .v-alert__left-border {
-  @apply w-1 rounded-tl-md rounded-bl-md
+  @apply w-1 rounded-tl-md rounded-bl-md;
 }
 
 .v-alert__info-icon {
-  @apply w-5 self-start mt-2
+  @apply mt-2 w-5 self-start;
 }
 
 .v-alert__main {
-  @apply flex w-10/12 flex-col py-2
+  @apply flex w-10/12 flex-col py-2;
 }
 
 .v-alert__label {
-  @apply text-base font-semibold leading-5
+  @apply text-base font-semibold leading-5;
 }
 
 .v-alert__text {
-  @apply text-sm
+  @apply text-sm;
 }
 
 .v-alert__controls {
-  @apply mt-2 flex
+  @apply mt-2 flex;
 }
 
 .v-alert__controls__cancel {
-  @apply ml-2.5 text-sm
+  @apply ml-2.5 text-sm;
 }
 
 .v-alert__close-icon {
-  @apply opacity-50 stroke-2 w-4
+  @apply w-4 stroke-2 opacity-50;
 }
 
 .v-alert__close {
-  @apply self-start mt-4
+  @apply mt-4 self-start;
 }
 
 .v-alert__close_flat {
-  @apply mt-2
+  @apply mt-2;
 }

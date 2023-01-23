@@ -1,12 +1,21 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { Colors, Sizes } from '@/types/global/global'
 
 const props = withDefaults(
   defineProps<{
-    disabled: boolean
-    size?: Sizes
-    variantColor?: Colors
+    disabled?: boolean
+    size?: 'small' | 'medium' | 'big'
+    color?:
+      | 'primary'
+      | 'secondary'
+      | 'light'
+      | 'success'
+      | 'warning'
+      | 'danger'
+      | 'upgrade'
+      | 'tertiary'
+      | 'info'
+      | 'neutral'
     href?: string
     tag?: string
     to?: string | Record<string, any>
@@ -15,8 +24,8 @@ const props = withDefaults(
   }>(),
   {
     disabled: false,
-    // size: 'small',
-    variantColor: 'primary',
+    size: 'medium',
+    color: 'primary',
     fontWeight: 500,
   }
 )
@@ -38,6 +47,7 @@ const component = computed<string>(() => {
 interface Emits {
   (e: 'click'): void
 }
+
 const emit = defineEmits<Emits>()
 
 const onClick = () => {
@@ -67,17 +77,33 @@ const attrs = computed<AttributesInterface>(() => {
 
   return attributes
 })
-</script>
 
+const isPrimary = computed(() => {
+  return !['light', 'secondary'].includes(props.color)
+})
+
+const isSecondary = computed(() => {
+  return props.color === 'secondary'
+})
+
+const isLight = computed(() => {
+  return props.color === 'light'
+})
+
+</script>
+<!-- v-button_light_disabled -->
 <template>
   <component
     v-bind="attrs"
     :is="component"
-    :class="['btn flex', { 'btn-disabled': disabled }, `btn-${size}`, `btn-${variantColor}`]"
+    :class="[{ 'v-button_disabled': disabled && isPrimary },
+    {'v-button_secondary_disabled' : (disabled && isSecondary)},
+    {'v-button_light_disabled' : (disabled && isLight)},
+    `v-button-${size}`, `v-button-${color}`, 'v-button']"
     :disabled="disabled"
     @click="onClick">
     <slot v-if="loading" name="loadingSlot">
-      <svg class="animated-spinner" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+      <svg class="v-animated-spinner" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
         <path
           class="opacity-75"

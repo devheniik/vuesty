@@ -1,76 +1,94 @@
-.tag {
+.v-tag {
   @apply inline-flex items-center rounded px-2.5 py-1.5 text-sm
-  leading-3 font-medium;
+  font-medium leading-3;
 }
 
-.tag-primary {
+.v-tag-primary {
   @apply bg-primary-100 text-primary-600;
 }
 
-.tag-success {
+.v-tag-success {
   @apply bg-success-100 text-success-600;
 }
 
-.tag-warning {
+.v-tag-warning {
   @apply bg-upgrade-50 text-warning-400;
 }
 
-.tag-danger {
+.v-tag-danger {
   @apply bg-danger-100 text-danger-600;
 }
 
-.tag-tertiary {
+.v-tag-tertiary {
   @apply bg-tertiary-100 text-tertiary-400;
 }
 
-.tag-info {
+.v-tag-info {
   @apply bg-info-50 text-info-500;
 }
 
-.tag-upgrade {
+.v-tag-upgrade {
   @apply bg-upgrade-100 text-upgrade-400;
 }
 
-.tag-neutral {
+.v-tag-neutral {
   @apply bg-gray-100 text-neutral-700;
 }
 
-.status {
-  @apply text-gray-900;
+.v-tag-status-text {
+  @apply text-gray-700;
 }
 
-.status-circle {
+.v-tag-chip-text {
+  @apply text-white;
+}
+
+.v-tag__status-circle {
   @apply mr-2 h-2 w-2 rounded-full bg-gray-500;
 }
 
-.status-circle-danger {
+.v-tag__status-circle_danger {
   @apply bg-danger-500;
 }
 
-.status-circle-warning {
+.v-tag__status-circle_warning {
   @apply bg-warning-500;
 }
 
-.status-circle-primary {
+.v-tag__status-circle_primary {
   @apply bg-primary-500;
 }
 
-.status-circle-success {
+.v-tag__status-circle_success {
   @apply bg-success-500;
 }
 
-.status-circle-info {
+.v-tag__status-circle_info {
   @apply bg-info-500;
 }
 
-.status-circle-tertiary {
+.v-tag__status-circle_tertiary {
   @apply bg-tertiary-500;
 }
 
-.status-circle-upgrade {
+.v-tag__status-circle_upgrade {
   @apply bg-upgrade-500;
 }
 
-.status-circle-neutral {
+.v-tag__status-circle-neutral {
   @apply bg-neutral-500;
+}
+
+/* Icons*/
+
+.v-tag__icon{
+  @apply mr-1 w-3.5;
+}
+
+.v-tag__chip{
+  @apply pl-2;
+}
+
+.v-tag__chip__icon{
+  @apply w-3 stroke-2 opacity-50;
 }

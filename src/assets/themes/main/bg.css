@@ -1,32 +1,99 @@
+.v_bg-success-medium {
+  @apply bg-success-500;
+}
+
+.v_bg-primary-medium {
+  @apply bg-primary-500;
+}
+
+.v_bg-warning-medium {
+  @apply bg-warning-500;
+}
+
+.v_bg-danger-medium {
+  @apply bg-danger-500;
+}
+
+.v_bg-upgrade-medium {
+  @apply bg-upgrade-500;
+}
+
+.v_bg-info-medium {
+  @apply bg-info-400;
+}
+
+.v_bg-tertiary-medium {
+  @apply bg-tertiary-500;
+}
+
+.v_bg-neutral-medium {
+  @apply bg-neutral-500;
+}
+
+
+
+
+.v_bg-success-heavy {
+  @apply bg-success-700;
+}
+
+.v_bg-primary-heavy {
+  @apply bg-primary-700;
+}
+
+.v_bg-warning-heavy {
+  @apply bg-warning-700;
+}
+
+.v_bg-danger-heavy {
+  @apply bg-danger-700;
+}
+
+.v_bg-upgrade-heavy {
+  @apply bg-upgrade-700;
+}
+
+.v_bg-info-heavy {
+  @apply bg-info-700;
+}
+
+.v_bg-tertiary-heavy {
+  @apply bg-tertiary-700;
+}
+
+.v_bg-neutral-heavy {
+  @apply bg-neutral-700;
+}
+
+
 .bg-success-medium {
-  @apply bg-success-500
+  @apply bg-success-500;
 }
 
 .bg-primary-medium {
-  @apply bg-primary-500
+  @apply bg-primary-500;
 }
 
 .bg-warning-medium {
-  @apply bg-warning-500
+  @apply bg-warning-500;
 }
 
 .bg-danger-medium {
-  @apply bg-danger-500
+  @apply bg-danger-500;
 }
 
 .bg-upgrade-medium {
-  @apply bg-upgrade-500
+  @apply bg-upgrade-500;
 }
 
 .bg-info-medium {
-  @apply bg-info-400
+  @apply bg-info-400;
 }
 
 .bg-tertiary-medium {
-  @apply bg-tertiary-500
+  @apply bg-tertiary-500;
 }
 
 .bg-neutral-medium {
-  @apply bg-neutral-500
+  @apply bg-neutral-500;
 }
-

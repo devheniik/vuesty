@@ -6,7 +6,19 @@ export default {
   argTypes: {
     variantColor: {
       control: { type: 'select' },
-      options: ['primary', 'success', 'danger', 'warning', 'indigo', 'secondary', 'light', 'upgrade', 'tertiary', 'info', 'neutral']
+      options: [
+        'primary',
+        'success',
+        'danger',
+        'warning',
+        'indigo',
+        'secondary',
+        'light',
+        'upgrade',
+        'tertiary',
+        'info',
+        'neutral',
+      ],
     },
   },
   args: {
@@ -18,7 +30,6 @@ export default {
 }
 
 const Template = args => ({
-
   components: { VBadge },
 
   setup() {

@@ -1,10 +1,30 @@
 <script setup lang="ts">
-import type { Sizes, Colors as GlobalColors } from '@/types/global/global';
+
+type Colors =
+  | 'primary'
+  | 'secondary'
+  | 'light'
+  | 'success'
+  | 'warning'
+  | 'danger'
+  | 'upgrade'
+  | 'tertiary'
+  | 'info'
+  | 'neutral'
+
+type Sizes =
+  | 'tiny'
+  | 'small'
+  | 'medium'
+  | 'big'
+  | 'large'
+  | 'huge'
+  | 'gigantic'
 
 withDefaults(
   defineProps<{
     size?: Sizes
-    color?: GlobalColors
+    color?: Colors
     text?: string
   }>(),
   {
@@ -12,14 +32,14 @@ withDefaults(
     color: 'primary',
   }
 )
-
 </script>
 
 <template>
-  <div class="avatar-group" :class="`avatar-group_${size}`">
+  <div :class="`v-avatar-group_${size} v-avatar-group`">
     <slot />
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
+@import "src/assets/themes/main/components/avatarGroup.scss";
 </style>

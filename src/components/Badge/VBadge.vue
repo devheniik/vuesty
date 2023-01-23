@@ -1,20 +1,28 @@
 <script setup lang="ts">
-import type { Colors } from '@/types/global/global'
 import { XMarkIcon } from '@devheniik/icons'
-import {computed} from 'vue'
+import { computed } from 'vue'
 
 const props = withDefaults(
   defineProps<{
-    variantColor?: Colors
+    color?:
+      | 'primary'
+      | 'secondary'
+      | 'light'
+      | 'success'
+      | 'warning'
+      | 'danger'
+      | 'upgrade'
+      | 'tertiary'
+      | 'info'
+      | 'neutral'
     status?: boolean
-    label: string
+    label?: string
     icon?: boolean
     chip?: boolean
   }>(),
   {
-    variant: 'primary',
     size: 'small',
-    variantColor: 'success',
+    color: 'success',
     status: false,
     label: 'Label',
     icon: false,
@@ -23,86 +31,32 @@ const props = withDefaults(
 )
 
 interface Emits {
-  (e: 'onClose'): void
+  (e: 'close'): void
 }
 
 const emit = defineEmits<Emits>()
 
 const onClose = () => {
-  emit('onClose')
+  emit('close')
 }
 
-const sizes = computed(() => {
-  return {
-    tiny: 'tag-tiny',
-    small: 'tag-small',
-    medium: 'tag-medium',
-    big: 'tag-big',
-    large:  'tag-large',
-    huge: 'tag-huge',
-    gigantic: 'tag-gigantic',
-  }
-})
-
-const colors = computed(() => {
-  if(props.chip) {
-
-    return {
-      primary: "bg-primary-900",
-      success:  "bg-success-900",
-      secondary: "bg-secondary-900",
-      light: "bg-light-900",
-      warning: "bg-warning-900",
-      danger: "bg-danger-900",
-      upgrade: "bg-upgrade-900",
-      tertiary: "bg-tertiary-900",
-      info: "bg-info-900",
-      neutral: "bg-neutral-900",
-  }}
-  else {
-    return {
-      primary: "tag-primary",
-      success:  "tag-success",
-      secondary: "tag-secondary",
-      light: "tag-light",
-      warning: "tag-warning",
-      danger: "tag-danger",
-      upgrade: "tag-upgrade",
-      tertiary: "tag-tertiary",
-      info: "tag-info",
-      neutral: "tag-neutral",
-    }
-  }
-})
-
+const chipColor = computed(() => `v_bg-${props.color}-heavy`)
+const tagColor = computed(() => `v-tag-${props.color}`)
 </script>
-<template>
-  <div
-  class="tag"
-  :class="[
-    {'text-white': chip},
-    {'status': status},
-    colors[variantColor]
-  ]">
 
-    <div
-    v-if="status"
-    :class="`status-circle status-circle-${props.variantColor}`"></div>
-    <div
-    v-if="icon"
-    class="w-3.5 mr-1">
+<template>
+  <div :class="[{ 'v-tag-chip-text': chip }, { 'v-tag-status-text': status }, chip && chipColor, !chip && tagColor, 'v-tag']">
+    <div v-if="status" :class="['v-tag__status-circle', `v-tag__status-circle_${props.color}`]"></div>
+
+    <div v-if="icon" class="v-tag__icon">
       <slot></slot>
     </div>
 
     {{ label }}
-    <button
-    v-if="chip"
-    class="pl-2"
-    @click="onClose">
-      <XMarkIcon class="w-3 opacity-50 stroke-2" />
+    <button v-if="chip" class="v-tag__chip" @click="onClose">
+      <XMarkIcon class="v-tag__chip__icon" />
     </button>
   </div>
 </template>
 
-<style>
-</style>
+<style></style>

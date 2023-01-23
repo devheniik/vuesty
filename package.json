@@ -34,7 +34,10 @@
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
     "@devheniik/icons": "^1.0.6",
@@ -42,7 +45,7 @@
     "@heroicons/vue": "^2.0.13",
     "@jonyak/icons": "^1.0.6",
     "rollup-plugin-visualizer": "^5.9.0",
-    "vue": "^3.2.45",
+    "vitepress": "^1.0.0-alpha.38",
     "vue-lazyload": "^3.0.0-rc.2",
     "vue-router": "^4.1.6",
     "vue3-lazyload": "^0.3.6"

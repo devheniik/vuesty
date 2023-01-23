@@ -1,13 +1,20 @@
 import type { VNode, ComponentPublicInstance } from 'vue'
-import type { Colors, Sizes } from '@/types/global/global'
 
 export interface VBadgeEvents {
   onClose?: () => void
 }
 
 export interface VBadgeProps extends VBadgeEvents {
-  size?: Sizes
-  variantColor?: Colors
+  color?: 'primary'
+    | 'secondary'
+    | 'light'
+    | 'success'
+    | 'warning'
+    | 'danger'
+    | 'upgrade'
+    | 'tertiary'
+    | 'info'
+    | 'neutral'
   status?: boolean
   label?: string
   icon?: boolean

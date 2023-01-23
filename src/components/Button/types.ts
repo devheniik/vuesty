@@ -4,13 +4,20 @@ export interface VButtonEvents {
   onClick?: () => void
 }
 
-type Sizes = 'small' | 'big'
-type ColorVariants = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light'
-
 export interface VButtonProps extends VButtonEvents {
   disabled?: boolean
-  size?: Sizes
-  variantColor?: ColorVariants
+  size?: 'small' | 'medium' | 'big'
+  color?:
+    | 'primary'
+    | 'secondary'
+    | 'light'
+    | 'success'
+    | 'warning'
+    | 'danger'
+    | 'upgrade'
+    | 'tertiary'
+    | 'info'
+    | 'neutral'
   href?: string
   tag?: string
   to?: string | Record<string, any>

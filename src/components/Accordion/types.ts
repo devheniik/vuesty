@@ -1,11 +1,11 @@
 import type { VNode, ComponentPublicInstance } from 'vue'
 
 export interface VAccordionEvents {
-  ['onUpdate:modelValue']: () => void
+  ['onUpdate:modelValue']?: () => void
 }
 
 export interface VAccordionProps extends VAccordionEvents {
-  bg: boolean
+  bg?: boolean
   modelValue?: boolean
   label?: string
   border?: boolean

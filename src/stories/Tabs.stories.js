@@ -1,18 +1,21 @@
 import VTabs from '../components/Tabs/VTabs.vue'
 const tabs = [
-  {name: 'one', badge: 'label1'}, {name: 'two', badge: 'label1'}, {name: 'three', badge: 'label1'}, {name: 'four', badge: 'label1'}
+  { name: 'one', badge: 'label1' },
+  { name: 'two', badge: 'label1' },
+  { name: 'three', badge: 'label1' },
+  { name: 'four', badge: 'label1' },
 ]
 
 export default {
   title: 'Tabs',
   component: VTabs,
   args: {
-    tabs
-  }
+    tabs,
+  },
 }
 
 const Template = args => ({
-  components: {VTabs} ,
+  components: { VTabs },
 
   setup() {
     return { args }
