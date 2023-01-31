@@ -112,5 +112,5 @@ const formatter = (text: string) => {
 </template>
 
 <style lang="scss">
-// @import "src/assets/themes/main/components/avatar.scss";
+@import "src/assets/themes/main/components/avatar.scss";
 </style>

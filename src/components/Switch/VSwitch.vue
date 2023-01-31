@@ -25,4 +25,6 @@ const enabled = ref(false)
   </Switch>
 </template>
 
-<style scoped></style>
+<style lang="scss" scoped>
+@import '../../assets/themes/main/components/switch.scss'
+</style>

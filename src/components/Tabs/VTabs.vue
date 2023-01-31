@@ -32,6 +32,6 @@ defineProps<{
   </div>
 </template>
 
-<style lang="scss">
-
+<style lang="scss" scoped>
+@import '../../assets/themes/main/components/tabs.scss';
 </style>

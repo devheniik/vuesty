@@ -3,12 +3,12 @@
   @apply relative inline-flex h-3.5 w-[22px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition duration-200 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 [&>svg]:transition [&>svg]:duration-200 [&>svg]:ease-in-out
 }
 
-.v_switch_active {
-  @apply !bg-success-800 hover:bg-success-1000 [&>svg]:translate-x-2
+button.v_switch_active {
+  @apply bg-success-800 hover:bg-success-1000 [&>svg]:translate-x-2
 }
 
-.v_switch_inactive {
-  @apply !bg-gray-500 hover:bg-gray-700 [&>svg]:translate-x-0
+button.v_switch_inactive {
+  @apply bg-gray-500 hover:bg-gray-700 [&>svg]:translate-x-0
 }
 
 .v_switch__slider {

@@ -91,5 +91,5 @@ const icon = computed<FunctionalComponent<HTMLAttributes & VNodeProps> | string>
 </template>
 
 <style lang="scss" scoped>
-@import '../../assets/themes/main/components/alert.scss';
+@import 'src/assets/themes/main/components/alert.scss';
 </style>

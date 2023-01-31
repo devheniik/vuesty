@@ -1,3 +1,5 @@
+@import './badge.scss';
+
 .v_tab-group {
   @apply max-w-md px-2 py-16 sm:px-0
 }
@@ -11,7 +13,7 @@
 }
 
 .v_tab-list__badge {
-  @apply v_tag v_tag-primary ml-2 bg-primary-500 text-white
+  @apply v-tag v-tag-primary ml-2 bg-primary-500 text-white
 }
 
 

@@ -37,6 +37,6 @@ const countSpacer = computed(() => {
   </button>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "src/assets/themes/main/components/notification.scss";
 </style>

@@ -10,5 +10,5 @@
 </template>
 
 <style lang="scss" scoped>
-@import '../../../src/assets/themes/main/components/panel.scss';
+@import 'src/assets/themes/main/components/panel.scss';
 </style>

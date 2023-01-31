@@ -56,6 +56,6 @@ const handleShow = () => {
   </div>
 </template>
 
-<style scoped lang="scss">
-@import '../../assets/themes/main/components/accordion.scss';
+<style lang="scss" scoped>
+@import 'src/assets/themes/main/components/accordion.scss';
 </style>
