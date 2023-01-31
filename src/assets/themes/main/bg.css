@@ -1,3 +1,7 @@
+.v-bg-gray-100 {
+  @apply bg-gray-100;
+}
+
 .v_bg-success-medium {
   @apply bg-success-500;
 }

@@ -66,7 +66,7 @@ const icon = computed<FunctionalComponent<HTMLAttributes & VNodeProps> | string>
   <div class="v-alert">
     <div :class="['v-alert__left-border', `bg-${variant}-medium`]"></div>
     <slot name="icon">
-      <component :is="icon" :class="['v-alert__info-icon', `text-${variant}-medium`]" />
+      <component :is="icon" :class="['v-alert__info-icon', `v-text-${variant}-medium`]" />
     </slot>
     <main class="v-alert__main">
       <h4 class="v-alert__label">{{ label }}</h4>

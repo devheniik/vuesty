@@ -7,17 +7,17 @@ const show = ref(false)
 
 <template>
   <Menu>
-    <MenuButton class="mb-1">
+    <MenuButton class="v-menu-button">
       <slot>
         <div
-          class="flex items-center justify-center rounded-md border-2 border-primary-500 text-primary-500"
+          class="v-menu__default-box"
           @click="show = !show">
-          <button class="px-1 pb-[15px] pt-1 leading-[0px]">...</button>
+          <button class="v-menu__default-button">...</button>
         </div>
       </slot>
     </MenuButton>
     <MenuItems
-      class="items-group absolute flex w-fit flex-col space-y-2 rounded-md border border-primary-500 bg-white py-2 px-4 shadow-md">
+      class="v-menu-items items-group">
       <slot name="menuItems" />
     </MenuItems>
   </Menu>

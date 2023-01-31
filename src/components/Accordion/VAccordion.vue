@@ -32,7 +32,7 @@ const handleShow = () => {
 </script>
 
 <template>
-  <div :class="['v-accordion', { 'bg-gray-100': bg && show }]" @click="handleShow">
+  <div :class="['v-accordion', { 'v-bg-gray-100': bg && show }]" @click="handleShow">
     <div :class="['v-accordion__header', { 'v-accordion__header__border': border }]">
       <slot name="header">
         <h4 class="v-accordion__header__label">{{ label }}</h4>
