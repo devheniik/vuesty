@@ -19,7 +19,6 @@ import { UserIcon } from '@devheniik/icons'
 import { MenuItem, TabPanel } from '@headlessui/vue'
 
 const log = (text: any) => console.log(text)
-// const test = ['20.08', '30.05', '40.05', '59.81', '04,03']
 
 const categories = ref({
   Recent: [
@@ -82,8 +81,9 @@ const tabs = [
 const selected = ref('')
 </script>
 
+
 <template>
-  <div class="m-10 flex flex-wrap items-center justify-center space-x-2 space-y-4 p-10 shadow-2xl">
+  <div class="m-10 flex flex-wrap items-center justify-center space-x-2 p-10 shadow-2xl">
     <v-button color="danger">
       prim
     </v-button>
@@ -161,10 +161,7 @@ const selected = ref('')
     </v-menu>
   </div>
 
-  <!--
-  <div class="m-10 flex flex-col  p-10 shadow-2xl items-center space-y-5">
-    <v-timeline :time-line="test"></v-timeline>
-  </div> -->
+
 
   <div class="m-10 flex flex-col items-center space-y-5 p-10 shadow-2xl">
     <v-pagination :total-pages="32" />
@@ -230,8 +227,57 @@ const selected = ref('')
     </v-avatar-group>
   </div>
 
-  <div class="m-10 flex items-center justify-center space-x-2 p-10 shadow-2xl">
-    <v-select v-model="selected" />
+  <div class="m-10 flex flex-col items-center justify-center space-y-5 bg-gray-50 p-10 shadow-2xl">
+    <div class="w-96 px-10">
+      <v-select
+        v-model="selected"
+        label-key="name"
+        value-key="id"
+        multiple
+        searchable
+        :options="[
+          {
+            id: 1,
+            name: 'Школа №1',
+          },
+          {
+            id: 2,
+            name: 'Школа №2',
+          },
+          {
+            id: 3,
+            name: 'Школа №3',
+          },
+          {
+            id: 4,
+            name: 'Школа №4',
+          },
+          {
+            id: 5,
+            name: 'Школа №5',
+          },
+          {
+            id: 6,
+            name: 'Школа №6',
+          },
+          {
+            id: 7,
+            name: 'Школа №7',
+          },
+          {
+            id: 8,
+            name: 'Школа №8',
+          },
+          {
+            id: 9,
+            name: 'Школа №9',
+          },
+          {
+            id: 10,
+            name: 'Школа №10',
+          },
+        ]" />
+    </div>
   </div>
 
   <div class="m-10 flex flex-col items-center justify-center space-y-4 p-10 shadow-2xl">
@@ -248,11 +294,11 @@ const selected = ref('')
       <v-badge color="danger" chip />
       <v-badge color="warning" chip />
       <v-badge color="primary" chip />
-      <v-badge variant-color="success" status />
+      <v-badge color="success" status />
       <v-badge variant-color="success" />
       <v-badge variant-color="danger" status />
       <v-badge variant-color="danger" />
-      <v-badge variant-color="danger" label="Other Label" />
+      <v-badge color="danger" label="Other Label" />
       <v-badge variant-color="success" icon><UserIcon /></v-badge>
     </div>
     <div class="space-x-2">
@@ -264,7 +310,7 @@ const selected = ref('')
   </div>
 
   <div class="m-10 flex flex-col items-center justify-center space-y-5 bg-gray-50 p-10 shadow-2xl">
-    <v-alert variant-color="primary" label="Label primary">
+    <v-alert variant="primary" label="Label primary">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. A quibusdam minima atque possimus exercitationem
       repellendus adipisci tenetur aliquid ab optio in odio distinctio placeat, suscipit recusandae, est nulla dicta
       nemo fugiat nobis dolores debitis quisquam. Temporibus excepturi illo assumenda culpa velit fuga, accusantium
@@ -274,6 +320,7 @@ const selected = ref('')
     <v-alert variant="success" label="Label success" :controls="false" />
 
     <v-alert variant="danger" label="Label danger" :controls="false"> Lorem ipsum dolor sit amet. </v-alert>
+    <v-alert variant="warning" label="Label danger" :controls="false"> Lorem ipsum dolor sit amet. </v-alert>
 
   </div>
   <div class="m-10 flex flex-col items-center justify-center space-y-5 bg-gray-50 p-10 shadow-2xl">
@@ -282,6 +329,6 @@ const selected = ref('')
     </v-panel>
   </div>
 
-</template>
+</template> -->
 
 <style scoped></style>

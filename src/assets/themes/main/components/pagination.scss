@@ -10,8 +10,8 @@
   @apply flex h-8 w-8 cursor-pointer items-center justify-center border border-primary-200 hover:border-primary-500;
 }
 
-.v-pagination__body__item_active {
-  @apply !bg-primary-100 text-primary-500;
+div.v-pagination__body__item_active {
+  @apply bg-primary-100 text-primary-500;
 }
 
 

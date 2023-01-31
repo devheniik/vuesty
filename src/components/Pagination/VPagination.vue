@@ -100,6 +100,6 @@ const nextPage = () => {
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 @import "src/assets/themes/main/components/pagination.scss";
 </style>

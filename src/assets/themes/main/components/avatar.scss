@@ -11,29 +11,29 @@
 }
 
 .v-avatar__img {
-  @apply border-2 border-white
+  @apply border-2 border-white;
 }
 
 /* Avatar Status */
 
 .v-avatar__status-circle {
-  @apply w-2 h-2 rounded-full absolute bottom-0 right-0 border border-white
+  @apply w-2 h-2 rounded-full absolute bottom-0 right-0 border border-white;
 }
 
 .v-avatar__status-circle_big{
-  @apply right-1
+  @apply right-1;
 }
 
 .v-avatar__status-circle_large{
-  @apply !w-2.5 h-2.5 right-1
+  @apply  w-2.5 h-2.5 right-1;
 }
 
 .v-avatar__status-circle_huge{
-  @apply !w-3 h-3 right-1.5
+  @apply w-3 h-3 right-1.5;
 }
 
 .v-avatar__status-circle_gigantic{
-  @apply !w-3 h-3 right-1 bottom-2
+  @apply w-3 h-3 right-1 bottom-2;
 }
 
 /* Avatar Sizes */

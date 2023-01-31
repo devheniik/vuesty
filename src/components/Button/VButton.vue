@@ -116,6 +116,6 @@ const isLight = computed(() => {
   </component>
 </template>
 
-<style>
+<style lang="scss">
 @import "src/assets/themes/main/components/button.scss";
 </style>

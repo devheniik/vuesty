@@ -50,6 +50,6 @@ const progressPercent = computed(() => {
   </div>
 </template>
 
-<style>
+<style lang="scss">
 @import "src/assets/themes/main/components/progress.scss";
 </style>

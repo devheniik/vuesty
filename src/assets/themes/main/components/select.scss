@@ -1,0 +1,102 @@
+.v-select {
+  @apply relative mt-1 h-9 w-full;
+}
+
+.v-select__head {
+  @apply relative flex h-9 w-full flex-row items-center justify-between overflow-x-hidden rounded-md border border-gray-300 py-1 px-2 pl-3 text-left text-lg text-black placeholder-gray-400 shadow-sm;
+}
+
+.v-select__head_focus {
+  @apply border-primary-500 outline-none ring-1 ring-primary-500;
+}
+
+.v-select__head__main {
+  @apply flex h-9 w-full items-center text-left font-normal;
+}
+
+.v-select__head__start {
+  @apply flex w-full flex-row items-center;
+}
+
+.v-select__main__input {
+  @apply h-full border-0 border-gray-900 pl-0 placeholder-gray-400 focus:outline-none focus:ring-0;
+}
+
+._select {
+  @apply border p-2 text-lg text-black;
+}
+
+.v-select__text {
+  @apply truncate text-sm sm:text-lg;
+}
+
+
+
+.v-select__menu {
+  @apply absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none;
+}
+
+.v-select__menu__item {
+  @apply relative flex cursor-default  select-none flex-wrap py-2 pl-10 pr-4 text-gray-900 hover:bg-primary-500 hover:text-white;
+}
+
+.v-select__menu__item__text {
+  @apply block truncate font-normal;
+}
+
+.v-select__menu__item__text_selected {
+  @apply font-medium;
+}
+
+.placeholder-text {
+  @apply flex h-9 items-center text-base text-gray-400;
+}
+
+/* TAGS */
+.v-tag__box {
+  @apply flex h-auto w-full flex-row items-center justify-start space-x-1 overflow-x-auto;
+}
+
+.v-tag {
+  @apply whitespace-nowrap rounded-sm bg-primary-500 py-0.5 px-1.5 text-sm font-medium text-gray-50;
+}
+
+
+
+/* Icons */
+
+.focus-none {
+  @apply focus:outline-none focus:ring-0;
+}
+
+.v-select__icon-box_left {
+  @apply mr-1;
+}
+
+.v-select__icon-box {
+  @apply absolute right-0 flex flex-row items-center justify-center bg-white px-1;
+}
+
+.v-select__icon {
+  @apply h-6 w-6 text-gray-400 hover:text-gray-700;
+}
+
+.v-select__icon_focus{
+  @apply group-focus:text-primary-500;
+}
+
+.v-select__menu__item_selected__icon-box {
+  @apply absolute inset-y-0 left-0 flex items-center pl-3 text-primary-600 group-hover:text-white;
+}
+
+.v-select__menu__item_selected__icon {
+  @apply h-5 w-5;
+}
+
+.v-select__icon_empty{
+  @apply h-6 w-6 text-gray-400;
+}
+
+.v-select__empty-box{
+  @apply flex items-center justify-center space-x-2 text-gray-400;
+}

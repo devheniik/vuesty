@@ -59,6 +59,6 @@ const tagColor = computed(() => `v-tag-${props.color}`)
   </div>
 </template>
 
-<style>
+<style lang="scss">
 @import "src/assets/themes/main/components/badge.scss";
 </style>
