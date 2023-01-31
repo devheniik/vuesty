@@ -12,13 +12,13 @@ defineProps<{
 </script>
 
 <template>
-  <div class="max-w-md px-2 py-16 sm:px-0">
+  <div class="v_tab-group">
     <TabGroup>
-      <TabList class="flex space-x-1 p-1">
+      <TabList class="v_tab-list">
         <Tab v-for="{ name, badge } in tabs" :key="name">
-          <button class="ml-2 flex">
+          <button class="v_tab-list__btn">
             {{ name }}
-            <span class="tag tag-primary ml-2" :class="{ 'bg-primary-500 text-white': true }">
+            <span class="v_tab-list__badge">
               {{ badge }}
             </span>
           </button>
@@ -33,11 +33,5 @@ defineProps<{
 </template>
 
 <style lang="scss">
-[id^='headlessui-tabs-tab-'] {
-  @apply w-full  border-b-2 border-transparent  py-2.5 text-base  font-medium leading-5;
-}
 
-[id^='headlessui-tabs-tab-'][aria-selected='true'] {
-  @apply border-b-primary-500 outline-none;
-}
 </style>

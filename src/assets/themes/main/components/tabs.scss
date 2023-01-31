@@ -1,0 +1,24 @@
+.v_tab-group {
+  @apply max-w-md px-2 py-16 sm:px-0
+}
+
+.v_tab-list {
+  @apply flex space-x-1 p-1
+}
+
+.v_tab-list__btn {
+  @apply ml-2 flex
+}
+
+.v_tab-list__badge {
+  @apply v_tag v_tag-primary ml-2 bg-primary-500 text-white
+}
+
+
+[id^='headlessui-tabs-tab-'] {
+  @apply w-full  border-b-2 border-transparent  py-2.5 text-base  font-medium leading-5;
+}
+
+[id^='headlessui-tabs-tab-'][aria-selected='true'] {
+  @apply border-b-primary-500 outline-none;
+}
