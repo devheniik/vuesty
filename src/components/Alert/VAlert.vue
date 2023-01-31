@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { InformationCircleIcon, XMarkIcon, ExclamationTriangleIcon, CheckCircleIcon  } from '@devheniik/icons'
+import { InformationCircleIcon, XMarkIcon, ExclamationTriangleIcon, CheckCircleIcon } from '@devheniik/icons'
 import VButton from '../Button/VButton.vue'
-import {computed, FunctionalComponent, HTMLAttributes, VNodeProps} from "vue"
+import { computed, FunctionalComponent, HTMLAttributes, VNodeProps } from 'vue'
 
 const props = withDefaults(
   defineProps<{

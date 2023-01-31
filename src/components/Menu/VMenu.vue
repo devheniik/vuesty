@@ -9,15 +9,12 @@ const show = ref(false)
   <Menu>
     <MenuButton class="v-menu-button">
       <slot>
-        <div
-          class="v-menu__default-box"
-          @click="show = !show">
+        <div class="v-menu__default-box" @click="show = !show">
           <button class="v-menu__default-button">...</button>
         </div>
       </slot>
     </MenuButton>
-    <MenuItems
-      class="v-menu-items items-group">
+    <MenuItems class="v-menu-items items-group">
       <slot name="menuItems" />
     </MenuItems>
   </Menu>

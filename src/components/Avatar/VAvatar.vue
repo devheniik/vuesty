@@ -95,19 +95,16 @@ const formatter = (text: string) => {
 </script>
 
 <template>
-  <div
-  :class="['v-avatar', `v-avatar-${size}`, text && `v-avatar-letters-${color}`]">
-
-    <img v-if="src" :src="src" v-bind="attrs" :alt="alt" class="v-avatar__img" loading="lazy"/>
+  <div :class="['v-avatar', `v-avatar-${size}`, text && `v-avatar-letters-${color}`]">
+    <img v-if="src" :src="src" v-bind="attrs" :alt="alt" class="v-avatar__img" loading="lazy" />
 
     <div v-else>
       {{ text && formatter(text) }}
     </div>
 
     <div
-    v-if="status"
-    :class="[`v_bg-${status}-medium`, `v-avatar__status-circle_${size}`, 'v-avatar__status-circle']">
-    </div>
+      v-if="status"
+      :class="[`v_bg-${status}-medium`, `v-avatar__status-circle_${size}`, 'v-avatar__status-circle']"></div>
   </div>
 </template>
 

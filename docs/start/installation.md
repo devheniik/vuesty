@@ -6,10 +6,7 @@ title: Installation
 
 Create and change into a new directory.
 
-
 Initialize with your preferred package manager.
-
-
 
 ::: code-group
 
@@ -30,7 +27,6 @@ $ yarn add
 ```
 
 :::
-
 
 ## Step. 2: Install Vuesty
 

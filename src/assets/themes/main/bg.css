@@ -34,9 +34,6 @@
   @apply bg-neutral-500;
 }
 
-
-
-
 .v_bg-success-heavy {
   @apply bg-success-700;
 }
@@ -68,7 +65,6 @@
 .v_bg-neutral-heavy {
   @apply bg-neutral-700;
 }
-
 
 .bg-success-medium {
   @apply bg-success-500;

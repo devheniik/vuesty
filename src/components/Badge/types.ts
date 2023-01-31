@@ -5,7 +5,8 @@ export interface VBadgeEvents {
 }
 
 export interface VBadgeProps extends VBadgeEvents {
-  color?: 'primary'
+  color?:
+    | 'primary'
     | 'secondary'
     | 'light'
     | 'success'

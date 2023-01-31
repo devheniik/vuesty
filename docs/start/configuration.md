@@ -8,15 +8,11 @@ title: Configuration
 
 Install tailwind css, full guide [here](https://tailwindcss.com/docs/installation)
 
-
-
 ## Step. 2: Install your style
 
 Add Vuesty and Vue for the project.
 
 This styles which we use in library you can change for yourself
-
-
 
 ```javascript [tailwind.config.js]
 const colors = require('tailwindcss/colors')
@@ -89,4 +85,3 @@ const colors = require('tailwindcss/colors')
     // ...
 
 ```
-

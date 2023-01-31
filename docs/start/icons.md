@@ -2,7 +2,6 @@
 title: Icons
 ---
 
-
 ## Step. 1: Icons
 
 We recommend install our [icons](https://icons.devheniik.com/)

@@ -253,14 +253,10 @@ const selected = ref('')
     <v-alert variant="success" label="Label success" :controls="false" />
 
     <v-alert variant="danger" label="Label danger" :controls="false"> Lorem ipsum dolor sit amet. </v-alert>
-
   </div>
   <div class="m-10 flex flex-col items-center justify-center space-y-5 bg-gray-50 p-10 shadow-2xl">
-    <v-panel>
-      tets
-    </v-panel>
+    <v-panel> tets </v-panel>
   </div>
-
 </template>
 
 <style scoped></style>

@@ -13,14 +13,13 @@ hero:
     src: /VuestyBigIcon.svg
     alt: Vuesty
   actions:
-  - theme: brand
-    text: Getting Started
-    link: /start/getting-started
-  - theme: alt
-    text: Components
-    link: /components/accordion
-  - theme: alt
-    text: View on GitHub
-    link: https://github.com/devheniik/vuesty
-
+    - theme: brand
+      text: Getting Started
+      link: /start/getting-started
+    - theme: alt
+      text: Components
+      link: /components/accordion
+    - theme: alt
+      text: View on GitHub
+      link: https://github.com/devheniik/vuesty
 ---
