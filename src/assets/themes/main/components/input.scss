@@ -1,11 +1,32 @@
-._input {
-  @apply border p-2 text-lg text-black;
+/* inputs */
+
+.v-input {
+  @apply relative mt-1 h-9 rounded-md shadow-sm ;
 }
 
-.input-text {
-  @apply _input border-primary-50 hover:border-primary-200 active:border-primary-600;
+.v-input__input-danger {
+  @apply border-danger-300 focus:border-danger-500 focus:ring-danger-500 placeholder-danger-300;
 }
 
-.input-text-error {
-  @apply _input border-danger-600;
+.v-input__input-success {
+  @apply border-success-300 focus:border-success-500 focus:ring-success-500 placeholder-success-300;
 }
+
+.v-input__input {
+  @apply block w-full rounded-md pr-10 focus:outline-none sm:text-sm h-9;
+}
+
+
+
+/* icons */
+
+.v-input__icon-left-danger{
+  @apply text-danger-500;
+}
+
+
+.v-input__icon-left-box{
+  @apply pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3;
+}
+
+

@@ -10,12 +10,13 @@ import VNotification from './components/Notification/VNotification.vue'
 import VAccordion from './components/Accordion/VAccordion.vue'
 import VPagination from './components/Pagination/VPagination.vue'
 import VPanel from './components/Panel/VPanel.vue'
+import VInput from './components/Input/VInput.vue'
 // import VTimeline from './components/Timeline/VTimeline.vue'
 import VMenu from './components/Menu/VMenu.vue'
 import VTabs from './components/Tabs/VTabs.vue'
 import VSwitch from './components/Switch/VSwitch.vue'
 import VProgress from './components/Progress/VProgress.vue'
-import { UserIcon } from '@devheniik/icons'
+import { UserIcon, ExclamationCircleIcon } from '@devheniik/icons'
 import { MenuItem, TabPanel } from '@headlessui/vue'
 
 const log = (text: any) => console.log(text)
@@ -80,6 +81,7 @@ const tabs = [
 ]
 
 const selected = ref('')
+const input = ref('')
 </script>
 
 <template>
@@ -256,6 +258,13 @@ const selected = ref('')
   </div>
   <div class="m-10 flex flex-col items-center justify-center space-y-5 bg-gray-50 p-10 shadow-2xl">
     <v-panel> tets </v-panel>
+  </div>
+  <div class="m-10 flex flex-col items-center justify-center space-y-5 bg-gray-50 p-10 shadow-2xl">
+    <v-input v-model="input">
+      <template #icon-left>
+        <ExclamationCircleIcon />
+      </template>
+    </v-input>
   </div>
 </template>
 
