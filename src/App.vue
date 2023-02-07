@@ -16,7 +16,7 @@ import VMenu from './components/Menu/VMenu.vue'
 import VTabs from './components/Tabs/VTabs.vue'
 import VSwitch from './components/Switch/VSwitch.vue'
 import VProgress from './components/Progress/VProgress.vue'
-import { UserIcon, ExclamationCircleIcon } from '@devheniik/icons'
+import { UserIcon, ExclamationCircleIcon, EnvelopeIcon } from '@devheniik/icons'
 import { MenuItem, TabPanel } from '@headlessui/vue'
 
 const log = (text: any) => console.log(text)
@@ -260,7 +260,10 @@ const input = ref('')
     <v-panel> tets </v-panel>
   </div>
   <div class="m-10 flex flex-col items-center justify-center space-y-5 bg-gray-50 p-10 shadow-2xl">
-    <v-input v-model="input">
+    <v-input v-model="input" require rules="numbers">
+      <template #icon-right>
+        <EnvelopeIcon />
+      </template>
       <template #icon-left>
         <ExclamationCircleIcon />
       </template>

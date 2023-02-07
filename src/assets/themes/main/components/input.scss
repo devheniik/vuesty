@@ -8,25 +8,57 @@
   @apply border-danger-300 focus:border-danger-500 focus:ring-danger-500 placeholder-danger-300;
 }
 
+.v-input__input-default {
+  @apply border-primary-300 focus:border-primary-500 focus:ring-primary-500 placeholder-primary-300;
+}
+
 .v-input__input-success {
   @apply border-success-300 focus:border-success-500 focus:ring-success-500 placeholder-success-300;
 }
 
+.v-input__input-disabled {
+  @apply border-gray-300 focus:border-gray-500 focus:ring-gray-500 placeholder-gray-300;
+}
+
 .v-input__input {
-  @apply block w-full rounded-md pr-10 focus:outline-none sm:text-sm h-9;
+  @apply block w-full rounded-md focus:outline-none sm:text-sm h-9;
+}
+
+.v-input__input-pl {
+  @apply pl-10;
+}
+
+.v-input__input-pr {
+  @apply pr-10;
 }
 
 
 
 /* icons */
 
-.v-input__icon-left-danger{
+.v-input__icon-default{
+  @apply text-primary-500;
+}
+
+.v-input__icon-disabled{
+  @apply text-gray-500;
+}
+
+.v-input__icon-success{
+  @apply text-success-500;
+}
+
+.v-input__icon-danger{
   @apply text-danger-500;
 }
 
 
+.v-input__icon-right-box{
+  @apply pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer;
+}
+
 .v-input__icon-left-box{
-  @apply pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3;
+  @apply pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 cursor-pointer;
 }
 
 

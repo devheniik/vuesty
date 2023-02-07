@@ -1,6 +1,7 @@
 import { GlobalComponentConstructor, ComponentConstructor } from './utils/ts-helper'
 
 import { VButtonComponent, VButtonProps, VButtonSlots } from '../components/Button/types'
+import { VInputComponent, VInputProps, VInputSlots } from '../components/Input/types'
 import { VAccordionComponent, VAccordionSlots, VAccordionProps } from '../components/Accordion/types'
 import { VAlertComponent, VAlertProps, VAlertSlots, VAvatarSlots } from '../components/Alert/types'
 import { VAvatarComponent, VAvatarProps } from '../components/Avatar/types'
@@ -18,6 +19,7 @@ export declare const VAlert: ComponentConstructor<VAlertComponent>
 export declare const VAvatar: ComponentConstructor<VAvatarComponent>
 export declare const VAvatarGroup: ComponentConstructor<VAvatarGroupComponent>
 export declare const VButton: ComponentConstructor<VButtonComponent>
+export declare const VInput: ComponentConstructor<VInputComponent>
 export declare const VBadge: ComponentConstructor<VBadgeComponent>
 export declare const VMenu: ComponentConstructor<VMenuComponent>
 export declare const VNotification: ComponentConstructor<VNotificationComponent>
@@ -33,6 +35,7 @@ declare module '@vue/runtime-core' {
     VAvatarGroup: GlobalComponentConstructor<VAvatarGroupProps, VAvatarGroupSlots>
     VBadge: GlobalComponentConstructor<VBadgeProps, VBadgeSlots>
     VButton: GlobalComponentConstructor<VButtonProps, VButtonSlots>
+    VInput: GlobalComponentConstructor<VInputProps, VInputSlots>
     VMenu: GlobalComponentConstructor<{}, VMenuSlots>
     VNotification: GlobalComponentConstructor<VNotificationProps, VNotificationSlots>
     VPagination: GlobalComponentConstructor<{}, VPaginationProps>
