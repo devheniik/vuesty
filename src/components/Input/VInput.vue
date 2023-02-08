@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref, useSlots } from 'vue'
 
-
 const props = withDefaults(
   defineProps<{
     modelValue: string
@@ -38,7 +37,7 @@ const props = withDefaults(
     max: false,
     allocateValid: true,
     require: true,
-    prevent: false
+    prevent: false,
   }
 )
 
@@ -55,7 +54,7 @@ const inputRef = ref()
 const valid = ref<boolean>(props._valid)
 const invalid = ref<boolean>(props._invalid)
 
-const value = ref<string | number>("")
+const value = ref<string | number>('')
 const regex = ref<RegExp | false>(false)
 
 const _placeholder = ref<string | false>(props.placeholder)
@@ -66,47 +65,43 @@ const fillPlaceholder = (value: string) => {
   }
 }
 
-
-if (props.rules === 'any'){
+if (props.rules === 'any') {
   regex.value = false
   fillPlaceholder('Text...')
 } else if (props.rules === 'stringNumbers') {
   regex.value = new RegExp(/^[a-zA-Z0-9]+$/)
   fillPlaceholder('123ABC...')
-} else if (props.rules === 'string'){
+} else if (props.rules === 'string') {
   regex.value = new RegExp(/^[a-zA-Z]+$/)
   fillPlaceholder('Abc...')
-} else if (props.rules === 'numbers'){
+} else if (props.rules === 'numbers') {
   regex.value = new RegExp(/^-?\d+(?:\.\d+)?$/)
   fillPlaceholder('123.1...')
-} else if (props.rules === 'integer'){
+} else if (props.rules === 'integer') {
   regex.value = new RegExp(/^-?\d+$/)
   fillPlaceholder('123...')
-} else if (props.rules === 'volume'){
+} else if (props.rules === 'volume') {
   regex.value = new RegExp(/^(\d+(?:\.\d+)?)(?: ml| L)$/)
   fillPlaceholder('123.095')
-} else if (props.rules === 'currency'){
+} else if (props.rules === 'currency') {
   regex.value = new RegExp(/^(\d+(?:\.\d+)?)(?: ml| L)$/)
   fillPlaceholder('123.95')
 }
 
-
-
 const checkInput = (input: string) => {
-
   if (regex.value) {
     return regex.value.test(input)
   }
 
-  if (props.min){
+  if (props.min) {
     return Number(input) >= props.min
   }
 
-  if (props.max){
+  if (props.max) {
     return Number(input) <= props.max
   }
 
-  if (props.require){
+  if (props.require) {
     return input !== '' && input !== null && input !== undefined
   }
 
@@ -114,11 +109,8 @@ const checkInput = (input: string) => {
 }
 
 const handleInput = (input: string) => {
-
   valid.value = checkInput(input)
   invalid.value = !valid.value
-
-
 
   if (valid.value && !props.readonly && !props.disabled) {
     value.value = input
@@ -132,10 +124,7 @@ const handleInput = (input: string) => {
   }
 }
 
-
-
 const slots = useSlots()
-
 
 const leftIcon = () => {
   return !!slots['left']
@@ -157,26 +146,28 @@ const handleClickRightSlot = () => {
 <template>
   <div class="v-input">
     <div
-      :class="['v-input__icon-left-box',
-        { 'v-input__icon-disabled' : disabled},
-        { 'v-input__icon-default' : !valid && !invalid && applyColorToRightIcon && !disabled },
-        { 'v-input__icon-success' : valid && !invalid && applyColorToRightIcon && allocateValid && !disabled },
-        { 'v-input__icon-danger' : !valid && invalid && applyColorToRightIcon && !disabled },
-    ]">
-      <slot name="icon-right" @click="handleClickLeftSlot"/>
+      :class="[
+        'v-input__icon-left-box',
+        { 'v-input__icon-disabled': disabled },
+        { 'v-input__icon-default': !valid && !invalid && applyColorToRightIcon && !disabled },
+        { 'v-input__icon-success': valid && !invalid && applyColorToRightIcon && allocateValid && !disabled },
+        { 'v-input__icon-danger': !valid && invalid && applyColorToRightIcon && !disabled },
+      ]">
+      <slot name="icon-right" @click="handleClickLeftSlot" />
     </div>
     <input
       :id="name"
       ref="inputRef"
       :type="type"
       :name="name"
-      :class="['v-input__input',
-        { 'v-input__input-pl' : leftIcon},
-        { 'v-input__input-pr' : rightIcon},
-        { 'v-input__icon-disabled' : disabled },
-        { 'v-input__input-default' : !valid && !invalid },
-        { 'v-input__input-success' : valid && !invalid && allocateValid && !disabled },
-        { 'v-input__input-danger' : !valid && invalid && !disabled },
+      :class="[
+        'v-input__input',
+        { 'v-input__input-pl': leftIcon },
+        { 'v-input__input-pr': rightIcon },
+        { 'v-input__icon-disabled': disabled },
+        { 'v-input__input-default': !valid && !invalid },
+        { 'v-input__input-success': valid && !invalid && allocateValid && !disabled },
+        { 'v-input__input-danger': !valid && invalid && !disabled },
       ]"
       :placeholder="_placeholder"
       :value="value"
@@ -184,25 +175,24 @@ const handleClickRightSlot = () => {
       :aria-describedby="`${name}-description`"
       :disabled="disabled"
       v-bind="{ ...(invalid && { ariaDescribedby: `${name}-error` }) }"
-      @input="handleInput($event.target.value)"
-      />
+      @input="handleInput($event.target.value)" />
     <div
-      :class="['v-input__icon-right-box',
-        { 'v-input__icon-disabled' : disabled},
-        { 'v-input__icon-default' : !valid && !invalid && applyColorToLeftIcon && !disabled },
-        { 'v-input__icon-success' : valid && !invalid && applyColorToLeftIcon && allocateValid && !disabled },
-        { 'v-input__icon-danger' : !valid && invalid && applyColorToLeftIcon && !disabled },
-    ]">
+      :class="[
+        'v-input__icon-right-box',
+        { 'v-input__icon-disabled': disabled },
+        { 'v-input__icon-default': !valid && !invalid && applyColorToLeftIcon && !disabled },
+        { 'v-input__icon-success': valid && !invalid && applyColorToLeftIcon && allocateValid && !disabled },
+        { 'v-input__icon-danger': !valid && invalid && applyColorToLeftIcon && !disabled },
+      ]">
       <slot name="icon-left" @click="handleClickRightSlot" />
     </div>
   </div>
 </template>
 
 <style scoped>
-@import "../../assets/themes/main/components/input.scss";
+@import '../../assets/themes/main/components/input.scss';
 
 :slotted(svg) {
   @apply h-5 w-5;
 }
 </style>
-

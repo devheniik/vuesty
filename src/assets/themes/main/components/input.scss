@@ -1,27 +1,27 @@
 /* inputs */
 
 .v-input {
-  @apply relative mt-1 h-9 rounded-md shadow-sm ;
+  @apply relative mt-1 h-9 rounded-md shadow-sm;
 }
 
 .v-input__input-danger {
-  @apply border-danger-300 focus:border-danger-500 focus:ring-danger-500 placeholder-danger-300;
+  @apply border-danger-300 placeholder-danger-300 focus:border-danger-500 focus:ring-danger-500;
 }
 
 .v-input__input-default {
-  @apply border-primary-300 focus:border-primary-500 focus:ring-primary-500 placeholder-primary-300;
+  @apply border-primary-300 placeholder-primary-300 focus:border-primary-500 focus:ring-primary-500;
 }
 
 .v-input__input-success {
-  @apply border-success-300 focus:border-success-500 focus:ring-success-500 placeholder-success-300;
+  @apply border-success-300 placeholder-success-300 focus:border-success-500 focus:ring-success-500;
 }
 
 .v-input__input-disabled {
-  @apply border-gray-300 focus:border-gray-500 focus:ring-gray-500 placeholder-gray-300;
+  @apply border-gray-300 placeholder-gray-300 focus:border-gray-500 focus:ring-gray-500;
 }
 
 .v-input__input {
-  @apply block w-full rounded-md focus:outline-none sm:text-sm h-9;
+  @apply block h-9 w-full rounded-md focus:outline-none sm:text-sm;
 }
 
 .v-input__input-pl {
@@ -32,33 +32,28 @@
   @apply pr-10;
 }
 
-
-
 /* icons */
 
-.v-input__icon-default{
+.v-input__icon-default {
   @apply text-primary-500;
 }
 
-.v-input__icon-disabled{
+.v-input__icon-disabled {
   @apply text-gray-500;
 }
 
-.v-input__icon-success{
+.v-input__icon-success {
   @apply text-success-500;
 }
 
-.v-input__icon-danger{
+.v-input__icon-danger {
   @apply text-danger-500;
 }
 
-
-.v-input__icon-right-box{
-  @apply pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer;
+.v-input__icon-right-box {
+  @apply pointer-events-none absolute inset-y-0 right-0 flex cursor-pointer items-center pr-3;
 }
 
-.v-input__icon-left-box{
-  @apply pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 cursor-pointer;
+.v-input__icon-left-box {
+  @apply pointer-events-none absolute inset-y-0 left-0 flex cursor-pointer items-center pl-3;
 }
-
-

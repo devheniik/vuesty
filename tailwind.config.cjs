@@ -46,7 +46,7 @@ module.exports = {
         900: '#B66A00',
         1000: '#A46000',
       },
-      danger: {
+      danger: { 
         50: '#FFF1F0',
         100: '#FFD4D2',
         200: '#FFB8B4',
