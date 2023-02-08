@@ -1,3 +1,0 @@
-// Vitest Snapshot v1
-
-exports[`VButton > renders the correct HTML 1`] = `"<button class=\\"btn flex btn-primary btn-small btn-primary-500\\"></button>"`;
