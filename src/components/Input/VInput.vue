@@ -10,7 +10,7 @@ const props = withDefaults(
     readonly?: boolean
     placeholder?: string | false
     type?: 'text' | 'email' | 'password' | 'number' | 'tel' | 'url' | 'search'
-    rules?: 'any' | 'stringNumbers' | 'string' | 'numbers' | 'integer' | 'volume' | 'currency' | RegExp
+    rules?: 'any' | 'email' | 'stringNumbers' | 'string' | 'numbers' | 'integer' | 'volume' | 'currency' | RegExp
     clearable?: boolean
     name?: string
     applyColorToLeftIcon?: boolean
@@ -35,7 +35,7 @@ const props = withDefaults(
     rules: 'any',
     min: false,
     max: false,
-    allocateValid: true,
+    allocateValid: false,
     require: true,
     prevent: false,
   }
@@ -71,6 +71,9 @@ if (props.rules === 'any') {
 } else if (props.rules === 'stringNumbers') {
   regex.value = new RegExp(/^[a-zA-Z0-9]+$/)
   fillPlaceholder('123ABC...')
+} else if (props.rules === 'email') {
+  regex.value = new RegExp(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
+  fillPlaceholder('example@domain.com')
 } else if (props.rules === 'string') {
   regex.value = new RegExp(/^[a-zA-Z]+$/)
   fillPlaceholder('Abc...')
@@ -127,12 +130,14 @@ const handleInput = (input: string) => {
 const slots = useSlots()
 
 const leftIcon = () => {
-  return !!slots['left']
+  return !!slots['icon-left']
 }
 
 const rightIcon = () => {
-  return !!slots['right']
+  return !!slots['icon-right']
 }
+
+console.log(leftIcon());
 
 const handleClickLeftSlot = () => {
   emit('leftClick')
@@ -149,11 +154,11 @@ const handleClickRightSlot = () => {
       :class="[
         'v-input__icon-left-box',
         { 'v-input__icon-disabled': disabled },
-        { 'v-input__icon-default': !valid && !invalid && applyColorToRightIcon && !disabled },
+        { 'v-input__icon-default': valid && !invalid && applyColorToRightIcon && !allocateValid && !disabled },
         { 'v-input__icon-success': valid && !invalid && applyColorToRightIcon && allocateValid && !disabled },
         { 'v-input__icon-danger': !valid && invalid && applyColorToRightIcon && !disabled },
       ]">
-      <slot name="icon-right" @click="handleClickLeftSlot" />
+      <slot name="icon-left" @click="handleClickLeftSlot" />
     </div>
     <input
       :id="name"
@@ -162,8 +167,8 @@ const handleClickRightSlot = () => {
       :name="name"
       :class="[
         'v-input__input',
-        { 'v-input__input-pl': leftIcon },
-        { 'v-input__input-pr': rightIcon },
+        { 'v-input__input-pl': leftIcon() },
+        { 'v-input__input-pr': rightIcon() },
         { 'v-input__icon-disabled': disabled },
         { 'v-input__input-default': !valid && !invalid },
         { 'v-input__input-success': valid && !invalid && allocateValid && !disabled },
@@ -180,11 +185,11 @@ const handleClickRightSlot = () => {
       :class="[
         'v-input__icon-right-box',
         { 'v-input__icon-disabled': disabled },
-        { 'v-input__icon-default': !valid && !invalid && applyColorToLeftIcon && !disabled },
+        { 'v-input__icon-default': valid && !invalid && applyColorToLeftIcon && !allocateValid && !disabled },
         { 'v-input__icon-success': valid && !invalid && applyColorToLeftIcon && allocateValid && !disabled },
         { 'v-input__icon-danger': !valid && invalid && applyColorToLeftIcon && !disabled },
       ]">
-      <slot name="icon-left" @click="handleClickRightSlot" />
+      <slot name="icon-right" @click="handleClickRightSlot" />
     </div>
   </div>
 </template>

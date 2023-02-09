@@ -1,13 +1,23 @@
 {
   "hash": "04366b51",
-  "browserHash": "2628dfda",
+  "browserHash": "55e05805",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "f7cd55c7",
+      "fileHash": "1e067fb7",
+      "needsInterop": false
+    },
+    "@devheniik/icons": {
+      "src": "../../../../node_modules/@devheniik/icons/dist/esm/index.js",
+      "file": "@devheniik_icons.js",
+      "fileHash": "6c04f4d6",
       "needsInterop": false
     }
   },
-  "chunks": {}
+  "chunks": {
+    "chunk-3T6VSYDD": {
+      "file": "chunk-3T6VSYDD.js"
+    }
+  }
 }

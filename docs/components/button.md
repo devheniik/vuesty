@@ -24,7 +24,7 @@ import { VButton } from 'vuetify'
 
 ### Button sizes
 
-<WrapView>
+<WrapView horizontal>
   <v-button size="small">Small</v-button>
   <v-button size="medium">Medium</v-button>
   <v-button size="big">Big</v-button>
@@ -38,7 +38,7 @@ import { VButton } from 'vuetify'
 
 ### Button colors
 
-<WrapView>
+<WrapView horizontal vertical>
   <v-button color="primary">Primary</v-button>
   <v-button color="secondary">Secondary</v-button>
   <v-button color="light">Light</v-button>
