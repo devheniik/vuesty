@@ -19,13 +19,16 @@ export default defineConfig({
     outDir: './dist',
     lib: {
       formats: ['es', 'cjs'],
-      entry: resolve(__dirname, './src/components/index.ts'),
+      entry: resolve(__dirname, './src/index.ts'),
       name: 'Vuesty',
       fileName: 'index',
     },
     rollupOptions: {
       external: ['vue'],
-      output: { globals: { vue: 'Vue' } },
+      output: {
+        exports: 'named',
+        globals: { vue: 'Vue' }
+      },
     },
   },
   test: vitestConfig.test,
@@ -33,7 +36,7 @@ export default defineConfig({
     dts({
       beforeWriteFile: (filePath, content) => {
         const newFilePath = filePath
-          .replace('/src', '/global');
+          .replace('/src', '/types');
 
         return {
           filePath: newFilePath,

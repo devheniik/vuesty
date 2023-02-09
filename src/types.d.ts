@@ -1,17 +1,18 @@
 import { GlobalComponentConstructor, ComponentConstructor } from './utils/ts-helper'
+import plugin from './index'
 
-import { VButtonComponent, VButtonProps, VButtonSlots } from '../components/Button/types'
-import { VInputComponent, VInputProps, VInputSlots } from '../components/Input/types'
-import { VAccordionComponent, VAccordionSlots, VAccordionProps } from '../components/Accordion/types'
-import { VAlertComponent, VAlertProps, VAlertSlots, VAvatarSlots } from '../components/Alert/types'
-import { VAvatarComponent, VAvatarProps } from '../components/Avatar/types'
-import { VAvatarGroupComponent, VAvatarGroupProps, VAvatarGroupSlots } from '../components/AvatarGroup/types'
-import { VBadgeComponent, VBadgeProps, VBadgeSlots } from '../components/Badge/types'
-import { VMenuComponent, VMenuSlots } from '../components/Menu/types'
-import { VNotificationComponent, VNotificationProps, VNotificationSlots } from '../components/Notification/types'
-import { VPaginationComponent, VPaginationProps } from '../components/Pagination/types'
-import { VSwitchComponent, VSwitchSlots } from '../components/Switch/types'
-import { VTabsComponent, VTabsProps, VTabsSlots } from '../components/Tabs/types'
+import { VButtonComponent, VButtonProps, VButtonSlots } from './components/Button/types'
+import { VInputComponent, VInputProps, VInputSlots } from './components/Input/types'
+import { VAccordionComponent, VAccordionSlots, VAccordionProps } from './components/Accordion/types'
+import { VAlertComponent, VAlertProps, VAlertSlots, VAvatarSlots } from './components/Alert/types'
+import { VAvatarComponent, VAvatarProps } from './components/Avatar/types'
+import { VAvatarGroupComponent, VAvatarGroupProps, VAvatarGroupSlots } from './components/AvatarGroup/types'
+import { VBadgeComponent, VBadgeProps, VBadgeSlots } from './components/Badge/types'
+import { VMenuComponent, VMenuSlots } from './components/Menu/types'
+import { VNotificationComponent, VNotificationProps, VNotificationSlots } from './components/Notification/types'
+import { VPaginationComponent, VPaginationProps } from './components/Pagination/types'
+import { VSwitchComponent, VSwitchSlots } from './components/Switch/types'
+import { VTabsComponent, VTabsProps, VTabsSlots } from './components/Tabs/types'
 
 export declare const VAccordion: ComponentConstructor<VAccordionComponent>
 export declare const VAlert: ComponentConstructor<VAlertComponent>
@@ -42,3 +43,5 @@ declare module '@vue/runtime-core' {
     VTabs: GlobalComponentConstructor<VTabsProps, VTabsSlots>
   }
 }
+
+export default plugin
