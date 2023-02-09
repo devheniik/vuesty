@@ -36,6 +36,7 @@
     "coverage": "vitest run --coverage",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
+    "analyze": "vite build --config analyze.config.js",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"
