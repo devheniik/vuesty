@@ -1,4 +1,4 @@
-import VMenu from '../components/Menu/VMenu.vue'
+import VMenu from '../src/components/Menu/VMenu.vue'
 
 export default {
   title: 'Menu',

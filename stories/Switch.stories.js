@@ -1,4 +1,4 @@
-import VSwitch from '../components/Switch/VSwitch.vue'
+import VSwitch from '../src/components/Switch/VSwitch.vue'
 import { UserIcon } from '@devheniik/icons'
 
 export default {

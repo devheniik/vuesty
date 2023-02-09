@@ -1,4 +1,4 @@
-import VAlert from '../components/Alert/VAlert.vue'
+import VAlert from '../src/components/Alert/VAlert.vue'
 
 export default {
   title: '',

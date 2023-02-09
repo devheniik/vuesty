@@ -39,7 +39,7 @@ export default defineConfig({
     dts({
       beforeWriteFile: (filePath, content) => {
         const newFilePath = filePath
-          .replace('./', './types');
+          .replace('src', 'types');
 
         return {
           filePath: newFilePath,

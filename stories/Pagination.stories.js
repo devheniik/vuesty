@@ -1,4 +1,4 @@
-import VPagination from '../components/Pagination/VPagination.vue'
+import VPagination from '../src/components/Pagination/VPagination.vue'
 
 export default {
   title: 'Pagination',

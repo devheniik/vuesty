@@ -1,4 +1,4 @@
-import VBadge from '../components/Badge/VBadge.vue'
+import VBadge from '../src/components/Badge/VBadge.vue'
 
 export default {
   title: 'Badge',

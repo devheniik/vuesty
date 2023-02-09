@@ -1,4 +1,4 @@
-import VNotification from '../components/Notification/VNotification.vue'
+import VNotification from '../src/components/Notification/VNotification.vue'
 import { UserIcon } from '@devheniik/icons'
 
 export default {

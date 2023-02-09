@@ -1,4 +1,4 @@
-import VTabs from '../components/Tabs/VTabs.vue'
+import VTabs from '../src/components/Tabs/VTabs.vue'
 const tabs = [
   { name: 'one', badge: 'label1' },
   { name: 'two', badge: 'label1' },

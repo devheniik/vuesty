@@ -1,5 +1,5 @@
-import VAvatar from '../components/Avatar/VAvatar.vue'
-import VAvatarGroup from '../components/AvatarGroup/VAvatarGroup.vue'
+import VAvatar from '../src/components/Avatar/VAvatar.vue'
+import VAvatarGroup from '../src/components/AvatarGroup/VAvatarGroup.vue'
 
 export default {
   title: 'Avatar',

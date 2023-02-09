@@ -1,4 +1,4 @@
-import VAccordion from '../components/Accordion/VAccordion.vue'
+import VAccordion from '../src/components/Accordion/VAccordion.vue'
 
 export default {
   title: 'Accordion',
