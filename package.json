@@ -1,5 +1,5 @@
 {
-  "version": "0.0.1-beta.13",
+  "version": "0.0.1-beta.14",
   "author": {
     "name": "devheniik",
     "email": "yevhenii_kyrmyzy@icloud.com",
@@ -9,9 +9,7 @@
   "type": "module",
   "name": "vuesty",
   "files": [
-    "src",
-    "dist",
-    "types"
+    "dist"
   ],
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
