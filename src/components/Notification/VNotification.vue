@@ -32,4 +32,6 @@ const onNotification = () => {
   </button>
 </template>
 
-<style></style>
+<style lang="scss" scoped>
+@import '../../assets/themes/main/components/notification.scss';
+</style>

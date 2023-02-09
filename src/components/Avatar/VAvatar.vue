@@ -108,4 +108,6 @@ const formatter = (text: string) => {
   </div>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+@import '../../assets/themes/main/components/avatar.scss';
+</style>

@@ -1,11 +1,27 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { Sizes, Colors as GlobalColors } from '@/types/global/global'
 
 const props = withDefaults(
   defineProps<{
-    size?: Sizes
-    color?: GlobalColors
+    size?:
+      | 'tiny'
+      | 'small'
+      | 'medium'
+      | 'big'
+      | 'large'
+      | 'huge'
+      | 'gigantic'
+    color?:
+      | 'primary'
+      | 'secondary'
+      | 'light'
+      | 'success'
+      | 'warning'
+      | 'danger'
+      | 'upgrade'
+      | 'tertiary'
+      | 'info'
+      | 'neutral'
     text?: string
   }>(),
   {
@@ -47,4 +63,6 @@ const sizes = computed(() => {
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@import '../../assets/themes/main/components/avatar.scss';
+</style>

@@ -20,7 +20,9 @@ const show = ref(false)
   </Menu>
 </template>
 
-<style>
+<style lang="scss" scoped>
+@import '../../assets/themes/main/components/menu.scss';
+
 [id^='headlessui-menu-item'] {
   @apply border-b text-sm font-semibold text-primary-500 hover:border-primary-500;
 }

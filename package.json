@@ -12,14 +12,14 @@
     "dist"
   ],
   "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
+  "module": "./dist/index.js",
   "unpkg": "./dist/index.js",
   "jsdelivr": "./dist/index.js",
   "types": "./dist/types/types.d.ts",
   "homepage": "https://vuesty.devheniik.com/",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
+      "import": "./dist/index.js",
       "require": "./dist/index.js"
     },
     "./style.css": "./dist/style.css"
