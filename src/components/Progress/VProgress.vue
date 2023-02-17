@@ -1,44 +1,111 @@
-z<script setup lang="ts">
-defineProps<{
-  progress: string
-}>()
+<script setup lang="ts">
+import {computed} from 'vue'
+
+const props = withDefaults(
+  defineProps<{
+  ready: number,
+  loaded: number,
+  way?: number,
+  volume: number,
+  units: string,
+  height?: number,
+  small?: boolean,
+  shipment?: boolean,
+  full?: boolean,
+  }>(), {
+    ready: 0,
+    volume: 150,
+    units: 'т',
+    way: 0,
+    full: true,
+    shipment: false,
+  })
+
+const ready_width = () => {
+  if (props.shipment) {
+    const p = props.ready / props.loaded * 100
+    if (p > 100) {
+      return 100
+    } else {
+      return p
+    }
+  } else {
+    const p = props.ready / props.volume * 100
+    if (p > 100) {
+      return 100
+    } else {
+      return p
+    }
+  }
+}
+
+
+const volume_needed = computed(() => {
+  if(props.volume > props.loaded) {
+    const res = (props.volume - props.loaded).toFixed(2)
+    if(!props.full) {
+
+      return res.length < 5 ? res : '...'
+    }
+    else return res
+  }
+  else return 0
+})
+
+const percent_volume_lost = computed(() => {
+  return `${((props.loaded - props.ready) / props.volume  * 100).toFixed(2)}%`
+})
+
+const percent_in_way = computed(() => {
+  return `${((props.way / props.volume) * 100).toFixed(2)}%`
+})
+
 </script>
 
 <template>
-  <div class="meter orange nostripes bg-neutral-200">
-    <span :style="{ width: progress }">
-      <!-- <span :class=`[w-10]`> -->
-      <span class="absolute top-0 right-0 h-full w-[6px] bg-upgrade-500"></span>
-    </span>
+  <div
+  :class="` v-progress z-10  h-full  cursor-pointer w-full text-center flex  items-center rounded-lg overflow-hidden text-white`"
+  :style="`height: ${height ? height : 20}px;`"
+  >
+    <div
+    v-if="ready_width() > 0"
+    :class="[{'v-progress_full': ready_width() >= 100}, 'v-progress__body__colored z-10']"
+    :style="`width: ${ready_width()}%;height: ${height ? height : 20}px;`">
+      <span class="opacity-0">1</span>
+    </div>
+    <div
+    class="bg-danger-1000"
+    :style="`width: ${percent_volume_lost};height: ${height ? height : 20}px;`">
+    </div>
+    <div
+    class="test"
+    :style="`width: ${percent_in_way};height: ${height ? height : 20}px;`">
+    </div>
+    <div
+    class="flex items-center justify-between w-full absolute z-10 text-xs px-1 h-full">
+    <div>
+      <span class="v-progress__badge v-progress__badge_current">
+      {{ ready }}
+      </span>
+    </div>
+
+    <div>
+      <span class="v-progress__badge v-progress__badge_needed">
+        {{volume_needed}}
+      </span>
+
+      <span
+      v-if="!shipment"
+      class="v-progress__badge v-progress__badge_total"
+      >
+        {{ volume }} {{units}}
+      </span>
+    </div>
+
+    </div>
   </div>
 </template>
 
-<style>
-.meter {
-  box-sizing: content-box;
-  height: 20px;
-  position: relative;
-  border-radius: 35px;
-}
-.meter > span {
-  display: block;
-  height: 100%;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  background: rgb(0, 71, 253);
-  background: linear-gradient(90deg, rgba(0, 71, 253, 0.7) 0%, rgba(53, 224, 152, 0.7) 100%);
-  box-shadow: inset 0 2px 9px rgba(255, 255, 255, 0.3), inset 0 -2px 6px rgba(0, 0, 0, 0.4);
-  position: relative;
-  overflow: hidden;
-}
-/* .meter > span:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 1;
-  width: 6px;
-  height: 100%;
-  background: #FF5964;
-} */
+<style lang="scss" scoped>
+@import "../../assets/themes/main/components/progress.scss";
 </style>

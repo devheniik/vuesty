@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { InformationCircleIcon, XMarkIcon, ExclamationTriangleIcon, CheckCircleIcon } from '@devheniik/icons'
+import { InformationCircleIcon, XMarkIcon, ExclamationTriangleIcon, CheckCircleIcon  } from '@devheniik/icons'
 import VButton from '../Button/VButton.vue'
-import { computed, FunctionalComponent, HTMLAttributes, VNodeProps } from 'vue'
+import {computed} from "vue"
+import type {FunctionalComponent, HTMLAttributes, VNodeProps} from "vue"
 
 const props = withDefaults(
   defineProps<{
@@ -66,7 +67,7 @@ const icon = computed<FunctionalComponent<HTMLAttributes & VNodeProps> | string>
   <div class="v-alert">
     <div :class="['v-alert__left-border', `bg-${variant}-medium`]"></div>
     <slot name="icon">
-      <component :is="icon" :class="['v-alert__info-icon', `v-text-${variant}-medium`]" />
+      <component :is="icon" :class="['v-alert__icon', `v-text_${variant}_medium`]" />
     </slot>
     <main class="v-alert__main">
       <h4 class="v-alert__label">{{ label }}</h4>
@@ -89,6 +90,6 @@ const icon = computed<FunctionalComponent<HTMLAttributes & VNodeProps> | string>
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 @import '../../assets/themes/main/components/alert.scss';
 </style>

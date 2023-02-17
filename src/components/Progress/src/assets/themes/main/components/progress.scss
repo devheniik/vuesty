@@ -1,0 +1,33 @@
+.v-progress {
+  @apply relative
+}
+
+.v-progress_full {
+  @apply rounded-3xl
+}
+
+
+.v-progress__badge {
+  @apply absolute flex items-center top-0.5 z-10 h-4 px-2.5 leading-[10px] text-[13px] rounded-lg
+}
+
+.v-progress__badge_current {
+  @apply left-0.5 text-primary-500 bg-white
+}
+
+.v-progress__badge_total {
+  @apply right-0.5 text-white bg-neutral-800
+}
+
+.v-progress__body {
+  @apply bg-neutral-200 overflow-hidden h-5 relative  rounded-3xl
+}
+
+
+.v-progress__body__indicator {
+  @apply absolute top-0 right-0 h-full w-1 bg-upgrade-500
+}
+
+.v-progress__body__colored {
+  @apply block h-full relative overflow-hidden rounded-l-3xl bg-gradient-to-r from-primary-500 to-info-400
+}

@@ -1,0 +1,53 @@
+
+/* .v-progress__body__colored {
+  @apply block h-full relative overflow-hidden rounded-l-3xl bg-gradient-to-r from-primary-500 to-info-400
+} */
+
+
+
+.v-progress {
+  background-color: #DDE0E2;
+  @apply relative
+}
+
+.v-progress_full {
+  @apply rounded-3xl
+}
+
+
+.v-progress__badge {
+  line-height: 14px;
+  @apply z-10  px-1.5 rounded-lg
+}
+
+.v-progress__badge_current {
+  @apply left-0.5 text-success-1000 bg-white
+}
+
+.v-progress__badge_total {
+  @apply right-0.5 text-white bg-gray-800
+}
+
+.v-progress__badge_needed {
+  @apply text-gray-800 bg-white mr-1
+}
+
+.v-progress__body {
+  @apply bg-gray-200 overflow-hidden h-5 relative  rounded-3xl
+}
+
+.v-progress__body__indicator {
+  @apply absolute top-0 right-0 h-full w-1 bg-tertiary-500
+}
+
+.v-progress__body__colored {
+  @apply block h-full relative overflow-hidden rounded-l-3xl bg-gradient-to-r bg-success-1000
+}
+
+.test {
+  background: repeating-linear-gradient(
+  -45deg,
+  #DDE0E2 2px 0px,
+  #ABD9C5 4px 8px
+);
+}

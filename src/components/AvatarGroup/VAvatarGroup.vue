@@ -1,27 +1,30 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 
-const props = withDefaults(
+type Colors =
+  | 'primary'
+  | 'secondary'
+  | 'light'
+  | 'success'
+  | 'warning'
+  | 'danger'
+  | 'upgrade'
+  | 'tertiary'
+  | 'info'
+  | 'neutral'
+
+type Sizes =
+  | 'tiny'
+  | 'small'
+  | 'medium'
+  | 'big'
+  | 'large'
+  | 'huge'
+  | 'gigantic'
+
+withDefaults(
   defineProps<{
-    size?:
-      | 'tiny'
-      | 'small'
-      | 'medium'
-      | 'big'
-      | 'large'
-      | 'huge'
-      | 'gigantic'
-    color?:
-      | 'primary'
-      | 'secondary'
-      | 'light'
-      | 'success'
-      | 'warning'
-      | 'danger'
-      | 'upgrade'
-      | 'tertiary'
-      | 'info'
-      | 'neutral'
+    size?: Sizes
+    color?: Colors
     text?: string
   }>(),
   {
@@ -29,40 +32,14 @@ const props = withDefaults(
     color: 'primary',
   }
 )
-
-const sizes = computed(() => {
-  if (props.size === 'tiny') {
-    return '[&>.avatar]:h-4 [&>.avatar]:w-4 [&>.avatar]:-mr-1.5'
-  }
-  if (props.size === 'small') {
-    return '[&>.avatar]:h-6 [&>.avatar]:w-6 [&>.avatar]:-mr-2'
-  }
-  if (props.size === 'medium') {
-    return '[&>.avatar]:h-8 [&>.avatar]:w-8 [&>.avatar]:-mr-3'
-  }
-  if (props.size === 'big') {
-    return '[&>.avatar]:h-10 [&>.avatar]:w-10 [&>.avatar]:-mr-3'
-  }
-  if (props.size === 'large') {
-    return '[&>.avatar]:h-12 [&>.avatar]:w-12 [&>.avatar]:-mr-4'
-  }
-
-  if (props.size === 'huge') {
-    return '[&>.avatar]:h-16 [&>.avatar]:w-16 [&>.avatar]:-mr-5'
-  }
-
-  if (props.size === 'gigantic') {
-    return '[&>.avatar]:h-20 [&>.avatar]:w-20 [&>.avatar]:-mr-6'
-  } else return ''
-})
 </script>
 
 <template>
-  <div class="avatar-group flex [&>.avatar]:-mr-3" :class="`${sizes}`">
+  <div :class="`v-avatar-group_${size} v-avatar-group`">
     <slot />
   </div>
 </template>
 
-<style lang="scss" scoped>
-@import '../../assets/themes/main/components/avatar.scss';
+<style lang="scss">
+@import "../../assets/themes/main/components/avatarGroup.scss";
 </style>
