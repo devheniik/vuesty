@@ -6,8 +6,6 @@ const props = withDefaults(
   defineProps<{
     color?:
       | 'primary'
-      | 'secondary'
-      | 'light'
       | 'success'
       | 'warning'
       | 'danger'
@@ -21,7 +19,6 @@ const props = withDefaults(
     chip?: boolean
   }>(),
   {
-    size: 'small',
     color: 'success',
     status: false,
     label: 'Label',

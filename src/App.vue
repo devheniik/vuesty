@@ -216,8 +216,48 @@ const selected = ref('')
     <v-avatar src="src/assets/components/avatar.svg" size="gigantic" status="danger" />
   </div>
 
-  <div class="m-10 flex items-center justify-center space-x-2 p-10 shadow-2xl">
+  <div class="m-10 flex flex-col items-center justify-center space-y-4 p-10 shadow-2xl">
+    <v-avatar-group size="tiny">
+      <v-avatar src="src/assets/components/avatar.svg" />
+      <v-avatar src="src/assets/components/avatar.svg" />
+      <v-avatar src="src/assets/components/avatar.svg" />
+      <v-avatar src="src/assets/components/avatar.svg" />
+      <v-avatar src="src/assets/components/avatar.svg" />
+      <v-avatar src="src/assets/components/avatar.svg" />
+    </v-avatar-group>
+    <v-avatar-group size="small">
+      <v-avatar src="src/assets/components/avatar.svg" />
+      <v-avatar src="src/assets/components/avatar.svg" />
+      <v-avatar src="src/assets/components/avatar.svg" />
+      <v-avatar src="src/assets/components/avatar.svg" />
+      <v-avatar src="src/assets/components/avatar.svg" />
+      <v-avatar src="src/assets/components/avatar.svg" />
+    </v-avatar-group>
+    <v-avatar-group size="medium">
+      <v-avatar src="src/assets/components/avatar.svg" />
+      <v-avatar src="src/assets/components/avatar.svg" />
+      <v-avatar src="src/assets/components/avatar.svg" />
+      <v-avatar src="src/assets/components/avatar.svg" />
+      <v-avatar src="src/assets/components/avatar.svg" />
+      <v-avatar src="src/assets/components/avatar.svg" />
+    </v-avatar-group>
+    <v-avatar-group size="big">
+      <v-avatar src="src/assets/components/avatar.svg" />
+      <v-avatar src="src/assets/components/avatar.svg" />
+      <v-avatar src="src/assets/components/avatar.svg" />
+      <v-avatar src="src/assets/components/avatar.svg" />
+      <v-avatar src="src/assets/components/avatar.svg" />
+      <v-avatar src="src/assets/components/avatar.svg" />
+    </v-avatar-group>
     <v-avatar-group>
+      <v-avatar src="src/assets/components/avatar.svg" />
+      <v-avatar src="src/assets/components/avatar.svg" />
+      <v-avatar src="src/assets/components/avatar.svg" />
+      <v-avatar src="src/assets/components/avatar.svg" />
+      <v-avatar src="src/assets/components/avatar.svg" />
+      <v-avatar src="src/assets/components/avatar.svg" />
+    </v-avatar-group>
+    <v-avatar-group size="gigantic">
       <v-avatar src="src/assets/components/avatar.svg" />
       <v-avatar src="src/assets/components/avatar.svg" />
       <v-avatar src="src/assets/components/avatar.svg" />
@@ -320,7 +360,8 @@ const selected = ref('')
     <v-alert variant="success" label="Label success" :controls="false" />
 
     <v-alert variant="danger" label="Label danger" :controls="false"> Lorem ipsum dolor sit amet. </v-alert>
-    <v-alert variant="warning" label="Label danger" :controls="false"> Lorem ipsum dolor sit amet. </v-alert>
+    <v-alert variant="warning" label="Label warning" :controls="false"> Lorem ipsum dolor sit amet. </v-alert>
+    <v-alert > </v-alert>
 
   </div>
   <div class="m-10 flex flex-col items-center justify-center space-y-5 bg-gray-50 p-10 shadow-2xl">
@@ -329,6 +370,7 @@ const selected = ref('')
     </v-panel>
   </div>
 
-</template> -->
+</template>
 
-<style scoped></style>
+<style scoped>
+</style>

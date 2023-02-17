@@ -33,5 +33,5 @@ defineProps<{
 </template>
 
 <style lang="scss" scoped>
-@import '../../assets/themes/main/components/tabs.scss';
+@import 'src/assets/themes/main/components/tabs.scss';
 </style>

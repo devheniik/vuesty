@@ -34,9 +34,11 @@ const handleShow = () => {
 <template>
   <div :class="['v-accordion', { 'bg-gray-100': bg && show }]" @click="handleShow">
     <div :class="['v-accordion__header', { 'v-accordion__header__border': border }]">
-      <slot name="header">
-        <h4 class="v-accordion__header__label">{{ label }}</h4>
-      </slot>
+      <h4 class="v-accordion__header__label">
+        <slot name="header">
+        {{ label }}
+        </slot>
+      </h4>
       <button>
         <ChevronDownIcon v-if="!show" class="v-accordion__header__icon" />
         <ChevronUpIcon v-else class="v-accordion__header__icon" />
