@@ -1,6 +1,6 @@
 
 .v_switch {
-  @apply relative inline-flex h-3.5 w-[22px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition duration-200 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 [&>svg]:transition [&>svg]:duration-200 [&>svg]:ease-in-out
+  @apply relative inline-flex h-3.5 w-[22px] shrink-0 cursor-pointer rounded-full border-solid border-2 border-transparent transition duration-200 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 [&>svg]:transition [&>svg]:duration-200 [&>svg]:ease-in-out
 }
 
 button.v_switch_active {

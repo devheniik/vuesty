@@ -94,7 +94,7 @@ const nextPage = () => {
       </div>
     </div>
 
-    <button class="v-pagination__arrow v-pagination__arrow_left" @click="nextPage">
+    <button class="v-pagination__arrow v-pagination__arrow_right" @click="nextPage">
       <ChevronRightIcon class="v-pagination__arrow_size" />
     </button>
   </div>

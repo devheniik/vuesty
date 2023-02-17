@@ -7,7 +7,7 @@
 }
 
 .v-pagination__body__item {
-  @apply flex h-8 w-8 cursor-pointer items-center justify-center border border-primary-200 hover:border-primary-500;
+  @apply flex h-8 w-8 cursor-pointer items-center justify-center border border-solid border-primary-200 hover:border-primary-500;
 }
 
 div.v-pagination__body__item_active {

@@ -3,7 +3,7 @@
 }
 
 .v-button {
-  @apply v-button-common opacity-80 hover:opacity-100 border border-transparent w-auto rounded border-none bg-primary-600 px-1.5 py-1 text-white shadow-sm;
+  @apply v-button-common opacity-80 hover:opacity-100 border border-transparent w-auto rounded border-none bg-primary-600 px-1.5 py-1  text-white shadow-sm;
 }
 
 /* Colors */
@@ -51,15 +51,15 @@ button.v-button-white {
 /* Sizes */
 
 .v-button-small {
-  @apply px-2 py-1 text-sm font-semibold leading-4;
+  @apply px-2 py-1 h-6 text-sm font-semibold leading-4;
 }
 
 .v-button-medium {
-  @apply v-button
+  @apply v-button-common opacity-80 hover:opacity-100 border border-transparent w-auto rounded border-none  px-1.5 py-1  pb-2 h-8  shadow-sm;
 }
 
 .v-button-big {
-  @apply px-3 py-2 text-lg font-semibold leading-5;
+  @apply px-3 py-2 h-9 text-lg font-semibold leading-5;
 }
 
 /* Icons */

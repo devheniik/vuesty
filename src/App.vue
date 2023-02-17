@@ -15,7 +15,7 @@ import VMenu from './components/Menu/VMenu.vue'
 import VTabs from './components/Tabs/VTabs.vue'
 import VSwitch from './components/Switch/VSwitch.vue'
 import VProgress from './components/Progress/VProgress.vue'
-import { UserIcon } from '@devheniik/icons'
+import { UserIcon, ChevronLeftIcon } from '@devheniik/icons'
 import { MenuItem, TabPanel } from '@headlessui/vue'
 
 const log = (text: any) => console.log(text)
@@ -84,6 +84,9 @@ const selected = ref('')
 
 <template>
   <div class="m-10 flex flex-wrap items-center justify-center space-x-2 p-10 shadow-2xl">
+    <v-button size="small" color="danger">
+      prim
+    </v-button>
     <v-button color="danger">
       prim
     </v-button>
@@ -91,8 +94,8 @@ const selected = ref('')
       prim
     </v-button>
     <v-button color="success">
-      <UserIcon class="btn-left-icon" />
-      success
+      <!-- <ChevronLeftIcon class="w-4 -mb-1" /> -->
+      <span>success</span>
     </v-button>
     <v-button color="light">
       light
@@ -112,7 +115,7 @@ const selected = ref('')
   </div>
 
   <div class="m-10 p-10">
-    <v-progress :total="335" :current="172" measure="кг"></v-progress>
+    <v-progress :volume="112186" :ready="17220" units="кг" :loaded="18220" :way="11923"></v-progress>
   </div>
 
   <div class="m-10 flex items-center justify-center space-x-2 p-10 shadow-2xl">
