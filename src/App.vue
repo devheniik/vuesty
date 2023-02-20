@@ -15,7 +15,7 @@ import VMenu from './components/Menu/VMenu.vue'
 import VTabs from './components/Tabs/VTabs.vue'
 import VSwitch from './components/Switch/VSwitch.vue'
 import VProgress from './components/Progress/VProgress.vue'
-import { UserIcon, ChevronLeftIcon } from '@devheniik/icons'
+import { UserIcon, ChevronLeftIcon, ChevronRightIcon } from '@devheniik/icons'
 import { MenuItem, TabPanel } from '@headlessui/vue'
 
 const log = (text: any) => console.log(text)
@@ -85,32 +85,33 @@ const selected = ref('')
 <template>
   <div class="m-10 flex flex-wrap items-center justify-center space-x-2 p-10 shadow-2xl">
     <v-button size="small" color="danger">
-      prim
+      <span>prim</span>
     </v-button>
     <v-button color="danger">
-      prim
+      <span>prim</span>
     </v-button>
     <v-button color="warning">
-      prim
+      <span>prim</span>
     </v-button>
-    <v-button color="success">
-      <!-- <ChevronLeftIcon class="w-4 -mb-1" /> -->
+    <v-button color="success" icon>
+      <ChevronLeftIcon/>
       <span>success</span>
     </v-button>
     <v-button color="light">
-      light
+      <span>light</span>
     </v-button>
     <v-button color="secondary">
-      secondary
+      <span>secondary</span>
+      <ChevronRightIcon  />
     </v-button>
     <v-button :disabled="true" color="primary">
-      primary disabled
+      <span>primary disabled</span>
     </v-button>
     <v-button :disabled="true" color="secondary">
-      secondary disabled
+      <span>secondary disabled</span>
     </v-button>
     <v-button :disabled="true" color="light">
-      light disabled
+      <span>light disabled</span>
     </v-button>
   </div>
 
@@ -259,14 +260,7 @@ const selected = ref('')
       <v-avatar src="src/assets/components/avatar.svg" />
       <v-avatar src="src/assets/components/avatar.svg" />
       <v-avatar src="src/assets/components/avatar.svg" />
-    </v-avatar-group>
-    <v-avatar-group size="gigantic">
-      <v-avatar src="src/assets/components/avatar.svg" />
-      <v-avatar src="src/assets/components/avatar.svg" />
-      <v-avatar src="src/assets/components/avatar.svg" />
-      <v-avatar src="src/assets/components/avatar.svg" />
-      <v-avatar src="src/assets/components/avatar.svg" />
-      <v-avatar src="src/assets/components/avatar.svg" />
+ src/assets/components/avatar.svg" />
     </v-avatar-group>
   </div>
 

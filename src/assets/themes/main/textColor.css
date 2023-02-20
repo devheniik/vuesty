@@ -1,31 +1,31 @@
-.text-success-medium {
+.v-text_success_medium {
   @apply text-success-500;
 }
 
-.text-primary-medium {
+.v-text_primary_medium {
   @apply text-primary-500;
 }
 
-.text-warning-medium {
+.v-text_warning_medium {
   @apply text-warning-500;
 }
 
-.text-danger-medium {
+.v-text_danger_medium {
   @apply text-danger-500;
 }
 
-.text-upgrade-medium {
+.v-text_upgrade_medium {
   @apply text-upgrade-500;
 }
 
-.text-info-medium {
+.v-text_info_medium {
   @apply text-info-400;
 }
 
-.text-tertiary-medium {
+.v-text_tertiary_medium {
   @apply text-tertiary-500;
 }
 
-.text-neutral-medium {
+.v-text_neutral_medium {
   @apply text-neutral-500;
 }

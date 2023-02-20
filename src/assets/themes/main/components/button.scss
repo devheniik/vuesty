@@ -2,6 +2,14 @@
   @apply inline-flex cursor-pointer items-center justify-center whitespace-nowrap text-lg font-medium focus:outline-none focus:ring-0 focus:ring-offset-0;
 }
 
+.v-button span {
+  @apply -mt-[5px]
+}
+
+.v-button svg {
+  @apply w-4 h-4
+}
+
 .v-button {
   @apply v-button-common opacity-80 hover:opacity-100 border border-transparent w-auto rounded border-none bg-primary-600 px-1.5 py-1  text-white shadow-sm;
 }
@@ -12,8 +20,9 @@ button.v-button-light {
   @apply bg-white text-primary-600  hover:border-transparent hover:bg-primary-50 shadow-none;
 }
 
+
 button.v-button-secondary {
-  @apply v-button-common  rounded border-solid border-primary-500 bg-white  px-1.5 py-0.5 text-primary-500 hover:border-transparent hover:bg-primary-100 hover:text-primary-1000;
+  @apply v-button-common  rounded border-solid border-primary-500 bg-white   text-primary-500 hover:border-transparent hover:bg-primary-100 hover:text-primary-1000;
 }
 
 button.v-button-danger {
@@ -41,11 +50,11 @@ button.v-button-warning {
 }
 
 button.v-button-neutral {
-  @apply v-button-common rounded bg-neutral-600  px-1.5 py-0.5 text-white shadow-sm hover:bg-neutral-700 focus:ring-neutral-500;
+  @apply v-button-common rounded bg-neutral-600  text-white shadow-sm hover:bg-neutral-700 focus:ring-neutral-500;
 }
 
 button.v-button-white {
-  @apply v-button-common rounded border border-neutral-300 bg-white px-1.5 py-0.5 text-neutral-700 shadow-sm hover:bg-neutral-50;
+  @apply v-button-common rounded border border-neutral-300 bg-white  text-neutral-700 shadow-sm hover:bg-neutral-50;
 }
 
 /* Sizes */
@@ -55,7 +64,7 @@ button.v-button-white {
 }
 
 .v-button-medium {
-  @apply v-button-common opacity-80 hover:opacity-100 border border-transparent w-auto rounded border-none  px-1.5 py-1  pb-2 h-8  shadow-sm;
+  @apply v-button-common opacity-80 hover:opacity-100 border border-transparent w-auto rounded border-none h-8  px-2.5 py-1.5   shadow-sm;
 }
 
 .v-button-big {
