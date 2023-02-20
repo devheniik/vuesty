@@ -260,7 +260,6 @@ const selected = ref('')
       <v-avatar src="src/assets/components/avatar.svg" />
       <v-avatar src="src/assets/components/avatar.svg" />
       <v-avatar src="src/assets/components/avatar.svg" />
- src/assets/components/avatar.svg" />
     </v-avatar-group>
   </div>
 
