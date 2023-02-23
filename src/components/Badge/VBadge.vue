@@ -49,8 +49,7 @@ const tagColor = computed(() => `v-tag-${props.color}`)
     :class="[
       { 'v-tag-chip-text': chip },
       { 'v-tag-status-text': status },
-      chip && chipColor,
-      !chip && tagColor,
+      chip ?  chipColor : tagColor,
       'v-tag',
     ]">
     <div v-if="status" :class="['v-tag__status-circle', `v-tag__status-circle_${props.color}`]"></div>
