@@ -150,6 +150,7 @@ const handleClickRightSlot = () => {
 
 <template>
   <div class="v-input">
+
     <div
       :class="[
         'v-input__icon-left-box',
