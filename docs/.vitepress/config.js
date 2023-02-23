@@ -7,6 +7,7 @@ export default defineConfig({
     ['link', { rel: 'icon', href: '/VuestyIcon.svg', type: 'image/svg+xml' }],
   ],
   themeConfig: {
+    appearance: false,
     logo: '/VuestyLogo.svg',
     siteTitle: '',
     sidebar: [
