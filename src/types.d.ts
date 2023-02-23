@@ -13,6 +13,7 @@ import { VNotificationComponent, VNotificationProps, VNotificationSlots } from '
 import { VPaginationComponent, VPaginationProps } from './components/Pagination/types'
 import { VSwitchComponent, VSwitchSlots } from './components/Switch/types'
 import { VTabsComponent, VTabsProps, VTabsSlots } from './components/Tabs/types'
+import { VToasterComponent, VToasterProps } from './components/Toaster/types'
 
 export declare const VAccordion: ComponentConstructor<VAccordionComponent>
 export declare const VAlert: ComponentConstructor<VAlertComponent>
@@ -26,6 +27,7 @@ export declare const VNotification: ComponentConstructor<VNotificationComponent>
 export declare const VPagination: ComponentConstructor<VPaginationComponent>
 export declare const VSwitch: ComponentConstructor<VSwitchComponent>
 export declare const VTabs: ComponentConstructor<VTabsComponent>
+export declare const VToaster: ComponentConstructor<VToasterComponent>
 
 declare module '@vue/runtime-core' {
   interface GlobalComponents {
@@ -36,11 +38,12 @@ declare module '@vue/runtime-core' {
     VBadge: GlobalComponentConstructor<VBadgeProps, VBadgeSlots>
     VButton: GlobalComponentConstructor<VButtonProps, VButtonSlots>
     VInput: GlobalComponentConstructor<VInputProps, VInputSlots>
-    VMenu: GlobalComponentConstructor<{}, VMenuSlots>
+    VMenu: GlobalComponentConstructor<void, VMenuSlots>
     VNotification: GlobalComponentConstructor<VNotificationProps, VNotificationSlots>
-    VPagination: GlobalComponentConstructor<{}, VPaginationProps>
-    VSwitch: GlobalComponentConstructor<{}, VSwitchSlots>
+    VPagination: GlobalComponentConstructor<VPaginationProps, VNodeProps>
+    VSwitch: GlobalComponentConstructor<void, VSwitchSlots>
     VTabs: GlobalComponentConstructor<VTabsProps, VTabsSlots>
+    VToaster: GlobalComponentConstructor<VToasterProps, VNodeProps>
   }
 }
 
