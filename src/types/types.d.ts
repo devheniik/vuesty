@@ -43,6 +43,6 @@ declare module '@vue/runtime-core' {
     VProgress: GlobalComponentConstructor<VProgressProps>
     VSwitch: GlobalComponentConstructor<{}, VSwitchSlots>
     VTabs: GlobalComponentConstructor<VTabsProps, VTabsSlots>
-    VTabs: GlobalComponentConstructor<VModalProps, VModalSlots>
+    VModal: GlobalComponentConstructor<VModalProps, VModalSlots>
   }
 }
