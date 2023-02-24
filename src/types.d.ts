@@ -14,6 +14,7 @@ import { VPaginationComponent, VPaginationProps } from './components/Pagination/
 import { VSwitchComponent, VSwitchSlots } from './components/Switch/types'
 import { VTabsComponent, VTabsProps, VTabsSlots } from './components/Tabs/types'
 import { VToasterComponent, VToasterProps } from './components/Toaster/types'
+import type { VModalComponent, VModalProps, VModalSlots } from './components/Modal/types'
 
 export declare const VAccordion: ComponentConstructor<VAccordionComponent>
 export declare const VAlert: ComponentConstructor<VAlertComponent>
@@ -28,6 +29,7 @@ export declare const VPagination: ComponentConstructor<VPaginationComponent>
 export declare const VSwitch: ComponentConstructor<VSwitchComponent>
 export declare const VTabs: ComponentConstructor<VTabsComponent>
 export declare const VToaster: ComponentConstructor<VToasterComponent>
+export declare const VModal: ComponentConstructor<VModalComponent>
 
 declare module '@vue/runtime-core' {
   interface GlobalComponents {
@@ -44,6 +46,7 @@ declare module '@vue/runtime-core' {
     VSwitch: GlobalComponentConstructor<void, VSwitchSlots>
     VTabs: GlobalComponentConstructor<VTabsProps, VTabsSlots>
     VToaster: GlobalComponentConstructor<VToasterProps, VNodeProps>
+    VModal: GlobalComponentConstructor<VModalProps, VModalSlots>
   }
 }
 
