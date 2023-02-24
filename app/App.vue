@@ -1,6 +1,6 @@
 <template>
   <div class="container h-screen mx-auto space-y-9">
-    <VInput v-model="text" >
+    <VInput v-model="text"   >
       <template #icon-right>
         <AcademicCapIcon class="w-4 h-4"></AcademicCapIcon>
       </template>

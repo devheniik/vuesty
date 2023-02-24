@@ -5,7 +5,7 @@
 }
 
 .v-input__input-danger {
-  @apply border-danger-300 placeholder-danger-400 text-danger-500 focus:border-danger-500 focus:ring-danger-500;
+  @apply !border-danger-300 placeholder-danger-400 text-danger-500 focus:border-danger-500 focus:ring-danger-500;
 }
 
 .v-input__input-default {
