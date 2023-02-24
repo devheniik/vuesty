@@ -15,6 +15,7 @@ import VMenu from './components/Menu/VMenu.vue'
 import VTabs from './components/Tabs/VTabs.vue'
 import VSwitch from './components/Switch/VSwitch.vue'
 import VProgress from './components/Progress/VProgress.vue'
+import VModal from './components/Modal/VModal.vue'
 import { UserIcon, ChevronLeftIcon, ChevronRightIcon } from '@devheniik/icons'
 import { MenuItem, TabPanel } from '@headlessui/vue'
 
@@ -78,11 +79,20 @@ const tabs = [
   { name: 'four', badge: 'label1' },
 ]
 
+const truely = ref(false);
+
 const selected = ref('')
 </script>
 
 
 <template>
+  <div id="modals"></div>
+  <div class="m-10 flex flex-wrap items-center justify-center space-x-2 p-10 shadow-2xl">
+    <v-modal v-model="truely" width="w-1/2">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium reiciendis omnis animi sapiente, veniam vel dolore nihil qui eligendi dicta accusamus fuga tempore asperiores reprehenderit voluptas molestiae aspernatur id sequi magni explicabo nostrum iste ab. Iusto sed fugiat hic mollitia fugit neque iure iste delectus. Molestias a minus sunt itaque?
+    </v-modal>
+    <v-button @click="truely=!truely">Click</v-button>
+  </div>
   <div class="m-10 flex flex-wrap items-center justify-center space-x-2 p-10 shadow-2xl">
     <v-button size="small" color="danger">
       <span>prim</span>

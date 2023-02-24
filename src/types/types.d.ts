@@ -13,6 +13,7 @@ import { VPaginationComponent, VPaginationProps } from '../components/Pagination
 import { VSwitchComponent, VSwitchSlots } from '../components/Switch/types'
 import { VTabsComponent, VTabsProps, VTabsSlots } from '../components/Tabs/types'
 import type { VProgressComponent, VProgressProps } from '@/components/Progress/types'
+import type { VModalComponent, VModalProps, VModalSlots } from '@/components/Modal/types'
 
 export declare const VAccordion: ComponentConstructor<VAccordionComponent>
 export declare const VAlert: ComponentConstructor<VAlertComponent>
@@ -26,6 +27,7 @@ export declare const VPagination: ComponentConstructor<VPaginationComponent>
 export declare const VProgress: ComponentConstructor<VProgressComponent>
 export declare const VSwitch: ComponentConstructor<VSwitchComponent>
 export declare const VTabs: ComponentConstructor<VTabsComponent>
+export declare const VModal: ComponentConstructor<VModalComponent>
 
 declare module '@vue/runtime-core' {
   interface GlobalComponents {
@@ -41,5 +43,6 @@ declare module '@vue/runtime-core' {
     VProgress: GlobalComponentConstructor<VProgressProps>
     VSwitch: GlobalComponentConstructor<{}, VSwitchSlots>
     VTabs: GlobalComponentConstructor<VTabsProps, VTabsSlots>
+    VTabs: GlobalComponentConstructor<VModalProps, VModalSlots>
   }
 }
