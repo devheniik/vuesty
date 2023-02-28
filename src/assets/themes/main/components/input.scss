@@ -5,23 +5,23 @@
 }
 
 .v-input__input-danger {
-  @apply !border-danger-300 placeholder-danger-400 text-danger-500 focus:border-danger-500 focus:ring-danger-500;
+  @apply !border-danger-500 text-danger-500 focus:!border-danger-500;
 }
 
 .v-input__input-default {
-  @apply border-neutral-300 placeholder-gray-400 text-primary-500 focus:border-primary-500 focus:ring-primary-500 shadow-sm ;
+  @apply border-neutral-300 placeholder-gray-400 text-primary-500 focus:border-primary-500  shadow-sm ;
 }
 
 .v-input__input-success {
-  @apply border-success-300 placeholder-success-400 text-success-500 focus:border-success-500 focus:ring-success-500;
+  @apply border-success-300  text-success-500 focus:border-success-500 ;
 }
 
 .v-input__input-disabled {
-  @apply border-gray-300 placeholder-gray-300 focus:border-gray-300 focus:ring-gray-300;
+  @apply border-gray-300  focus:border-gray-300
 }
 
 .v-input__input {
-  @apply block h-9 w-full rounded-md border-neutral-300 focus:outline-none sm:text-sm;
+  @apply block h-9 w-full rounded-md border-neutral-300 ring-0 shadow-none hover:shadow-none focus:outline-none sm:text-sm;
 }
 
 .v-input__input-pl {

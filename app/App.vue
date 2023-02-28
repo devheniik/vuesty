@@ -6,6 +6,7 @@
       </template>
 
     </VInput>
+    <VInput v-model="text" :required="true"></VInput>
     <VToaster class="my-2" variant="primary" text="Some crazy piece of text" />
     <VToaster class="my-2" variant="success" text="Some crazy piece of text" />
     <VToaster class="my-2" variant="warning"  text="Some crazy piece of text" />
