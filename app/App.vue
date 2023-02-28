@@ -7,10 +7,10 @@
 
     </VInput>
     <VInput v-model="text" :required="true"></VInput>
-    <VToaster class="my-2" variant="primary" text="Some crazy piece of text" />
-    <VToaster class="my-2" variant="success" text="Some crazy piece of text" />
-    <VToaster class="my-2" variant="warning"  text="Some crazy piece of text" />
-    <VToaster class="my-2" variant="danger" text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus et dolores sit nostrum nemo excepturi voluptatibus, saepe, dolorem corrupti magni, incidunt nesciunt officia qui facilis rem obcaecati facere exercitationem laudantium." />
+    <VToast class="my-2" variant="primary" text="Some crazy piece of text" />
+    <VToast class="my-2" variant="success" text="Some crazy piece of text" />
+    <VToast class="my-2" variant="warning"  text="Some crazy piece of text" />
+    <VToast class="my-2" variant="danger" text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus et dolores sit nostrum nemo excepturi voluptatibus, saepe, dolorem corrupti magni, incidunt nesciunt officia qui facilis rem obcaecati facere exercitationem laudantium." />
   </div>
 
   <div class="buttonContainer">
@@ -29,12 +29,12 @@
 
 <script>
 import VInput from '../src/components/Input/VInput.vue'
-import VToaster from '../src/components/Toaster/VToaster.vue'
+import VToast from '../src/components/Toaster/VToast.vue'
 import VButton from '../src/components/Button/VButton.vue'
 import {AcademicCapIcon} from '@devheniik/icons/dist'
 export default {
   name: "App",
-  components: {VInput, VToaster, AcademicCapIcon, VButton},
+  components: {VInput, VToast, AcademicCapIcon, VButton},
   data() {
     return {
       text: null,
