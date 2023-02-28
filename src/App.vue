@@ -95,33 +95,33 @@ const selected = ref('')
   </div>
   <div class="m-10 flex flex-wrap items-center justify-center space-x-2 p-10 shadow-2xl">
     <v-button size="small" color="danger">
-      <span>prim</span>
+      prim
     </v-button>
     <v-button color="danger">
-      <span>prim</span>
+      prim
     </v-button>
     <v-button color="warning">
-      <span>prim</span>
+      prim
     </v-button>
     <v-button color="success" icon>
       <ChevronLeftIcon/>
-      <span>success</span>
+      success
     </v-button>
     <v-button color="light">
-      <span>light</span>
+      light
     </v-button>
     <v-button color="secondary">
-      <span>secondary</span>
+      secondary
       <ChevronRightIcon  />
     </v-button>
     <v-button :disabled="true" color="primary">
-      <span>primary disabled</span>
+      primary disabled
     </v-button>
     <v-button :disabled="true" color="secondary">
-      <span>secondary disabled</span>
+      secondary disabled
     </v-button>
     <v-button :disabled="true" color="light">
-      <span>light disabled</span>
+      light disabled
     </v-button>
   </div>
 

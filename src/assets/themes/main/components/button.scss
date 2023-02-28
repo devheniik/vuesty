@@ -2,10 +2,6 @@
   @apply inline-flex cursor-pointer items-center justify-center whitespace-nowrap text-lg font-medium focus:outline-none focus:ring-0 focus:ring-offset-0;
 }
 
-.v-button span {
-  @apply -mt-[5px]
-}
-
 .v-button svg {
   @apply w-4 h-4
 }
