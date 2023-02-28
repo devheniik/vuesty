@@ -18,7 +18,7 @@ const props = withDefaults(
     min?: number | false
     max?: number | false
     allocateValid?: boolean
-    require?: boolean
+    required?: boolean
     prevent?: boolean
   }>(),
   {
@@ -36,7 +36,7 @@ const props = withDefaults(
     min: false,
     max: false,
     allocateValid: false,
-    require: true,
+    required: false,
     prevent: false,
   }
 )
@@ -104,7 +104,7 @@ const checkInput = (input: string) => {
     return Number(input) <= props.max
   }
 
-  if (props.require) {
+  if (props.required) {
     return input !== '' && input !== null && input !== undefined
   }
 

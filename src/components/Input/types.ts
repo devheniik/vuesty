@@ -22,7 +22,7 @@ export interface VInputProps extends VInputEvents {
   min?: number | false
   max?: number | false
   allocateValid?: boolean
-  require?: boolean
+  required?: boolean
   prevent?: boolean
 }
 
