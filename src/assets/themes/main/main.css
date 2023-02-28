@@ -8,5 +8,6 @@
 @import 'components/panel.scss';
 @import 'components/wrap.scss';
 @import 'components/menu.scss';
+@import 'components/table.scss';
 @import './bg.css';
 @import './textColor.css';
