@@ -21,5 +21,3 @@ import { VProgress } from 'vuetify'
 ```html
 <v-progress :volume="112186" :ready="17220" units="кг" :loaded="18220" :way="11923"></v-progress>
 ```
-
-

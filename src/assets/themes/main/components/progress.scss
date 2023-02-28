@@ -1,53 +1,45 @@
-
 /* .v-progress__body__colored {
   @apply block h-full relative overflow-hidden rounded-l-3xl bg-gradient-to-r from-primary-500 to-info-400
 } */
 
-
-
 .v-progress {
-  background-color: #DDE0E2;
-  @apply relative
+  background-color: #dde0e2;
+  @apply relative;
 }
 
 .v-progress_full {
-  @apply rounded-3xl
+  @apply rounded-3xl;
 }
-
 
 .v-progress__badge {
   line-height: 14px;
-  @apply z-10  px-1.5 rounded-lg
+  @apply z-10  rounded-lg px-1.5;
 }
 
 .v-progress__badge_current {
-  @apply left-0.5 text-success-1000 bg-white
+  @apply left-0.5 bg-white text-success-1000;
 }
 
 .v-progress__badge_total {
-  @apply right-0.5 text-white bg-gray-800
+  @apply right-0.5 bg-gray-800 text-white;
 }
 
 .v-progress__badge_needed {
-  @apply text-gray-800 bg-white mr-1
+  @apply mr-1 bg-white text-gray-800;
 }
 
 .v-progress__body {
-  @apply bg-gray-200 overflow-hidden h-5 relative  rounded-3xl
+  @apply relative h-5 overflow-hidden rounded-3xl  bg-gray-200;
 }
 
 .v-progress__body__indicator {
-  @apply absolute top-0 right-0 h-full w-1 bg-tertiary-500
+  @apply absolute top-0 right-0 h-full w-1 bg-tertiary-500;
 }
 
 .v-progress__body__colored {
-  @apply block h-full relative overflow-hidden rounded-l-3xl bg-gradient-to-r bg-success-1000
+  @apply relative block h-full overflow-hidden rounded-l-3xl bg-success-1000 bg-gradient-to-r;
 }
 
 .test {
-  background: repeating-linear-gradient(
-  -45deg,
-  #DDE0E2 2px 0px,
-  #ABD9C5 4px 8px
-);
+  background: repeating-linear-gradient(-45deg, #dde0e2 2px 0px, #abd9c5 4px 8px);
 }

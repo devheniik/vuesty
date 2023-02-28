@@ -49,7 +49,6 @@ import { VBadge } from 'vuetify'
 <v-badge color="neutral" />
 ```
 
-
 ### Badge chips
 
 <WrapView horizontal vertical>

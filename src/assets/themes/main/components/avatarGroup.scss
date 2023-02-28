@@ -1,31 +1,31 @@
 .v-avatar-group {
-  @apply flex
+  @apply flex;
 }
 
 .v-avatar-group_tiny {
-  @apply [&>.v-avatar]:h-4 [&>.v-avatar]:w-4 [&>.v-avatar]:-mr-1.5
+  @apply [&>.v-avatar]:-mr-1.5 [&>.v-avatar]:h-4 [&>.v-avatar]:w-4;
 }
 
 .v-avatar-group_small {
-  @apply [&>.v-avatar]:h-6 [&>.v-avatar]:w-6 [&>.v-avatar]:-mr-2
+  @apply [&>.v-avatar]:-mr-2 [&>.v-avatar]:h-6 [&>.v-avatar]:w-6;
 }
 
 .v-avatar-group_medium {
-  @apply [&>.v-avatar]:h-8 [&>.v-avatar]:w-8 [&>.v-avatar]:-mr-3
+  @apply [&>.v-avatar]:-mr-3 [&>.v-avatar]:h-8 [&>.v-avatar]:w-8;
 }
 
 .v-avatar-group_big {
-  @apply [&>.v-avatar]:h-10 [&>.v-avatar]:w-10 [&>.v-avatar]:-mr-3
+  @apply [&>.v-avatar]:-mr-3 [&>.v-avatar]:h-10 [&>.v-avatar]:w-10;
 }
 
 .v-avatar-group_large {
-  @apply [&>.v-avatar]:h-12 [&>.v-avatar]:w-12 [&>.v-avatar]:-mr-4
+  @apply [&>.v-avatar]:-mr-4 [&>.v-avatar]:h-12 [&>.v-avatar]:w-12;
 }
 
 .v-avatar-group_huge {
-  @apply [&>.v-avatar]:h-16 [&>.v-avatar]:w-16 [&>.v-avatar]:-mr-5
+  @apply [&>.v-avatar]:-mr-5 [&>.v-avatar]:h-16 [&>.v-avatar]:w-16;
 }
 
 .v-avatar-group_gigantic {
-  @apply [&>.v-avatar]:h-20 [&>.v-avatar]:w-20 [&>.v-avatar]:-mr-6
+  @apply [&>.v-avatar]:-mr-6 [&>.v-avatar]:h-20 [&>.v-avatar]:w-20;
 }

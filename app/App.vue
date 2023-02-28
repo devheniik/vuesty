@@ -1,10 +1,9 @@
 <template>
-  <div class="container h-screen mx-auto space-y-9">
-    <VInput v-model="text"   >
+  <div class="container mx-auto h-screen space-y-9">
+    <VInput v-model="text">
       <template #icon-right>
-        <AcademicCapIcon class="w-4 h-4"></AcademicCapIcon>
+        <AcademicCapIcon class="h-4 w-4"></AcademicCapIcon>
       </template>
-
     </VInput>
     <VInput v-model="text" :required="true"></VInput>
     <VToast class="my-2" variant="primary" text="Some crazy piece of text" />
@@ -25,13 +24,34 @@
     <v-button color="tertiary">tertiary</v-button>
     <v-button><AcademicCapIcon class="icon"></AcademicCapIcon> go next</v-button>
   </div>
+  <div class="box">
+    <VTable
+      :headers="['ID', 'Name', 'Description', 'Date']"
+      :rows="[
+        { data1: { name: 'Row 4'}, data2: 'Row 1', data3: 'Row 1', data4: 'Row 1' },
+        { data1: { name: 'Row 4'}, data2: 'Row 2', data3: 'Row 2', data4: 'Row 2' },
+        { data1: { name: 'Row 4'}, data2: 'Row 3', data3: 'Row 3', data4: 'Row 3' },
+        { data1: { name: 'Row 4'}, data2: 'Row 4', data3: 'Row 4', data4: 'Row 4' },
+        { data1: { name: 'Row 4'}, data2: 'Row 4', data3: 'Row 4', data4: 'Row 4' },
+        { data1: { name: 'Row 4'}, data2: 'Row 4', data3: 'Row 4', data4: 'Row 4' },
+        { data1: { name: 'Row 4'}, data2: 'Row 4', data3: 'Row 4', data4: 'Row 4' },
+        { data1: { name: 'Row 4'}, data2: 'Row 4', data3: 'Row 4', data4: 'Row 4' },
+        { data1: { name: 'Row 4'}, data2: 'Row 4', data3: 'Row 4', data4: 'Row 4' },
+        { data1: { name: 'Row 4'}, data2: 'Row 4', data3: 'Row 4', data4: 'Row 4' },
+      ]">
+      <template #data1="{data}">
+        {{data.name}}
+      </template>
+    </VTable>
+  </div>
 </template>
 
 <script>
+import VTable from '../src/components/Table/VTable.vue'
 import VInput from '../src/components/Input/VInput.vue'
 import VToast from '../src/components/Toaster/VToast.vue'
 import VButton from '../src/components/Button/VButton.vue'
-import {AcademicCapIcon} from '@devheniik/icons/dist'
+import { AcademicCapIcon } from '@devheniik/icons/dist'
 export default {
   name: "App",
   components: {VInput, VToast, AcademicCapIcon, VButton},
@@ -40,10 +60,13 @@ export default {
       text: null,
     }
   },
-};
+}
 </script>
 
 <style scoped>
+.box {
+  @apply p-32;
+}
 .container {
   width: 30%;
   height: 100vh;
@@ -55,7 +78,6 @@ export default {
 .buttonContainer {
   width: 50%;
   @apply mx-auto mb-10 space-x-2;
-
 }
 
 .icon {

@@ -22,10 +22,9 @@ import { VInput } from 'vuetify'
 <v-input v-model="text" />
 ```
 
-
 ## Rules
 
-```allocate-valid``` mean that valid inpit will highlight with green color
+`allocate-valid` mean that valid inpit will highlight with green color
 
 <WrapView vertical>
   <v-input allocate-valid v-model="text" rules="numbers" />
@@ -57,4 +56,3 @@ import { VInput } from 'vuetify'
 ```html
 <v-input v-model="text" />
 ```
-

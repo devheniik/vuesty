@@ -30,8 +30,6 @@
   @apply truncate text-sm sm:text-lg;
 }
 
-
-
 .v-select__menu {
   @apply absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none;
 }
@@ -61,8 +59,6 @@
   @apply whitespace-nowrap rounded-sm bg-primary-500 py-0.5 px-1.5 text-sm font-medium text-gray-50;
 }
 
-
-
 /* Icons */
 
 .focus-none {
@@ -81,7 +77,7 @@
   @apply h-6 w-6 text-gray-400 hover:text-gray-700;
 }
 
-.v-select__icon_focus{
+.v-select__icon_focus {
   @apply group-focus:text-primary-500;
 }
 
@@ -93,10 +89,10 @@
   @apply h-5 w-5;
 }
 
-.v-select__icon_empty{
+.v-select__icon_empty {
   @apply h-6 w-6 text-gray-400;
 }
 
-.v-select__empty-box{
+.v-select__empty-box {
   @apply flex items-center justify-center space-x-2 text-gray-400;
 }

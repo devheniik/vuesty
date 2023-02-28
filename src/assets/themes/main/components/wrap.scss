@@ -1,11 +1,11 @@
 .v-wrap-view {
-  @apply my-4 p-4 h-full w-full rounded-md border border-gray-300 bg-gray-50 p-3 shadow-lg;
+  @apply my-4 h-full w-full rounded-md border border-gray-300 bg-gray-50 p-4 p-3 shadow-lg;
 }
 
-.v-space-x-2{
+.v-space-x-2 {
   @apply space-x-2;
 }
 
-.v-space-y-2{
+.v-space-y-2 {
   @apply space-y-2;
 }

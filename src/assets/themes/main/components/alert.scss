@@ -3,7 +3,7 @@
 }
 
 .v-toast {
-  @apply w-72
+  @apply w-72;
 }
 
 .v-alert__left-border {
@@ -11,7 +11,7 @@
 }
 
 .v-alert__icon {
-  @apply mt-2 w-5 self-start ml-1.5 mr-2.5;
+  @apply mt-2 ml-1.5 mr-2.5 w-5 self-start;
 }
 
 .v-alert__main {
