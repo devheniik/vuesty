@@ -24,12 +24,8 @@ import { VAlert } from 'vuetify'
 </WrapView>
 
 ```html
-<v-alert variant="primary">
-  Lorem ipsum
-</v-alert>
+<v-alert variant="primary"> Lorem ipsum </v-alert>
 ```
-
-
 
 ### Alert variants
 
@@ -46,7 +42,6 @@ import { VAlert } from 'vuetify'
 <v-alert variant="warning"> Lorem ipsum dolor sit amet. </v-alert>
 <v-alert variant="danger"> Lorem ipsum dolor sit amet. </v-alert>
 ```
-
 
 ### Alert without controls
 
@@ -77,4 +72,3 @@ import { VAlert } from 'vuetify'
 ```html
 <v-alert variant="primary" label="Different Label"> Lorem ipsum </v-alert>
 ```
-

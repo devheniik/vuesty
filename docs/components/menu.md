@@ -30,14 +30,12 @@ import { VMenu } from 'vuetify'
 ```html
 <v-menu>
   <template #menuItems>
-    <MenuItem>
+    <menuitem>
       <a href="#"> Documentation </a>
-    </MenuItem>
-    <MenuItem disabled>
+    </menuitem>
+    <menuitem disabled>
       <span class="opacity-75">Invite a friend (coming soon!)</span>
-    </MenuItem>
+    </menuitem>
   </template>
 </v-menu>
 ```
-
-

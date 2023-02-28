@@ -1,5 +1,5 @@
 <template>
-  <div class="v-wrap-view" :class="[{ 'v-space-x-2' : horizontal}, { 'v-space-y-2' : vertical}]">
+  <div class="v-wrap-view" :class="[{ 'v-space-x-2': horizontal }, { 'v-space-y-2': vertical }]">
     <slot></slot>
   </div>
 </template>
@@ -21,4 +21,3 @@ export default defineComponent({
   },
 })
 </script>
-

@@ -85,25 +85,15 @@ onClickOutside(selectRef, () => {
 })
 
 const isMultipleFilledWithoutFocus = () => {
-  return (
-    props.multiple &&
-    (props.modelValue ? props.modelValue.length > 0 : false) &&
-    !isFocused.value
-  )
+  return props.multiple && (props.modelValue ? props.modelValue.length > 0 : false) && !isFocused.value
 }
 
 const isMultipleFilled = () => {
-  return (
-    props.multiple && (props.modelValue ? props.modelValue.length > 0 : false)
-  )
+  return props.multiple && (props.modelValue ? props.modelValue.length > 0 : false)
 }
 
 const isSingleFilledWithoutFocus = () => {
-  return (
-    props.multiple &&
-    (props.modelValue ? props.modelValue.length > 0 : false) &&
-    !isFocused.value
-  )
+  return props.multiple && (props.modelValue ? props.modelValue.length > 0 : false) && !isFocused.value
 }
 
 const isOptionObject = () => {
@@ -128,9 +118,7 @@ const getLabel = (option: any) => {
 
 const getLabelByValue = (value: any) => {
   if (isOptionObject()) {
-    return props.options.find(
-      (option: any) => option[props.valueKey] === value
-    )[props.labelKey]
+    return props.options.find((option: any) => option[props.valueKey] === value)[props.labelKey]
   }
 
   return value
@@ -291,9 +279,6 @@ onMounted(() => {
     }
   }
 })
-
-
-
 </script>
 
 <template>
@@ -303,13 +288,9 @@ onMounted(() => {
       type="button"
       :aria-expanded="open"
       aria-haspopup="menu"
-      :class="[
-        'select-head scrollbar group',
-        { 'select-head-focus': isFocused },
-      ]">
+      :class="['select-head scrollbar group', { 'select-head-focus': isFocused }]">
       <span class="select-icon-box-left">
-        <MagnifyingGlassIcon
-          :class="['select-icon', { 'select-icon-focus': isFocused }]" />
+        <MagnifyingGlassIcon :class="['select-icon', { 'select-icon-focus': isFocused }]" />
       </span>
       <span class="select-head-main">
         <input
@@ -320,11 +301,7 @@ onMounted(() => {
           type="text"
           class="select-main-input" />
         <div v-if="isMultipleFilledWithoutFocus()" class="tag-box scrollbar">
-          <slot
-            v-for="(value, index) in visibleTags"
-            :key="index"
-            name="tag"
-            :option="value">
+          <slot v-for="(value, index) in visibleTags" :key="index" name="tag" :option="value">
             <div class="tag">
               {{ getLabelByValue(value) }}
             </div>
@@ -340,33 +317,21 @@ onMounted(() => {
         </span>
         <span v-else-if="!isFocused" class="placeholder-text">
           {{ placeholder }}
-          </span>
+        </span>
       </span>
       <div class="select-icon-box">
         <XMarkIcon
-          :class="[
-            'select-icon focus-none',
-            { 'select-icon-focus': isFocused },
-          ]"
+          :class="['select-icon focus-none', { 'select-icon-focus': isFocused }]"
           @click.stop="clear"
           @focus.stop="clear" />
-        <ChevronUpDownIcon
-          :class="[
-            'select-icon focus-none',
-            { 'select-icon-focus': isFocused },
-          ]" />
+        <ChevronUpDownIcon :class="['select-icon focus-none', { 'select-icon-focus': isFocused }]" />
       </div>
     </div>
     <transition
       leave-active-class="transition ease-in duration-100"
       leave-from-class="opacity-100"
       leave-to-class="opacity-0">
-      <ul
-        v-if="open"
-        aria-labelledby="select-label"
-        class="select-menu scrollbar"
-        role="menu"
-        tabindex="-1">
+      <ul v-if="open" aria-labelledby="select-label" class="select-menu scrollbar" role="menu" tabindex="-1">
         <div v-if="isMultipleFilled()" class="select-tag-block-box">
           <slot
             v-for="(value, index) in modelValue"
@@ -378,9 +343,7 @@ onMounted(() => {
             @click.stop="deselectItem(value)">
             <div class="tag-block">
               {{ getLabelByValue(value) }}
-              <XMarkIcon
-                :class="['select-tag-deselect-icon focus-none']"
-                @click.stop="deselectItem(value)" />
+              <XMarkIcon :class="['select-tag-deselect-icon focus-none']" @click.stop="deselectItem(value)" />
             </div>
           </slot>
           <div class="select-empty-box-border"></div>
@@ -398,21 +361,11 @@ onMounted(() => {
           role="option"
           @click="onSelect(option)"
           @keyup.enter="onSelect(option)">
-          <slot
-            name="option"
-            :option="option"
-            :is-selected="isSelected(option)"
-            :label="getLabel(option)">
-            <span
-              :class="[
-                `select-menu-item-text`,
-                { 'select-menu-item-text-selected': isSelected(option) },
-              ]"
-            >{{ getLabel(option) }}</span
-            >
-            <span
-              v-show="isSelected(option)"
-              class="select-menu-item-selected-icon-box">
+          <slot name="option" :option="option" :is-selected="isSelected(option)" :label="getLabel(option)">
+            <span :class="[`select-menu-item-text`, { 'select-menu-item-text-selected': isSelected(option) }]">{{
+              getLabel(option)
+            }}</span>
+            <span v-show="isSelected(option)" class="select-menu-item-selected-icon-box">
               <CheckIcon class="select-menu-item-selected-icon" />
             </span>
           </slot>

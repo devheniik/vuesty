@@ -7,14 +7,7 @@ export interface VAvatarEvents {
 }
 
 export interface VAvatarProps extends VAvatarEvents {
-  size?:
-    | 'tiny'
-    | 'small'
-    | 'medium'
-    | 'big'
-    | 'large'
-    | 'huge'
-    | 'gigantic'
+  size?: 'tiny' | 'small' | 'medium' | 'big' | 'large' | 'huge' | 'gigantic'
   color?:
     | 'primary'
     | 'secondary'

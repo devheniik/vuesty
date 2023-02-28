@@ -23,9 +23,9 @@ import { VAvatar } from 'vuetify'
 </WrapView>
 
 ```html
-<v-avatar text="Trevis Hotwings" />
-<v-avatar src="[path]" />
+<v-avatar text="Trevis Hotwings" /> <v-avatar src="[path]" />
 ```
+
 ## Sizes
 
 <WrapView vertical >
@@ -46,11 +46,10 @@ import { VAvatar } from 'vuetify'
 <v-avatar src="[path]" size="small" />
 <v-avatar src="[path]" size="medium" />
 <v-avatar src="[path]" size="big" />
-<v-avatar src="[path]" size="large"  />
+<v-avatar src="[path]" size="large" />
 <v-avatar src="[path]" size="huge" />
 <v-avatar src="[path]" size="gigantic" />
 ```
-
 
 ## With Status
 
@@ -67,4 +66,3 @@ import { VAvatar } from 'vuetify'
 <v-avatar src="[path]" status="primary" />
 <v-avatar src="[path]" status="danger" />
 ```
-

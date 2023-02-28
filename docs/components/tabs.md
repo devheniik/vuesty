@@ -1,5 +1,3 @@
-
-
 ---
 title: Tabs
 ---
@@ -43,8 +41,9 @@ import { VTabs } from 'vuetify'
 </WrapView>
 
 ```html
-  <v-switch></v-switch>
+<v-switch></v-switch>
 ```
+
 ## Custom Image
 
 <WrapView >
@@ -52,5 +51,5 @@ import { VTabs } from 'vuetify'
 </WrapView>
 
 ```html
-  <v-switch><UserIcon class="text-white"></UserIcon></v-switch>
+<v-switch><UserIcon class="text-white"></UserIcon></v-switch>
 ```

@@ -88,7 +88,8 @@ const nextPage = () => {
     <div class="v-pagination__body">
       <div v-for="n in paginationArr" :key="n">
         <div
-        :class="[{ 'v-pagination__body__item_active': activeIndex === n }, 'v-pagination__body__item']" @click="pickPage(n)">
+          :class="[{ 'v-pagination__body__item_active': activeIndex === n }, 'v-pagination__body__item']"
+          @click="pickPage(n)">
           {{ n }}
         </div>
       </div>
@@ -101,5 +102,5 @@ const nextPage = () => {
 </template>
 
 <style lang="scss" scoped>
-@import "../../assets/themes/main/components/pagination.scss";
+@import '../../assets/themes/main/components/pagination.scss';
 </style>

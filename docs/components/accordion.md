@@ -24,12 +24,8 @@ import { VAccordion } from 'vuetify'
 </WrapView>
 
 ```html
-<v-accordion>
-  Lorem ipsum
-</v-accordion>
+<v-accordion> Lorem ipsum </v-accordion>
 ```
-
-
 
 ### Accordion with nested #header slot
 
@@ -45,11 +41,10 @@ import { VAccordion } from 'vuetify'
 
 ```html
 <v-accordion>
-  <template #header>  Different Label  </template>
+  <template #header> Different Label </template>
   Lorem ipsum
 </v-accordion>
 ```
-
 
 ### Accordion with label prop
 
@@ -58,7 +53,7 @@ import { VAccordion } from 'vuetify'
 </WrapView>
 
 ```html
-  <v-accordion label="Another Label">Lorem ipsum dolor sit amet.</v-accordion>
+<v-accordion label="Another Label">Lorem ipsum dolor sit amet.</v-accordion>
 ```
 
 ### Accordion without background
@@ -77,4 +72,3 @@ import { VAccordion } from 'vuetify'
 ```html
 <v-accordion :bg="false">Lorem ipsum </v-accordion>
 ```
-

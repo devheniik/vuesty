@@ -12,10 +12,7 @@ const enabled = ref(false)
 </script>
 
 <template>
-  <Switch
-    v-model="enabled"
-    :class="[enabled ? 'v_switch_active' : 'v_switch_inactive', 'v_switch']
-    ">
+  <Switch v-model="enabled" :class="[enabled ? 'v_switch_active' : 'v_switch_inactive', 'v_switch']">
     <slot>
       <span
         aria-hidden="true"

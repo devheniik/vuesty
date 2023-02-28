@@ -72,7 +72,9 @@ if (props.rules === 'any') {
   regex.value = new RegExp(/^[a-zA-Z0-9]+$/)
   fillPlaceholder('123ABC...')
 } else if (props.rules === 'email') {
-  regex.value = new RegExp(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
+  regex.value = new RegExp(
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  )
   fillPlaceholder('example@domain.com')
 } else if (props.rules === 'string') {
   regex.value = new RegExp(/^[a-zA-Z]+$/)
@@ -137,7 +139,7 @@ const rightIcon = () => {
   return !!slots['icon-right']
 }
 
-console.log(leftIcon());
+console.log(leftIcon())
 
 const handleClickLeftSlot = () => {
   emit('leftClick')

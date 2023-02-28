@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { InformationCircleIcon, XMarkIcon, CheckCircleIcon, ExclamationCircleIcon } from '@devheniik/icons'
-import {computed} from "vue"
-import type {FunctionalComponent, HTMLAttributes, VNodeProps} from "vue"
+import { computed } from 'vue'
+import type { FunctionalComponent, HTMLAttributes, VNodeProps } from 'vue'
 
 const props = withDefaults(
   defineProps<{
@@ -23,7 +23,6 @@ const emit = defineEmits<Emits>()
 const close = () => {
   emit('close')
 }
-
 
 const icon = computed<FunctionalComponent<HTMLAttributes & VNodeProps> | string>(() => {
   let icon = InformationCircleIcon

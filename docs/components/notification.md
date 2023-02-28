@@ -25,6 +25,7 @@ import { VNotification } from 'vuetify'
 <v-notification :count="20" />
 <v-notification :count="4981" />
 ```
+
 ## Custom Image
 
 <WrapView horizontal>

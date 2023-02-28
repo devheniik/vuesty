@@ -29,5 +29,3 @@ import { VPagination } from 'vuetify'
 <v-pagination :total-pages="6" />
 <v-pagination :total-pages="122" />
 ```
-
-

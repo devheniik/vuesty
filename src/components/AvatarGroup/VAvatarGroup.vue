@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 type Colors =
   | 'primary'
   | 'secondary'
@@ -12,14 +11,7 @@ type Colors =
   | 'info'
   | 'neutral'
 
-type Sizes =
-  | 'tiny'
-  | 'small'
-  | 'medium'
-  | 'big'
-  | 'large'
-  | 'huge'
-  | 'gigantic'
+type Sizes = 'tiny' | 'small' | 'medium' | 'big' | 'large' | 'huge' | 'gigantic'
 
 withDefaults(
   defineProps<{
@@ -41,5 +33,5 @@ withDefaults(
 </template>
 
 <style lang="scss">
-@import "../../assets/themes/main/components/avatarGroup.scss";
+@import '../../assets/themes/main/components/avatarGroup.scss';
 </style>

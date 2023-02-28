@@ -33,6 +33,7 @@ import { VAvatarGroup, VAvatar } from 'vuetify'
 <v-avatar src="[path]" />
 <v-avatar src="[path]" />
 ```
+
 ## Sizes
 
 <WrapView vertical >
@@ -87,7 +88,7 @@ import { VAvatarGroup, VAvatar } from 'vuetify'
 </WrapView>
 
 ```html
-<v-avatar-group size='tiny'>
+<v-avatar-group size="tiny">
   <v-avatar src="[path]" />
   <v-avatar src="[path]" />
   <v-avatar src="[path]" />
@@ -95,7 +96,7 @@ import { VAvatarGroup, VAvatar } from 'vuetify'
   <v-avatar src="[path]" />
   <v-avatar src="[path]" />
 </v-avatar-group>
-<v-avatar-group size='small'>
+<v-avatar-group size="small">
   <v-avatar src="[path]" />
   <v-avatar src="[path]" />
   <v-avatar src="[path]" />
@@ -103,7 +104,7 @@ import { VAvatarGroup, VAvatar } from 'vuetify'
   <v-avatar src="[path]" />
   <v-avatar src="[path]" />
 </v-avatar-group>
-<v-avatar-group size='big'>
+<v-avatar-group size="big">
   <v-avatar src="[path]" />
   <v-avatar src="[path]" />
   <v-avatar src="[path]" />
@@ -111,7 +112,7 @@ import { VAvatarGroup, VAvatar } from 'vuetify'
   <v-avatar src="[path]" />
   <v-avatar src="[path]" />
 </v-avatar-group>
-<v-avatar-group size='large'>
+<v-avatar-group size="large">
   <v-avatar src="[path]" />
   <v-avatar src="[path]" />
   <v-avatar src="[path]" />
@@ -119,7 +120,7 @@ import { VAvatarGroup, VAvatar } from 'vuetify'
   <v-avatar src="[path]" />
   <v-avatar src="[path]" />
 </v-avatar-group>
-<v-avatar-group size='huge'>
+<v-avatar-group size="huge">
   <v-avatar src="[path]" />
   <v-avatar src="[path]" />
   <v-avatar src="[path]" />
@@ -127,7 +128,7 @@ import { VAvatarGroup, VAvatar } from 'vuetify'
   <v-avatar src="[path]" />
   <v-avatar src="[path]" />
 </v-avatar-group>
-<v-avatar-group size='gigantic'>
+<v-avatar-group size="gigantic">
   <v-avatar src="[path]" />
   <v-avatar src="[path]" />
   <v-avatar src="[path]" />
