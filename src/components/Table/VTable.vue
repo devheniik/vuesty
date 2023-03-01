@@ -48,8 +48,8 @@ const props = withDefaults(
   defineProps<{
     rows: string[] | object[] | number[]
     headers: string[],
-    deleteAction: boolean,
-    editAction: boolean,
+    deleteAction?: boolean,
+    editAction?: boolean,
   }>(),
   {
     deleteAction: true,

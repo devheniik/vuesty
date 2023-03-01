@@ -48,6 +48,12 @@
   <div class="box">
     <v-pagination :total-pages="20" :current-page="4"></v-pagination>
   </div>
+
+  <div class="box">
+    <v-button @click="isModalOpen = true">+</v-button>
+    <v-modal v-model="isModalOpen"><v-button @click="isModalOpen2 = true">+</v-button>
+      <v-modal v-model="isModalOpen2">123</v-modal></v-modal>
+  </div>
 </template>
 
 <script>
@@ -56,12 +62,15 @@ import VInput from '../src/components/Input/VInput.vue'
 import VToast from '../src/components/Toast/VToast.vue'
 import VButton from '../src/components/Button/VButton.vue'
 import VPagination from '../src/components/Pagination/VPagination.vue'
+import VModal from "../src/components/Modal/VModal.vue"
 import { AcademicCapIcon } from '@devheniik/icons/dist'
 export default {
   name: "App",
-  components: {VInput, VToast, VTable, VPagination, VButton, AcademicCapIcon},
+  components: {VInput, VToast, VTable, VPagination, VButton, AcademicCapIcon, VModal},
   data() {
     return {
+      isModalOpen: false,
+      isModalOpen2: false,
       text: null,
     }
   },
