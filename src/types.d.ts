@@ -14,7 +14,7 @@ import { VPaginationComponent, VPaginationProps } from './components/Pagination/
 import { VSwitchComponent, VSwitchSlots } from './components/Switch/types'
 import { VTabsComponent, VTabsProps, VTabsSlots } from './components/Tabs/types'
 import { VTableComponent, VTableProps } from './components/Table/types'
-import { VToasterComponent, VToasterProps } from './components/Toaster/types'
+import { VToastComponent, VToastProps } from './components/Toast/types'
 import type { VModalComponent, VModalProps, VModalSlots } from './components/Modal/types'
 import type {VNodeProps} from "vue";
 
@@ -49,7 +49,7 @@ declare module '@vue/runtime-core' {
     VSwitch: GlobalComponentConstructor<void, VSwitchSlots>
     VTabs: GlobalComponentConstructor<VTabsProps, VTabsSlots>
     VTable: GlobalComponentConstructor<VTableProps, VNodeProps>
-    VToaster: GlobalComponentConstructor<VToasterProps, VNodeProps>
+    VToast: GlobalComponentConstructor<VToastProps, VNodeProps>
     VModal: GlobalComponentConstructor<VModalProps, VModalSlots>
   }
 }
