@@ -58,19 +58,19 @@ const props = withDefaults(
 )
 
 interface Emits {
-  (e: 'edit', value: object): void
-  (e: 'delete', value: object): void
+  (e: 'edit', value:  object | string | number): void
+  (e: 'delete', value:  object | string | number): void
 }
 
 // const value = ref(props.modelValue)
 
 const emit = defineEmits<Emits>()
 
-const handleEdit = (entity: object) => {
+const handleEdit = (entity: object | string | number):void => {
   emit('edit', entity)
 }
 
-const handleDelete = (entity: object) => {
+const handleDelete = (entity: object | string | number):void => {
   emit('delete', entity)
 }
 

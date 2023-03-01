@@ -3,35 +3,40 @@ import { ref, computed } from 'vue'
 import type { Ref } from 'vue'
 import { ChevronRightIcon, ChevronLeftIcon } from '@devheniik/icons'
 
-const props = defineProps<{
-  totalPages: number
-}>()
+const props = withDefaults(
+  defineProps<{
+  totalPages: number,
+  currentPage?: number,
+}>(), {
+  currentPage: 1,
+  }
+)
 
 interface Emits {
   (e: 'paginationClick', page: Ref<number>): void
 }
 const emit = defineEmits<Emits>()
 
-const activeIndex = ref<number>(1)
+const activePage = ref<number>(props.currentPage)
 
 const paginationArr = computed(() => {
   if (props.totalPages > 6) {
     const middleNums: Ref<number[]> = ref([])
 
-    if (activeIndex.value) {
-      for (let i = activeIndex.value - 2; i <= activeIndex.value + 2; i++) {
+    if (activePage.value) {
+      for (let i = activePage.value - 2; i <= activePage.value + 2; i++) {
         middleNums.value.push(i)
       }
 
       // Pagination Start Numbers ->
 
-      if (activeIndex.value === 4) {
+      if (activePage.value === 4) {
         return [1, ...middleNums.value, '...', props.totalPages]
       }
 
-      if (activeIndex.value < 4) {
+      if (activePage.value < 4) {
         const startMiddleNums: Ref<number[]> = ref([])
-        for (let i = 1; i <= activeIndex.value + 2; i++) {
+        for (let i = 1; i <= activePage.value + 2; i++) {
           startMiddleNums.value.push(i)
         }
         // middleNums.value = startMiddleNums.value
@@ -40,13 +45,13 @@ const paginationArr = computed(() => {
 
       // Pagination End Numbers ->
 
-      if (activeIndex.value === props.totalPages - 3) {
+      if (activePage.value === props.totalPages - 3) {
         return [1, '...', ...middleNums.value, props.totalPages]
       }
 
-      if (activeIndex.value > props.totalPages - 3) {
+      if (activePage.value > props.totalPages - 3) {
         const endMiddleNums: Ref<number[]> = ref([])
-        for (let i = activeIndex.value - 2; i < props.totalPages; i++) {
+        for (let i = activePage.value - 2; i < props.totalPages; i++) {
           endMiddleNums.value.push(i)
         }
         // middleNums.value = endMiddleNums.value
@@ -64,18 +69,18 @@ const paginationArr = computed(() => {
 })
 
 const pickPage = (n: number | string): void => {
-  if (typeof n !== 'string') activeIndex.value = n
-  emit('paginationClick', activeIndex)
+  if (typeof n !== 'string') activePage.value = n
+  emit('paginationClick', activePage)
 }
 
 const previousPage = () => {
-  activeIndex.value && activeIndex.value > 1 ? activeIndex.value-- : null
-  emit('paginationClick', activeIndex)
+  activePage.value && activePage.value > 1 ? activePage.value-- : null
+  emit('paginationClick', activePage)
 }
 
 const nextPage = () => {
-  activeIndex.value && activeIndex.value < props.totalPages ? activeIndex.value++ : null
-  emit('paginationClick', activeIndex)
+  activePage.value && activePage.value < props.totalPages ? activePage.value++ : null
+  emit('paginationClick', activePage)
 }
 </script>
 
@@ -88,7 +93,7 @@ const nextPage = () => {
     <div class="v-pagination__body">
       <div v-for="n in paginationArr" :key="n">
         <div
-          :class="[{ 'v-pagination__body__item_active': activeIndex === n }, 'v-pagination__body__item']"
+          :class="[{ 'v-pagination__body__item_active': activePage === n }, 'v-pagination__body__item']"
           @click="pickPage(n)">
           {{ n }}
         </div>

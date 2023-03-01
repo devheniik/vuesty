@@ -44,17 +44,22 @@
       </template>
     </VTable>
   </div>
+
+  <div class="box">
+    <v-pagination :total-pages="20" :current-page="4"></v-pagination>
+  </div>
 </template>
 
 <script>
 import VTable from '../src/components/Table/VTable.vue'
 import VInput from '../src/components/Input/VInput.vue'
-import VToast from '../src/components/Toaster/VToast.vue'
+import VToast from '../src/components/Toast/VToast.vue'
 import VButton from '../src/components/Button/VButton.vue'
+import VPagination from '../src/components/Pagination/VPagination.vue'
 import { AcademicCapIcon } from '@devheniik/icons/dist'
 export default {
   name: "App",
-  components: {VInput, VToast, AcademicCapIcon, VButton},
+  components: {VInput, VToast, VTable, VPagination, VButton, AcademicCapIcon},
   data() {
     return {
       text: null,
