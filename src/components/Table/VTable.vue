@@ -27,10 +27,10 @@
                   </slot>
                 </td>
                 <td v-if="editAction" class="v-table__body__row__action">
-                  <PencilIcon @click="handleEdit(key[1])" class="v-table__body__action-icon-primary" />
+                  <PencilIcon class="v-table__body__action-icon-primary" @click="handleEdit(row)" />
                 </td>
                 <td v-if="deleteAction" class="v-table__body__row__action">
-                  <TrashIcon @click="handleDelete(key[1])" class="v-table__body__action-icon-danger" />
+                  <TrashIcon class="v-table__body__action-icon-danger" @click="handleDelete(row)" />
                 </td>
               </tr>
             </tbody>
