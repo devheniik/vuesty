@@ -6,12 +6,10 @@
   import { ref,  useSlots } from 'vue'
 
   const props = withDefaults(defineProps<{
-    cols?: string | number,
     rows?: string | number,
   }>(),
   {
-    cols: 30,
-    rows: 5
+    rows: 5,
   }
   )
 

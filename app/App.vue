@@ -131,7 +131,7 @@ export default {
 @import '../src/assets/themes/main/components/select.scss';
 
 .box {
-  @apply p-32;
+  @apply p-10 m-5 bg-neutral-300;
 }
 .container {
   width: 30%;
