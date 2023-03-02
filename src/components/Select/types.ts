@@ -4,6 +4,7 @@ export interface VSelectEvents {
   onClick?: () => void
   onFocus?: () => void
   onSelect?: () => void
+  onSearch?: () => void
   onClear?: () => void
   onOpenPanel?: () => void
   onClosePanel?: () => void
@@ -23,6 +24,10 @@ export interface VSelectProps extends VSelectEvents {
   searchPlaceholder?: string
   emptyText?: string
   maxShow?: number
+  autoFilter?: boolean
+  search?: string
+  isLoading?: boolean
+  delay?: number
 }
 
 export interface VSelectSlots {

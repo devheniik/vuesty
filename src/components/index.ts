@@ -12,5 +12,6 @@ export const VSwitch = defineAsyncComponent(() => import('./Switch/VSwitch.vue')
 export const VPagination = defineAsyncComponent(() => import('./Pagination/VPagination.vue'))
 export const VTabs = defineAsyncComponent(() => import('./Tabs/VTabs.vue'))
 export const VTable = defineAsyncComponent(() => import('./Table/VTable.vue'))
+export const VSelect = defineAsyncComponent(() => import('./Select/VSelect.vue'))
 
 export const VModal = defineAsyncComponent(() => import('./Modal/VModal.vue'))
