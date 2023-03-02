@@ -1,6 +1,11 @@
 <template>
 
 <div class="box">
+  <v-input></v-input>
+  <v-select></v-select>
+</div>
+
+<div class="box">
   <v-button @click="isModalOpen = true">+</v-button>
   <v-modal v-model="isModalOpen">
     <v-input></v-input>
