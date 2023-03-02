@@ -2,6 +2,14 @@
   @apply flex;
 }
 
+.v-pagination__container{
+  @apply flex w-full justify-between
+}
+
+.v-pagination__per-page__select {
+  @apply rounded-md
+}
+
 .v-pagination__body {
   @apply flex;
 }

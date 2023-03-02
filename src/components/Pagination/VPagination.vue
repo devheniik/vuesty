@@ -7,13 +7,19 @@ const props = withDefaults(
   defineProps<{
   totalPages: number,
   currentPage?: number,
+  perPage?: number,
 }>(), {
   currentPage: 1,
+  perPage: 10,
   }
 )
 
+const per_page = ref(props.perPage)
+
+const per_page_variants = [10,20,30,50]
+
 interface Emits {
-  (e: 'paginationClick', page: Ref<number>): void
+  (e: 'paginationClick', page: Ref<number>, per_page: Ref<number>): void
 }
 const emit = defineEmits<Emits>()
 
@@ -70,40 +76,48 @@ const paginationArr = computed(() => {
 
 const pickPage = (n: number | string): void => {
   if (typeof n !== 'string') activePage.value = n
-  emit('paginationClick', activePage)
+  emit('paginationClick', activePage, per_page)
 }
 
 const previousPage = () => {
   activePage.value && activePage.value > 1 ? activePage.value-- : null
-  emit('paginationClick', activePage)
+  emit('paginationClick', activePage, per_page)
 }
 
 const nextPage = () => {
   activePage.value && activePage.value < props.totalPages ? activePage.value++ : null
-  emit('paginationClick', activePage)
+  emit('paginationClick', activePage, per_page)
 }
 </script>
 
 <template>
-  <div class="v-pagination">
-    <button class="v-pagination__arrow v-pagination__arrow_left" @click="previousPage">
-      <ChevronLeftIcon class="v-pagination__arrow_size" />
-    </button>
+  <div class="v-pagination__container">
+    <div class="v-pagination__per-page">
+      <select v-model="per_page" class="v-pagination__per-page__select" name="select">
+        <option v-for="i of per_page_variants" :key="i" :value="i">{{ i }}</option>
+      </select>
+    </div>
+    <div class="v-pagination">
+      <button class="v-pagination__arrow v-pagination__arrow_left" @click="previousPage">
+        <ChevronLeftIcon class="v-pagination__arrow_size" />
+      </button>
 
-    <div class="v-pagination__body">
-      <div v-for="n in paginationArr" :key="n">
-        <div
-          :class="[{ 'v-pagination__body__item_active': activePage === n }, 'v-pagination__body__item']"
-          @click="pickPage(n)">
-          {{ n }}
+      <div class="v-pagination__body">
+        <div v-for="n in paginationArr" :key="n">
+          <div
+            :class="[{ 'v-pagination__body__item_active': activePage === n }, 'v-pagination__body__item']"
+            @click="pickPage(n)">
+            {{ n }}
+          </div>
         </div>
       </div>
-    </div>
 
-    <button class="v-pagination__arrow v-pagination__arrow_right" @click="nextPage">
-      <ChevronRightIcon class="v-pagination__arrow_size" />
-    </button>
+      <button class="v-pagination__arrow v-pagination__arrow_right" @click="nextPage">
+        <ChevronRightIcon class="v-pagination__arrow_size" />
+      </button>
+    </div>
   </div>
+
 </template>
 
 <style lang="scss" scoped>
