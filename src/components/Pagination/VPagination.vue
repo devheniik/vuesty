@@ -7,20 +7,25 @@ const props = withDefaults(
   defineProps<{
   totalPages: number,
   currentPage?: number,
-  perPage?: number,
+  perPage?: number | string,
+  modelValue: number | string,
 }>(), {
   currentPage: 1,
   perPage: 10,
   }
 )
 
-const per_page = ref(props.perPage)
+// const per_page = ref(props.perPage)
 
 const per_page_variants = [10,20,30,50]
 
 interface Emits {
-  (e: 'paginationClick', page: Ref<number>, per_page: Ref<number>): void
+  (e: 'update:modelValue', value: number | null): void
+  (e: 'paginationClick', page: Ref<number>): void
 }
+
+// , per_page: Ref<number>
+
 const emit = defineEmits<Emits>()
 
 const activePage = ref<number>(props.currentPage)
@@ -76,17 +81,17 @@ const paginationArr = computed(() => {
 
 const pickPage = (n: number | string): void => {
   if (typeof n !== 'string') activePage.value = n
-  emit('paginationClick', activePage, per_page)
+  emit('paginationClick', activePage)
 }
 
 const previousPage = () => {
   activePage.value && activePage.value > 1 ? activePage.value-- : null
-  emit('paginationClick', activePage, per_page)
+  emit('paginationClick', activePage)
 }
 
 const nextPage = () => {
   activePage.value && activePage.value < props.totalPages ? activePage.value++ : null
-  emit('paginationClick', activePage, per_page)
+  emit('paginationClick', activePage)
 }
 </script>
 
@@ -94,8 +99,13 @@ const nextPage = () => {
   <div class="v-pagination__container">
     <div class="v-pagination__per-page">
       <span>Показувати</span>
-      <select v-model="per_page" class="v-pagination__per-page__select" name="select">
-        <option v-for="i of per_page_variants" :key="i" :value="i">{{ i }}</option>
+      <select
+      :value="modelValue"
+      class="v-pagination__per-page__select"
+      name="select"
+      @change="emit('update:modelValue', $event.target!.value)">
+        <option v-for="i of per_page_variants" :key="i" :value="i">{{ i }}
+        </option>
       </select>
     </div>
     <div class="v-pagination">

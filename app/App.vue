@@ -68,7 +68,7 @@
   </div>
 
   <div class="box">
-    <v-pagination :total-pages="20" :current-page="4"></v-pagination>
+    <v-pagination v-model="hf" :total-pages="20" :current-page="4" @update:model-value="logger"></v-pagination>
   </div>
 
   <div class="box">
@@ -103,6 +103,7 @@ export default {
       options: [],
       v_select_value: null,
       ttx: '',
+      hf: 10,
     }
   },
   mounted() {
@@ -119,6 +120,11 @@ export default {
 
       this.isLoaded = false
     },
+
+    logger(dat) {
+      this.hf = dat
+    },
+
     async handleSearch(value) {
       console.log(value)
       await this.getOptions(value)
