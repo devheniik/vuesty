@@ -1,4 +1,8 @@
 <template>
+<div class="box w-3">
+  <VTextarea v-model="ttx">hello</VTextarea>
+
+</div>
   <div class="box w-3/12">
       {{v_select_value}}
       <v-select
@@ -85,10 +89,11 @@ import VButton from '../src/components/Button/VButton.vue'
 import VSelect from '../src/components/Select/VSelect.vue'
 import VPagination from '../src/components/Pagination/VPagination.vue'
 import VModal from "../src/components/Modal/VModal.vue"
+import VTextarea from "../src/components/Textarea/VTextarea.vue"
 import { AcademicCapIcon } from '@devheniik/icons/dist'
 export default {
   name: "App",
-  components: {VInput, VToast, VTable, VPagination, VButton, AcademicCapIcon, VModal, VSelect},
+  components: {VInput, VToast, VTable, VPagination, VButton, AcademicCapIcon, VModal, VSelect, VTextarea},
   data() {
     return {
       isModalOpen: false,
@@ -97,7 +102,11 @@ export default {
       isLoaded: false,
       options: [],
       v_select_value: null,
+      ttx: '',
     }
+  },
+  mounted() {
+    this.getOptions()
   },
   methods: {
     async getOptions(text) {
@@ -114,9 +123,6 @@ export default {
       console.log(value)
       await this.getOptions(value)
     },
-  },
-  mounted() {
-    this.getOptions()
   }
 }
 </script>

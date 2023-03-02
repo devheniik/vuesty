@@ -9,5 +9,13 @@
 @import 'components/wrap.scss';
 @import 'components/menu.scss';
 @import 'components/table.scss';
+@import 'components/pagination.scss';
+@import 'components/textarea.scss';
+@import 'components/accordion.scss';
+@import 'components/avatarGroup.scss';
+@import 'components/progress.scss';
+@import 'components/select.scss';
+@import 'components/switch.scss';
+
 @import './bg.css';
 @import './textColor.css';
