@@ -3,84 +3,15 @@
       {{v_select_value}}
       <v-select
         v-model="v_select_value"
-        multiple
+        :is-loading="isLoaded"
         label-key="title"
+        multiple
         value-key="id"
-        :options="[
-          {
-            title: 'Option 1',
-            id: 1
-          },{
-            title: 'Option 2',
-            id: 2
-          },{
-            title: 'Option 3',
-            id: 3
-          },{
-            title: 'Option 4',
-            id: 4
-          },{
-            title: 'Option 5',
-            id: 5
-          },{
-            title: 'Option 6',
-            id: 6
-          },{
-            title: 'Option 7',
-            id: 7
-          },{
-            title: 'Option 8',
-            id: 8
-          },{
-            title: 'Option 9',
-            id: 9
-          },{
-            title: 'Option 10',
-            id: 10
-          },{
-            title: 'Option 11',
-            id: 11
-          },{
-            title: 'Option 12',
-            id: 12
-          },{
-            title: 'Option 13',
-            id: 13
-          },{
-            title: 'Option 24',
-            id: 24
-          },{
-            title: 'Option 35',
-            id: 35
-          },{
-            title: 'Option 45',
-            id: 44
-          },{
-            title: 'Option 61',
-            id: 61
-          },{
-            title: 'Option 62',
-            id: 62
-          },{
-            title: 'Option 63',
-            id: 63
-          },{
-            title: 'Option 64',
-            id: 64
-          },{
-            title: 'Option 81',
-            id: 81
-          },{
-            title: 'Option 82',
-            id: 82
-          },{
-            title: 'Option 83',
-            id: 83
-          },{
-            title: 'Option 84',
-            id: 84
-          },
-        ]">
+        :options=" options"
+        placeholder="Select"
+        :auto-filter="false"
+        :delay="5000"
+        @search="handleSearch">
 
       </v-select>
   </div>
@@ -163,14 +94,30 @@ export default {
       isModalOpen: false,
       isModalOpen2: false,
       text: null,
-      v_select_value: [ 1, 2, 3, 4, 5, 8, 7, 11, 12, 10, 9, 13, 24, 35, 44, 62, 61, 63, 64, 83, 81, 82, 84 ],
+      isLoaded: false,
+      options: [],
+      v_select_value: null,
     }
   },
   methods: {
-    async getOptions() {
-      return (await axios.get('https://jsonplaceholder.typicode.com/todos')).data
-    }
+    async getOptions(text) {
+      this.isLoaded = true
+      this.options = (await axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10')).data
+
+      if (text) {
+        this.options = this.options.filter(option => option.title.includes(text))
+      }
+
+      this.isLoaded = false
+    },
+    async handleSearch(value) {
+      console.log(value)
+      await this.getOptions(value)
+    },
   },
+  mounted() {
+    this.getOptions()
+  }
 }
 </script>
 

@@ -24,18 +24,26 @@ const props = withDefaults(
     searchPlaceholder?: string
     emptyText?: string
     maxShow?: number
+    autoFilter?: boolean
+    search?: string
+    isLoading?: boolean
+    delay?: number
   }>(),
   {
     openDefault: false,
     multiple: false,
     labelKey: 'label',
     valueKey: 'value',
+    search: '',
     searchable: false,
     deselect: false,
     placeholder: 'Select',
     searchPlaceholder: 'Search',
     emptyText: 'No results found',
     maxShow: 2,
+    autoFilter: true,
+    isLoading: false,
+    delay: 1000,
   }
 )
 
@@ -55,6 +63,7 @@ interface Emits {
   (e: 'closePanel'): void
 
   (e: 'clear'): void
+  (e: 'search', value: string): void
 }
 
 // const value = ref(props.modelValue)
@@ -63,7 +72,9 @@ const emit = defineEmits<Emits>()
 
 // Select
 const selectRef = ref()
-const search = ref<string>('')
+const lastUpdatedSearch = ref<string>('')
+const search = ref<string>(props.search)
+const canUpdateSearch = ref<boolean>(true)
 
 const singleLabel = () => {
   if (isOptionObject()) {
@@ -77,6 +88,28 @@ const headRef = ref()
 const inputRef = ref()
 
 const isFocused = ref(false)
+
+const handleSearch = (e: any) => {
+  search.value = e.target.value
+  if (canUpdateSearch.value) {
+    emit('search', search.value)
+    canUpdateSearch.value = false
+    changeCanUpdateSearch()
+  }
+
+}
+
+const changeCanUpdateSearch = () => {
+  if (!canUpdateSearch.value) {
+    setTimeout(() => {
+      canUpdateSearch.value = true
+      if (search.value !== lastUpdatedSearch.value) {
+        lastUpdatedSearch.value = search.value
+        emit('search', search.value)
+      }
+    }, props.delay)
+  }
+}
 
 onClickOutside(selectRef, () => {
   if (open.value) {
@@ -118,7 +151,10 @@ const getLabel = (option: any) => {
 
 const getLabelByValue = (value: any) => {
   if (isOptionObject()) {
-    return props.options.find((option: any) => option[props.valueKey] === value)[props.labelKey]
+    const option = props.options.find((option: any) => option[props.valueKey] === value)
+    if (option) {
+      return option[props.labelKey]
+    }
   }
 
   return value
@@ -141,7 +177,7 @@ const getValue = (option: any) => {
 }
 
 const clear = () => {
-  if (isOptionObject()) {
+  if (props.multiple) {
     emit('update:modelValue', [])
   } else {
     emit('update:modelValue', null)
@@ -189,16 +225,18 @@ const deselectItem = (value: any) => {
 }
 
 const filteredOptions = computed(() => {
-  let response = []
 
   if (search.value === '' || search.value.length === 0) {
-    response = props.options
+    return props.options
   }
-  response = props.options.filter(option => {
-    return getLabel(option).toLowerCase().includes(search.value.toLowerCase())
-  })
 
-  return response
+  if (props.autoFilter) {
+    return props.options.filter(option => {
+      return getLabel(option).toLowerCase().includes(search.value.toLowerCase())
+    })
+  }
+
+  return props.options
 })
 
 const visibleTags = computed(() => {
@@ -295,10 +333,11 @@ onMounted(() => {
         <input
           v-show="isFocused"
           ref="inputRef"
-          v-model="search"
+          :value="search"
           :placeholder="searchPlaceholder"
           type="text"
-          class="v-select__main__input" />
+          class="v-select__main__input"
+          @input="handleSearch($event)" />
         <div v-if="isMultipleFilledWithoutFocus()" class="v-tag__box scrollbar">
           <slot v-for="(value, index) in visibleTags" :key="index" name="tag" :option="value">
             <div class="v-tag">
@@ -317,7 +356,13 @@ onMounted(() => {
         <span v-else-if="!isFocused" class="v-select__placeholder-text">
           {{ placeholder }}
         </span>
-      <div class="v-select__icon-box">
+      <div v-if="isLoading" class="v-select__icon-box">
+        <svg class="v-select__icon-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+      </div>
+      <div v-else class="v-select__icon-box">
         <XMarkIcon
           :class="[ 'v-select__icon focus-none', { 'v-select__icon_focus' : isFocused }]"
           @click.stop="clear"
@@ -329,7 +374,8 @@ onMounted(() => {
       leave-active-class="transition ease-in duration-100"
       leave-from-class="opacity-100"
       leave-to-class="opacity-0">
-      <ul v-if="open" aria-labelledby="select-label" class="v-select__menu scrollbar" role="menu" tabindex="-1">
+
+      <ul v-if="open && !isLoading" aria-labelledby="select-label" class="v-select__menu scrollbar" role="menu" tabindex="-1">
         <div v-if="isMultipleFilled()" class="v-select__empty-box">
           <slot
             v-for="(value, index) in modelValue"
