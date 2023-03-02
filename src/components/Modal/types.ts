@@ -5,6 +5,7 @@ export interface VModalEvents {
 }
 
 export interface VModalProps extends VModalEvents {
+  heading: string
   modelValue: boolean
   width: string
 }

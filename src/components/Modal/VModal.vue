@@ -9,7 +9,7 @@
         <div :class="['v-modal__inner', `${width}`]">
           <header class="v-modal__inner__header">
             <h3 class="v-modal__inner__header__heading">
-              Some fancy text
+              {{ heading }}
             </h3>
             <XMarkIcon
             class="v-modal__inner__header__xmark"
@@ -27,13 +27,12 @@
 
 <script setup lang="ts">
 import { XMarkIcon } from '@devheniik/icons';
-defineProps({
-  modelValue: Boolean,
-  width: {
-    type: String,
-    default: 'w-auto',
-    required: false,
-  },
+withDefaults(defineProps<{
+  modelValue: boolean,
+  heading?: string ,
+  width: string,
+}>(), {
+  width: 'w-auto'
 })
 
 defineEmits(['update:modelValue'])
