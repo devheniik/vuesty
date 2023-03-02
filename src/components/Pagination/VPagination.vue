@@ -93,6 +93,7 @@ const nextPage = () => {
 <template>
   <div class="v-pagination__container">
     <div class="v-pagination__per-page">
+      <span>Показувати</span>
       <select v-model="per_page" class="v-pagination__per-page__select" name="select">
         <option v-for="i of per_page_variants" :key="i" :value="i">{{ i }}</option>
       </select>
