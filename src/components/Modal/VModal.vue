@@ -7,7 +7,17 @@
       leave-active-class="v-modal__leave-active">
       <div v-if="modelValue" :class="['v-modal']">
         <div :class="['v-modal__inner', `${width}`]">
-          <slot></slot>
+          <header class="v-modal__inner__header">
+            <h3 class="v-modal__inner__header__heading">
+              Some fancy text
+            </h3>
+            <XMarkIcon
+            class="v-modal__inner__header__xmark"
+            @click="$emit('update:modelValue', false)"  />
+          </header>
+          <main class="v-modal__inner__main">
+            <slot></slot>
+          </main>
         </div>
         <div class="v-modal__outside" @click="$emit('update:modelValue', false)"></div>
       </div>
@@ -16,6 +26,7 @@
 </template>
 
 <script setup lang="ts">
+import { XMarkIcon } from '@devheniik/icons';
 defineProps({
   modelValue: Boolean,
   width: {

@@ -1,4 +1,16 @@
 <template>
+
+<div class="box">
+  <v-button @click="isModalOpen = true">+</v-button>
+  <v-modal v-model="isModalOpen">
+    <v-input></v-input>
+    <v-input></v-input>
+    <v-input></v-input>
+    <v-input></v-input>
+    <v-input></v-input>
+  </v-modal>
+</div>
+
 <div class="box w-3">
   <VTextarea v-model="ttx">hello</VTextarea>
 
@@ -71,11 +83,11 @@
     <v-pagination v-model="hf" :total-pages="20" :current-page="4" @update:model-value="logger"></v-pagination>
   </div>
 
-  <div class="box">
+  <!-- <div class="box">
     <v-button @click="isModalOpen = true">+</v-button>
     <v-modal v-model="isModalOpen"><v-button @click="isModalOpen2 = true">+</v-button>
       <v-modal v-model="isModalOpen2">123</v-modal></v-modal>
-  </div>
+  </div> -->
 
 
 </template>

@@ -24,7 +24,23 @@
 }
 
 .v-modal__inner {
-  @apply inline-block z-50 align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left shadow-xl transform transition-all sm:my-8 sm:align-middle sm:p-6
+  @apply inline-block z-50 align-bottom bg-white rounded-lg  pb-5 text-left shadow-xl transform transition-all sm:my-8 sm:align-middle
+}
+
+.v-modal__inner__header {
+  @apply flex justify-between items-center p-5
+}
+
+.v-modal__inner__header__heading {
+  @apply text-lg font-bold text-primary-500
+}
+
+.v-modal__inner__header__xmark {
+  @apply w-4 h-4 text-primary-500 self-start cursor-pointer
+}
+
+.v-modal__inner__main {
+  @apply px-5
 }
 
 .v-modal__outside {
