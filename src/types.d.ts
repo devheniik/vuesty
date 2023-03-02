@@ -47,10 +47,10 @@ declare module '@vue/runtime-core' {
     VBadge: GlobalComponentConstructor<VBadgeProps, VBadgeSlots>
     VButton: GlobalComponentConstructor<VButtonProps, VButtonSlots>
     VInput: GlobalComponentConstructor<VInputProps, VInputSlots>
-    VMenu: GlobalComponentConstructor<void, VMenuSlots>
+    VMenu: GlobalComponentConstructor<{}, VMenuSlots>
     VNotification: GlobalComponentConstructor<VNotificationProps, VNotificationSlots>
     VPagination: GlobalComponentConstructor<VPaginationProps, VNodeProps>
-    VSwitch: GlobalComponentConstructor<void, VSwitchSlots>
+    VSwitch: GlobalComponentConstructor<{}, VSwitchSlots>
     VTabs: GlobalComponentConstructor<VTabsProps, VTabsSlots>
     VSelect: GlobalComponentConstructor<VSelectProps, VSelectSlots>
     VTable: GlobalComponentConstructor<VTableProps, VNodeProps>
