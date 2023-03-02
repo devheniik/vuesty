@@ -20,7 +20,7 @@ const props = withDefaults(
 const per_page_variants = [10,20,30,50]
 
 interface Emits {
-  (e: 'update:modelValue', value: number | null): void
+  (e: 'update:modelValue', value: number): void
   (e: 'paginationClick', page: Ref<number>): void
 }
 
@@ -103,7 +103,7 @@ const nextPage = () => {
       :value="modelValue"
       class="v-pagination__per-page__select"
       name="select"
-      @change="emit('update:modelValue', $event.target!.value)">
+      @change="emit('update:modelValue', Number($event.target!.value))">
         <option v-for="i of per_page_variants" :key="i" :value="i">{{ i }}
         </option>
       </select>
