@@ -19,7 +19,7 @@
 }
 
 .v-select__main__input {
-  @apply h-full border-0 border-gray-900 pl-0 placeholder-gray-400 focus:outline-none focus:ring-0;
+  @apply h-full w-full border-0 border-gray-900 pl-0 placeholder-gray-400 focus:outline-none focus:ring-0;
 }
 
 ._select {
@@ -27,7 +27,7 @@
 }
 
 .v-select__text {
-  @apply truncate text-sm sm:text-lg;
+  @apply truncate w-full pl-0 text-gray-700 text-sm sm:text-lg;
 }
 
 .v-select__menu {
@@ -46,17 +46,21 @@
   @apply font-medium;
 }
 
-.placeholder-text {
+.v-select__placeholder-text{
   @apply flex h-9 items-center text-base text-gray-400;
 }
 
 /* TAGS */
 .v-tag__box {
-  @apply flex h-auto w-full flex-row items-center justify-start space-x-1 overflow-x-auto;
+  @apply flex h-auto w-full flex-row items-center flex-wrap justify-start space-x-1 overflow-x-auto;
 }
 
 .v-tag {
   @apply whitespace-nowrap rounded-sm bg-primary-500 py-0.5 px-1.5 text-sm font-medium text-gray-50;
+}
+
+.v-tag-in-selected-box {
+  @apply flex flex-row items-center whitespace-nowrap rounded-sm bg-primary-500 py-0.5 px-1.5 text-sm font-medium text-gray-50 mb-2 mr-2;
 }
 
 /* Icons */
@@ -77,6 +81,10 @@
   @apply h-6 w-6 text-gray-400 hover:text-gray-700;
 }
 
+.v-select__icon-deselect {
+  @apply h-5 w-5 text-gray-200 hover:text-gray-400 ml-1;
+}
+
 .v-select__icon_focus {
   @apply group-focus:text-primary-500;
 }
@@ -94,5 +102,5 @@
 }
 
 .v-select__empty-box {
-  @apply flex items-center justify-center space-x-2 text-gray-400;
+  @apply flex items-center flex-wrap justify-start text-gray-400 py-3 px-3 w-full border-b;
 }
