@@ -1,6 +1,11 @@
 <template>
 
-<v-avatar></v-avatar>
+<v-avatar size="tiny"></v-avatar>
+<v-avatar size="gigantic"></v-avatar>
+<v-avatar size="huge"></v-avatar>
+<v-avatar size="medium"></v-avatar>
+<v-avatar size="small"></v-avatar>
+
 
 <div class="box">
   <v-input></v-input>

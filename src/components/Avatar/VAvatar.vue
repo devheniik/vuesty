@@ -98,7 +98,7 @@ const formatter = (text: string) => {
   <div :class="['v-avatar', `v-avatar-${size}`, text && `v-avatar-letters-${color}`]">
     <img v-if="src" :src="src" v-bind="attrs" :alt="alt" class="v-avatar__img" loading="lazy" />
     <div v-else>
-      <svg class="v-avatar__img" width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <svg class="v-avatar__img"  viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <circle cx="20.5" cy="20" r="20" fill="url(#pattern0)"/>
 <defs>
 <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
