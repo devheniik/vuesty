@@ -116,7 +116,7 @@ const nextPage = () => {
       <div class="v-pagination__body">
         <div v-for="n in paginationArr" :key="n">
           <div
-            :class="[{ 'v-pagination__body__item_active': activePage === n }, 'v-pagination__body__item']"
+            :class="[activePage === n  ? 'v-pagination__body__item_active' : 'v-pagination__box-shadow' , 'v-pagination__body__item']"
             @click="pickPage(n)">
             {{ n }}
           </div>

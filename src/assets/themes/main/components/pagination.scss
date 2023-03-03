@@ -1,5 +1,5 @@
 .v-pagination {
-  @apply flex;
+  @apply flex bg-white h-7 text-sm text-neutral-500 rounded;
 }
 
 .v-pagination__container{
@@ -7,7 +7,7 @@
 }
 
 .v-pagination__per-page__select {
-  @apply rounded-md ml-2
+  @apply rounded-md ml-2 pr-8 pl-2 py-1.5 text-neutral-500
 }
 
 .v-pagination__body {
@@ -15,15 +15,19 @@
 }
 
 .v-pagination__body__item {
-  @apply flex h-8 w-8 cursor-pointer items-center justify-center border border-solid border-primary-200 hover:border-primary-500;
+  @apply flex h-full w-7 cursor-pointer items-center justify-center border border-solid border-neutral-200 hover:border-primary-500;
 }
 
 div.v-pagination__body__item_active {
-  @apply bg-primary-100 text-primary-500;
+  @apply bg-primary-100 text-primary-500 border-primary-500;
 }
 
 .v-pagination__arrow {
-  @apply v-pagination__body__item font-bold text-primary-500;
+  @apply v-pagination__body__item font-bold ;
+}
+
+.v-pagination__arrow > svg {
+  @apply stroke-2
 }
 
 .v-pagination__arrow_size {
