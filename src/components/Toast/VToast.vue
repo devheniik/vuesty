@@ -16,6 +16,7 @@ const props = withDefaults(
 
 interface Emits {
   (e: 'close'): void
+  (e: 'shown'): void
 }
 
 const emit = defineEmits<Emits>()
@@ -23,6 +24,8 @@ const emit = defineEmits<Emits>()
 const close = () => {
   emit('close')
 }
+
+emit('shown')
 
 const icon = computed<FunctionalComponent<HTMLAttributes & VNodeProps> | string>(() => {
   let icon = InformationCircleIcon

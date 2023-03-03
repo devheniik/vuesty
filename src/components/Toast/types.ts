@@ -2,6 +2,7 @@ import type { ComponentPublicInstance } from 'vue'
 
 export interface VToastEvents {
   (e: 'close'): () => void
+  (e: 'shown'): () => void
 }
 
 export interface VToastProps extends VToastEvents {
