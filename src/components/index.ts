@@ -14,5 +14,6 @@ export const VTabs = defineAsyncComponent(() => import('./Tabs/VTabs.vue'))
 export const VTable = defineAsyncComponent(() => import('./Table/VTable.vue'))
 export const VSelect = defineAsyncComponent(() => import('./Select/VSelect.vue'))
 export const VTextarea = defineAsyncComponent(() => import('./Textarea/VTextarea.vue'))
+export const VToast = defineAsyncComponent(() => import('./Toast/VToast.vue'))
 
 export const VModal = defineAsyncComponent(() => import('./Modal/VModal.vue'))
