@@ -7,15 +7,12 @@ const props = withDefaults(
   defineProps<{
   totalPages: number,
   currentPage?: number,
-  perPage?: number | string,
   modelValue: number | string,
 }>(), {
   currentPage: 1,
-  perPage: 10,
   }
 )
 
-// const per_page = ref(props.perPage)
 
 const per_page_variants = [10,20,30,50]
 
