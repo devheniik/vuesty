@@ -23,6 +23,7 @@ const props = withDefaults(
   {
     size: 'medium',
     color: 'primary',
+    src: 'src/assets/components/avatar.svg'
   }
 )
 

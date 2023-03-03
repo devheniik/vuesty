@@ -1,5 +1,7 @@
 <template>
 
+<v-avatar></v-avatar>
+
 <div class="box">
   <v-input></v-input>
   <v-select></v-select>
@@ -107,10 +109,11 @@ import VSelect from '../src/components/Select/VSelect.vue'
 import VPagination from '../src/components/Pagination/VPagination.vue'
 import VModal from "../src/components/Modal/VModal.vue"
 import VTextarea from "../src/components/Textarea/VTextarea.vue"
+import VAvatar from '../src/components/Avatar/VAvatar.vue'
 import { AcademicCapIcon } from '@devheniik/icons/dist'
 export default {
   name: "App",
-  components: {VInput, VToast, VTable, VPagination, VButton, AcademicCapIcon, VModal, VSelect, VTextarea},
+  components: {VInput, VToast, VTable, VPagination, VButton, AcademicCapIcon, VModal, VSelect, VTextarea, VAvatar},
   data() {
     return {
       isModalOpen: false,
