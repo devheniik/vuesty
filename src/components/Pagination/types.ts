@@ -6,9 +6,14 @@ export interface VPaginationEvents {
 }
 
 export interface VPaginationProps extends VPaginationEvents {
-  total: number,
-  current_page?: number,
-  modelValue: number | string,
+  pagination: {
+    total: number,
+    last_page: number,
+    per_page: number | string,
+    current_page: number,
+  },
+  page: number,
+  limit: number | string
 }
 
 export type VPaginationComponent = ComponentPublicInstance<VPaginationProps>

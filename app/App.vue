@@ -62,7 +62,7 @@
     <VToast class="my-2" variant="primary" text="Some crazy piece of text" />
     <VToast class="my-2" variant="success" text="Some crazy piece of text" />
     <VToast class="my-2" variant="warning"  text="Some crazy piece of text" />
-    <VToast class="my-2" variant="danger" @shown="shown" text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus et dolores sit nostrum nemo excepturi voluptatibus, saepe, dolorem corrupti magni, incidunt nesciunt officia qui facilis rem obcaecati facere exercitationem laudantium." />
+    <VToast class="my-2" variant="danger" text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus et dolores sit nostrum nemo excepturi voluptatibus, saepe, dolorem corrupti magni, incidunt nesciunt officia qui facilis rem obcaecati facere exercitationem laudantium." @shown="shown" />
   </div>
 
   <div class="buttonContainer">
@@ -99,7 +99,13 @@
   </div>
 
   <div class="box">
-    <v-pagination v-model="hf" last_page="20" :current_page="4" @update:model-value="logger"></v-pagination>
+    <v-pagination
+      v-model="hf" :limit="10" :page="2" :pagination="{
+      total: 200,
+      last_page: 6,
+      per_page: 20,
+      current_page: 3
+    }" @update:model-value="logger"></v-pagination>
   </div>
 
   <!-- <div class="box">
@@ -158,6 +164,7 @@ export default {
 
     logger(dat) {
       this.hf = dat
+      console.log(dat);
     },
 
     async handleSearch(value) {

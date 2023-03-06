@@ -5,31 +5,44 @@ import { ChevronRightIcon, ChevronLeftIcon } from '@devheniik/icons'
 
 const props = withDefaults(
   defineProps<{
-  last_page: number,
-  current_page?: number,
-  modelValue: number | string,
+    pagination: {
+      total: number,
+      last_page: number,
+      per_page: number | string,
+      current_page: number,
+    },
+    page: number,
+    limit: number | string
 }>(), {
-  current_page: 1,
-  modelValue: 10,
+  pagination: () => {
+    return {
+      total: 10,
+      last_page: 1,
+      per_page: 10,
+      current_page: 1,
+    }
+  },
+  page: 1,
+  limit: 10,
   }
 )
+
+
 
 
 const per_page_variants = [10,20,30,50]
 
 interface Emits {
   (e: 'update:modelValue', value: number): void
-  (e: 'paginationClick', page: Ref<number>): void
+  (e: 'update', page: Ref<number>): void
 }
-
-// , per_page: Ref<number>
 
 const emit = defineEmits<Emits>()
 
-const activePage = ref<number>(props.current_page)
+const activePage = ref<number>(props.pagination.current_page)
 
 const paginationArr = computed(() => {
-  if (props.last_page > 6) {
+  if (props.pagination.last_page > 6) {
     const middleNums: Ref<number[]> = ref([])
 
     if (activePage.value) {
@@ -40,7 +53,7 @@ const paginationArr = computed(() => {
       // Pagination Start Numbers ->
 
       if (activePage.value === 4) {
-        return [1, ...middleNums.value, '...', props.last_page]
+        return [1, ...middleNums.value, '...', props.pagination.last_page]
       }
 
       if (activePage.value < 4) {
@@ -49,29 +62,29 @@ const paginationArr = computed(() => {
           startMiddleNums.value.push(i)
         }
         // middleNums.value = startMiddleNums.value
-        return [...startMiddleNums.value, '...', props.last_page]
+        return [...startMiddleNums.value, '...', props.pagination.last_page]
       }
 
       // Pagination End Numbers ->
 
-      if (activePage.value === props.last_page - 3) {
-        return [1, '...', ...middleNums.value, props.last_page]
+      if (activePage.value === props.pagination.last_page - 3) {
+        return [1, '...', ...middleNums.value, props.pagination.last_page]
       }
 
-      if (activePage.value > props.last_page - 3) {
+      if (activePage.value > props.pagination.last_page - 3) {
         const endMiddleNums: Ref<number[]> = ref([])
-        for (let i = activePage.value - 2; i < props.last_page; i++) {
+        for (let i = activePage.value - 2; i < props.pagination.last_page; i++) {
           endMiddleNums.value.push(i)
         }
         // middleNums.value = endMiddleNums.value
-        return [1, '...', ...endMiddleNums.value, props.last_page]
+        return [1, '...', ...endMiddleNums.value, props.pagination.last_page]
       }
     }
 
-    return [1, '...', ...middleNums.value, '...', props.last_page]
+    return [1, '...', ...middleNums.value, '...', props.pagination.last_page]
   }
   const nums = []
-  for (let i = 1; i <= props.last_page; i++) {
+  for (let i = 1; i <= props.pagination.last_page; i++) {
     nums.push(i)
   }
   return [...nums]
@@ -79,17 +92,17 @@ const paginationArr = computed(() => {
 
 const pickPage = (n: number | string): void => {
   if (typeof n !== 'string') activePage.value = n
-  emit('paginationClick', activePage)
+  emit('update', activePage)
 }
 
 const previousPage = () => {
   activePage.value && activePage.value > 1 ? activePage.value-- : null
-  emit('paginationClick', activePage)
+  emit('update', activePage)
 }
 
 const nextPage = () => {
-  activePage.value && activePage.value < props.last_page ? activePage.value++ : null
-  emit('paginationClick', activePage)
+  activePage.value && activePage.value < props.pagination.last_page ? activePage.value++ : null
+  emit('update', activePage)
 }
 </script>
 
@@ -98,7 +111,7 @@ const nextPage = () => {
     <div class="v-pagination__per-page">
       <span>Показувати</span>
       <select
-      :value="modelValue"
+      :value="limit"
       class="v-pagination__per-page__select"
       name="select"
       @change="emit('update:modelValue', Number($event.target!.value))">
