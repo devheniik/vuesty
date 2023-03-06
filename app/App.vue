@@ -101,7 +101,9 @@
         { data1: { name: 'Row 4'}, data2: 'Row 4', data3: 'Row 4', data4: 'Row 4' },
         { data1: { name: 'Row 4'}, data2: 'Row 4', data3: 'Row 4', data4: 'Row 4' },
         { data1: { name: 'Row 4'}, data2: 'Row 4', data3: 'Row 4', data4: 'Row 4' },
-      ]">
+      ]"
+      :cols="['data1', 'data2', 'data3', 'data4']"
+    >
       <template #data1="{data}">
         {{data.name}}
       </template>
