@@ -3,7 +3,7 @@
 }
 
 .v-pagination__container{
-  @apply flex w-full justify-between
+  @apply flex w-full justify-between items-center;
 }
 
 .v-pagination__per-page__select {
