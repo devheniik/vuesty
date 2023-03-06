@@ -54,7 +54,7 @@ const inputRef = ref()
 const valid = ref<boolean>(props._valid)
 const invalid = ref<boolean>(props._invalid)
 
-const value = ref<string | number>('')
+const value = ref<string | number>(props.modelValue)
 const regex = ref<RegExp | false>(false)
 
 const _placeholder = ref<string | false>(props.placeholder)

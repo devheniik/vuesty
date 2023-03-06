@@ -1,7 +1,8 @@
 import type { ComponentPublicInstance, VNode } from 'vue'
 
 export interface VTextareaProps  {
-  rows?: string |number
+  modelValue: string
+  rows?: string | number
 }
 
 

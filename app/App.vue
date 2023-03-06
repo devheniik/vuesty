@@ -33,6 +33,7 @@
 </div>
 
 <div class="box w-3">
+  {{ttx}}
   <VTextarea v-model="ttx">hello</VTextarea>
 
 </div>
@@ -147,13 +148,13 @@ export default {
   components: {VInput, VToast, VTable, VPagination, VButton, AcademicCapIcon, VModal, VSelect, VTextarea, VAvatar, VAlert},
   data() {
     return {
+      text: 'text123123',
       isModalOpen: false,
       isModalOpen2: false,
-      text: null,
       isLoaded: false,
       options: [],
       v_select_value: null,
-      ttx: '',
+      ttx: '123123',
       hf: 10,
     }
   },

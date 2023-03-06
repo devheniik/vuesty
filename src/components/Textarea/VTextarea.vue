@@ -1,42 +1,33 @@
 <template>
-  <textarea v-bind="props" v-model="currentValue" class="v-textarea"></textarea>
+  <textarea v-bind="props" :value="value" class="v-textarea" @input="handleInput"></textarea>
 </template>
 
 <script setup lang="ts">
-  import { ref,  useSlots } from 'vue'
+import { ref } from 'vue'
 
-  const props = withDefaults(defineProps<{
-    rows?: string | number,
+const props = withDefaults(
+  defineProps<{
+    modelValue: string
+    rows?: string | number
   }>(),
   {
     rows: 5,
   }
-  )
+)
 
-  const $slots = useSlots();
-  const currentValue = ref(getDefaultValue())
+interface Emits {
+  (e: 'update:modelValue', value: string): void
+}
 
-  function getDefaultValue() {
-  if ($slots.default && $slots.default().length) {
-    const defaultSlot = $slots.default()[0]
-    const defaultSlotText = Array.isArray(defaultSlot.children)
-      ? defaultSlot.children.reduce((acc, child) => {
-          if (Array.isArray(child)) {
-            return acc + child.join('')
-          }
-          if (typeof child === 'string') {
-            return acc + child
-          }
-          return acc
-        }, '')
-      : defaultSlot.children?.toString() ?? ''
+const emit = defineEmits<Emits>()
 
-    return defaultSlotText.trim()
-  }
+const value = ref(props.modelValue)
 
-    return ''
-  }
-
+const handleInput = (e: Event) => {
+  const target = e.target as HTMLInputElement
+  value.value = target.value
+  emit('update:modelValue', target.value)
+}
 </script>
 
 <style>
