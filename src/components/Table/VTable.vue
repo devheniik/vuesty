@@ -74,7 +74,7 @@ const handleDelete = (entity: object | string | number):void => {
   emit('delete', entity)
 }
 
-const _cols = ref(props.cols ? props.cols : Object.keys(props.rows[0]))
+const _cols = ref(props.cols ? props.cols : props.rows.length ? Object.keys(props.rows[0]) : [])
 
 </script>
 
