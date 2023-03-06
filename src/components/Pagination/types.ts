@@ -1,7 +1,7 @@
-import type { ComponentPublicInstance, Ref } from 'vue'
+import type { ComponentPublicInstance } from 'vue'
 
 export interface VPaginationEvents {
-  (e: 'paginationClick', page: Ref<number>, per_page: Ref<number>): () => void
+  (e: 'paginationClick', page: number): () => void
   (e: 'update:modelValue', value: number): void
 }
 

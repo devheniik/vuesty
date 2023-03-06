@@ -42,6 +42,13 @@
         @search="handleSearch">
 
       </v-select>
+
+    <v-select
+      v-model="v_select_value"
+      multiple
+      :options="[1,2,3]">
+
+    </v-select>
   </div>
 
 
@@ -55,7 +62,7 @@
     <VToast class="my-2" variant="primary" text="Some crazy piece of text" />
     <VToast class="my-2" variant="success" text="Some crazy piece of text" />
     <VToast class="my-2" variant="warning"  text="Some crazy piece of text" />
-    <VToast class="my-2" variant="danger" text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus et dolores sit nostrum nemo excepturi voluptatibus, saepe, dolorem corrupti magni, incidunt nesciunt officia qui facilis rem obcaecati facere exercitationem laudantium." />
+    <VToast @shown="shown" class="my-2" variant="danger" text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus et dolores sit nostrum nemo excepturi voluptatibus, saepe, dolorem corrupti magni, incidunt nesciunt officia qui facilis rem obcaecati facere exercitationem laudantium." />
   </div>
 
   <div class="buttonContainer">
@@ -135,6 +142,9 @@ export default {
     this.getOptions()
   },
   methods: {
+    shown() {
+      console.log('shown')
+    },
     async getOptions(text) {
       this.isLoaded = true
       this.options = (await axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10')).data

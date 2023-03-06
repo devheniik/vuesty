@@ -204,14 +204,14 @@ const onSelect = (option: any) => {
     emit('update:modelValue', getValue(option))
   }
 
+
   if (!props.multiple) {
-    closePanel()
+    outFocus()
   } else {
     openPanel()
   }
 
   emit('select')
-  console.log('Select')
 }
 
 const deselectItem = (value: any) => {
@@ -282,6 +282,7 @@ const closePanel = () => {
 // Focus emits
 
 const onFocus = () => {
+  console.log('focus')
   openPanel()
   visibleFocus()
   emit('focus')
@@ -320,12 +321,13 @@ onMounted(() => {
 </script>
 
 <template>
-  <div ref="selectRef" class="v-select" @click="onFocus">
+  <div ref="selectRef" class="v-select">
     <div
       ref="headRef"
       type="button"
       :aria-expanded="open"
       aria-haspopup="menu"
+      @click="onFocus"
       :class="['v-select__head scrollbar group', { 'v-select__head_focus': isFocused }]">
       <span class="v-select__icon-box_left">
         <MagnifyingGlassIcon :class="[ 'v-select__icon', { 'v-select__icon_focus' : isFocused }]" />
