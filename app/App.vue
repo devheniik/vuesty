@@ -1,4 +1,13 @@
 <template>
+  <div class="box">
+    <v-alert></v-alert>
+  </div>
+  <div class="box">
+    <VToast
+    class="my-2"
+    variant="primary"
+    text="Some crazy piece of text" />
+  </div>
 
 <v-avatar size="tiny"></v-avatar>
 <v-avatar size="gigantic"></v-avatar>
@@ -128,10 +137,11 @@ import VPagination from '../src/components/Pagination/VPagination.vue'
 import VModal from "../src/components/Modal/VModal.vue"
 import VTextarea from "../src/components/Textarea/VTextarea.vue"
 import VAvatar from '../src/components/Avatar/VAvatar.vue'
+import VAlert from '../src/components/Alert/VAlert.vue'
 import { AcademicCapIcon } from '@devheniik/icons/dist'
 export default {
   name: "App",
-  components: {VInput, VToast, VTable, VPagination, VButton, AcademicCapIcon, VModal, VSelect, VTextarea, VAvatar},
+  components: {VInput, VToast, VTable, VPagination, VButton, AcademicCapIcon, VModal, VSelect, VTextarea, VAvatar, VAlert},
   data() {
     return {
       isModalOpen: false,

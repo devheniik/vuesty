@@ -2,6 +2,10 @@
   @apply flex w-[500px] justify-between rounded bg-white pr-4 shadow-md;
 }
 
+.v-toast > .v-alert__close {
+  @apply m-0 self-center;
+}
+
 .v-toast {
   @apply w-72;
 }
