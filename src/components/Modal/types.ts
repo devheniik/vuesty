@@ -1,7 +1,7 @@
 import type { VNode, ComponentPublicInstance } from 'vue'
 
 export interface VModalEvents {
-  'update:modelValue': () => void
+  'update:modelValue?': () => void
 }
 
 export interface VModalProps extends VModalEvents {
