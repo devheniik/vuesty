@@ -100,7 +100,7 @@
 
   <div class="box">
     <v-pagination
-      v-model="hf" :limit="10" :page="2" :pagination="{
+      :limit="hf"  :page="2" :pagination="{
       total: 200,
       last_page: 6,
       per_page: 20,
@@ -165,6 +165,7 @@ export default {
     logger(dat) {
       this.hf = dat
       console.log(dat);
+      console.log(this.hf)
     },
 
     async handleSearch(value) {

@@ -27,9 +27,6 @@ const props = withDefaults(
   }
 )
 
-
-
-
 const per_page_variants = [10,20,30,50]
 
 interface Emits {
