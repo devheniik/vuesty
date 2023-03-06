@@ -21,9 +21,9 @@
             </thead>
             <tbody class="v-table__body-container">
               <tr v-for="(row, index) in rows" :key="index">
-                <td v-for="(key, value) in Object.entries(row)" :key="value" class="v-table__body__row">
-                  <slot :name="key[0]" :data="key[1]" class="v-table__body__row__slot">
-                    {{ key[1] }}
+                <td v-for="(col, value) in _cols" :key="value" class="v-table__body__row">
+                  <slot :name="col" :data="row[col]" class="v-table__body__row__slot">
+                    {{ row[col] }}
                   </slot>
                 </td>
                 <td v-if="editAction" class="v-table__body__row__action">
@@ -42,16 +42,18 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import {ref} from 'vue'
 import { PencilIcon, TrashIcon } from '@devheniik/icons'
 const props = withDefaults(
   defineProps<{
     rows: string[] | object[] | number[]
     headers: string[],
+    cols?: string[] | object[] | number[] | null
     deleteAction?: boolean,
     editAction?: boolean,
   }>(),
   {
+    cols: null,
     deleteAction: true,
     editAction: true,
   }
@@ -62,8 +64,6 @@ interface Emits {
   (e: 'delete', value:  object | string | number): void
 }
 
-// const value = ref(props.modelValue)
-
 const emit = defineEmits<Emits>()
 
 const handleEdit = (entity: object | string | number):void => {
@@ -73,6 +73,8 @@ const handleEdit = (entity: object | string | number):void => {
 const handleDelete = (entity: object | string | number):void => {
   emit('delete', entity)
 }
+
+const _cols = ref(props.cols ? props.cols : Object.keys(props.rows[0]))
 
 </script>
 

@@ -7,6 +7,7 @@ export interface VTableEvents {
 
 export interface VTableProps extends VTableEvents {
   rows: string[] | object[] | number[]
+  cols: string[] | object[] | number[] | null,
   headers: string[],
   deleteAction: boolean,
   editAction: boolean,

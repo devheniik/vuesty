@@ -55,6 +55,7 @@
     <v-select
       v-model="v_select_value"
       multiple
+      @focus="handleFocus"
       :options="[1,2,3]">
 
     </v-select>
@@ -100,7 +101,9 @@
         { data1: { name: 'Row 4'}, data2: 'Row 4', data3: 'Row 4', data4: 'Row 4' },
         { data1: { name: 'Row 4'}, data2: 'Row 4', data3: 'Row 4', data4: 'Row 4' },
         { data1: { name: 'Row 4'}, data2: 'Row 4', data3: 'Row 4', data4: 'Row 4' },
-      ]">
+      ]"
+      :cols="['data1', 'data2', 'data3', 'data4']"
+    >
       <template #data1="{data}">
         {{data.name}}
       </template>
@@ -181,6 +184,9 @@ export default {
     async handleSearch(value) {
       console.log(value)
       await this.getOptions(value)
+    },
+    handleFocus() {
+      console.log('focus')
     },
   }
 }

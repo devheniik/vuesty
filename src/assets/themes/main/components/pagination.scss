@@ -3,11 +3,11 @@
 }
 
 .v-pagination__container{
-  @apply flex w-full justify-between
+  @apply flex w-full justify-between items-center;
 }
 
 .v-pagination__per-page__select {
-  @apply rounded-md ml-2 pr-8 pl-2 py-0 text-neutral-500
+  @apply rounded-md ml-2 py-0 h-7 pr-8 pl-2  text-neutral-500
 }
 
 .v-pagination__body {
