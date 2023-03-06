@@ -5,11 +5,12 @@ import { ChevronRightIcon, ChevronLeftIcon } from '@devheniik/icons'
 
 const props = withDefaults(
   defineProps<{
-  totalPages: number,
-  currentPage?: number,
+  total: number,
+  current_page?: number,
   modelValue: number | string,
 }>(), {
-  currentPage: 1,
+  current_page: 1,
+  modelValue: 10,
   }
 )
 
@@ -28,7 +29,7 @@ const emit = defineEmits<Emits>()
 const activePage = ref<number>(props.currentPage)
 
 const paginationArr = computed(() => {
-  if (props.totalPages > 6) {
+  if (props.total > 6) {
     const middleNums: Ref<number[]> = ref([])
 
     if (activePage.value) {
@@ -39,7 +40,7 @@ const paginationArr = computed(() => {
       // Pagination Start Numbers ->
 
       if (activePage.value === 4) {
-        return [1, ...middleNums.value, '...', props.totalPages]
+        return [1, ...middleNums.value, '...', props.total]
       }
 
       if (activePage.value < 4) {
@@ -48,29 +49,29 @@ const paginationArr = computed(() => {
           startMiddleNums.value.push(i)
         }
         // middleNums.value = startMiddleNums.value
-        return [...startMiddleNums.value, '...', props.totalPages]
+        return [...startMiddleNums.value, '...', props.total]
       }
 
       // Pagination End Numbers ->
 
-      if (activePage.value === props.totalPages - 3) {
-        return [1, '...', ...middleNums.value, props.totalPages]
+      if (activePage.value === props.total - 3) {
+        return [1, '...', ...middleNums.value, props.total]
       }
 
-      if (activePage.value > props.totalPages - 3) {
+      if (activePage.value > props.total - 3) {
         const endMiddleNums: Ref<number[]> = ref([])
-        for (let i = activePage.value - 2; i < props.totalPages; i++) {
+        for (let i = activePage.value - 2; i < props.total; i++) {
           endMiddleNums.value.push(i)
         }
         // middleNums.value = endMiddleNums.value
-        return [1, '...', ...endMiddleNums.value, props.totalPages]
+        return [1, '...', ...endMiddleNums.value, props.total]
       }
     }
 
-    return [1, '...', ...middleNums.value, '...', props.totalPages]
+    return [1, '...', ...middleNums.value, '...', props.total]
   }
   const nums = []
-  for (let i = 1; i <= props.totalPages; i++) {
+  for (let i = 1; i <= props.total; i++) {
     nums.push(i)
   }
   return [...nums]
@@ -87,7 +88,7 @@ const previousPage = () => {
 }
 
 const nextPage = () => {
-  activePage.value && activePage.value < props.totalPages ? activePage.value++ : null
+  activePage.value && activePage.value < props.total ? activePage.value++ : null
   emit('paginationClick', activePage)
 }
 </script>

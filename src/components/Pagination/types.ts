@@ -6,8 +6,8 @@ export interface VPaginationEvents {
 }
 
 export interface VPaginationProps extends VPaginationEvents {
-  totalPages: number,
-  currentPage?: number,
+  total: number,
+  current_page?: number,
   modelValue: number | string,
 }
 
