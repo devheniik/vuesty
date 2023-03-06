@@ -113,12 +113,17 @@
 
   <div class="box">
     <v-pagination
-      :limit="hf"  :page="2" :pagination="{
-      total: 200,
-      last_page: 6,
-      per_page: 20,
-      current_page: 3
-    }" @update:model-value="logger"></v-pagination>
+      v-model:limit="limit"
+      v-model:page="page"
+      v-bind="{
+        current_page: 2,
+        from: 10,
+        last_page: 5,
+        per_page: 10,
+        to: 20,
+        total: 50
+      }"
+      @change="handleP"></v-pagination>
   </div>
 
   <!-- <div class="box">
@@ -148,6 +153,8 @@ export default {
   components: {VInput, VToast, VTable, VPagination, VButton, AcademicCapIcon, VModal, VSelect, VTextarea, VAvatar, VAlert},
   data() {
     return {
+      page: 1,
+      limit: 10,
       text: 'text123123',
       isModalOpen: false,
       isModalOpen2: false,
@@ -162,6 +169,9 @@ export default {
     this.getOptions()
   },
   methods: {
+    handleP(value) {
+      console.log(value)
+    },
     shown() {
       console.log('shown')
     },

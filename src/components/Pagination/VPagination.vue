@@ -5,41 +5,55 @@ import { ChevronRightIcon, ChevronLeftIcon } from '@devheniik/icons'
 
 const props = withDefaults(
   defineProps<{
-    pagination: {
-      total: number,
-      last_page: number,
-      per_page: number | string,
-      current_page: number,
-    },
-    page: number,
-    limit: number | string
-}>(), {
-  pagination: () => {
-    return {
-      total: 10,
-      last_page: 1,
-      per_page: 10,
-      current_page: 1,
-    }
-  },
-  page: 1,
-  limit: 10,
+    current_page?: number
+    from?: number
+    last_page?: number
+    per_page?: number
+    to: number
+    total: number
+    page: number
+    limit: number
+  }>(),
+  {
+    current_page: 1,
+    from: 1,
+    last_page: 1,
+    per_page: 10,
+    to: 10,
+    total: 10,
+    page: 1,
+    limit: 10
   }
 )
 
-const per_page_variants = [10,20,30,50]
+const per_page_variants = [10, 20, 30, 50]
 
 interface Emits {
   (e: 'update:limit', value: number): void
-  (e: 'update', page: Ref<number>): void
+  (e: 'update:page', value: number): void
+  (e: 'change', value: any): void
+}
+
+const handleChange = () => {
+  emit('change', {
+    page: activePage.value,
+    limit: selectedLimit.value
+  })
+}
+
+const handleUpdateLimit = (limit: string) => {
+  selectedLimit.value = Number(limit)
+  emit('update:limit', selectedLimit.value)
+  handleChange()
 }
 
 const emit = defineEmits<Emits>()
 
-const activePage = ref<number>(props.pagination.current_page)
+const activePage = ref<number>(props.page)
+const selectedLimit = ref<number>(props.limit)
 
 const paginationArr = computed(() => {
-  if (props.pagination.last_page > 6) {
+  if (props.last_page > 6) {
     const middleNums: Ref<number[]> = ref([])
 
     if (activePage.value) {
@@ -50,7 +64,7 @@ const paginationArr = computed(() => {
       // Pagination Start Numbers ->
 
       if (activePage.value === 4) {
-        return [1, ...middleNums.value, '...', props.pagination.last_page]
+        return [1, ...middleNums.value, '...', props.last_page]
       }
 
       if (activePage.value < 4) {
@@ -59,29 +73,29 @@ const paginationArr = computed(() => {
           startMiddleNums.value.push(i)
         }
         // middleNums.value = startMiddleNums.value
-        return [...startMiddleNums.value, '...', props.pagination.last_page]
+        return [...startMiddleNums.value, '...', props.last_page]
       }
 
       // Pagination End Numbers ->
 
-      if (activePage.value === props.pagination.last_page - 3) {
-        return [1, '...', ...middleNums.value, props.pagination.last_page]
+      if (activePage.value === props.last_page - 3) {
+        return [1, '...', ...middleNums.value, props.last_page]
       }
 
-      if (activePage.value > props.pagination.last_page - 3) {
+      if (activePage.value > props.last_page - 3) {
         const endMiddleNums: Ref<number[]> = ref([])
-        for (let i = activePage.value - 2; i < props.pagination.last_page; i++) {
+        for (let i = activePage.value - 2; i < props.last_page; i++) {
           endMiddleNums.value.push(i)
         }
         // middleNums.value = endMiddleNums.value
-        return [1, '...', ...endMiddleNums.value, props.pagination.last_page]
+        return [1, '...', ...endMiddleNums.value, props.last_page]
       }
     }
 
-    return [1, '...', ...middleNums.value, '...', props.pagination.last_page]
+    return [1, '...', ...middleNums.value, '...', props.last_page]
   }
   const nums = []
-  for (let i = 1; i <= props.pagination.last_page; i++) {
+  for (let i = 1; i <= props.last_page; i++) {
     nums.push(i)
   }
   return [...nums]
@@ -89,17 +103,21 @@ const paginationArr = computed(() => {
 
 const pickPage = (n: number | string): void => {
   if (typeof n !== 'string') activePage.value = n
-  emit('update', activePage)
+  emit('update:page', activePage.value)
+  handleChange()
+
 }
 
 const previousPage = () => {
   activePage.value && activePage.value > 1 ? activePage.value-- : null
-  emit('update', activePage)
+  emit('update:page', activePage.value)
+  handleChange()
 }
 
 const nextPage = () => {
-  activePage.value && activePage.value < props.pagination.last_page ? activePage.value++ : null
-  emit('update', activePage)
+  activePage.value && activePage.value < props.last_page ? activePage.value++ : null
+  emit('update:page', activePage.value)
+  handleChange()
 }
 </script>
 
@@ -108,12 +126,11 @@ const nextPage = () => {
     <div class="v-pagination__per-page">
       <span>Показувати</span>
       <select
-      :value="limit"
-      class="v-pagination__per-page__select"
-      name="select"
-      @change="emit('update:limit', Number($event.target!.value))">
-        <option v-for="i of per_page_variants" :key="i" :value="i">{{ i }}
-        </option>
+        :value="selectedLimit"
+        class="v-pagination__per-page__select"
+        name="select"
+        @change="handleUpdateLimit($event.target.value)">
+        <option v-for="i of per_page_variants" :key="i" :value="i">{{ i }}</option>
       </select>
     </div>
     <div class="v-pagination">
@@ -124,7 +141,10 @@ const nextPage = () => {
       <div class="v-pagination__body">
         <div v-for="n in paginationArr" :key="n">
           <div
-            :class="[activePage === n  ? 'v-pagination__body__item_active' : 'v-pagination__box-shadow' , 'v-pagination__body__item']"
+            :class="[
+              activePage === n ? 'v-pagination__body__item_active' : 'v-pagination__box-shadow',
+              'v-pagination__body__item',
+            ]"
             @click="pickPage(n)">
             {{ n }}
           </div>
@@ -136,7 +156,6 @@ const nextPage = () => {
       </button>
     </div>
   </div>
-
 </template>
 
 <style lang="scss" scoped>
