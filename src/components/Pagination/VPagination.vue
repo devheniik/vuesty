@@ -30,7 +30,7 @@ const props = withDefaults(
 const per_page_variants = [10,20,30,50]
 
 interface Emits {
-  (e: 'update:modelValue', value: number): void
+  (e: 'update:limit', value: number): void
   (e: 'update', page: Ref<number>): void
 }
 
