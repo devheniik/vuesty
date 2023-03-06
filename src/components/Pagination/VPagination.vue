@@ -26,7 +26,7 @@ interface Emits {
 
 const emit = defineEmits<Emits>()
 
-const activePage = ref<number>(props.currentPage)
+const activePage = ref<number>(props.current_page)
 
 const paginationArr = computed(() => {
   if (props.last_page > 6) {
