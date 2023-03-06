@@ -282,7 +282,6 @@ const closePanel = () => {
 // Focus emits
 
 const onFocus = () => {
-  console.log('focus')
   openPanel()
   visibleFocus()
   emit('focus')
@@ -291,7 +290,6 @@ const onFocus = () => {
 const outFocus = () => {
   closePanel()
   hideFocus()
-  emit('focus')
 }
 
 const visibleFocus = () => {
@@ -321,7 +319,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div ref="selectRef" class="v-select">
+  <div @focus.stop ref="selectRef" class="v-select">
     <div
       ref="headRef"
       type="button"
@@ -334,6 +332,7 @@ onMounted(() => {
       </span>
         <input
           v-show="isFocused"
+          @focus.stop
           ref="inputRef"
           :value="search"
           :placeholder="searchPlaceholder"

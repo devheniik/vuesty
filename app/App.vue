@@ -55,6 +55,7 @@
     <v-select
       v-model="v_select_value"
       multiple
+      @focus="handleFocus"
       :options="[1,2,3]">
 
     </v-select>
@@ -181,6 +182,9 @@ export default {
     async handleSearch(value) {
       console.log(value)
       await this.getOptions(value)
+    },
+    handleFocus() {
+      console.log('focus')
     },
   }
 }
