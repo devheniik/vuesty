@@ -111,7 +111,7 @@ const nextPage = () => {
       :value="limit"
       class="v-pagination__per-page__select"
       name="select"
-      @change="emit('update:modelValue', Number($event.target!.value))">
+      @change="emit('update:limit', Number($event.target!.value))">
         <option v-for="i of per_page_variants" :key="i" :value="i">{{ i }}
         </option>
       </select>
