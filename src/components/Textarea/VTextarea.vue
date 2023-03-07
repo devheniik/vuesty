@@ -1,5 +1,5 @@
 <template>
-  <textarea v-bind="props" :value="value" class="v-textarea" @input="handleInput"></textarea>
+  <textarea v-bind="props" :value="value" :class="[{'v-textarea_error' : error},'v-textarea']" @input="handleInput"></textarea>
 </template>
 
 <script setup lang="ts">
@@ -9,6 +9,7 @@ const props = withDefaults(
   defineProps<{
     modelValue: string
     rows?: string | number
+    error?: boolean
   }>(),
   {
     rows: 5,

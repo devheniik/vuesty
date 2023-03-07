@@ -1,5 +1,8 @@
 <template>
   <div class="box">
+    <v-textarea v-model="ttf" error placeholder="lalalalal"></v-textarea>
+  </div>
+  <div class="box">
     <v-alert></v-alert>
   </div>
   <div class="box">
@@ -56,8 +59,8 @@
     <v-select
       v-model="v_select_value"
       multiple
-      @focus="handleFocus"
-      :options="[1,2,3]">
+      :options="[1,2,3]"
+      @focus="handleFocus">
 
     </v-select>
   </div>
@@ -207,7 +210,7 @@ export default {
 @import '../src/assets/themes/main/components/select.scss';
 
 .box {
-  @apply p-10 m-5 bg-neutral-300;
+  @apply p-10 m-5 bg-neutral-100;
 }
 .container {
   width: 30%;
