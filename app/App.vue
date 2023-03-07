@@ -1,5 +1,11 @@
 <template>
   <div class="box">
+    <v-input></v-input>
+  </div>
+  <div class="box">
+    <v-pagination :last_page="10" @change="logger" />
+  </div>
+  <div class="box">
     <v-textarea v-model="ttf" error placeholder="lalalalal"></v-textarea>
   </div>
   <div class="box">
