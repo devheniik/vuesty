@@ -9,9 +9,9 @@ export interface VPaginationEvents {
 export interface VPaginationProps extends VPaginationEvents {
   current_page?: number
   from?: number
-  last_page?: number
+  last_page?: any
   per_page?: number
-  to: number
+  to: any
   total: number
   page: number
   limit: number
