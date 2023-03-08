@@ -11,7 +11,7 @@ export interface VPaginationProps extends VPaginationEvents {
   from?: number
   last_page?: number | null
   per_page?: number
-  to: number | null
+  to?: number | null
   total: number
   page: number
   limit: number
