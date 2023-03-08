@@ -38,13 +38,8 @@
   @apply divide-x
 }
 
-.v-table__body__row:last-child .v-table__body__row__action {
-  @apply border-b-0
-}
-
-
 .v-table__body__row__cell {
-  @apply whitespace-nowrap   px-6 py-3 text-gray-700;
+  @apply whitespace-nowrap border-y  px-6 py-3 text-gray-700;
 }
 
 .v-table__body__row__action {
