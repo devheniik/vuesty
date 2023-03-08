@@ -1,12 +1,23 @@
 <template>
   <div class="box">
+    <v-menu>
+      <template #menuItems>
+        <div>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+        </div>
+      </template>
+    </v-menu>
+  </div>
+  <div class="box">
     <v-input></v-input>
   </div>
   <div class="box">
     <v-pagination :last_page="10" @change="logger" />
   </div>
   <div class="box">
-    <v-textarea v-model="ttf" error placeholder="lalalalal"></v-textarea>
+    <v-textarea v-model="ttf" placeholder="lalalalal"></v-textarea>
   </div>
   <div class="box">
     <v-alert></v-alert>
@@ -156,10 +167,11 @@ import VModal from "../src/components/Modal/VModal.vue"
 import VTextarea from "../src/components/Textarea/VTextarea.vue"
 import VAvatar from '../src/components/Avatar/VAvatar.vue'
 import VAlert from '../src/components/Alert/VAlert.vue'
+import VMenu from '../src/components/Menu/VMenu.vue'
 import { AcademicCapIcon } from '@devheniik/icons/dist'
 export default {
   name: "App",
-  components: {VInput, VToast, VTable, VPagination, VButton, AcademicCapIcon, VModal, VSelect, VTextarea, VAvatar, VAlert},
+  components: {VInput, VToast, VTable, VPagination, VButton, AcademicCapIcon, VModal, VSelect, VTextarea, VAvatar, VAlert, VMenu},
   data() {
     return {
       page: 1,
