@@ -20,8 +20,8 @@
               </tr>
             </thead>
             <tbody class="v-table__body-container">
-              <tr v-for="(row, index) in rows" :key="index">
-                <td v-for="(col, value) in _cols" :key="value" class="v-table__body__row">
+              <tr v-for="(row, index) in rows" class="v-table__body__row" :key="index">
+                <td v-for="(col, value) in _cols" :key="value" class="v-table__body__row__cell">
                   <slot :name="col" :data="row[col]" class="v-table__body__row__slot">
                     {{ row[col] }}
                   </slot>

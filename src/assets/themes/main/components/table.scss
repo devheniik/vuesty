@@ -7,7 +7,7 @@
 }
 
 .v-table-container-fluid {
-  @apply inline-block min-w-full  align-middle sm:px-6 lg:px-8;
+  @apply inline-block min-w-full  align-middle lg:px-8;
 }
 
 .v-table-container-fluid-box {
@@ -35,7 +35,16 @@
 }
 
 .v-table__body__row {
-  @apply whitespace-nowrap border px-6 py-3 text-gray-700;
+  @apply divide-x
+}
+
+.v-table__body__row:last-child .v-table__body__row__action {
+  @apply border-b-0
+}
+
+
+.v-table__body__row__cell {
+  @apply whitespace-nowrap   px-6 py-3 text-gray-700;
 }
 
 .v-table__body__row__action {
