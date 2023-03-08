@@ -22,8 +22,12 @@
   @apply bg-secondary-50;
 }
 
+.v-table__table-head__row {
+  @apply divide-x
+}
+
 .v-table__table-head__item {
-  @apply w-auto border py-3 pl-5 text-left text-base  font-bold text-gray-700;
+  @apply w-auto  py-3 pl-5 text-left text-base  font-bold text-gray-700;
 }
 
 .v-table__body-container {

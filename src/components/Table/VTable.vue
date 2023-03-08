@@ -5,7 +5,7 @@
         <div class="v-table-container-fluid-box">
           <table class="v-table__table">
             <thead class="v-table__table-head">
-              <tr>
+              <tr class="v-table__table-head__row">
                 <th v-for="(header, index) in headers" :key="index" scope="col" class="v-table__table-head__item">
                   <slot :name="`header-${header}`">
                     {{ header }}
