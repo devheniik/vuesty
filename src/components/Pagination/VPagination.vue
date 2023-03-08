@@ -7,9 +7,9 @@ const props = withDefaults(
   defineProps<{
     current_page?: number
     from?: number
-    last_page?: any
+    last_page?: number | null
     per_page?: number
-    to: any
+    to: number | null
     total: number
     page: number
     limit: number
@@ -53,7 +53,8 @@ const activePage = ref<number>(props.page)
 const selectedLimit = ref<number>(props.limit)
 
 const paginationArr = computed(() => {
-  if (props.last_page > 6) {
+  if (props.last_page) {
+    if (props.last_page > 6) {
     const middleNums: Ref<number[]> = ref([])
 
     if (activePage.value) {
@@ -99,6 +100,8 @@ const paginationArr = computed(() => {
     nums.push(i)
   }
   return [...nums]
+  }
+  return []
 })
 
 const pickPage = (n: number | string): void => {
@@ -115,9 +118,12 @@ const previousPage = () => {
 }
 
 const nextPage = () => {
-  activePage.value && activePage.value < props.last_page ? activePage.value++ : null
-  emit('update:page', activePage.value)
-  handleChange()
+  if (props.last_page) {
+    activePage.value && activePage.value < props.last_page ? activePage.value++ : null
+    emit('update:page', activePage.value)
+    handleChange()
+  }
+
 }
 </script>
 
