@@ -7,23 +7,26 @@ const show = ref(false)
 
 <template>
   <Menu>
-    <MenuButton class="v-menu-button">
+    <div class="relative">
+      <MenuButton class="v-menu__button">
       <slot>
-        <div class="v-menu__default-box" @click="show = !show">
-          <button class="v-menu__default-button">...</button>
+        <div class="v-menu__default-box" @click="show = true">
+          <button class="v-menu__default-button">
+            <span class="v-menu__dot"></span>
+            <span class="v-menu__dot"></span>
+            <span class="v-menu__dot"></span>
+          </button>
         </div>
       </slot>
     </MenuButton>
-    <MenuItems class="v-menu-items items-group">
+    <MenuItems v-if="show" class="v-menu__items items-group" @click="show = false">
       <slot name="menuItems" />
     </MenuItems>
+    </div>
+
   </Menu>
 </template>
 
 <style lang="scss" scoped>
 @import '../../assets/themes/main/components/menu.scss';
-
-[id^='headlessui-menu-item'] {
-  @apply border-b text-sm font-semibold text-primary-500 hover:border-primary-500;
-}
 </style>

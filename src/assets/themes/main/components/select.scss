@@ -3,7 +3,7 @@
 }
 
 .v-select__head {
-  @apply relative flex h-9 w-full flex-row items-center justify-between overflow-x-hidden rounded-md border border-gray-300 py-1 px-2 pl-3 text-left sm:text-sm text-black placeholder-gray-400 shadow-sm;
+  @apply relative flex h-9 w-full flex-row items-center justify-between overflow-hidden rounded-md border border-gray-300 py-1 px-2 pl-3 text-left sm:text-sm text-black placeholder-gray-400 shadow-sm;
 }
 
 .v-select__head_focus {

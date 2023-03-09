@@ -1,15 +1,23 @@
-.v-menu-button {
+.v-menu__button {
   @apply mb-1;
 }
 
+.v-menu__dot {
+  @apply inline-block h-[3px] w-[3px] bg-primary-500 rounded-full;
+}
+
 .v-menu__default-box {
-  @apply flex items-center justify-center rounded-md border-2 border-primary-500 text-primary-500;
+  @apply flex items-center justify-center rounded-md ;
 }
 
 .v-menu__default-button {
-  @apply px-1 pb-[15px] pt-1 leading-[0px];
+  @apply px-1 pb-[15px] pt-1 leading-[0px] space-x-[3px];
 }
 
-.v-menu-items {
-  @apply absolute z-10 flex w-fit flex-col space-y-2 rounded-md border border-primary-500 bg-white py-2 px-4 shadow-md;
+.v-menu__items {
+  @apply absolute top-3 right-5 z-10  flex w-fit flex-col space-y-2 rounded border border-neutral-200 bg-white py-2 p-2 shadow-md  text-[13px] ;
+}
+
+.v-menu__items > * {
+  @apply hover:bg-neutral-200 rounded py-1 px-2 cursor-pointer;
 }

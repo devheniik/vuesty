@@ -1,5 +1,91 @@
 <template>
   <div class="box">
+    <div class="box">
+    <VUTable
+      :headers="['ID', 'Name', 'Description', 'Date']"
+      :rows="[
+        {
+          user_name: 'John Doe',
+          user_id: 13123123123123123123123123,
+          user_description: 'Lorem ipsum ',
+          user_date: '2021-01-01',
+          user_avatar: 'https://picsum.photos/200/300',
+          user_avatar2: 'https://picsum.photos/200/300',
+        },
+        {
+          user_name: 'John Doe',
+          user_id: 13123123123123123123123123,
+          user_description: 'Lorem ipsum ',
+          user_date: '2021-01-01',
+          user_avatar: 'https://picsum.photos/200/300',
+          user_avatar2: 'https://picsum.photos/200/300',
+        }
+      ]"
+      :cols="['id', 'name', 'description', 'date', 'avatar']"
+      :menu-options="['something', 'something', 'something']"
+    >
+      <template #id="{data}">
+        {{data.user_id}}
+      </template>
+      <template #name="{data}">
+        {{data.user_name}}
+      </template>
+      <template #description="{data}">
+        {{data.user_description}}
+      </template>
+      <template #date="{data}">
+        {{data.user_date}}
+      </template>
+      <template #avatar="{data}">
+        <v-avatar :src="data.user_avatar"></v-avatar>
+        <v-avatar :src="data.user_avatar2"></v-avatar>
+      </template>
+    </VUTable>
+  </div>
+  </div>
+  <div class="box">
+    <v-select
+        v-model="v_select_value"
+        :is-loading="isLoaded"
+        label-key="title"
+        multiple
+        value-key="id"
+        :options=" options"
+        placeholder="Select"
+        :auto-filter="false"
+        :delay="5000"
+        @search="handleSearch">
+
+      </v-select>
+  </div>
+<div class="box">
+  <VUTable
+      :headers="['ID', 'Name', 'Description', 'Date']"
+      :rows="[
+    {
+      id: 1,
+      job_id: 1,
+      job_name: null,
+      avatar: null,
+      birthdate: null,
+      telegram: null,
+      permissions: []
+    },
+    {
+      id: 2,
+      job_id: 2,
+      job_name: null,
+      avatar: null,
+      birthdate: null,
+      telegram: null,
+      permissions: []
+    }
+  ]">
+  template
+</VUTable>
+</div>
+
+  <div class="box">
     <v-menu>
       <template #menuItems>
         <div>
@@ -168,10 +254,13 @@ import VTextarea from "../src/components/Textarea/VTextarea.vue"
 import VAvatar from '../src/components/Avatar/VAvatar.vue'
 import VAlert from '../src/components/Alert/VAlert.vue'
 import VMenu from '../src/components/Menu/VMenu.vue'
+import VUTable from '../src/components/UTable/VUTable.vue'
+// import VTest from "../src/components/UTable/VTest.vue"
+// import VTestComponent from '../src/components/UTable/VTestComponent.vue'
 import { AcademicCapIcon } from '@devheniik/icons/dist'
 export default {
   name: "App",
-  components: {VInput, VToast, VTable, VPagination, VButton, AcademicCapIcon, VModal, VSelect, VTextarea, VAvatar, VAlert, VMenu},
+  components: {VInput, VToast, VTable, VPagination, VButton, AcademicCapIcon, VModal, VSelect, VTextarea, VAvatar, VAlert, VMenu, VUTable },
   data() {
     return {
       page: 1,
@@ -184,8 +273,14 @@ export default {
       v_select_value: null,
       ttx: '123123',
       hf: 10,
-    }
-  },
+      tableRows: [
+        { id: 1232323,  age: 32, name: 'John', },
+        { id: 2, name: 'Jane', age: 28 },
+        { id: 3, name: 'Bob', age: 45 },
+      ],
+      tableHeaders: ['Name', 'Role', 'Email', 'Team'],
+  }
+},
   mounted() {
     this.getOptions()
   },
@@ -220,8 +315,17 @@ export default {
     handleFocus() {
       console.log('focus')
     },
+    handleEdit(row) {
+      console.log('Edit', row)
+    },
+    handleDelete(row) {
+      console.log('Delete', row)
+    }
   }
 }
+
+
+
 </script>
 
 <style scoped>

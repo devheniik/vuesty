@@ -15,6 +15,7 @@ import { VSwitchComponent, VSwitchSlots } from './components/Switch/types'
 import { VTabsComponent, VTabsProps, VTabsSlots } from './components/Tabs/types'
 import { VSelectComponent, VSelectProps, VSelectSlots } from './components/Select/types'
 import { VTableComponent, VTableProps } from './components/Table/types'
+import { VUTableComponent, VUTableProps } from './components/UTable/types'
 import { VToastComponent, VToastProps } from './components/Toast/types'
 import { VTextareaComponent, VTextareaProps, VTextareaSlots } from './components/Textarea/types'
 import type { VModalComponent, VModalProps, VModalSlots } from './components/Modal/types'
@@ -33,6 +34,7 @@ export declare const VPagination: ComponentConstructor<VPaginationComponent>
 export declare const VSwitch: ComponentConstructor<VSwitchComponent>
 export declare const VTabs: ComponentConstructor<VTabsComponent>
 export declare const VTable: ComponentConstructor<VTableComponent>
+export declare const VUTable: ComponentConstructor<VUTableComponent>
 export declare const VSelect: ComponentConstructor<VSelectComponent>
 export declare const VToast: ComponentConstructor<VToastComponent>
 export declare const VModal: ComponentConstructor<VModalComponent>
@@ -54,6 +56,7 @@ declare module '@vue/runtime-core' {
     VTabs: GlobalComponentConstructor<VTabsProps, VTabsSlots>
     VSelect: GlobalComponentConstructor<VSelectProps, VSelectSlots>
     VTable: GlobalComponentConstructor<VTableProps, VNodeProps>
+    VUTable: GlobalComponentConstructor<VUTableProps, VNodeProps>
     VToast: GlobalComponentConstructor<VToastProps, VNodeProps>
     VModal: GlobalComponentConstructor<VModalProps, VModalSlots>
     VTextarea: GlobalComponentConstructor<VTextareaProps, VTextareaSlots>
