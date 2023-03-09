@@ -14,9 +14,6 @@
                 <th v-if="editAction" class="v-utable__table-head__item">
                   <slot :name="`header-edit-action`"></slot>
                 </th>
-                <th v-if="deleteAction" class="v-utable__table-head__item">
-                  <slot :name="`header-delete-action`"></slot>
-                </th>
               </tr>
             </thead>
             <tbody class="v-utable__body-container">
