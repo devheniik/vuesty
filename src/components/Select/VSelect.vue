@@ -319,21 +319,21 @@ onMounted(() => {
 </script>
 
 <template>
-  <div @focus.stop ref="selectRef" class="v-select">
+  <div ref="selectRef" @focus.stop class="v-select">
     <div
       ref="headRef"
       type="button"
       :aria-expanded="open"
       aria-haspopup="menu"
-      @click="onFocus"
-      :class="['v-select__head scrollbar group', { 'v-select__head_focus': isFocused }]">
+      :class="['v-select__head scrollbar group', { 'v-select__head_focus': isFocused }]"
+      @click="onFocus">
       <span class="v-select__icon-box_left">
         <MagnifyingGlassIcon :class="[ 'v-select__icon', { 'v-select__icon_focus' : isFocused }]" />
       </span>
         <input
           v-show="isFocused"
-          @focus.stop
           ref="inputRef"
+          @focus.stop
           :value="search"
           :placeholder="searchPlaceholder"
           type="text"

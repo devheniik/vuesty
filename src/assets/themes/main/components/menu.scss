@@ -15,7 +15,7 @@
 }
 
 .v-menu__items {
-  @apply absolute top-3 right-5 z-10  flex w-fit flex-col space-y-2 rounded border border-neutral-200 bg-white py-2 p-2 shadow-md  text-[13px]  max-h-[186px] overflow-auto;
+  @apply absolute top-0 right-0 z-10  flex w-fit flex-col space-y-2 rounded border border-neutral-200 bg-white py-2 p-2 shadow-md  text-[13px]  max-h-[186px] overflow-auto;
 }
 
 .v-menu__items > * {

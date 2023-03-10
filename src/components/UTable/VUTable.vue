@@ -11,9 +11,6 @@
                     {{ header }}
                   </slot>
                 </th>
-                <th v-if="editAction" class="v-utable__table-head__item">
-                  <slot :name="`header-edit-action`"></slot>
-                </th>
               </tr>
             </thead>
             <tbody class="v-utable__body-container">
@@ -21,15 +18,6 @@
                 <td v-for="(col, value) in _cols" :key="value" class="v-utable__body__row__cell">
                   <slot :name="col" :data="row" class="v-utable__body__row__slot">
                   </slot>
-                </td>
-                <td v-if="editAction" class="v-utable__body__row__cell">
-                  <VMenu v-if="menuOptions.length">
-                    <template #menuItems>
-                    <div v-for="(option, i) in menuOptions" :key="i">
-                      {{ option }}
-                    </div>
-                    </template>
-                  </VMenu>
                 </td>
               </tr>
             </tbody>
@@ -42,14 +30,11 @@
 
 <script setup lang="ts">
 import {ref} from 'vue'
-import VMenu from '../Menu/VMenu.vue';
 const props = withDefaults(
   defineProps<{
     rows: string[] | object[] | number[]
     headers: string[],
     cols?: string[] | object[] | number[] | null
-    editAction?: boolean,
-    menuOptions: string[] | string,
   }>(),
   {
     cols: null,

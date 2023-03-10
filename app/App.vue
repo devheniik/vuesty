@@ -1,8 +1,7 @@
 <template>
-  <div class="box">
     <div class="box">
     <VUTable
-      :headers="['ID', 'Name', 'Description', 'Date']"
+      :headers="['ID', 'Name', 'Description', 'Date', '', '']"
       :rows="[
         {
           user_name: 'John Doe',
@@ -21,7 +20,7 @@
           user_avatar2: 'https://picsum.photos/200/300',
         }
       ]"
-      :cols="['id', 'name', 'description', 'date', 'avatar']"
+      :cols="['id', 'name', 'description', 'date', 'avatar', 'menu']"
       :menu-options="['something', 'something', 'something']"
     >
       <template #id="{data}">
@@ -40,15 +39,25 @@
         <v-avatar :src="data.user_avatar"></v-avatar>
         <v-avatar :src="data.user_avatar2"></v-avatar>
       </template>
+      <template #menu>
+        <td class="v-utable__body__row__cell">
+            <VMenu >
+              <template #menuItems>
+              <div v-for="(option, i) in menuOptions" :key="i">
+                {{ option }}
+              </div>
+              </template>
+            </VMenu>
+          </td>
+      </template>
+
     </VUTable>
-  </div>
   </div>
   <div class="box">
     <v-select
-        v-model="v_select_value"
+        v-model="second_select_value"
         :is-loading="isLoaded"
         label-key="title"
-        multiple
         value-key="id"
         :options=" options"
         placeholder="Select"
@@ -58,41 +67,13 @@
 
       </v-select>
   </div>
-<div class="box">
-  <VUTable
-      :headers="['ID', 'Name', 'Description', 'Date']"
-      :rows="[
-    {
-      id: 1,
-      job_id: 1,
-      job_name: null,
-      avatar: null,
-      birthdate: null,
-      telegram: null,
-      permissions: []
-    },
-    {
-      id: 2,
-      job_id: 2,
-      job_name: null,
-      avatar: null,
-      birthdate: null,
-      telegram: null,
-      permissions: []
-    }
-  ]">
-  template
-</VUTable>
-</div>
 
   <div class="box">
     <v-menu>
       <template #menuItems>
-        <div>
           <div>1</div>
           <div>2</div>
           <div>3</div>
-        </div>
       </template>
     </v-menu>
   </div>
@@ -158,6 +139,15 @@
         @search="handleSearch">
 
       </v-select>
+
+    <v-select
+      v-model="v_select_value"
+      multiple
+      :options="[1,2,3]"
+      @focus="handleFocus">
+
+    </v-select>
+
 
     <v-select
       v-model="v_select_value"
@@ -271,8 +261,10 @@ export default {
       isLoaded: false,
       options: [],
       v_select_value: null,
+      second_select_value: null,
       ttx: '123123',
       hf: 10,
+      menuOptions: [1,2,3,4,5],
       tableRows: [
         { id: 1232323,  age: 32, name: 'John', },
         { id: 2, name: 'Jane', age: 28 },
