@@ -1,4 +1,11 @@
 <template>
+  <div class="box">
+    <v-avatar-group>
+      <v-avatar></v-avatar>
+      <v-avatar></v-avatar>
+      <v-avatar></v-avatar>
+    </v-avatar-group>
+  </div>
     <div class="box">
     <VUTable
       :headers="['ID', 'Name', 'Description', 'Date', '', '']"
@@ -245,12 +252,13 @@ import VAvatar from '../src/components/Avatar/VAvatar.vue'
 import VAlert from '../src/components/Alert/VAlert.vue'
 import VMenu from '../src/components/Menu/VMenu.vue'
 import VUTable from '../src/components/UTable/VUTable.vue'
+import VAvatarGroup from '../src/components/AvatarGroup/VAvatarGroup.vue'
 // import VTest from "../src/components/UTable/VTest.vue"
 // import VTestComponent from '../src/components/UTable/VTestComponent.vue'
 import { AcademicCapIcon } from '@devheniik/icons/dist'
 export default {
   name: "App",
-  components: {VInput, VToast, VTable, VPagination, VButton, AcademicCapIcon, VModal, VSelect, VTextarea, VAvatar, VAlert, VMenu, VUTable },
+  components: {VInput, VToast, VTable, VPagination, VButton, AcademicCapIcon, VModal, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable },
   data() {
     return {
       page: 1,
