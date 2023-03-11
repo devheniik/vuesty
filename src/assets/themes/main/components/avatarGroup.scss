@@ -30,12 +30,12 @@
   @apply [&>.v-avatar]:-mr-6 [&>.v-avatar]:h-20 [&>.v-avatar]:w-20;
 }
 
-.v-avatar-group_tiny:first-child,
-.v-avatar-group_small:first-child,
-.v-avatar-group_medium:first-child,
-.v-avatar-group_big:first-child,
-.v-avatar-group_large:first-child,
-.v-avatar-group_huge:first-child,
-.v-avatar-group_gigantic:first-child {
+.v-avatar-group_tiny:last-child,
+.v-avatar-group_small:last-child,
+.v-avatar-group_medium:last-child,
+.v-avatar-group_big:last-child,
+.v-avatar-group_large:last-child,
+.v-avatar-group_huge:last-child,
+.v-avatar-group_gigantic:last-child {
   @apply [&>.v-avatar]:mr-0;
 }
