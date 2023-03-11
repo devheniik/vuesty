@@ -29,3 +29,13 @@
 .v-avatar-group_gigantic {
   @apply [&>.v-avatar]:-mr-6 [&>.v-avatar]:h-20 [&>.v-avatar]:w-20;
 }
+
+.v-avatar-group_tiny:first-child,
+.v-avatar-group_small:first-child,
+.v-avatar-group_medium:first-child,
+.v-avatar-group_big:first-child,
+.v-avatar-group_large:first-child,
+.v-avatar-group_huge:first-child,
+.v-avatar-group_gigantic:first-child {
+  @apply [&>.v-avatar]:mr-0;
+}

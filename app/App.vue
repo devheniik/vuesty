@@ -264,7 +264,7 @@ export default {
       second_select_value: null,
       ttx: '123123',
       hf: 10,
-      menuOptions: [1,2,3,4,5],
+      menuOptions: [1,"Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet",3,4,'Lorem ipsum dolor sit amet'],
       tableRows: [
         { id: 1232323,  age: 32, name: 'John', },
         { id: 2, name: 'Jane', age: 28 },
