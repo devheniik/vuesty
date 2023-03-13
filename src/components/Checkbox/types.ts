@@ -8,7 +8,7 @@ export interface VCheckboxProps extends VCheckboxEvents {
   label?: string
   disabled?: boolean
   error?: boolean
-  value: boolean
+  modelValue: boolean
 }
 
 export type VCheckboxComponent = ComponentPublicInstance<VCheckboxProps>
