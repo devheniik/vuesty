@@ -1,7 +1,7 @@
 <template>
   <div>
     <label>
-      <input value="checked" :disabled="disabled" :class="[{'v-checkbox_error': error}, 'v-checkbox']" type="checkbox" @change="handleChange" />
+      <input :checked="propValue" :disabled="disabled" :class="[{'v-checkbox_error': error}, 'v-checkbox']" type="checkbox" @change="handleChange" />
       <span class="v-checkbox__label">{{ label }}</span>
     </label>
   </div>
@@ -15,24 +15,21 @@ const emits = defineEmits(['update:modelValue'])
     label?: string
     disabled?: boolean
     error?: boolean
-    value: boolean
+    modelValue: boolean
   }>(), {
     label: '',
     disabled: false,
     error: false,
-    value: false
+    modelValue: false
   });
 
-  const propValue = ref(props.value)
+  const propValue = ref(props.modelValue)
 
   function handleChange(event: Event) {
     const target = event.target as HTMLInputElement;
-    propValue.value = target.checked;
+    propValue.modelValue = target.checked;
     emits('update:modelValue', propValue)
   }
-
-
-
 
 </script>
 
