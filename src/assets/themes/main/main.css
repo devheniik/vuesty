@@ -16,6 +16,7 @@
 @import 'components/progress.scss';
 @import 'components/select.scss';
 @import 'components/switch.scss';
+@import 'components/checkbox.scss';
 
 @import './bg.css';
 @import './textColor.css';

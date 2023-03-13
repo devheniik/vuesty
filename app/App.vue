@@ -1,5 +1,11 @@
 <template>
   <div class="box">
+    {{ check }}
+    <v-checkbox v-model="check" label="label"></v-checkbox>
+    <v-checkbox label="label" disabled></v-checkbox>
+    <v-checkbox label="label" error></v-checkbox>
+  </div>
+  <div class="box">
     <v-avatar-group>
       <v-avatar></v-avatar>
       <v-avatar></v-avatar>
@@ -253,12 +259,13 @@ import VAlert from '../src/components/Alert/VAlert.vue'
 import VMenu from '../src/components/Menu/VMenu.vue'
 import VUTable from '../src/components/UTable/VUTable.vue'
 import VAvatarGroup from '../src/components/AvatarGroup/VAvatarGroup.vue'
+import VCheckbox from '../src/components/Checkbox/VCheckbox.vue'
 // import VTest from "../src/components/UTable/VTest.vue"
 // import VTestComponent from '../src/components/UTable/VTestComponent.vue'
 import { AcademicCapIcon } from '@devheniik/icons/dist'
 export default {
   name: "App",
-  components: {VInput, VToast, VTable, VPagination, VButton, AcademicCapIcon, VModal, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable },
+  components: {VInput, VToast, VTable, VPagination, VButton, AcademicCapIcon, VModal, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox },
   data() {
     return {
       page: 1,
@@ -272,6 +279,7 @@ export default {
       second_select_value: null,
       ttx: '123123',
       hf: 10,
+      check: false,
       menuOptions: [1,"Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet",3,4,'Lorem ipsum dolor sit amet'],
       tableRows: [
         { id: 1232323,  age: 32, name: 'John', },

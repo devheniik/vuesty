@@ -19,6 +19,7 @@ import { VUTableComponent, VUTableProps } from './components/UTable/types'
 import { VToastComponent, VToastProps } from './components/Toast/types'
 import { VTextareaComponent, VTextareaProps, VTextareaSlots } from './components/Textarea/types'
 import type { VModalComponent, VModalProps, VModalSlots } from './components/Modal/types'
+import type { VCheckboxComponent, VCheckboxProps } from './components/Checkbox/types'
 import type {VNodeProps} from "vue";
 
 export declare const VAccordion: ComponentConstructor<VAccordionComponent>
@@ -39,6 +40,7 @@ export declare const VSelect: ComponentConstructor<VSelectComponent>
 export declare const VToast: ComponentConstructor<VToastComponent>
 export declare const VModal: ComponentConstructor<VModalComponent>
 export declare const VTextarea: ComponentConstructor<VTextareaComponent>
+export declare const VCheckbox: ComponentConstructor<VCheckboxComponent>
 
 declare module '@vue/runtime-core' {
   interface GlobalComponents {
@@ -60,6 +62,7 @@ declare module '@vue/runtime-core' {
     VToast: GlobalComponentConstructor<VToastProps, VNodeProps>
     VModal: GlobalComponentConstructor<VModalProps, VModalSlots>
     VTextarea: GlobalComponentConstructor<VTextareaProps, VTextareaSlots>
+    VCheckbox: GlobalComponentConstructor<VCheckboxProps, VNodeProps>
 
   }
 }
