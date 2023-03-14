@@ -12,7 +12,7 @@ export interface VInputProps extends VInputEvents {
   _invalid?: boolean
   disabled?: boolean
   readonly?: boolean
-  placeholder?: string | false
+  placeholder?: string
   type?: 'text' | 'email' | 'password' | 'number' | 'tel' | 'url' | 'search'
   rules?: 'any' | 'stringNumbers' | 'string' | 'numbers' | 'integer' | 'volume' | 'currency' | RegExp
   clearable?: boolean
