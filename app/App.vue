@@ -1,5 +1,11 @@
 <template>
   <div class="box">
+    <v-input placeholder="jljl"></v-input>
+  </div>
+  <div class="box">
+    <v-avatar size="gigantic"></v-avatar>
+  </div>
+  <div class="box">
     {{ check }}
     <v-checkbox v-model="check" label="label"></v-checkbox>
     <v-checkbox label="label" disabled></v-checkbox>

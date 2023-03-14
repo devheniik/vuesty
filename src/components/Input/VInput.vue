@@ -8,7 +8,7 @@ const props = withDefaults(
     _invalid?: boolean
     disabled?: boolean
     readonly?: boolean
-    placeholder?: string | false
+    placeholder?: string
     type?: 'text' | 'email' | 'password' | 'number' | 'tel' | 'url' | 'search'
     rules?: 'any' | 'email' | 'stringNumbers' | 'string' | 'numbers' | 'integer' | 'volume' | 'currency' | RegExp
     clearable?: boolean
@@ -28,7 +28,6 @@ const props = withDefaults(
     disabled: false,
     readonly: false,
     clearable: false,
-    placeholder: false,
     name: 'input',
     applyColorToLeftIcon: true,
     applyColorToRightIcon: true,
@@ -57,40 +56,32 @@ const invalid = ref<boolean>(props._invalid)
 const value = ref<string | number>(props.modelValue)
 const regex = ref<RegExp | false>(false)
 
-const _placeholder = ref<string | false>(props.placeholder)
+// const _placeholder = ref<string | false>(props.placeholder)
 
-const fillPlaceholder = (value: string) => {
-  if (!props.placeholder) {
-    _placeholder.value = value
-  }
-}
+// const fillPlaceholder = (value: string) => {
+//   if (!props.placeholder) {
+//     _placeholder.value = value
+//   }
+// }
 
 if (props.rules === 'any') {
   regex.value = false
-  fillPlaceholder('Text...')
 } else if (props.rules === 'stringNumbers') {
   regex.value = new RegExp(/^[a-zA-Z0-9]+$/)
-  fillPlaceholder('123ABC...')
 } else if (props.rules === 'email') {
   regex.value = new RegExp(
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   )
-  fillPlaceholder('example@domain.com')
 } else if (props.rules === 'string') {
   regex.value = new RegExp(/^[a-zA-Z]+$/)
-  fillPlaceholder('Abc...')
 } else if (props.rules === 'numbers') {
   regex.value = new RegExp(/^-?\d+(?:\.\d+)?$/)
-  fillPlaceholder('123.1...')
 } else if (props.rules === 'integer') {
   regex.value = new RegExp(/^-?\d+$/)
-  fillPlaceholder('123...')
 } else if (props.rules === 'volume') {
   regex.value = new RegExp(/^(\d+(?:\.\d+)?)(?: ml| L)$/)
-  fillPlaceholder('123.095')
 } else if (props.rules === 'currency') {
   regex.value = new RegExp(/^(\d+(?:\.\d+)?)(?: ml| L)$/)
-  fillPlaceholder('123.95')
 }
 
 const checkInput = (input: string) => {
@@ -113,18 +104,20 @@ const checkInput = (input: string) => {
   return true
 }
 
-const handleInput = (input: string) => {
-  valid.value = checkInput(input)
+const handleInput = (input: Event) => {
+  const inputElement = input.target as HTMLInputElement
+  const targetValue = inputElement.value;
+  valid.value = checkInput(targetValue)
   invalid.value = !valid.value
 
   if (valid.value && !props.readonly && !props.disabled) {
-    value.value = input
+    value.value = targetValue
     inputRef.value.value = value.value
     emit('update:modelValue', value.value)
   } else if (props.prevent) {
     inputRef.value.value = value.value
   } else if (!props.prevent) {
-    value.value = input
+    value.value = targetValue
     inputRef.value.value = value.value
   }
 }
@@ -176,13 +169,13 @@ const handleClickRightSlot = () => {
         { 'v-input__input-success': valid && !invalid && allocateValid && !disabled },
         { 'v-input__input-danger': !valid && invalid && !disabled },
       ]"
-      :placeholder="_placeholder"
+      :placeholder="placeholder"
       :value="value"
       :aria-invalid="invalid"
       :aria-describedby="`${name}-description`"
       :disabled="disabled"
       v-bind="{ ...(invalid && { ariaDescribedby: `${name}-error` }) }"
-      @input="handleInput($event.target.value)" />
+      @input="handleInput($event)" />
     <div
       :class="[
         'v-input__icon-right-box',

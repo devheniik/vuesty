@@ -2,6 +2,10 @@
   @apply flex;
 }
 
+.v-avatar-group .v-avatar__img {
+  @apply border-2 border-white;
+}
+
 .v-avatar-group_tiny {
   @apply [&>.v-avatar]:-mr-1.5 [&>.v-avatar]:h-4 [&>.v-avatar]:w-4;
 }
