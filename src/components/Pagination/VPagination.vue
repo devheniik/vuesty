@@ -5,11 +5,11 @@ import { ChevronRightIcon, ChevronLeftIcon } from '@devheniik/icons'
 
 const props = withDefaults(
   defineProps<{
-    current_page?: number
-    from?: number
-    last_page?: number | null
-    per_page?: number
-    to?: number | null
+    current_page: number
+    from: number
+    last_page?: number
+    per_page: number
+    to?: number
     total: number
     page: number
     limit: number
