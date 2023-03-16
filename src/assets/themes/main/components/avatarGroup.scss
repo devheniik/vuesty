@@ -35,33 +35,7 @@
   @apply [&>.v-avatar]:-mr-6 [&>.v-avatar]:h-[100px] [&>.v-avatar]:w-[100px] [&>.v-avatar]:text-3xl;
 }
 
-.v-avatar-group_letters_success {
-  @apply [&>.v-avatar]:bg-success-500;
-}
 
-.v-avatar-group_letters_warning {
-  @apply [&>.v-avatar]:bg-warning-500;
-}
-
-.v-avatar-group_letters_danger {
-  @apply [&>.v-avatar]:bg-danger-500;
-}
-
-.v-avatar-group_letters_info {
-  @apply [&>.v-avatar]:bg-info-500;
-}
-
-.v-avatar-group_letters_primary {
-  @apply [&>.v-avatar]:bg-primary-500;
-}
-
-.v-avatar-group_letters_tertiary {
-  @apply [&>.v-avatar]:bg-tertiary-500;
-}
-
-.v-avatar-group_letters_upgrade {
-  @apply [&>.v-avatar]:bg-upgrade-500;
-}
 
 .v-avatar-group_tiny,
 .v-avatar-group_small,

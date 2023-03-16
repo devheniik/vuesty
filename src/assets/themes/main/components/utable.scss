@@ -15,7 +15,7 @@
 }
 
 .v-utable__table {
-  @apply min-w-full divide-y divide-gray-200;
+  @apply min-w-full divide-y divide-gray-200 mb-10;
 }
 
 .v-utable__table-head {
@@ -23,7 +23,7 @@
 }
 
 .v-utable__table-head__item {
-  @apply w-auto  py-2 px-4 text-center text-sm  font-semibold text-gray-700;
+  @apply w-auto  py-3 px-4 text-center text-sm  font-semibold text-gray-700;
 }
 
 .v-utable__table-head__item:first-child {
@@ -35,12 +35,8 @@
   @apply divide-y divide-neutral-200 bg-white;
 }
 
-.v-utable__body__row_cut-border:last-child td {
-  @apply border-b-0;
-}
-
 .v-utable__body__row__cell {
-  @apply whitespace-nowrap border-y px-4 py-2 text-center ;
+  @apply whitespace-nowrap border-y px-4 py-2.5 text-center text-sm text-gray-700;
 }
 
 .v-utable__body__row__cell:first-child {

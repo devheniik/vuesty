@@ -11,7 +11,6 @@ export interface VTableProps extends VTableEvents {
   headers: string[],
   deleteAction: boolean,
   editAction: boolean,
-  trCount?: number
 }
 
 export type VTableComponent = ComponentPublicInstance<VTableProps>

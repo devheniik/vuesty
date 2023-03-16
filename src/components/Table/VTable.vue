@@ -11,25 +11,20 @@
                     {{ header }}
                   </slot>
                 </th>
-                <th v-if="editAction" class="v-table__table-head__item">
-                  <slot :name="`header-edit-action`"></slot>
-                </th>
-                <th v-if="deleteAction" class="v-table__table-head__item">
-                  <slot :name="`header-delete-action`"></slot>
+                <th v-if="action" class="v-table__table-head__item">
+                  <slot :name="`header-action`"></slot>
                 </th>
               </tr>
             </thead>
             <tbody class="v-table__body-container">
-              <tr v-for="(row, index) in rows" :key="index" :class="[{'v-table__body__row_cut-border' : trCount > 7},'v-table__body__row']">
+              <tr v-for="(row, index) in rows" :key="index" class="'v-table__body__row">
                 <td v-for="(col, value) in _cols" :key="value" class="v-table__body__row__cell">
                   <slot :name="col" :data="row[col]" class="v-table__body__row__slot">
                     {{ row[col] }}
                   </slot>
                 </td>
-                <td v-if="editAction" class="v-table__body__row__action">
+                <td v-if="action" class="v-table__body__row__action">
                   <PencilIcon class="v-table__body__action-icon-primary" @click="handleEdit(row)" />
-                </td>
-                <td v-if="deleteAction" class="v-table__body__row__action">
                   <TrashIcon class="v-table__body__action-icon-danger" @click="handleDelete(row)" />
                 </td>
               </tr>
@@ -49,15 +44,11 @@ const props = withDefaults(
     rows: string[] | object[] | number[]
     headers: string[],
     cols?: string[] | object[] | number[] | null
-    deleteAction?: boolean,
-    editAction?: boolean,
-    trCount?: number
+    action: boolean
   }>(),
   {
     cols: null,
-    deleteAction: true,
-    editAction: true,
-    trCount: 1,
+    action: true,
   }
 )
 

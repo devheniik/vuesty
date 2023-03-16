@@ -1,5 +1,15 @@
 <template>
+  <div class="box">
+    <v-input type="number">input</v-input>
+  </div>
   <div class="black">
+    <v-avatar-group size="tiny" color="success">
+      <v-avatar text="o a"></v-avatar>
+      <v-avatar text="FP PR"></v-avatar>
+      <v-avatar text="FP PR"></v-avatar>
+      <v-avatar text="FP PR"></v-avatar>
+      <v-avatar text="AA AA"></v-avatar>
+    </v-avatar-group>
     <v-avatar-group size="tiny" color="tertiary">
       <v-avatar text="o a"></v-avatar>
       <v-avatar text="FP PR"></v-avatar>
@@ -36,13 +46,13 @@
       <v-avatar text="o a"></v-avatar>
       <v-avatar text="FP PR"></v-avatar>
       <v-avatar text="FP PR"></v-avatar>
-      <v-avatar text="FP PR"></v-avatar>
-      <v-avatar text="AA AA"></v-avatar>
+      <v-avatar color="tertiary" text="FP PR"></v-avatar>
+      <v-avatar color="info" text="AA AA"></v-avatar>
     </v-avatar-group>
 
   </div>
   <div class="box">
-    <v-pagination :last_page="meta.last_page" :page="page" :limit="limit"  />
+    <v-pagination :last_page="20" :page="page" :limit="limit"  />
   </div>
   <div class="box">
     <v-input placeholder="jljl"></v-input>

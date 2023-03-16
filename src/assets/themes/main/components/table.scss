@@ -15,27 +15,23 @@
 }
 
 .v-table__table {
-  @apply min-w-full divide-y divide-gray-200;
+  @apply min-w-full divide-y divide-gray-200 mb-10;
 }
 
 .v-table__table-head {
-  @apply bg-secondary-50;
+  @apply bg-secondary-200;
 }
 
 .v-table__table-head__row {
-  @apply divide-x
+  @apply divide-x;
 }
 
 .v-table__table-head__item {
-  @apply w-auto  py-3 pl-5 text-left text-base  font-bold text-gray-700;
+  @apply w-auto  py-3 px-4 text-left text-sm  font-semibold text-gray-700;
 }
 
 .v-table__body-container {
   @apply divide-y divide-neutral-200 bg-white;
-}
-
-.v-table__body__row_cut-border:last-child td {
-  @apply border-b-0;
 }
 
 .v-table__body__row {
@@ -43,17 +39,17 @@
 }
 
 .v-table__body__row__cell {
-  @apply whitespace-nowrap border-y  px-6 py-3 text-gray-700;
+  @apply whitespace-nowrap border-y  px-4 py-2.5 text-gray-700 text-sm;
 }
 
 .v-table__body__row__action {
-  @apply w-1/12 whitespace-nowrap border px-6 py-3;
+  @apply whitespace-nowrap border justify-center items-center text-center px-5 py-2 w-10;
 }
 
 .v-table__body__action-icon-primary {
-  @apply mx-auto h-4 w-4 text-primary-500 cursor-pointer;
+  @apply inline-block h-4 w-4 text-primary-500 cursor-pointer;
 }
 
 .v-table__body__action-icon-danger {
-  @apply mx-auto h-4 w-4 text-danger-500 cursor-pointer;
+  @apply inline-block h-4 w-4 text-danger-500 cursor-pointer ml-5;
 }
