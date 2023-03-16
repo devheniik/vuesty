@@ -10,7 +10,7 @@
   @apply flex items-center justify-center rounded-full;
 }
 
-.v-avatar__img {
+.v-avatar_img {
   @apply rounded-full;
 }
 
@@ -39,19 +39,19 @@
 /* Avatar Sizes */
 
 .v-avatar-tiny {
-  @apply h-4 w-4 text-[8px];
+  @apply h-6 w-6 text-[11px] leading-4;
 }
 
 .v-avatar-small {
-  @apply h-6 w-6 text-[10px];
+  @apply h-7 w-7 text-[11px];
 }
 
 .v-avatar-medium {
-  @apply h-8 w-8 text-xs;
+  @apply h-8 w-8 text-[13px];
 }
 
 .v-avatar-big {
-  @apply h-10 w-10 text-sm;
+  @apply h-10 w-10 text-[17px];
 }
 
 .v-avatar-large {
@@ -59,47 +59,63 @@
 }
 
 .v-avatar-huge {
-  @apply h-16 w-16 text-lg;
+  @apply h-20 w-20 text-lg;
 }
 
 .v-avatar-gigantic {
-  @apply h-20 w-20 text-xl;
+  @apply h-[100px] w-[100px] text-xl;
 }
 
 /* Avatars with text (no image) */
 
-.v-avatar-letters {
+.v-avatar_letters {
   @apply flex-center-rounded text-white;
 }
 
-.v-avatar-letters-primary {
-  @apply v-avatar-letters bg-primary-500;
+.v-avatar_letters_primary {
+  @apply v-avatar_letters bg-primary-500;
 }
 
-.v-avatar-letters-success {
-  @apply v-avatar-letters bg-success-500;
+.v-avatar_letters_success {
+  @apply v-avatar_letters bg-success-500;
 }
 
-.v-avatar-letters-danger {
-  @apply v-avatar-letters bg-danger-500;
+.v-avatar_letters_danger {
+  @apply v-avatar_letters bg-danger-500;
 }
 
-.v-avatar-letters-warning {
-  @apply v-avatar-letters bg-warning-500;
+.v-avatar_letters_warning {
+  @apply v-avatar_letters bg-warning-500;
 }
 
-.v-avatar-letters-primary-tonal {
+.v-avatar_letters_info {
+  @apply v-avatar_letters bg-info-500;
+}
+
+.v-avatar_letters_secondary {
+  @apply v-avatar_letters bg-secondary-500;
+}
+
+.v-avatar_letters_upgrade {
+  @apply v-avatar_letters bg-upgrade-500;
+}
+
+.v-avatar_letters_tertiary {
+  @apply v-avatar_letters bg-tertiary-500;
+}
+
+.v-avatar_letters_primary-tonal {
   @apply flex-center-rounded bg-primary-50  text-primary-700;
 }
 
-.v-avatar-letters-success-tonal {
+.v-avatar_letters_success-tonal {
   @apply flex-center-rounded bg-success-50  text-success-700;
 }
 
-.v-avatar-letters-danger-tonal {
+.v-avatar_letters_danger-tonal {
   @apply flex-center-rounded bg-danger-50  text-danger-700;
 }
 
-.v-avatar-letters-warning-tonal {
+.v-avatar_letters_warning-tonal {
   @apply flex-center-rounded bg-gray-50  text-warning-700;
 }

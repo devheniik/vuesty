@@ -1,4 +1,46 @@
 <template>
+  <div class="black">
+    <v-avatar-group size="tiny" color="tertiary">
+      <v-avatar text="o a"></v-avatar>
+      <v-avatar text="FP PR"></v-avatar>
+      <v-avatar text="FP PR"></v-avatar>
+      <v-avatar text="FP PR"></v-avatar>
+      <v-avatar text="AA AA"></v-avatar>
+    </v-avatar-group>
+
+    <v-avatar-group size="small" color="info">
+      <v-avatar text="o a"></v-avatar>
+      <v-avatar text="FP PR"></v-avatar>
+      <v-avatar text="FP PR"></v-avatar>
+      <v-avatar text="FP PR"></v-avatar>
+      <v-avatar text="AA AA"></v-avatar>
+    </v-avatar-group>
+
+    <v-avatar-group size="medium" color="upgrade">
+      <v-avatar text="o a"></v-avatar>
+      <v-avatar text="FP PR"></v-avatar>
+      <v-avatar text="FP PR"></v-avatar>
+      <v-avatar text="FP PR"></v-avatar>
+      <v-avatar text="AA AA"></v-avatar>
+    </v-avatar-group>
+
+    <v-avatar-group size="big" color="neutral">
+      <v-avatar text="o a"></v-avatar>
+      <v-avatar text="FP PR"></v-avatar>
+      <v-avatar text="FP PR"></v-avatar>
+      <v-avatar text="FP PR"></v-avatar>
+      <v-avatar text="AA AA"></v-avatar>
+    </v-avatar-group>
+
+    <v-avatar-group size="huge" color="tertiary">
+      <v-avatar text="o a"></v-avatar>
+      <v-avatar text="FP PR"></v-avatar>
+      <v-avatar text="FP PR"></v-avatar>
+      <v-avatar text="FP PR"></v-avatar>
+      <v-avatar text="AA AA"></v-avatar>
+    </v-avatar-group>
+
+  </div>
   <div class="box">
     <v-pagination :last_page="meta.last_page" :page="page" :limit="limit"  />
   </div>
@@ -377,5 +419,9 @@ export default {
   width: 20px;
   height: 20px;
   margin-right: 5px;
+}
+
+.black {
+  background-color: black;
 }
 </style>

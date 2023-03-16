@@ -2,36 +2,65 @@
   @apply flex;
 }
 
-.v-avatar-group .v-avatar__img {
+.v-avatar-group .v-avatar_img,
+.v-avatar-group .v-avatar_letters {
   @apply border-2 border-white;
 }
 
 .v-avatar-group_tiny {
-  @apply [&>.v-avatar]:-mr-1.5 [&>.v-avatar]:h-4 [&>.v-avatar]:w-4;
+  @apply [&>.v-avatar]:-mr-1.5 [&>.v-avatar]:h-6 [&>.v-avatar]:w-6 [&>.v-avatar]:text-[11px] [&>.v-avatar]:leading-4;
 }
 
 .v-avatar-group_small {
-  @apply [&>.v-avatar]:-mr-2 [&>.v-avatar]:h-6 [&>.v-avatar]:w-6;
+  @apply [&>.v-avatar]:-mr-2 [&>.v-avatar]:h-7 [&>.v-avatar]:w-7 [&>.v-avatar]:text-[11px] [&>.v-avatar]:leading-4;
 }
 
 .v-avatar-group_medium {
-  @apply [&>.v-avatar]:-mr-3 [&>.v-avatar]:h-8 [&>.v-avatar]:w-8;
+  @apply [&>.v-avatar]:-mr-3 [&>.v-avatar]:h-8 [&>.v-avatar]:w-8 [&>.v-avatar]:text-[13px] [&>.v-avatar]:leading-4;
 }
 
 .v-avatar-group_big {
-  @apply [&>.v-avatar]:-mr-3 [&>.v-avatar]:h-10 [&>.v-avatar]:w-10;
+  @apply [&>.v-avatar]:-mr-3 [&>.v-avatar]:h-10 [&>.v-avatar]:w-10 [&>.v-avatar]:text-[17px] [&>.v-avatar]:leading-4;
 }
 
 .v-avatar-group_large {
-  @apply [&>.v-avatar]:-mr-4 [&>.v-avatar]:h-12 [&>.v-avatar]:w-12;
+  @apply [&>.v-avatar]:-mr-4 [&>.v-avatar]:h-12 [&>.v-avatar]:w-12 [&>.v-avatar]:text-[11px] [&>.v-avatar]:leading-4;
 }
 
 .v-avatar-group_huge {
-  @apply [&>.v-avatar]:-mr-5 [&>.v-avatar]:h-16 [&>.v-avatar]:w-16;
+  @apply [&>.v-avatar]:-mr-5 [&>.v-avatar]:h-20 [&>.v-avatar]:w-20 [&>.v-avatar]:text-3xl;
 }
 
 .v-avatar-group_gigantic {
-  @apply [&>.v-avatar]:-mr-6 [&>.v-avatar]:h-20 [&>.v-avatar]:w-20;
+  @apply [&>.v-avatar]:-mr-6 [&>.v-avatar]:h-[100px] [&>.v-avatar]:w-[100px] [&>.v-avatar]:text-3xl;
+}
+
+.v-avatar-group_letters_success {
+  @apply [&>.v-avatar]:bg-success-500;
+}
+
+.v-avatar-group_letters_warning {
+  @apply [&>.v-avatar]:bg-warning-500;
+}
+
+.v-avatar-group_letters_danger {
+  @apply [&>.v-avatar]:bg-danger-500;
+}
+
+.v-avatar-group_letters_info {
+  @apply [&>.v-avatar]:bg-info-500;
+}
+
+.v-avatar-group_letters_primary {
+  @apply [&>.v-avatar]:bg-primary-500;
+}
+
+.v-avatar-group_letters_tertiary {
+  @apply [&>.v-avatar]:bg-tertiary-500;
+}
+
+.v-avatar-group_letters_upgrade {
+  @apply [&>.v-avatar]:bg-upgrade-500;
 }
 
 .v-avatar-group_tiny,
