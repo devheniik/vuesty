@@ -1,17 +1,17 @@
 .v-utable {
-  @apply flex flex-col border border-neutral-200 rounded;
+  @apply flex flex-col;
 }
 
 .v-utable-container {
-  @apply  overflow-x-auto  lg:-mx-8 h-full;
+  @apply  overflow-x-auto  lg:-mx-8;
 }
 
 .v-utable-container-fluid {
-  @apply inline-block min-w-full  align-middle lg:px-8  h-full;
+  @apply inline-block min-w-full align-middle lg:px-8;
 }
 
 .v-utable-container-fluid-box {
-  @apply overflow-x-auto border-neutral-200  h-full;
+  @apply overflow-x-auto border-neutral-200;
 }
 
 .v-utable__table {
@@ -35,7 +35,9 @@
   @apply divide-y divide-neutral-200 bg-white;
 }
 
-
+.v-utable__body__row_cut-border:last-child td {
+  @apply border-b-0;
+}
 
 .v-utable__body__row__cell {
   @apply whitespace-nowrap border-y px-4 py-2 text-center ;
@@ -43,16 +45,4 @@
 
 .v-utable__body__row__cell:first-child {
   @apply text-left;
-}
-
-/* .v-utable__body__row__action {
-  @apply w-1/12 whitespace-nowrap  px-6 py-3 text-center;
-} */
-
-.v-utable__body__action-icon-primary {
-  @apply mx-auto h-6 w-6 text-primary-500 cursor-pointer;
-}
-
-.v-utable__body__action-icon-danger {
-  @apply mx-auto h-6 w-6 text-danger-500 cursor-pointer;
 }

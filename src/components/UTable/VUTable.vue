@@ -14,7 +14,7 @@
               </tr>
             </thead>
             <tbody class="v-utable__body-container">
-              <tr v-for="(row, index) in rows" :key="index" class="v-utable__body__row">
+              <tr v-for="(row, index) in rows" :key="index" :class="[{'v-utable__body__row_cut-border': trCount > 6}, 'v-utable__body__row']">
                 <td v-for="(col, value) in _cols" :key="value" class="v-utable__body__row__cell">
                   <slot :name="col" :data="row" class="v-utable__body__row__slot">
                   </slot>
@@ -35,10 +35,12 @@ const props = withDefaults(
     rows: string[] | object[] | number[]
     headers: string[],
     cols?: string[] | object[] | number[] | null
+    trCount?: number
   }>(),
   {
     cols: null,
     editAction: true,
+    trCount: 1,
   }
 )
 

@@ -23,6 +23,7 @@
   </div>
     <div class="box">
     <VUTable
+      :tr-count="8"
       :headers="['ID', 'Name', 'Description', 'Date', '', '']"
       :rows="[
         {
