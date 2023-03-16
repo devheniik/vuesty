@@ -1,5 +1,8 @@
 <template>
   <div class="box">
+    <v-pagination :last_page="meta.last_page" :page="page" :limit="limit"  />
+  </div>
+  <div class="box">
     <v-input placeholder="jljl"></v-input>
   </div>
   <div class="box">
@@ -276,6 +279,14 @@ export default {
     return {
       page: 1,
       limit: 10,
+      meta: {
+        total: 10,
+        from: 1,
+        to: null,
+        last_page: null,
+        per_page: 20,
+        current_page: 1,
+      },
       text: 'text123123',
       isModalOpen: false,
       isModalOpen2: false,

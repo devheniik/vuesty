@@ -41,8 +41,10 @@ const handleChange = () => {
   })
 }
 
-const handleUpdateLimit = (limit: string) => {
-  selectedLimit.value = Number(limit)
+const handleUpdateLimit = (event: Event) => {
+  const target  = event.target as HTMLInputElement
+  const value = target.value as string
+  selectedLimit.value = Number(value)
   emit('update:limit', selectedLimit.value)
   handleChange()
 }
@@ -135,7 +137,7 @@ const nextPage = () => {
         :value="selectedLimit"
         class="v-pagination__per-page__select"
         name="select"
-        @change="handleUpdateLimit($event.target.value)">
+        @change="handleUpdateLimit($event)">
         <option v-for="i of per_page_variants" :key="i" :value="i">{{ i }}</option>
       </select>
     </div>
