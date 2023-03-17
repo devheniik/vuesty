@@ -44,8 +44,8 @@ const props = withDefaults(
     rows: string[] | object[] | number[]
     headers: string[],
     cols?: string[] | object[] | number[] | null
-    deleteAction: boolean
-    editAction: boolean
+    deleteAction?: boolean
+    editAction?: boolean
   }>(),
   {
     cols: null,
