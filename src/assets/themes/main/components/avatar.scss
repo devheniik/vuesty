@@ -1,5 +1,5 @@
 .v-avatar {
-  @apply v-avatar-big relative;
+  @apply v-avatar_big relative;
 }
 
 .v-avatar > img {
@@ -38,31 +38,31 @@
 
 /* Avatar Sizes */
 
-.v-avatar-tiny {
+.v-avatar_tiny {
   @apply h-6 w-6 text-[11px] leading-4;
 }
 
-.v-avatar-small {
+.v-avatar_small {
   @apply h-7 w-7 text-[11px];
 }
 
-.v-avatar-medium {
+.v-avatar_medium {
   @apply h-8 w-8 text-[13px];
 }
 
-.v-avatar-big {
+.v-avatar_big {
   @apply h-10 w-10 text-[17px];
 }
 
-.v-avatar-large {
+.v-avatar_large {
   @apply h-12 w-12 text-base;
 }
 
-.v-avatar-huge {
+.v-avatar_huge {
   @apply h-20 w-20 text-lg;
 }
 
-.v-avatar-gigantic {
+.v-avatar_gigantic {
   @apply h-[100px] w-[100px] text-xl;
 }
 
