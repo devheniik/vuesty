@@ -49,7 +49,6 @@ const props = withDefaults(
   }>(),
   {
     cols: null,
-    action: true,
     deleteAction: true,
     editAction: true
   }
