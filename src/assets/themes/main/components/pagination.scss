@@ -1,5 +1,5 @@
 .v-pagination {
-  @apply flex bg-white h-7 text-sm text-neutral-500 rounded;
+  @apply flex  h-7 text-sm text-neutral-500 rounded;
 }
 
 .v-pagination__container{
@@ -15,11 +15,11 @@
 }
 
 .v-pagination__body__item {
-  @apply flex h-full w-7 cursor-pointer items-center justify-center border border-solid border-neutral-200 hover:border-primary-500;
+  @apply flex h-full w-7 cursor-pointer items-center justify-center border border-solid rounded-md bg-white hover:bg-primary-50;
 }
 
 div.v-pagination__body__item_active {
-  @apply bg-primary-100 text-primary-500 border-primary-500;
+  @apply text-white  bg-primary-500 hover:bg-primary-500;
 }
 
 .v-pagination__arrow {
