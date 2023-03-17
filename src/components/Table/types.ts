@@ -9,8 +9,8 @@ export interface VTableProps extends VTableEvents {
   rows: string[] | object[] | number[]
   cols: string[] | object[] | number[] | null
   headers: string[]
-  deleteAction: boolean
-  editAction: boolean
+  deleteAction?: boolean
+  editAction?: boolean
 }
 
 export type VTableComponent = ComponentPublicInstance<VTableProps>
