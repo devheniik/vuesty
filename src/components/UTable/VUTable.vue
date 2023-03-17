@@ -38,7 +38,6 @@ const props = withDefaults(
   }>(),
   {
     cols: null,
-    editAction: true,
   }
 )
 
