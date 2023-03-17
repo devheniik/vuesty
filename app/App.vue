@@ -185,7 +185,8 @@
 
 <div class="box">
   <v-button @click="isModalOpen = true">+</v-button>
-  <v-modal v-model="isModalOpen">
+  <v-modal v-model="isModalOpen" heading="Some Heading">
+    <h3>Stop doing it</h3>
     <v-input></v-input>
     <v-input></v-input>
     <v-input></v-input>

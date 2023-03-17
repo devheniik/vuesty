@@ -1,17 +1,17 @@
 .v-utable {
-  @apply flex flex-col;
+  @apply flex flex-col h-full;
 }
 
 .v-utable-container {
-  @apply  overflow-x-auto  lg:-mx-8;
+  @apply  overflow-x-auto;
 }
 
 .v-utable-container-fluid {
-  @apply inline-block min-w-full align-middle lg:px-8;
+  @apply inline-block h-full min-w-full align-middle lg:px-8;
 }
 
 .v-utable-container-fluid-box {
-  @apply overflow-x-auto border-neutral-200;
+  @apply overflow-x-auto h-full border-neutral-200;
 }
 
 .v-utable__table {
@@ -19,7 +19,7 @@
 }
 
 .v-utable__table-head {
-  @apply bg-neutral-200;
+  @apply bg-neutral-200 sticky top-0 z-10;
 }
 
 .v-utable__table-head__item {

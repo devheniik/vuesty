@@ -11,7 +11,7 @@
                     {{ header }}
                   </slot>
                 </th>
-                <th v-if="action" class="v-table__table-head__item">
+                <th v-if="deleteAction || editAction" class="v-table__table-head__item">
                   <slot :name="`header-action`"></slot>
                 </th>
               </tr>

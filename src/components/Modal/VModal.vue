@@ -12,7 +12,7 @@
               {{ heading }}
             </h3>
             <XMarkIcon
-            class="v-modal__inner__header__xmark"
+            class="v-modal__inner__header__xmark stroke-2"
             @click="$emit('update:modelValue', false)"  />
           </header>
           <main class="v-modal__inner__main">

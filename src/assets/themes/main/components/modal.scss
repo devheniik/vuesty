@@ -28,7 +28,8 @@
 }
 
 .v-modal__inner__header {
-  @apply flex justify-between items-center p-5
+  @apply flex justify-between items-center p-5;
+  box-shadow: 0px 0px 14px rgba(27, 29, 84, 0.1);
 }
 
 .v-modal__inner__header__heading {
@@ -36,7 +37,7 @@
 }
 
 .v-modal__inner__header__xmark {
-  @apply w-4 h-4 text-primary-500 self-start cursor-pointer
+  @apply w-5 h-5 text-neutral-300 self-start cursor-pointer
 }
 
 .v-modal__inner__main {

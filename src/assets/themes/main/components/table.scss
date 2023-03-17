@@ -1,25 +1,25 @@
 .v-table {
-  @apply flex flex-col;
+  @apply flex flex-col h-full;
 }
 
 .v-table-container {
-  @apply  overflow-x-auto  lg:-mx-8;
+  @apply  overflow-x-auto;
 }
 
 .v-table-container-fluid {
-  @apply inline-block min-w-full align-middle lg:px-8;
+  @apply inline-block h-full min-w-full align-middle lg:px-8;
 }
 
 .v-table-container-fluid-box {
-  @apply overflow-x-auto border-neutral-200;
+  @apply overflow-x-auto h-full border-neutral-200;
 }
 
 .v-table__table {
-  @apply min-w-full divide-y divide-gray-200 mb-10;
+  @apply min-w-full divide-y divide-gray-200 mb-10 bg-neutral-200;
 }
 
 .v-table__table-head {
-  @apply bg-secondary-200;
+  @apply bg-neutral-200 sticky top-0 z-10;
 }
 
 .v-table__table-head__row {
@@ -37,6 +37,17 @@
 .v-table__body__row {
   @apply divide-x
 }
+
+/* Make Table fit for integration with pagination according to design */
+.v-table__body__row__cell:first-child {
+  @apply border-l-0;
+}
+
+.v-table__body__row__action {
+  @apply border-r-0;
+}
+
+/*  */
 
 .v-table__body__row__cell {
   @apply whitespace-nowrap border-y  px-4 py-2.5 text-gray-700 text-sm;
