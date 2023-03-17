@@ -23,9 +23,9 @@
                     {{ row[col] }}
                   </slot>
                 </td>
-                <td v-if="action" class="v-table__body__row__action">
-                  <PencilIcon class="v-table__body__action-icon-primary" @click="handleEdit(row)" />
-                  <TrashIcon class="v-table__body__action-icon-danger" @click="handleDelete(row)" />
+                <td v-if="deleteAction || editAction" class="v-table__body__row__action">
+                  <PencilIcon v-if="editAction" class="v-table__body__action-icon-primary" @click="handleEdit(row)" />
+                  <TrashIcon v-if="deleteAction" class="v-table__body__action-icon-danger" @click="handleDelete(row)" />
                 </td>
               </tr>
             </tbody>
@@ -44,11 +44,14 @@ const props = withDefaults(
     rows: string[] | object[] | number[]
     headers: string[],
     cols?: string[] | object[] | number[] | null
-    action: boolean
+    deleteAction: boolean
+    editAction: boolean
   }>(),
   {
     cols: null,
     action: true,
+    deleteAction: true,
+    editAction: true
   }
 )
 
