@@ -1,9 +1,9 @@
 import type { ComponentPublicInstance } from 'vue'
 
 export interface VPaginationEvents {
-  (e?: 'update:limit', value?: number): void
-  (e?: 'update:page', value?: number): void
-  (e?: 'change', value?: any): void
+  'update:limit'? : (value: number) => void
+  'update:page'? : (value: number) => void
+  onChange ? : (value: any) => void
 }
 
 export interface VPaginationProps extends VPaginationEvents {
