@@ -1,5 +1,18 @@
 <template>
   <div class="box">
+    <v-modal v-model="isModalOpen" heading="Some Heading">
+      <div class="w-full">
+        <h3>Do it</h3>
+        <v-input></v-input>
+        <v-input></v-input>
+        <v-input></v-input>
+        <v-input></v-input>
+        <v-input></v-input>
+      </div>
+
+  </v-modal>
+  </div>
+  <div class="box">
     <v-input type="number">input</v-input>
   </div>
   <div class="black">
