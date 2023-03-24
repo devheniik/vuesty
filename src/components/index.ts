@@ -19,3 +19,4 @@ export const VToast = defineAsyncComponent(() => import('./Toast/VToast.vue'))
 
 export const VModal = defineAsyncComponent(() => import('./Modal/VModal.vue'))
 export const VCheckbox = defineAsyncComponent(() => import('./Checkbox/VCheckbox.vue'))
+export const VPhoneInput = defineAsyncComponent(() => import('./phone/VPhoneInput.vue'))
