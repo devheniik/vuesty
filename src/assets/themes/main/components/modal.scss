@@ -24,11 +24,11 @@
 }
 
 .v-modal__inner {
-  @apply inline-block relative z-50 align-bottom bg-neutral-20 rounded-lg  pb-5 text-left shadow-xl transform transition-all sm:my-8 sm:align-middle
+  @apply inline-block z-50 align-bottom bg-neutral-20 rounded-lg  pb-5 text-left shadow-xl transform transition-all sm:my-8 sm:align-middle
 }
 
 .v-modal__inner__header {
-  @apply flex justify-between items-center p-5 bg-white rounded-t-lg;
+  @apply flex justify-between items-center p-5 bg-white;
   box-shadow: 0px 0px 14px rgba(27, 29, 84, 0.1);
 }
 
@@ -41,12 +41,7 @@
 }
 
 .v-modal__inner__main {
-  @apply px-5 mt-5 space-y-[70px]
-}
-
-.v-modal__inner__main footer {
-  box-shadow: 0px 0px 14px rgba(27, 29, 84, 0.1);
-  @apply fixed left-0 bottom-0 bg-white rounded-b-lg p-5
+  @apply px-5 mt-5
 }
 
 .v-modal__outside {
