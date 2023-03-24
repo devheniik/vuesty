@@ -1,5 +1,8 @@
 <template>
   <div class="box">
+    <v-phone-input v-model="phone" />
+  </div>
+  <div class="box">
     <v-modal v-model="isModalOpen" heading="Some Heading">
       <div class="w-full">
         <h3>Do it</h3>
@@ -336,12 +339,11 @@ import VMenu from '../src/components/Menu/VMenu.vue'
 import VUTable from '../src/components/UTable/VUTable.vue'
 import VAvatarGroup from '../src/components/AvatarGroup/VAvatarGroup.vue'
 import VCheckbox from '../src/components/Checkbox/VCheckbox.vue'
-// import VTest from "../src/components/UTable/VTest.vue"
-// import VTestComponent from '../src/components/UTable/VTestComponent.vue'
+import VPhoneInput from '../src/components/phone/VPhoneInput.vue'
 import { AcademicCapIcon } from '@devheniik/icons/dist'
 export default {
   name: "App",
-  components: {VInput, VToast, VTable, VPagination, VButton, AcademicCapIcon, VModal, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox },
+  components: {VInput, VToast, VTable, VPagination, VButton, AcademicCapIcon, VModal, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox, VPhoneInput },
   data() {
     return {
       page: 1,
@@ -371,6 +373,7 @@ export default {
         { id: 3, name: 'Bob', age: 45 },
       ],
       tableHeaders: ['Name', 'Role', 'Email', 'Team'],
+      phone: '+38 (093) 711-99-99',
   }
 },
   mounted() {

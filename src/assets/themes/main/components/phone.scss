@@ -1,0 +1,23 @@
+.v-phone {
+  @apply flex relative
+}
+
+.v-phone__input {
+  @apply mr-4 !rounded-r-md h-9
+}
+
+.v-phone__country {
+  @apply relative
+}
+
+.v-phone__country__list {
+  @apply absolute bg-white  space-y-2 max-h-40 overflow-y-auto overflow-x-hidden z-10 top-10 rounded-md
+}
+
+.v-phone__country__list__item {
+  @apply cursor-pointer hover:bg-neutral-100 px-4 py-2 text-center
+}
+
+.v-phone__country__input {
+  @apply w-14 !rounded-l-md text-center cursor-pointer h-9
+}
