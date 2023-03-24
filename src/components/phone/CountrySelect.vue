@@ -42,3 +42,7 @@ watch(
   }
 );
 </script>
+
+<style lang="scss" scoped>
+@import "../../assets/themes/main/components/phone.scss";
+</style>
