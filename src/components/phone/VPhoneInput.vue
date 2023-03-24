@@ -65,3 +65,6 @@ const updateHandler = () => {
   </div>
 </template>
 
+<style lang="scss" scoped>
+@import "../../assets/themes/main/components/phone.scss";
+</style>
