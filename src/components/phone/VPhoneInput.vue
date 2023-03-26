@@ -40,7 +40,6 @@ watch(selectedCountry, (newValue, oldValue) => {
 watch(nationalNumber, (newValue, oldValue) => {
   if (newValue !== oldValue) {
     const formatter = new AsYouType(selectedCountry.value)
-    console.log('formatter', formatter)
 
     const formattedValue = formatter.input(newValue)
     const newParsedNumber = parsePhoneNumberFromString(formattedValue)

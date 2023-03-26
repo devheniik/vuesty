@@ -1,6 +1,10 @@
 <template>
   <div class="v-phone__country">
-    <input v-model="searchCountry" class="v-phone__country__input" type="text" placeholder="UA" @click="showOptions = true" @blur="showOptions=false">
+    <div class="country-input__container" @click="showOptions = true">
+      <input v-model="searchCountry" class="v-phone__country__input" type="text" placeholder="UA"  @blur="showOptions=false">
+      <ChevronDownIcon class="v-phone__country__icon" />
+    </div>
+
     <ul v-show="showOptions" class="v-phone__country__list">
       <li v-for="option in filteredList" :key="option" class="v-phone__country__list__item" @mousedown.prevent="selectOption(option)">
         {{ option }}
@@ -12,6 +16,7 @@
 <script setup lang="ts">
 import { getCountries } from 'libphonenumber-js'
 import { ref, computed, watch } from 'vue'
+import { ChevronDownIcon } from '@devheniik/icons'
 
 const emits = defineEmits(['update:modelValue'])
 const props = defineProps<{ modelValue: string }>()

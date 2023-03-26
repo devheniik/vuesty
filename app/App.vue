@@ -1,6 +1,7 @@
 <template>
   <div class="box">
     <v-phone-input v-model="phone" />
+    <v-input></v-input>
   </div>
   <div class="box">
     <v-modal v-model="isModalOpen" heading="Some Heading">
