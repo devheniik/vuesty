@@ -1,0 +1,11 @@
+.radio-button {
+  @apply   inline-block cursor-pointer
+}
+
+input.radio-button__input {
+  @apply ring-0 focus:ring-0 ring-transparent
+}
+
+.radio-button__label {
+  @apply ml-2
+}

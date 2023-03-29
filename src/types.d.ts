@@ -21,6 +21,8 @@ import { VTextareaComponent, VTextareaProps, VTextareaSlots } from './components
 import { VPhoneInputComponent, VPhoneInputProps } from './components/types'
 import type { VModalComponent, VModalProps, VModalSlots } from './components/Modal/types'
 import type { VCheckboxComponent, VCheckboxProps } from './components/Checkbox/types'
+import type { VRadioButtonComponent, VRadioButtonProps } from './components/Radio/types'
+
 import type {VNodeProps} from "vue";
 
 export declare const VAccordion: ComponentConstructor<VAccordionComponent>
@@ -43,6 +45,7 @@ export declare const VModal: ComponentConstructor<VModalComponent>
 export declare const VTextarea: ComponentConstructor<VTextareaComponent>
 export declare const VCheckbox: ComponentConstructor<VCheckboxComponent>
 export declare const VPhoneInput: ComponentConstructor<VPhoneInputComponent>
+export declare const VRadioButton: ComponentConstructor<VRadioButtonComponent>
 
 declare module '@vue/runtime-core' {
   interface GlobalComponents {
@@ -66,6 +69,7 @@ declare module '@vue/runtime-core' {
     VTextarea: GlobalComponentConstructor<VTextareaProps, VTextareaSlots>
     VCheckbox: GlobalComponentConstructor<VCheckboxProps, VNodeProps>
     VPhoneInput: GlobalComponentConstructor<VPhoneInputProps, VNodeProps>
+    VRadioButton: GlobalComponentConstructor<VRadioButtonProps, VNodeProps>
   }
 }
 

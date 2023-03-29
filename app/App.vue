@@ -1,5 +1,16 @@
 <template>
   <div class="box">
+    <h2>Select your favorite color:</h2>
+    <v-radio-button
+      v-for="color in colors"
+      :key="color"
+      v-model="selectedColor"
+      name="favoriteColor"
+      :value="color"
+      :label="color"
+    />
+  </div>
+  <div class="box">
     <v-phone-input v-model="phone" />
     <v-input></v-input>
   </div>
@@ -341,10 +352,11 @@ import VUTable from '../src/components/UTable/VUTable.vue'
 import VAvatarGroup from '../src/components/AvatarGroup/VAvatarGroup.vue'
 import VCheckbox from '../src/components/Checkbox/VCheckbox.vue'
 import VPhoneInput from '../src/components/phone/VPhoneInput.vue'
+import VRadioButton from "../src/components/Radio/VRadioButton.vue"
 import { AcademicCapIcon } from '@devheniik/icons/dist'
 export default {
   name: "App",
-  components: {VInput, VToast, VTable, VPagination, VButton, AcademicCapIcon, VModal, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox, VPhoneInput },
+  components: {VInput, VToast, VTable, VPagination, VButton, AcademicCapIcon, VModal, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox, VPhoneInput, VRadioButton },
   data() {
     return {
       page: 1,
@@ -366,6 +378,8 @@ export default {
       second_select_value: null,
       ttx: '123123',
       hf: 10,
+      colors: ['Red', 'Green', 'Blue', 'Yellow'],
+      selectedColor: '',
       check: false,
       menuOptions: [1,"Lorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit ametLorem ipsum dolor sit amet",3,4,'Lorem ipsum dolor sit amet'],
       tableRows: [
