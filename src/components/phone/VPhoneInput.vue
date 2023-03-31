@@ -7,9 +7,11 @@ const emits = defineEmits(['update:modelValue'])
 const props = defineProps<{ modelValue: string }>()
 
 const propValue = ref<{ nationalNumber: string, countryCallingCode?: string }>({
-  nationalNumber: props.modelValue,
+  nationalNumber: props.modelValue || '',
 })
-const initialPhoneNumber = parsePhoneNumberFromString(props.modelValue)
+const initialPhoneNumber = props.modelValue && typeof props.modelValue === 'string'
+  ? parsePhoneNumberFromString(props.modelValue)
+  : null
 const selectedCountry = ref<string>(initialPhoneNumber?.country || 'UA')
 
 const nationalNumber = computed({
@@ -29,7 +31,7 @@ const nationalNumber = computed({
 })
 
 watch(selectedCountry, (newValue, oldValue) => {
-  if (newValue !== oldValue) {
+  if (newValue !== oldValue && newValue !== null && newValue !== undefined) {
     const phoneNumber = parsePhoneNumber(nationalNumber.value, newValue)
     const formattedNumber = phoneNumber?.format('E.164') || ''
     propValue.value.nationalNumber = nationalNumber.value
@@ -38,7 +40,7 @@ watch(selectedCountry, (newValue, oldValue) => {
 })
 
 watch(nationalNumber, (newValue, oldValue) => {
-  if (newValue !== oldValue) {
+  if (newValue !== oldValue && newValue !== null && newValue !== undefined) {
     const formatter = new AsYouType(selectedCountry.value)
 
     const formattedValue = formatter.input(newValue)
@@ -51,16 +53,18 @@ watch(nationalNumber, (newValue, oldValue) => {
 })
 
 const updateHandler = () => {
-  const phoneNumber = parsePhoneNumber(nationalNumber.value, selectedCountry.value)
-  const formattedNumber = phoneNumber?.format('E.164') || ''
-  emits('update:modelValue', formattedNumber)
+  if (nationalNumber.value !== null && nationalNumber.value !== undefined && selectedCountry.value !== null && selectedCountry.value !== undefined) {
+    const phoneNumber = parsePhoneNumber(nationalNumber.value, selectedCountry.value)
+    const formattedNumber = phoneNumber?.format('E.164') || ''
+    emits('update:modelValue', formattedNumber)
+  }
 }
 </script>
 
 <template>
   <div class="v-phone">
     <CountrySelect v-model="selectedCountry" @update:modelValue="selectedCountry = $event" />
-    <input v-model="nationalNumber" class="v-phone__input" type="text" @update:model-value="updateHandler">
+    <input v-model="nationalNumber" placeholder="+380 93 903 7103" class="v-phone__input" type="text" @update:model-value="updateHandler">
   </div>
 </template>
 

@@ -1,4 +1,44 @@
 <template>
+    <div class="box spacer">
+    <v-pagination
+      v-model:limit="limit"
+      v-model:page="page"
+      v-bind="{
+        current_page: 1,
+        from: 10,
+        last_page: 150,
+        per_page: 10,
+        to: 20,
+        total: 50
+      }"
+      @change="handleP"></v-pagination>
+  </div>
+    <div class="box">
+      {{ check }}
+      <v-checkbox v-model="check" ></v-checkbox>
+      <v-checkbox label="label" disabled></v-checkbox>
+      <v-checkbox label="label" error></v-checkbox>
+    </div>
+    <div class="box">
+      <v-phone-input v-model="phone" />
+      <v-phone-input v-model="nullPhone" />
+      <v-phone-input v-model="undefinedPhone" />
+        <v-input v-model="nullPhone"></v-input>
+    </div>
+  <div class="box spacer">
+    <div>
+      <v-button size="small">Primary</v-button>
+    </div>
+    <div>
+      <v-button size="small" color="secondary">Secondary</v-button>
+    </div>
+    <div>
+      <v-button size="small" disabled>disabled</v-button>
+    </div>
+    <div>
+      <v-button size="small" color="light">Light</v-button>
+    </div>
+  </div>
   <div class="box">
     <h2>Select your favorite color:</h2>
     <v-radio-button
@@ -369,6 +409,8 @@ export default {
         per_page: 20,
         current_page: 1,
       },
+      nullPhone: null,
+      undefinedPhone: undefined,
       text: 'text123123',
       isModalOpen: false,
       isModalOpen2: false,
@@ -465,5 +507,9 @@ export default {
 
 .black {
   background-color: black;
+}
+
+.spacer {
+  @apply space-y-4 bg-white
 }
 </style>

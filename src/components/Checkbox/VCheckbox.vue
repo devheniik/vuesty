@@ -2,7 +2,7 @@
   <div>
     <label>
       <input v-model="propValue" :disabled="disabled" :class="[{'v-checkbox_error': error}, 'v-checkbox']" type="checkbox" @change="handleChange" />
-      <span class="v-checkbox__label">{{ label }}</span>
+      <span v-if="label" class="v-checkbox__label">{{ label }}</span>
     </label>
   </div>
 </template>

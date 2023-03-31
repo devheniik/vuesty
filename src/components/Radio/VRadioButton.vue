@@ -8,7 +8,7 @@
       :checked="modelValue === value"
       @input="updateValue"
     />
-    <span class="radio-button__label">{{ label }}</span>
+    <span v-if="label" class="radio-button__label">{{ label }}</span>
   </label>
 </template>
 

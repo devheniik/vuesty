@@ -83,7 +83,7 @@ const attrs = computed<AttributesInterface>(() => {
   <component
     v-bind="attrs"
     :is="component"
-    :class="[{ 'v-button-disabled': disabled }, `v-button-${size}`, `v-button-${color}`, 'v-button']"
+    :class="[{ 'v-button_disabled': disabled }, `v-button_${size}`, `v-button_${color}`, 'v-button']"
     :disabled="disabled"
     @click="onClick">
     <slot v-if="loading" name="loadingSlot">
