@@ -1,4 +1,11 @@
 <template>
+  <div class="box">
+    <v-badge icon color="danger" />
+    <v-badge icon color="success">
+      <AcademicCapIcon class="h-4 w-4"></AcademicCapIcon>
+    </v-badge>
+    <!-- <v-badge color="success" :value="true"> -->
+  </div>
     <div class="box spacer">
     <v-pagination
       v-model:limit="limit"
@@ -393,10 +400,11 @@ import VAvatarGroup from '../src/components/AvatarGroup/VAvatarGroup.vue'
 import VCheckbox from '../src/components/Checkbox/VCheckbox.vue'
 import VPhoneInput from '../src/components/phone/VPhoneInput.vue'
 import VRadioButton from "../src/components/Radio/VRadioButton.vue"
+import VBadge from "../src/components/Badge/VBadge.vue"
 import { AcademicCapIcon } from '@devheniik/icons/dist'
 export default {
   name: "App",
-  components: {VInput, VToast, VTable, VPagination, VButton, AcademicCapIcon, VModal, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox, VPhoneInput, VRadioButton },
+  components: {VInput, VToast, VTable, VPagination, VButton, AcademicCapIcon, VModal, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox, VPhoneInput, VRadioButton, VBadge },
   data() {
     return {
       page: 1,
@@ -481,7 +489,6 @@ export default {
 </script>
 
 <style scoped>
-@import '../src/assets/themes/main/components/select.scss';
 
 .box {
   @apply p-10 m-5 bg-neutral-100;
