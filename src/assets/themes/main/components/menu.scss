@@ -1,5 +1,5 @@
-.v-menu__button {
-  @apply mb-1;
+.v-menu__container {
+  @apply -top-1
 }
 
 .v-menu__dot {
@@ -11,7 +11,7 @@
 }
 
 .v-menu__default-button {
-  @apply px-1 pb-[15px] pt-1 leading-[0px] space-x-[3px];
+  @apply p-1 flex space-x-[3px];
 }
 
 .v-menu__items {

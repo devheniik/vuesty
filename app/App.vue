@@ -222,13 +222,16 @@
   </div>
 
   <div class="box">
-    <v-menu>
+    <div class="experiment">
+      <v-menu>
       <template #menuItems>
           <div>1</div>
           <div>2</div>
           <div>3</div>
       </template>
     </v-menu>
+    </div>
+
   </div>
   <div class="box">
     <v-input></v-input>
@@ -522,5 +525,9 @@ export default {
 
 .spacer {
   @apply space-y-4 bg-white
+}
+
+.experiment {
+  @apply bg-white p-4;
 }
 </style>

@@ -7,7 +7,7 @@ const show = ref(false)
 
 <template>
   <Menu>
-    <div class="relative">
+    <div class="relative v-menu__container">
       <MenuButton class="v-menu__button">
       <slot>
         <div class="v-menu__default-box" @click="show = true">
