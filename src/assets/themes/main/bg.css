@@ -11,7 +11,7 @@
 }
 
 .v_bg-warning-medium {
-  @apply bg-warning-500;
+  @apply bg-warning-500
 }
 
 .v_bg-danger-medium {
