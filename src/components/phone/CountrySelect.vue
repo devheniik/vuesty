@@ -1,7 +1,7 @@
 <template>
   <div class="v-phone__country">
-    <div class="country-input__container" @click="showOptions = true">
-      <input v-model="searchCountry" class="v-phone__country__input" type="text" placeholder="UA"  @blur="showOptions=false">
+    <div class="country-input__container" @click="showAllOptions">
+      <input v-model="searchCountry" class="v-phone__country__input" @input="handleSearch" type="text" placeholder="UA"  @blur="showOptions=false">
       <ChevronDownIcon class="v-phone__country__icon" />
     </div>
 
@@ -38,6 +38,15 @@ const selectOption = (option) => {
   searchCountry.value = option
   hideOptions()
   emits('update:modelValue', option)
+}
+
+const handleSearch = (e) => {
+  searchCountry.value = e.target.value
+}
+
+const showAllOptions = () => {
+  searchCountry.value = ''
+  showOptions.value = true
 }
 
 watch(

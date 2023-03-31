@@ -23,7 +23,7 @@
       <v-phone-input v-model="phone" />
       <v-phone-input v-model="nullPhone" />
       <v-phone-input v-model="undefinedPhone" />
-        <v-input v-model="nullPhone"></v-input>
+        <!-- <v-input v-model="nullPhone"></v-input> -->
     </div>
   <div class="box spacer">
     <div>

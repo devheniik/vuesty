@@ -1,5 +1,5 @@
 .v-phone {
-  @apply flex relative
+  @apply flex relative w-full mt-1
 }
 
 input.v-phone__input {
@@ -7,7 +7,7 @@ input.v-phone__input {
 }
 
 .v-phone__country {
-  @apply relative w-20
+  @apply relative max-w-[80px] min-w-[65px]
 }
 
 .v-phone__country__list {
