@@ -2,10 +2,10 @@
 import { computed, onMounted, ref, nextTick } from 'vue'
 import { onClickOutside } from '@vueuse/core'
 import {
-  ChevronUpDownIcon,
+  UnfoldMoreIcon,
   CheckIcon,
-  MagnifyingGlassIcon,
-  XMarkIcon,
+  SearchMagnifyingGlassIcon,
+  CloseCircleIcon,
   DocumentMagnifyingGlassIcon,
   PlusIcon,
 } from '@devheniik/icons'
@@ -126,7 +126,7 @@ const isMultipleFilled = () => {
 }
 
 const isSingleFilledWithoutFocus = () => {
-  return !props.multiple && !isFocused.value && props.modelValue
+  return !props.multiple && !isFocused.value && (props.modelValue !== undefined && props.modelValue !== null);
 }
 
 const isOptionObject = () => {
@@ -319,7 +319,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div ref="selectRef" @focus.stop class="v-select">
+  <div ref="selectRef" class="v-select" @focus.stop>
     <div
       ref="headRef"
       type="button"
@@ -328,16 +328,16 @@ onMounted(() => {
       :class="['v-select__head scrollbar group', { 'v-select__head_focus': isFocused }]"
       @click="onFocus">
       <span class="v-select__icon-box_left">
-        <MagnifyingGlassIcon :class="[ 'v-select__icon', { 'v-select__icon_focus' : isFocused }]" />
+        <SearchMagnifyingGlassIcon :class="[ 'v-select__icon', { 'v-select__icon_focus' : isFocused }]" />
       </span>
         <input
           v-show="isFocused"
           ref="inputRef"
-          @focus.stop
           :value="search"
           :placeholder="searchPlaceholder"
           type="text"
           class="v-select__main__input"
+          @focus.stop
           @input="handleSearch($event)" />
         <div v-if="isMultipleFilledWithoutFocus()" class="v-tag__box scrollbar">
           <slot v-for="(value, index) in visibleTags" :key="index" name="tag" :option="value">
@@ -364,11 +364,11 @@ onMounted(() => {
         </svg>
       </div>
       <div v-else class="v-select__icon-box">
-        <XMarkIcon
+        <CloseCircleIcon
           :class="[ 'v-select__icon focus-none', { 'v-select__icon_focus' : isFocused }]"
           @click.stop="clear"
           @focus.stop="clear" />
-        <ChevronUpDownIcon :class="[ 'v-select__icon focus-none', { 'v-select__icon_focus' : isFocused }]" />
+        <UnfoldMoreIcon :class="[ 'v-select__icon focus-none', { 'v-select__icon_focus' : isFocused }]" />
       </div>
     </div>
     <transition
@@ -388,7 +388,7 @@ onMounted(() => {
             @click.stop="deselectItem(value)">
             <div class="v-tag-in-selected-box">
               {{ getLabelByValue(value) }}
-              <XMarkIcon :class="['v-select__icon-deselect focus-none']" @click.stop="deselectItem(value)" />
+              <CloseCircleIcon :class="['v-select__icon-deselect focus-none']" @click.stop="deselectItem(value)" />
             </div>
           </slot>
         </div>

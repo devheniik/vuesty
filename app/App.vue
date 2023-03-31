@@ -1,5 +1,8 @@
 <template>
   <div class="box">
+    <v-select v-model="selected" :options="[{value: true, label:'yes'}, {value: false, label:'no'}]"></v-select>
+  </div>
+  <div class="box">
     <v-badge icon color="danger" />
     <v-badge icon color="success">
       <AcademicCapIcon class="h-4 w-4"></AcademicCapIcon>
@@ -417,6 +420,7 @@ export default {
         per_page: 20,
         current_page: 1,
       },
+      selected: null,
       nullPhone: null,
       undefinedPhone: undefined,
       text: 'text123123',

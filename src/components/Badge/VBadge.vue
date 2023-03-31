@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { XMarkIcon } from '@devheniik/icons'
+import { CloseCircleIcon } from '@devheniik/icons'
 import { computed } from 'vue'
 
 const props = withDefaults(
@@ -54,7 +54,7 @@ const tagColor = computed(() => `v-tag-${props.color}`)
 
     {{ label }}
     <button v-if="chip" class="v-tag__chip" @click="onClose">
-      <XMarkIcon class="v-tag__chip__icon" />
+      <CloseCircleIcon class="v-tag__chip__icon" />
     </button>
   </div>
 </template>

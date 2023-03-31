@@ -7,7 +7,7 @@ import '../../../src/assets/index.css'
 
 // Components
 
-import { MagnifyingGlassIcon, InformationCircleIcon, UserIcon }  from "@devheniik/icons"
+import { MagnifyingGlassIcon, CircleInfoIcon, UserIcon }  from "@devheniik/icons"
 import { MenuItem, TabPanel } from '@headlessui/vue'
 
 import VButton from "../../../src/components/Button/VButton.vue"
@@ -31,7 +31,7 @@ export default
   enhanceApp(ctx) {
     DefaultTheme.enhanceApp(ctx)
     ctx.app.component('MagnifyingGlassIcon', MagnifyingGlassIcon)
-    ctx.app.component('InformationCircleIcon', InformationCircleIcon)
+    ctx.app.component('CircleInfoIcon', CircleInfoIcon)
     ctx.app.component('UserIcon', UserIcon)
     ctx.app.component('MenuItem', MenuItem)
     ctx.app.component('TabPanel', TabPanel)

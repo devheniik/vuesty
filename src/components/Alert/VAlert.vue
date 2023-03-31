@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { InformationCircleIcon, XMarkIcon, ExclamationTriangleIcon, CheckCircleIcon } from '@devheniik/icons'
+import { CircleInfoIcon, CloseCircleIcon, ExclamationTriangleIcon, CircleCheckIcon } from '@devheniik/icons'
 import VButton from '../Button/VButton.vue'
 import { computed } from 'vue'
 import type { FunctionalComponent, HTMLAttributes, VNodeProps } from 'vue'
@@ -42,14 +42,14 @@ const cancel = () => {
 }
 
 const icon = computed<FunctionalComponent<HTMLAttributes & VNodeProps> | string>(() => {
-  let icon = InformationCircleIcon
+  let icon = CircleInfoIcon
 
   switch (props.variant) {
     case 'primary':
-      icon = InformationCircleIcon
+      icon = CircleInfoIcon
       break
     case 'success':
-      icon = CheckCircleIcon
+      icon = CircleCheckIcon
       break
     case 'warning':
       icon = ExclamationTriangleIcon
@@ -85,7 +85,7 @@ const icon = computed<FunctionalComponent<HTMLAttributes & VNodeProps> | string>
       </div>
     </main>
     <button :class="[{ 'v-alert__close_flat': !$slots.default && !controls }, 'v-alert__close']" @click="close">
-      <XMarkIcon class="v-alert__close-icon" />
+      <CloseCircleIcon class="v-alert__close-icon" />
     </button>
   </div>
 </template>

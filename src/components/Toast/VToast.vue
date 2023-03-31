@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { InformationCircleIcon, XMarkIcon, CheckCircleIcon, ExclamationCircleIcon } from '@devheniik/icons'
+import { CircleInfoIcon, CloseCircleIcon, CircleCheckIcon, CircleWarningIcon } from '@devheniik/icons'
 import { computed } from 'vue'
 import type { FunctionalComponent, HTMLAttributes, VNodeProps } from 'vue'
 
@@ -28,20 +28,20 @@ const close = () => {
 emit('shown')
 
 const icon = computed<FunctionalComponent<HTMLAttributes & VNodeProps> | string>(() => {
-  let icon = InformationCircleIcon
+  let icon = CircleInfoIcon
 
   switch (props.variant) {
     case 'primary':
-      icon = InformationCircleIcon
+      icon = CircleInfoIcon
       break
     case 'success':
-      icon = CheckCircleIcon
+      icon = CircleCheckIcon
       break
     case 'warning':
-      icon = ExclamationCircleIcon
+      icon = CircleWarningIcon
       break
     case 'danger':
-      icon = ExclamationCircleIcon
+      icon = CircleWarningIcon
       break
   }
 
@@ -59,7 +59,7 @@ const icon = computed<FunctionalComponent<HTMLAttributes & VNodeProps> | string>
       <p class="v-alert__text">{{ text }}</p>
     </main>
     <button :class="['v-alert__close_flat', 'v-alert__close']" @click="close">
-      <XMarkIcon class="v-alert__close-icon" />
+      <CloseCircleIcon class="v-alert__close-icon" />
     </button>
   </div>
 </template>

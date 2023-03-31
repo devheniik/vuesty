@@ -24,8 +24,8 @@
                   </slot>
                 </td>
                 <td v-if="deleteAction || editAction" class="v-table__body__row__action">
-                  <PencilIcon v-if="editAction" class="v-table__body__action-icon-primary" @click="handleEdit(row)" />
-                  <TrashIcon v-if="deleteAction" class="v-table__body__action-icon-danger" @click="handleDelete(row)" />
+                  <EditPencilLineIcon v-if="editAction" class="v-table__body__action-icon-primary" @click="handleEdit(row)" />
+                  <TrashFullIcon v-if="deleteAction" class="v-table__body__action-icon-danger" @click="handleDelete(row)" />
                 </td>
               </tr>
             </tbody>
@@ -38,7 +38,7 @@
 
 <script setup lang="ts">
 import {ref} from 'vue'
-import { PencilIcon, TrashIcon } from '@devheniik/icons'
+import { EditPencilLineIcon, TrashFullIcon } from '@devheniik/icons'
 const props = withDefaults(
   defineProps<{
     rows: string[] | object[] | number[]

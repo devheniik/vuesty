@@ -48,7 +48,7 @@ import { VInput } from 'vuetify'
       <MagnifyingGlassIcon />
     </template>
     <template #icon-right>
-      <InformationCircleIcon />
+      <CircleInfoIcon />
     </template>
   </v-input>
 </WrapView>
