@@ -5,7 +5,7 @@ import {
   UnfoldMoreIcon,
   CheckIcon,
   SearchMagnifyingGlassIcon,
-  CloseCircleIcon,
+  CloseMdIcon,
   DocumentMagnifyingGlassIcon,
   PlusIcon,
 } from '@devheniik/icons'
@@ -364,7 +364,7 @@ onMounted(() => {
         </svg>
       </div>
       <div v-else class="v-select__icon-box">
-        <CloseCircleIcon
+        <CloseMdIcon
           :class="[ 'v-select__icon focus-none', { 'v-select__icon_focus' : isFocused }]"
           @click.stop="clear"
           @focus.stop="clear" />
@@ -388,7 +388,7 @@ onMounted(() => {
             @click.stop="deselectItem(value)">
             <div class="v-tag-in-selected-box">
               {{ getLabelByValue(value) }}
-              <CloseCircleIcon :class="['v-select__icon-deselect focus-none']" @click.stop="deselectItem(value)" />
+              <CloseMdIcon :class="['v-select__icon-deselect focus-none']" @click.stop="deselectItem(value)" />
             </div>
           </slot>
         </div>

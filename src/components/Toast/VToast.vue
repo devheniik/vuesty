@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CircleInfoIcon, CloseCircleIcon, CircleCheckIcon, CircleWarningIcon } from '@devheniik/icons'
+import { CircleInfoIcon, CloseMdIcon, CircleCheckIcon, CircleWarningIcon } from '@devheniik/icons'
 import { computed } from 'vue'
 import type { FunctionalComponent, HTMLAttributes, VNodeProps } from 'vue'
 
@@ -59,7 +59,7 @@ const icon = computed<FunctionalComponent<HTMLAttributes & VNodeProps> | string>
       <p class="v-alert__text">{{ text }}</p>
     </main>
     <button :class="['v-alert__close_flat', 'v-alert__close']" @click="close">
-      <CloseCircleIcon class="v-alert__close-icon" />
+      <CloseMdIcon class="v-alert__close-icon" />
     </button>
   </div>
 </template>

@@ -11,7 +11,7 @@
             <h3 class="v-modal__inner__header__heading">
               {{ heading }}
             </h3>
-            <CloseCircleIcon
+            <CloseMdIcon
             class="v-modal__inner__header__xmark stroke-2"
             @click="$emit('update:modelValue', false)"  />
           </header>
@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import { CloseCircleIcon } from '@devheniik/icons';
+import { CloseMdIcon } from '@devheniik/icons';
 withDefaults(defineProps<{
   modelValue: boolean,
   heading?: string ,

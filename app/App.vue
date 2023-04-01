@@ -3,6 +3,7 @@
     <v-select v-model="selected" :options="[{value: true, label:'yes'}, {value: false, label:'no'}]"></v-select>
   </div>
   <div class="box">
+    <v-badge chip></v-badge>
     <v-badge icon color="danger" />
     <v-badge icon color="success">
       <AcademicCapIcon class="h-4 w-4"></AcademicCapIcon>
