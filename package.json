@@ -40,7 +40,7 @@
     "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
-    "@devheniik/icons": "^1.0.11",
+    "@devheniik/icons": "^1.0.32",
     "@headlessui/vue": "^1.7.7",
     "@heroicons/vue": "^2.0.13",
     "@jonyak/icons": "^1.0.6",

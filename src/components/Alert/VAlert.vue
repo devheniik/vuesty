@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CircleInfoIcon, CloseMdIcon, ExclamationTriangleIcon, CircleCheckIcon } from '@devheniik/icons'
+import { CircleInfoIcon, CloseMdIcon, TriangleWarningIcon, CircleCheckIcon } from '@devheniik/icons'
 import VButton from '../Button/VButton.vue'
 import { computed } from 'vue'
 import type { FunctionalComponent, HTMLAttributes, VNodeProps } from 'vue'
@@ -52,10 +52,10 @@ const icon = computed<FunctionalComponent<HTMLAttributes & VNodeProps> | string>
       icon = CircleCheckIcon
       break
     case 'warning':
-      icon = ExclamationTriangleIcon
+      icon = TriangleWarningIcon
       break
     case 'danger':
-      icon = ExclamationTriangleIcon
+      icon = TriangleWarningIcon
       break
   }
 

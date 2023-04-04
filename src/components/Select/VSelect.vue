@@ -6,7 +6,7 @@ import {
   CheckIcon,
   SearchMagnifyingGlassIcon,
   CloseMdIcon,
-  DocumentMagnifyingGlassIcon,
+  FileSearchIcon,
   PlusIcon,
 } from '@devheniik/icons'
 
@@ -393,7 +393,7 @@ onMounted(() => {
           </slot>
         </div>
         <div v-if="!filteredOptions.length" class="v-select__empty-box">
-          <DocumentMagnifyingGlassIcon class="v-select__icon_empty" />
+          <FileSearchIcon class="v-select__icon_empty" />
           <span>
             {{ emptyText }}
           </span>

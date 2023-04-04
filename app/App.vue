@@ -1,20 +1,20 @@
 <template>
-  <div class="box">
-    <BeakerIcon class="icone"></BeakerIcon>
+  <!-- <div class="box">
+    < class="icone"></>
     <v-button size="big">
       <template #icon>
-        <BeakerIcon ></BeakerIcon>
+        < ></>
       </template>
       Some text
     </v-button>
     <v-button>
       <template #icon>
-        <BeakerIcon class="icone"></BeakerIcon>
+        < class="icone"></>
       </template>
     </v-button>
     <v-button>Hallo</v-button>
     <v-button></v-button>
-  </div>
+  </div> -->
   <!-- <div class="box">
     <v-menu>
       <v-button>hallo</v-button>
@@ -34,7 +34,7 @@
     <v-badge status color="danger"></v-badge>
     <v-badge icon color="danger" />
     <v-badge icon color="success">
-      <BeakerIcon class="icon"></BeakerIcon>
+      <!-- < class="icon"></> -->
     </v-badge>
     <!-- <v-badge color="success" :value="true"> -->
   </div>
@@ -347,9 +347,9 @@
 
   <div class="container mx-auto h-screen space-y-9">
     <VInput v-model="text">
-      <template #icon-right>
-        <BeakerIcon class="icon"></BeakerIcon>
-      </template>
+      <!-- <template #icon-right>
+        < class="icon"></>
+      </template> -->
     </VInput>
     <VInput v-model="text" :required="true"></VInput>
     <VToast class="my-2" variant="primary" text="Some crazy piece of text" />
@@ -368,7 +368,7 @@
     <v-button color="info">info</v-button>
     <v-button color="neutral">neutral</v-button>
     <v-button color="tertiary">tertiary</v-button>
-    <v-button><BeakerIcon class="icon"></BeakerIcon> go next</v-button>
+    <!-- <v-button>< class="icon"></> go next</v-button> -->
   </div>
   <div class="box">
     <VTable
@@ -436,10 +436,9 @@ import VCheckbox from '../src/components/Checkbox/VCheckbox.vue'
 import VPhoneInput from '../src/components/phone/VPhoneInput.vue'
 import VRadioButton from "../src/components/Radio/VRadioButton.vue"
 import VBadge from "../src/components/Badge/VBadge.vue"
-import { BeakerIcon } from '@devheniik/icons/dist'
 export default {
   name: "App",
-  components: {VInput, VToast, VTable, VPagination, VButton, BeakerIcon, VModal, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox, VPhoneInput, VRadioButton, VBadge },
+  components: {VInput, VToast, VTable, VPagination, VButton,  VModal, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox, VPhoneInput, VRadioButton, VBadge },
   data() {
     return {
       page: 1,
