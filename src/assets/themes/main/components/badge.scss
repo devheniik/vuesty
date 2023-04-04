@@ -4,43 +4,39 @@
 }
 
 .v-tag-primary {
-  @apply bg-primary-100 text-primary-600;
+  @apply bg-primary-50 text-primary-500;
 }
 
 .v-tag-success {
-  @apply bg-success-100 text-success-600;
+  @apply bg-success-50 text-success-500;
 }
 
 .v-tag-warning {
-  @apply bg-upgrade-50 text-warning-400;
+  @apply bg-upgrade-50 text-warning-500;
 }
 
 .v-tag-danger {
-  @apply bg-danger-100 text-danger-600;
+  @apply bg-danger-50 text-danger-500;
 }
 
 .v-tag-tertiary {
-  @apply bg-tertiary-100 text-tertiary-400;
+  @apply bg-tertiary-50 text-tertiary-500;
 }
 
 .v-tag-info {
-  @apply bg-info-100 text-info-500;
+  @apply bg-info-50 text-info-500;
 }
 
 .v-tag-upgrade {
-  @apply bg-upgrade-100 text-upgrade-400;
+  @apply bg-upgrade-50 text-upgrade-500;
 }
 
 .v-tag-neutral {
-  @apply bg-gray-100 text-neutral-700;
+  @apply bg-gray-50 text-neutral-500;
 }
 
 .v-tag-status-text {
   @apply text-gray-700;
-}
-
-.v-tag-chip-text {
-  @apply text-white;
 }
 
 .v-tag__status-circle {
@@ -82,13 +78,13 @@
 /* Icons*/
 
 .v-tag__icon {
-  @apply mr-1 w-3.5;
+  @apply mr-1 w-4;
 }
 
 .v-tag__chip {
-  @apply pl-2;
+  @apply ml-1;
 }
 
 .v-tag__chip__icon {
-  @apply w-3 stroke-2 opacity-50;
+  @apply w-4 opacity-50;
 }

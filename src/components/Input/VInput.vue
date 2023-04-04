@@ -3,7 +3,7 @@ import { ref, useSlots } from 'vue'
 
 const props = withDefaults(
   defineProps<{
-    modelValue: string
+    modelValue: string | number
     _valid?: boolean
     _invalid?: boolean
     disabled?: boolean

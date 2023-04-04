@@ -21,7 +21,7 @@ module.exports = {
       },
       secondary: colors.gray,
       success: {
-        50: '#eaf5f1',
+        50: '#EAF5F1',
         100: '#D0F6D5',
         200: '#abd9c5',
         300: '#41D958',

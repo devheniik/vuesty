@@ -17,7 +17,7 @@ export interface VBadgeProps extends VBadgeEvents {
     | 'info'
     | 'neutral'
   status?: boolean
-  label?: string
+  label?: string | number
   icon?: boolean
   chip?: boolean
 }

@@ -1,6 +1,28 @@
-.v-bg-gray-100 {
-  @apply bg-gray-100;
+.v_bg-success-light {
+  @apply bg-success-50;
 }
+.v_bg-primary-light {
+  @apply bg-primary-50;
+}
+.v_bg-warning-light {
+  @apply bg-warning-50;
+}
+.v_bg-danger-light {
+  @apply bg-danger-50;
+}
+.v_bg-upgrade-light {
+  @apply bg-upgrade-50;
+}
+.v_bg-info-light {
+  @apply bg-info-50;
+}
+.v_bg-tertiary-light {
+  @apply bg-tertiary-50;
+}
+.v_bg-neutral-light {
+  @apply bg-neutral-50;
+}
+
 
 .v_bg-success-medium {
   @apply bg-success-500;
@@ -34,6 +56,8 @@
   @apply bg-neutral-500;
 }
 
+
+
 .v_bg-success-heavy {
   @apply bg-success-700;
 }
@@ -66,34 +90,4 @@
   @apply bg-neutral-700;
 }
 
-.bg-success-medium {
-  @apply bg-success-500;
-}
 
-.bg-primary-medium {
-  @apply bg-primary-500;
-}
-
-.bg-warning-medium {
-  @apply bg-warning-500;
-}
-
-.bg-danger-medium {
-  @apply bg-danger-500;
-}
-
-.bg-upgrade-medium {
-  @apply bg-upgrade-500;
-}
-
-.bg-info-medium {
-  @apply bg-info-400;
-}
-
-.bg-tertiary-medium {
-  @apply bg-tertiary-500;
-}
-
-.bg-neutral-medium {
-  @apply bg-neutral-500;
-}

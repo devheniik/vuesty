@@ -16,13 +16,13 @@ const props = withDefaults(
       | 'info'
       | 'neutral'
     status?: boolean
-    label?: string
+    label?: string | number
     icon?: boolean
     chip?: boolean
   }>(),
   {
     size: 'small',
-    color: 'success',
+    color: 'neutral',
     status: false,
     label: 'Label',
     icon: false,
@@ -40,12 +40,11 @@ const onClose = () => {
   emit('close')
 }
 
-const chipColor = computed(() => `v_bg-${props.color}-heavy`)
-const tagColor = computed(() => `v-tag-${props.color}`)
+const color = computed(() => `v-tag-${props.color}`)
 </script>
 
 <template>
-  <div :class="[{ 'v-tag-chip-text': chip }, { 'v-tag-status-text': status }, chip ? chipColor : tagColor, 'v-tag']">
+  <div :class="[color, { 'v-tag-status-text': status },  , 'v-tag']">
     <div v-if="status" :class="['v-tag__status-circle', `v-tag__status-circle_${props.color}`]"></div>
 
     <div v-if="icon" class="v-tag__icon">

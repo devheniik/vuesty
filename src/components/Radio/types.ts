@@ -5,10 +5,9 @@ export interface VRadioButtonEvents {
 }
 
 export interface VRadioButtonProps extends VRadioButtonEvents {
-  name: string,
   value: string | number,
-  label?: string,
-  modelValue: string | number
+  label?: string | number,
+  modelValue: string | number | boolean | null
 }
 
 export type VRadioButtonComponent = ComponentPublicInstance<VRadioButtonProps>

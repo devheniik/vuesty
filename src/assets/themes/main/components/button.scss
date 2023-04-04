@@ -9,7 +9,7 @@
 /* Colors */
 
 button.v-button_light {
-  @apply rounded-md bg-white text-neutral-600 border border-solid border-neutral-200  shadow-none  hover:bg-neutral-50;
+  @apply rounded-md bg-white text-neutral-600 border border-solid border-neutral-200  shadow-none  hover:bg-neutral-50 font-medium;
 }
 
 button.v-button_secondary {

@@ -1,9 +1,21 @@
 <template>
   <div class="box">
-    <v-select v-model="selected" :options="[{value: true, label:'yes'}, {value: false, label:'no'}]"></v-select>
+    <v-menu>
+      <v-button>hallo</v-button>
+      <template #menuItems>
+        <v-menu-item>item 1</v-menu-item>
+        <v-menu-item>item 2</v-menu-item>
+        <v-menu-item>item 3</v-menu-item>
+      </template>
+    </v-menu>
   </div>
   <div class="box">
+    <v-select v-model="selected" :options="[{value: true, label:'yes'}, {value: false, label:'no'}]"></v-select>
+  </div>
+  <div class="box spacer">
+    <v-badge></v-badge>
     <v-badge chip></v-badge>
+    <v-badge status color="danger"></v-badge>
     <v-badge icon color="danger" />
     <v-badge icon color="success">
       <AcademicCapIcon class="h-4 w-4"></AcademicCapIcon>

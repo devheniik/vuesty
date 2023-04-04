@@ -3,7 +3,6 @@
     <input
       class="radio-button__input"
       type="radio"
-      :name="name"
       :value="value"
       :checked="modelValue === value"
       @input="updateValue"
@@ -15,10 +14,9 @@
 <script setup lang="ts">
 
 const props = defineProps<{
-  name: string,
   value: string | number,
-  label?: string,
-  modelValue: string | number
+  label?: string | number,
+  modelValue: string | number | boolean
 }>()
 
 const emit = defineEmits(['update:modelValue'])
