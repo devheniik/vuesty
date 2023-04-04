@@ -27,9 +27,9 @@ html {
   font-family: 'Inter', sans-serif;
 }
 
-svg {
+/* svg {
   stroke-width: 0;
-}
+} */
 
 :root {
   --swiper-theme-color: white;

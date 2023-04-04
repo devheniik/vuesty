@@ -1,5 +1,21 @@
 <template>
   <div class="box">
+    <BeakerIcon class="icone"></BeakerIcon>
+    <v-button size="big">
+      <template #icon>
+        <BeakerIcon ></BeakerIcon>
+      </template>
+      Some text
+    </v-button>
+    <v-button>
+      <template #icon>
+        <BeakerIcon class="icone"></BeakerIcon>
+      </template>
+    </v-button>
+    <v-button>Hallo</v-button>
+    <v-button></v-button>
+  </div>
+  <!-- <div class="box">
     <v-menu>
       <v-button>hallo</v-button>
       <template #menuItems>
@@ -8,7 +24,7 @@
         <v-menu-item>item 3</v-menu-item>
       </template>
     </v-menu>
-  </div>
+  </div> -->
   <div class="box">
     <v-select v-model="selected" :options="[{value: true, label:'yes'}, {value: false, label:'no'}]"></v-select>
   </div>
@@ -18,7 +34,7 @@
     <v-badge status color="danger"></v-badge>
     <v-badge icon color="danger" />
     <v-badge icon color="success">
-      <AcademicCapIcon class="h-4 w-4"></AcademicCapIcon>
+      <BeakerIcon class="icon"></BeakerIcon>
     </v-badge>
     <!-- <v-badge color="success" :value="true"> -->
   </div>
@@ -332,7 +348,7 @@
   <div class="container mx-auto h-screen space-y-9">
     <VInput v-model="text">
       <template #icon-right>
-        <AcademicCapIcon class="h-4 w-4"></AcademicCapIcon>
+        <BeakerIcon class="icon"></BeakerIcon>
       </template>
     </VInput>
     <VInput v-model="text" :required="true"></VInput>
@@ -352,7 +368,7 @@
     <v-button color="info">info</v-button>
     <v-button color="neutral">neutral</v-button>
     <v-button color="tertiary">tertiary</v-button>
-    <v-button><AcademicCapIcon class="icon"></AcademicCapIcon> go next</v-button>
+    <v-button><BeakerIcon class="icon"></BeakerIcon> go next</v-button>
   </div>
   <div class="box">
     <VTable
@@ -420,10 +436,10 @@ import VCheckbox from '../src/components/Checkbox/VCheckbox.vue'
 import VPhoneInput from '../src/components/phone/VPhoneInput.vue'
 import VRadioButton from "../src/components/Radio/VRadioButton.vue"
 import VBadge from "../src/components/Badge/VBadge.vue"
-import { AcademicCapIcon } from '@devheniik/icons/dist'
+import { BeakerIcon } from '@devheniik/icons/dist'
 export default {
   name: "App",
-  components: {VInput, VToast, VTable, VPagination, VButton, AcademicCapIcon, VModal, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox, VPhoneInput, VRadioButton, VBadge },
+  components: {VInput, VToast, VTable, VPagination, VButton, BeakerIcon, VModal, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox, VPhoneInput, VRadioButton, VBadge },
   data() {
     return {
       page: 1,
@@ -542,5 +558,10 @@ export default {
 
 .experiment {
   @apply bg-white p-4;
+}
+
+.icone {
+  width: 20px;
+  height: 20px;
 }
 </style>

@@ -6,6 +6,20 @@
   @apply v-button-common w-auto border border-none border-transparent bg-primary-500  px-1.5 py-1 text-white shadow-sm hover:bg-primary-600;
 }
 
+
+.icon_container > svg {
+  @apply w-4 h-4
+}
+
+.v-button_big .icon_container > svg {
+  @apply w-5 h-5
+}
+
+.v-button_with-text > svg {
+  @apply mr-2
+}
+
+
 /* Colors */
 
 button.v-button_light {
