@@ -1,0 +1,36 @@
+.v-tree-node{
+  @apply w-full p-1 flex flex-row items-center;
+}
+
+.v-tree-node__disclose{
+  @apply mr-2 w-4 h-4;
+}
+
+.v-tree-node__disclose-icon{
+  @apply w-4 h-4;
+}
+
+.v-tree-node__checkbox-icon-box{
+  @apply mr-2;
+}
+
+.v-tree-node__checkbox-icon-empty{
+  @apply border-gray-300 border h-4 w-4 rounded-md;
+}
+
+.v-tree-node__checkbox-icon{
+  @apply h-4 w-4;
+}
+
+.v-tree-node__label{
+  @apply text-gray-800;
+}
+
+.v-tree-node__children{
+  @apply w-full border-l border-primary-100;
+  margin-left: 2.25rem;
+}
+
+//.v-tree-checkbox-minus{
+//  @apply flex items-center justify-center w-4 h-4 border-gray-300 border-2 rounded-md text-white bg-primary-500;
+//}
