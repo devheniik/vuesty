@@ -26,6 +26,7 @@
       :data="subNode"
       :label-key="labelKey"
       :value-key="valueKey"
+      :is-parent-selected="data.__selected"
       @select="childSelect"
     />
   </div>
@@ -44,9 +45,11 @@ import {
 
 const props = withDefaults(defineProps<{
   data: object
+  isParentSelected?: boolean
   labelKey: string
   valueKey: string
 }>(), {
+  isParentSelected: false,
   labelKey: 'name',
   valueKey: 'id',
 })
@@ -76,7 +79,7 @@ const toggleOpen = () => {
 }
 
 const icon = computed(() => {
-  if (props.data.__selected) {
+  if (props.data.__selected || props.isParentSelected) {
     return CheckboxSelectedIcon
   } else if (props.data.__partially_selected) {
     return CheckboxParticallySelectedIcon

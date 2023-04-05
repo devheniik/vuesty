@@ -40,10 +40,6 @@ const emit = defineEmits<Emit>()
 const selectedValue = ref<Array<string | number>>(props.modelValue)
 
 const handleSelect = (value: string | number) => {
-  // console.log(
-
-    markChildNodeAsSelectedByParentValue(bufferTree.value, value)
-  // )
   if (props.modelValue.includes(value)) {
     selectedValue.value = props.modelValue.filter((v) => v !== value)
   } else {
@@ -127,23 +123,22 @@ const getInfoIfParentSelectedByChildValue = (startNode: any, value: string | num
 }
 
 const restructure = (e: any) => {
-  const children = e.children.map((c: any) => restructure(c))
   return {
     [props.labelKey]: e[props.labelKey],
     [props.valueKey]: e[props.valueKey],
+    children: e.children.map((c: any) => restructure(c)),
     __partially_selected:
-      children?.some((child: any) => {
+      e.children?.some((child: any) => {
         return selectedValue.value.includes(child[props.valueKey])
           || child.children.some((thirdChild: any) => selectedValue.value.includes(thirdChild[props.valueKey]))
       }),
     __selected:
       (
-        children.length
-        && children.every((c: any) => { return c.__selected })
+        e.children.length
+        && e.children.every((c: any) => { return c.__selected })
       )
       || selectedValue.value.includes(e[props.valueKey])
-      || getInfoIfParentSelectedByChildValue(bufferTree.value, e[props.valueKey]),
-    children: e.children.map((c: any) => restructure(c))
+
   }
 }
 

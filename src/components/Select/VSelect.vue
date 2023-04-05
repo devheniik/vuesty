@@ -6,7 +6,7 @@ import {
   CheckIcon,
   SearchMagnifyingGlassIcon,
   CloseMdIcon,
-  FileSearchIcon
+  FileRemoveIcon
 } from '@devheniik/icons'
 
 const props = withDefaults(
@@ -392,11 +392,7 @@ onMounted(() => {
           </slot>
         </div>
         <div v-if="!filteredOptions.length" class="v-select__empty-box">
-<<<<<<< HEAD
-          <FileSearchIcon class="v-select__icon_empty" />
-=======
           <FileRemoveIcon class="v-select__icon_empty" />
->>>>>>> 44bf557 (push)
           <span>
             {{ emptyText }}
           </span>
