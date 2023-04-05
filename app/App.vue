@@ -54,9 +54,11 @@
   </div>
     <div class="box">
       {{ check }}
-      <v-checkbox v-model="check" ></v-checkbox>
+      <v-checkbox v-model="check" @request-server="handleRequest"></v-checkbox>
       <v-checkbox label="label" disabled></v-checkbox>
       <v-checkbox label="label" error></v-checkbox>
+      {{ option2 }}
+      <v-checkbox :can-change="checkCondition" label="Option 2" :model-value="option2" @change-checked="updateOption2"></v-checkbox>
     </div>
     <div class="box">
       <v-phone-input v-model="phone" />
@@ -451,6 +453,7 @@ export default {
         per_page: 20,
         current_page: 1,
       },
+      option2: null,
       selected: null,
       nullPhone: null,
       undefinedPhone: undefined,
@@ -503,6 +506,12 @@ export default {
       console.log(this.hf)
     },
 
+    updateOption2(value) {
+      console.log(value);
+
+      this.option2 = !this.option2
+    },
+
     async handleSearch(value) {
       console.log(value)
       await this.getOptions(value)
@@ -515,7 +524,10 @@ export default {
     },
     handleDelete(row) {
       console.log('Delete', row)
-    }
+    },
+    handleRequest(isChecked) {
+      this.check = !this.check
+    },
   }
 }
 
@@ -562,5 +574,9 @@ export default {
 .icone {
   width: 20px;
   height: 20px;
+}
+
+svg {
+  stroke-width: 0px;
 }
 </style>

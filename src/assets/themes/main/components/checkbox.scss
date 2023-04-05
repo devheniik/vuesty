@@ -3,8 +3,10 @@
   hover:border-neutral-300 cursor-pointer disabled:bg-neutral-300 disabled:border-neutral-300
 }
 
-.v-checkbox:checked {
-  @apply border-primary-500 bg-primary-500
+
+
+.v-checkbox_checked {
+  @apply border-primary-500 bg-primary-500 !border-transparent
 }
 
 .v-checkbox_error:not(.v-checkbox_disabled):not(:checked) {
