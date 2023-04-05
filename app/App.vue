@@ -26,6 +26,10 @@
     </v-menu>
   </div> -->
   <div class="box">
+    {{tree_value}}
+    <v-tree-select v-model="tree_value" :data="tree" />
+  </div>
+  <div class="box">
     <v-select v-model="selected" :options="[{value: true, label:'yes'}, {value: false, label:'no'}]"></v-select>
   </div>
   <div class="box spacer">
@@ -34,7 +38,6 @@
     <v-badge status color="danger"></v-badge>
     <v-badge icon color="danger" />
     <v-badge icon color="success">
-      <!-- < class="icon"></> -->
     </v-badge>
     <!-- <v-badge color="success" :value="true"> -->
   </div>
@@ -349,9 +352,9 @@
 
   <div class="container mx-auto h-screen space-y-9">
     <VInput v-model="text">
-      <!-- <template #icon-right>
-        < class="icon"></>
-      </template> -->
+      <template #icon-right>
+<!--        <AcademicCapIcon class="h-4 w-4"></AcademicCapIcon>-->
+      </template>
     </VInput>
     <VInput v-model="text" :required="true"></VInput>
     <VToast class="my-2" variant="primary" text="Some crazy piece of text" />
@@ -370,7 +373,6 @@
     <v-button color="info">info</v-button>
     <v-button color="neutral">neutral</v-button>
     <v-button color="tertiary">tertiary</v-button>
-    <!-- <v-button>< class="icon"></> go next</v-button> -->
   </div>
   <div class="box">
     <VTable
@@ -410,11 +412,11 @@
       @change="handleP"></v-pagination>
   </div>
 
-  <!-- <div class="box">
-    <v-button @click="isModalOpen = true">+</v-button>
-    <v-modal v-model="isModalOpen"><v-button @click="isModalOpen2 = true">+</v-button>
-      <v-modal v-model="isModalOpen2">123</v-modal></v-modal>
-  </div> -->
+
+
+  <div class="box">
+    <VTreeNode />
+  </div>
 
 
 </template>
@@ -438,11 +440,126 @@ import VCheckbox from '../src/components/Checkbox/VCheckbox.vue'
 import VPhoneInput from '../src/components/phone/VPhoneInput.vue'
 import VRadioButton from "../src/components/Radio/VRadioButton.vue"
 import VBadge from "../src/components/Badge/VBadge.vue"
+
+import VTreeSelect from "../src/components/TreeSelect/VTreeSelect.vue"
+import { SettingsIcon } from '@devheniik/icons/dist'
 export default {
   name: "App",
-  components: {VInput, VToast, VTable, VPagination, VButton,  VModal, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox, VPhoneInput, VRadioButton, VBadge },
+  components: {VTreeSelect,VInput, VToast, VTable, VPagination, VButton, VModal, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox, VPhoneInput, VRadioButton, VBadge },
   data() {
     return {
+      tree_value: [],
+      tree: [
+        {
+          id: 1,
+          name: 'UA',
+          children: [
+            {
+              id: 5,
+              name: 'Kyiv',
+              children: [
+                // {
+                //   id: 11,
+                //   name: 'Kyiv',
+                //   children: [
+                //     {
+                //       id: 111,
+                //       name: 'Kyiv1',
+                //       children: [
+                //         {
+                //           id: 1111,
+                //           name: 'Kyiv',
+                //           children: [
+                //             {
+                //               id: 11111,
+                //               name: 'Kyiv',
+                //               children: [
+                //                 {
+                //                   id: 11222,
+                //                   name: 'Kyiv',
+                //                   children: [
+                //                     {
+                //                       id: 11123,
+                //                       name: 'Kyiv',
+                //                       children: []
+                //                     },
+                //                   ]
+                //                 },
+                //               ]
+                //             },
+                //           ]
+                //         },
+                //       ]
+                //     },
+                //   ]
+                // },
+                {
+                  id: 12,
+                  name: 'Borshagivka',
+                  children: []
+                },
+                {
+                  id: 13,
+                  name: 'Brovaru',
+                  children: []
+                },
+              ]
+            },
+            {
+              id: 6,
+              name: 'Odessa',
+              children: []
+            },
+            {
+              id: 9,
+              name: 'Luck',
+              children: []
+            },
+          ]
+        },
+        // {
+        //   id: 2,
+        //   name: 'RU',
+        //   children: []
+        // },
+        // {
+        //   id: 3,
+        //   name: 'PL',
+        //   children: [
+        //     {
+        //       id: 15,
+        //       name: 'Warsaw',
+        //       children: [
+        //         {
+        //           id: 16,
+        //           name: 'Moodlin',
+        //           children: []
+        //         },
+        //         {
+        //           id: 17,
+        //           name: 'Left side',
+        //           children: []
+        //         },
+        //         {
+        //           id: 18,
+        //           name: 'Right side',
+        //           children: []
+        //         },
+        //       ]
+        //     },
+        //     {
+        //       id: 26,
+        //       name: 'Krakow',
+        //       children: []
+        //     },
+        //     {
+        //       id: 27,
+        //       name: 'Katowice',
+        //       children: []
+        //     },
+        //   ]
+        // },
+      ],
       page: 1,
       limit: 10,
       meta: {
