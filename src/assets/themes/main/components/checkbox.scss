@@ -1,12 +1,10 @@
 .v-checkbox {
   @apply rounded outline-transparent shadow-none focus:shadow-none focus:ring-offset-0 focus:ring-0 ring-0 border-neutral-500
-  hover:border-neutral-300 cursor-pointer disabled:bg-neutral-300 disabled:border-neutral-300
+   cursor-pointer disabled:bg-neutral-300 disabled:border-neutral-300
 }
 
-
-
 .v-checkbox_checked {
-  @apply border-primary-500 bg-primary-500 !border-transparent
+  @apply border-primary-500
 }
 
 .v-checkbox_error:not(.v-checkbox_disabled):not(:checked) {

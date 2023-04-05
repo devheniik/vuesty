@@ -570,7 +570,7 @@ export default {
         per_page: 20,
         current_page: 1,
       },
-      option2: null,
+      option2: true,
       selected: null,
       nullPhone: null,
       undefinedPhone: undefined,
@@ -643,7 +643,10 @@ export default {
       console.log('Delete', row)
     },
     handleRequest(isChecked) {
+      setTimeout(() => {
       this.check = !this.check
+
+      }, 2000);
     },
   }
 }
