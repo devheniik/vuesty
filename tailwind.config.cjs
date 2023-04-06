@@ -82,7 +82,7 @@ module.exports = {
         500: '#D964C5',
         600: '#CD32B2',
       },
-      black: colors.black,
+      black: '#1E2937',
       white: colors.white,
       tertiary: {
         ...colors.indigo,

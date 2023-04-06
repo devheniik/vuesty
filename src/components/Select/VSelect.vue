@@ -2,7 +2,7 @@
 import { computed, onMounted, ref, nextTick } from 'vue'
 import { onClickOutside } from '@vueuse/core'
 import {
-  UnfoldMoreIcon,
+  ChevronDownIcon,
   CheckIcon,
   SearchMagnifyingGlassIcon,
   CloseMdIcon,
@@ -27,6 +27,7 @@ const props = withDefaults(
     search?: string
     isLoading?: boolean
     delay?: number
+    searchIcon?: boolean
   }>(),
   {
     openDefault: false,
@@ -43,6 +44,7 @@ const props = withDefaults(
     autoFilter: true,
     isLoading: false,
     delay: 1000,
+    searchIcon: false,
   }
 )
 
@@ -326,7 +328,7 @@ onMounted(() => {
       aria-haspopup="menu"
       :class="['v-select__head scrollbar group', { 'v-select__head_focus': isFocused }]"
       @click="onFocus">
-      <span class="v-select__icon-box_left">
+      <span v-if="searchIcon" class="v-select__icon-box_left">
         <SearchMagnifyingGlassIcon :class="[ 'v-select__icon', { 'v-select__icon_focus' : isFocused }]" />
       </span>
         <input
@@ -364,10 +366,11 @@ onMounted(() => {
       </div>
       <div v-else class="v-select__icon-box">
         <CloseMdIcon
+          v-if="modelValue"
           :class="[ 'v-select__icon focus-none', { 'v-select__icon_focus' : isFocused }]"
           @click.stop="clear"
           @focus.stop="clear" />
-        <UnfoldMoreIcon :class="[ 'v-select__icon focus-none', { 'v-select__icon_focus' : isFocused }]" />
+        <ChevronDownIcon :class="[ 'v-select__icon focus-none', { 'v-select__icon_focus' : isFocused }]" />
       </div>
     </div>
     <transition

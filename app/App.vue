@@ -26,6 +26,31 @@
     </v-menu>
   </div> -->
   <div class="box">
+  <v-button @click="isModalOpen = true">+</v-button>
+  <v-modal v-model="isModalOpen" heading="Some Heading">
+    <h3>Stop doing it</h3>
+    <v-input></v-input>
+    <v-input></v-input>
+    <v-input></v-input>
+    <v-input></v-input>
+    <v-input></v-input>
+  </v-modal>
+</div>
+  <div class="box">
+    <v-select
+      v-model="second_select_value"
+      :is-loading="isLoaded"
+      label-key="title"
+      value-key="id"
+      :options=" options"
+      placeholder="Select"
+      :auto-filter="false"
+      :delay="5000"
+      @search="handleSearch">
+
+    </v-select>
+  </div>
+  <div class="box">
     {{tree_value}}
     <v-tree-select v-model="tree_value" :data="tree" />
   </div>
@@ -98,19 +123,7 @@
     <v-phone-input v-model="phone" />
     <v-input></v-input>
   </div>
-  <div class="box">
-    <v-modal v-model="isModalOpen" heading="Some Heading">
-      <div class="w-full">
-        <h3>Do it</h3>
-        <v-input></v-input>
-        <v-input></v-input>
-        <v-input></v-input>
-        <v-input></v-input>
-        <v-input></v-input>
-      </div>
 
-  </v-modal>
-  </div>
   <div class="box">
     <v-input type="number">input</v-input>
   </div>
@@ -240,20 +253,7 @@
 
     </VUTable>
   </div>
-  <div class="box">
-    <v-select
-        v-model="second_select_value"
-        :is-loading="isLoaded"
-        label-key="title"
-        value-key="id"
-        :options=" options"
-        placeholder="Select"
-        :auto-filter="false"
-        :delay="5000"
-        @search="handleSearch">
 
-      </v-select>
-  </div>
 
   <div class="box">
     <div class="experiment">
@@ -298,17 +298,7 @@
   <v-select></v-select>
 </div>
 
-<div class="box">
-  <v-button @click="isModalOpen = true">+</v-button>
-  <v-modal v-model="isModalOpen" heading="Some Heading">
-    <h3>Stop doing it</h3>
-    <v-input></v-input>
-    <v-input></v-input>
-    <v-input></v-input>
-    <v-input></v-input>
-    <v-input></v-input>
-  </v-modal>
-</div>
+
 
 <div class="box w-3">
   {{ttx}}

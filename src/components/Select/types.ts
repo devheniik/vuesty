@@ -28,6 +28,7 @@ export interface VSelectProps extends VSelectEvents {
   search?: string
   isLoading?: boolean
   delay?: number
+  searchIcon?: boolean
 }
 
 export interface VSelectSlots {
