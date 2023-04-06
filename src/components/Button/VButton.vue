@@ -83,10 +83,13 @@ const attrs = computed<AttributesInterface>(() => {
   <component
     v-bind="attrs"
     :is="component"
-    :class="[{ 'v-button_disabled': disabled }, `v-button_${size}`, `v-button_${color}`, 'v-button']"
+    :class="[{ 'v-button_disabled': disabled }, `v-button_${size}`, `v-button_${color}`, {'v-button_icon': $slots.icon && size !== 'small'}, {'v-button_icon_sm' : $slots.icon && size === 'small'}, 'v-button']"
     :disabled="disabled"
     @click="onClick">
-    <div :class="[{'v-button_with-text':  $slots.default} ,'icon_container']">
+    <div v-if="$slots['icon-left']" :class="[{'v-button_with-text':  $slots.default} ,'icon-container icon-left']">
+      <slot name="icon-left" />
+    </div>
+    <div v-if="$slots.icon" class="icon-container">
       <slot name="icon" />
     </div>
     <slot v-if="loading" name="loadingSlot">
@@ -100,6 +103,9 @@ const attrs = computed<AttributesInterface>(() => {
     </slot>
 
     <slot v-else />
+    <div v-if="$slots['icon-right']" class="icon-container icon-right">
+      <slot name="icon-right" />
+    </div>
   </component>
 </template>
 

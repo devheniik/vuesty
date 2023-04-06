@@ -1,20 +1,35 @@
 <template>
-  <!-- <div class="box">
-    < class="icone"></>
+  <div class="box">
     <v-button size="big">
-      <template #icon>
-        < ></>
+      <template #icon-left>
+        <ChevronDownIcon/>
+      </template>
+      Some text
+    </v-button>
+    <v-button>
+      <template #icon-right>
+        <ChevronDownIcon/>
       </template>
       Some text
     </v-button>
     <v-button>
       <template #icon>
-        < class="icone"></>
+        <ChevronDownIcon/>
+      </template>
+    </v-button>
+    <v-button size="small">
+      <template #icon>
+        <ChevronDownIcon/>
+      </template>
+    </v-button>
+    <v-button size="big">
+      <template #icon>
+        <ChevronDownIcon/>
       </template>
     </v-button>
     <v-button>Hallo</v-button>
     <v-button></v-button>
-  </div> -->
+  </div>
   <!-- <div class="box">
     <v-menu>
       <v-button>hallo</v-button>
@@ -24,7 +39,7 @@
         <v-menu-item>item 3</v-menu-item>
       </template>
     </v-menu>
-  </div> -->
+  </div>
   <div class="box">
   <v-button @click="isModalOpen = true">+</v-button>
   <v-modal v-model="isModalOpen" heading="Some Heading">
@@ -64,8 +79,7 @@
     <v-badge icon color="danger" />
     <v-badge icon color="success">
     </v-badge>
-    <!-- <v-badge color="success" :value="true"> -->
-  </div>
+     <v-badge color="success" :value="true"> -->
     <div class="box spacer">
     <v-pagination
       v-model:limit="limit"
@@ -430,12 +444,13 @@ import VCheckbox from '../src/components/Checkbox/VCheckbox.vue'
 import VPhoneInput from '../src/components/phone/VPhoneInput.vue'
 import VRadioButton from "../src/components/Radio/VRadioButton.vue"
 import VBadge from "../src/components/Badge/VBadge.vue"
+import { ChevronDownIcon } from "@devheniik/icons"
 
 import VTreeSelect from "../src/components/TreeSelect/VTreeSelect.vue"
 import { SettingsIcon } from '@devheniik/icons/dist'
 export default {
   name: "App",
-  components: {VTreeSelect,VInput, VToast, VTable, VPagination, VButton, VModal, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox, VPhoneInput, VRadioButton, VBadge },
+  components: {VTreeSelect,VInput, VToast, VTable, VPagination, VButton, VModal, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox, VPhoneInput, VRadioButton, VBadge, ChevronDownIcon },
   data() {
     return {
       tree_value: [],

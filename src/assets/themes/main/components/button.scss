@@ -7,16 +7,20 @@
 }
 
 
-.icon_container > svg {
+.icon-container > svg {
   @apply w-4 h-4
 }
 
-.v-button_big .icon_container > svg {
+.v-button_big .icon-container > svg {
   @apply w-5 h-5
 }
 
-.v-button_with-text > svg {
+.icon-container.icon-left  svg {
   @apply mr-2
+}
+
+.icon-container.icon-right  svg {
+  @apply ml-2
 }
 
 
@@ -117,3 +121,11 @@ button.v-button_disabled {
 button.v-button_light_disabled {
   @apply border-neutral-500 bg-white text-neutral-500  hover:cursor-not-allowed hover:border-neutral-500 hover:bg-white;
 } */
+
+.v-button_icon {
+  @apply px-2
+}
+
+.v-button_icon_sm {
+  @apply px-1.5
+}
