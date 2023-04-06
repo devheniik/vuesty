@@ -7,20 +7,20 @@
 }
 
 
-.icon-container > svg {
-  @apply w-4 h-4
+.icon-container {
+  @apply [&>svg]:w-4 [&>svg]:h-4
 }
 
-.v-button_big .icon-container > svg {
-  @apply w-5 h-5
+.v-button_big .icon-container {
+  @apply [&>svg]:w-5 [&>svg]:h-5
 }
 
-.icon-container.icon-left  svg {
-  @apply mr-2
+.icon-container.icon-left {
+  @apply [&>svg]:mr-2
 }
 
-.icon-container.icon-right  svg {
-  @apply ml-2
+.icon-container.icon-right {
+  @apply [&>svg]:ml-2
 }
 
 
