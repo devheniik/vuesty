@@ -34,7 +34,7 @@ withDefaults(defineProps<{
   bgWhite: boolean,
 }>(), {
   width: 'w-auto',
-  bgWhite: true
+  bgWhite: false
 })
 
 defineEmits(['update:modelValue'])
