@@ -3,6 +3,10 @@ import { ref } from 'vue'
 import { Menu, MenuButton, MenuItems } from '@headlessui/vue'
 import { MoreHorizontalIcon } from '@devheniik/icons';
 
+defineProps<{
+  icons?: boolean
+}>()
+
 const show = ref(false)
 </script>
 
@@ -18,7 +22,7 @@ const show = ref(false)
         </div>
       </slot>
     </MenuButton>
-    <MenuItems v-if="show" class="v-menu__items items-group" @click="show = false">
+    <MenuItems v-if="show" :class="[{'items-end' : icons},'v-menu__items items-group']" @click="show = false">
       <slot name="menuItems" />
     </MenuItems>
     </div>
