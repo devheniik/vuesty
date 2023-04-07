@@ -109,6 +109,6 @@ const attrs = computed<AttributesInterface>(() => {
   </component>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '../../assets/themes/main/components/button.scss';
 </style>
