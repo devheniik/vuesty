@@ -26,6 +26,6 @@ const show = ref(false)
   </Menu>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '../../assets/themes/main/components/menu.scss';
 </style>

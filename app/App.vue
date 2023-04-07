@@ -34,16 +34,23 @@
     <v-button>Hallo</v-button>
     <v-button></v-button>
   </div>
-<div class="box">
+
     <v-menu>
-      <v-button>hallo</v-button>
       <template #menuItems>
-        <v-menu-item>item 1</v-menu-item>
-        <v-menu-item>item 2</v-menu-item>
-        <v-menu-item>item 3</v-menu-item>
+        <div>
+          <ChevronDownIcon class="w-4"/>
+           <span>item 1</span>
+        </div>
+        <div>
+          <ChevronDownIcon class="w-4"/>
+           <span>item 2</span>
+        </div>
+        <div>
+          <ChevronDownIcon class="w-4"/>
+           <span>item 3</span>
+        </div>
       </template>
     </v-menu>
-  </div>
   <div class="box">
   <v-button @click="isModalOpen = true">+</v-button>
   <v-modal v-model="isModalOpen"  heading="Some Heading">
