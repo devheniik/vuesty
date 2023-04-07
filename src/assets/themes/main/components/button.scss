@@ -1,5 +1,5 @@
 .v-button-common {
-  @apply inline-flex cursor-pointer items-center justify-center whitespace-nowrap rounded-md text-base font-medium focus:outline-none focus:ring-0 focus:ring-offset-0;
+  @apply inline-flex cursor-pointer items-center justify-center whitespace-nowrap rounded-md  focus:outline-none focus:ring-0 focus:ring-offset-0;
 }
 
 .v-button {
@@ -16,11 +16,11 @@
 }
 
 .icon-container.icon-left {
-  @apply [&>svg]:mr-2
+  @apply mr-2
 }
 
 .icon-container.icon-right {
-  @apply [&>svg]:ml-2
+  @apply ml-2
 }
 
 
@@ -73,7 +73,7 @@ button.v-button_white {
 }
 
 .v-button_medium {
-  @apply v-button-common h-8 w-auto  px-4 py-2 text-sm font-medium  leading-4;
+  @apply v-button-common text-sm leading-4 h-8 w-auto  px-4 py-2 font-medium;
 }
 
 .v-button_big {

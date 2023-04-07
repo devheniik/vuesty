@@ -12,5 +12,9 @@
 }
 
 .v-checkbox__label {
+  @apply flex items-center
+}
+
+.v-checkbox__label__text {
   @apply ml-2.5
 }

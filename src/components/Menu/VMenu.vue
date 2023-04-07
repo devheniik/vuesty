@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Menu, MenuButton, MenuItems } from '@headlessui/vue'
+import { MoreHorizontalIcon } from '@devheniik/icons';
 
 const show = ref(false)
 </script>
@@ -12,9 +13,7 @@ const show = ref(false)
       <slot >
         <div class="v-menu__default-box" >
           <button class="v-menu__default-button">
-            <span class="v-menu__dot"></span>
-            <span class="v-menu__dot"></span>
-            <span class="v-menu__dot"></span>
+            <MoreHorizontalIcon class="w-5 h-5 text-primary-500" />
           </button>
         </div>
       </slot>

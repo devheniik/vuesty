@@ -5,7 +5,7 @@ export interface VRadioButtonEvents {
 }
 
 export interface VRadioButtonProps extends VRadioButtonEvents {
-  value: string | number,
+  value: string | number | boolean | null,
   label?: string | number,
   modelValue: string | number | boolean | null
 }

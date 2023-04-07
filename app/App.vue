@@ -1,5 +1,9 @@
 <template>
   <div class="box">
+    <v-menu></v-menu>
+    <v-button color="secondary" size="small">Haaaw</v-button>
+    <v-button color="secondary">Haaaw</v-button>
+    <v-button color="secondary" size="big">Haaaw</v-button>
     <v-button size="big">
       <template #icon-left>
         <ChevronDownIcon/>
@@ -30,7 +34,7 @@
     <v-button>Hallo</v-button>
     <v-button></v-button>
   </div>
-  <!-- <div class="box">
+<div class="box">
     <v-menu>
       <v-button>hallo</v-button>
       <template #menuItems>
@@ -42,7 +46,7 @@
   </div>
   <div class="box">
   <v-button @click="isModalOpen = true">+</v-button>
-  <v-modal v-model="isModalOpen" heading="Some Heading">
+  <v-modal v-model="isModalOpen"  heading="Some Heading">
     <h3>Stop doing it</h3>
     <v-input></v-input>
     <v-input></v-input>
@@ -51,6 +55,7 @@
     <v-input></v-input>
   </v-modal>
 </div>
+  <!--
   <div class="box">
     <v-select
       v-model="second_select_value"
@@ -380,6 +385,7 @@
   </div>
   <div class="box">
     <VTable
+      :edit-action="false"
       :headers="['ID', 'Name', 'Description', 'Date']"
       :rows="[
         { data1: { name: 'Row 4'}, data2: 'Row 1', data3: 'Row 1', data4: 'Row 1' },

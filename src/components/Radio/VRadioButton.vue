@@ -14,7 +14,7 @@
 <script setup lang="ts">
 
 const props = defineProps<{
-  value: string | number,
+  value: string | number | boolean | null,
   label?: string | number,
   modelValue: string | number | boolean
 }>()

@@ -28,6 +28,9 @@ export interface VButtonProps extends VButtonEvents {
 export interface VButtonSlots {
   default: () => VNode[]
   loadingSlot: () => VNode[]
+  'icon-left': () => VNode[]
+  'icon-right': () => VNode[]
+  icon: () => VNode[]
 }
 
 export type VButtonComponent = ComponentPublicInstance<VButtonProps>

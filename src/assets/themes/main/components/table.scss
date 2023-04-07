@@ -54,7 +54,7 @@ td.v-table__body__row__action {
 }
 
 .v-table__body__row__action {
-  @apply whitespace-nowrap border justify-center items-center text-center px-5 py-2 w-10;
+  @apply whitespace-nowrap border justify-center items-center text-center px-5 py-2 w-10 space-x-5;
 }
 
 .v-table__body__action-icon-primary {
@@ -62,5 +62,5 @@ td.v-table__body__row__action {
 }
 
 .v-table__body__action-icon-danger {
-  @apply inline-block h-4 w-4 text-danger-500 cursor-pointer ml-5;
+  @apply inline-block h-4 w-4 text-danger-500 cursor-pointer
 }

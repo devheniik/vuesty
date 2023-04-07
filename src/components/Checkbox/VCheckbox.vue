@@ -1,6 +1,6 @@
 <template>
   <div>
-    <label class="relative">
+    <label class="v-checkbox__label">
       <input
         :disabled="disabled"
         :checked="isChecked"
@@ -8,7 +8,7 @@
         type="checkbox"
         @click="handleClick"
       />
-      <span v-if="label" class="v-checkbox__label">{{ label }}</span>
+      <span v-if="label" class="v-checkbox__label__text">{{ label }}</span>
     </label>
   </div>
 </template>
