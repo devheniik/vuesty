@@ -31,7 +31,7 @@ withDefaults(defineProps<{
   modelValue: boolean,
   heading?: string ,
   width: string,
-  bgWhite: boolean,
+  bgWhite?: boolean,
 }>(), {
   width: 'w-auto',
   bgWhite: false
