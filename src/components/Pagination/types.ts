@@ -10,6 +10,7 @@ export interface VPaginationProps extends VPaginationEvents {
   current_page: number
   from: number
   last_page?: number
+  show_per_page?: boolean
   per_page: number
   to?: number
   total: number
