@@ -6,6 +6,10 @@
   @apply flex w-full justify-end items-center space-x-5;
 }
 
+.v-pagination__container_solo {
+  @apply v-pagination__container justify-center;
+}
+
 .v-pagination__per-page__select {
   @apply rounded-md ml-2 py-0 h-7 pr-8 pl-2 text-sm
 }
