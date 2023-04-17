@@ -132,7 +132,7 @@ const nextPage = () => {
 </script>
 
 <template>
-  <div v-if="last_page !== 1" class="v-pagination__container">
+  <div v-if="last_page !== 1" :class="[!show_per_page ? 'v-pagination__container_solo' : 'v-pagination__container']">
     <div v-if="show_per_page" class="v-pagination__per-page">
       <span>Показувати</span>
       <select
@@ -143,7 +143,7 @@ const nextPage = () => {
         <option v-for="i of per_page_variants" :key="i" :value="i">{{ i }}</option>
       </select>
     </div>
-    <div :class="[!show_per_page ? 'v-pagination_solo' : 'v-pagination']">
+    <div :class="v-pagination">
       <button :class="[{'v-pagination__arrow_disabled' : activePage === 1}, 'v-pagination__arrow v-pagination__arrow_left']" @click="previousPage">
         <ChevronLeftIcon class="v-pagination__arrow_size" />
       </button>
