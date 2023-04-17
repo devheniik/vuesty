@@ -143,7 +143,7 @@ const nextPage = () => {
         <option v-for="i of per_page_variants" :key="i" :value="i">{{ i }}</option>
       </select>
     </div>
-    <div class="v-pagination">
+    <div :class="[!show_per_page ? 'v-pagination_solo' : 'v-pagination']">
       <button :class="[{'v-pagination__arrow_disabled' : activePage === 1}, 'v-pagination__arrow v-pagination__arrow_left']" @click="previousPage">
         <ChevronLeftIcon class="v-pagination__arrow_size" />
       </button>
