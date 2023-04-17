@@ -8,6 +8,7 @@ const props = withDefaults(
     current_page: number
     from: number
     last_page?: number
+    show_per_page?: boolean
     per_page: number
     to?: number
     total: number
@@ -18,6 +19,7 @@ const props = withDefaults(
     current_page: 1,
     from: 1,
     last_page: 1,
+    show_per_page: true,
     per_page: 10,
     to: 10,
     total: 10,
@@ -131,7 +133,7 @@ const nextPage = () => {
 
 <template>
   <div v-if="last_page !== 1" class="v-pagination__container">
-    <div class="v-pagination__per-page">
+    <div v-if="show_per_page" class="v-pagination__per-page">
       <span>Показувати</span>
       <select
         :value="selectedLimit"
