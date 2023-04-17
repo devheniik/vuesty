@@ -7,7 +7,7 @@
 }
 
 .v-pagination__container_solo {
-  @apply v-pagination__container justify-center;
+  @apply flex w-full justify-center items-center space-x-5;
 }
 
 .v-pagination__per-page__select {
