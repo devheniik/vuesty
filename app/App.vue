@@ -1,7 +1,8 @@
 <template>
   <div class="box">
-    <v-input type="number"></v-input>
+    <v-input type="number" step="0.1"></v-input>
     <v-input readonly></v-input>
+    <v-input  ></v-input>
 
   </div>
   <div class="box">

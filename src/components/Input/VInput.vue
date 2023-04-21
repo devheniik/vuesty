@@ -8,6 +8,7 @@ const props = withDefaults(
     _invalid?: boolean
     disabled?: boolean
     readonly?: boolean
+    step?: any
     placeholder?: string
     type?: 'text' | 'email' | 'password' | 'number' | 'tel' | 'url' | 'search'
     rules?: 'any' | 'email' | 'stringNumbers' | 'string' | 'numbers' | 'integer' | 'volume' | 'currency' | RegExp
@@ -37,6 +38,7 @@ const props = withDefaults(
     allocateValid: false,
     required: false,
     prevent: false,
+    step: 1,
   }
 )
 
@@ -85,6 +87,13 @@ if (props.rules === 'any') {
 }
 
 const checkInput = (input: string) => {
+  if (props.type === 'number') {
+    const numberRegex = new RegExp(/^-?\d*\.?\d*$/)
+    if (!numberRegex.test(input)) {
+      return false
+    }
+  }
+
   if (regex.value) {
     return regex.value.test(input)
   }
@@ -103,6 +112,7 @@ const checkInput = (input: string) => {
 
   return true
 }
+
 
 const handleInput = (input: Event) => {
   const inputElement = input.target as HTMLInputElement
@@ -141,6 +151,15 @@ const handleClickLeftSlot = () => {
 const handleClickRightSlot = () => {
   emit('rightClick')
 }
+
+const handleKeyPress = (event: KeyboardEvent) => {
+  if(props.type !== 'number') return
+  const keyValue = event.key
+
+  if (!/^\d*\.?\d*$/.test(keyValue) && keyValue !== 'Backspace' && keyValue !== 'Tab' && keyValue !== 'Delete') {
+    event.preventDefault();
+  }
+};
 </script>
 
 <template>
@@ -158,7 +177,6 @@ const handleClickRightSlot = () => {
     <input
       :id="name"
       ref="inputRef"
-      :type="type"
       :name="name"
       :class="[
         'v-input__input',
@@ -175,7 +193,9 @@ const handleClickRightSlot = () => {
       :aria-describedby="`${name}-description`"
       :disabled="disabled"
       :readonly="readonly"
+      :step="step"
       v-bind="{ ...(invalid && { ariaDescribedby: `${name}-error` }) }"
+      @keypress="handleKeyPress"
       @input="handleInput($event)" />
     <div
       :class="[
