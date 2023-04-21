@@ -38,6 +38,10 @@
   @apply relative flex cursor-default  select-none flex-wrap py-2 pl-10 pr-4 text-gray-900 hover:bg-primary-500 hover:text-white;
 }
 
+.v-select__menu__item_solo {
+  @apply relative flex cursor-default  select-none flex-wrap p-2 text-gray-900 hover:bg-primary-500 hover:text-white;
+}
+
 .v-select__menu__item__text {
   @apply block truncate font-normal;
 }

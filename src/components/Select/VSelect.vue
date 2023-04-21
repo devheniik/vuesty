@@ -53,7 +53,7 @@ const props = withDefaults(
 interface Emits {
   (e: 'focus'): void
 
-  (e: 'update:modelValue', value: any): void
+  (e?: 'update:modelValue', value?: any): void
 
   (e: 'select'): void
 
@@ -149,6 +149,19 @@ const getLabel = (option: any) => {
 
   return option
 }
+
+const isLabelsReady = computed(() => {
+  if (isOptionObject()) {
+    if (props.multiple) {
+      return props.modelValue.every((value: any) => getLabelByValue(value) !== undefined);
+    } else {
+      return getLabelByValue(props.modelValue) !== undefined;
+    }
+  }
+
+  return true;
+});
+
 
 const getLabelByValue = (value: any) => {
   if (isOptionObject()) {
@@ -320,7 +333,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div ref="selectRef" class="v-select" @focus.stop>
+  <div v-if="isLabelsReady" ref="selectRef" class="v-select" @focus.stop>
     <div
       ref="headRef"
       type="button"
@@ -366,7 +379,7 @@ onMounted(() => {
       </div>
       <div v-else class="v-select__icon-box">
         <CloseMdIcon
-          v-if="modelValue"
+          v-if="modelValue && deselect"
           :class="[ 'v-select__icon focus-none', { 'v-select__icon_focus' : isFocused }]"
           @click.stop="clear"
           @focus.stop="clear" />
@@ -390,7 +403,7 @@ onMounted(() => {
             @click.stop="deselectItem(value)">
             <div class="v-tag-in-selected-box">
               {{ getLabelByValue(value) }}
-              <CloseMdIcon :class="['v-select__icon-deselect focus-none']" @click.stop="deselectItem(value)" />
+              <CloseMdIcon  :class="['v-select__icon-deselect focus-none']" @click.stop="deselectItem(value)" />
             </div>
           </slot>
         </div>
@@ -403,7 +416,7 @@ onMounted(() => {
         <li
           v-for="(option, index) in filteredOptions"
           :key="index"
-          class="v-select__menu__item group"
+          :class="[multiple ? 'v-select__menu__item' : 'v-select__menu__item_solo', 'group']"
           role="option"
           @click="onSelect(option)"
           @keyup.enter="onSelect(option)">
@@ -411,7 +424,7 @@ onMounted(() => {
             <span :class="[`v-select__menu__item__text`, { 'v-select__menu__item__text_selected': isSelected(option) }]">{{
                 getLabel(option)
               }}</span>
-            <span v-show="isSelected(option)" class="v-select__menu__item_selected__icon-box">
+            <span v-if="multiple" v-show="isSelected(option)" class="v-select__menu__item_selected__icon-box">
               <CheckIcon class="v-select__menu__item_selected__icon" />
             </span>
           </slot>

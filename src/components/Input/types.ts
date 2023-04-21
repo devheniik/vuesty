@@ -7,7 +7,7 @@ export interface VInputEvents {
 }
 
 export interface VInputProps extends VInputEvents {
-  modelValue: string | number
+  modelValue: string | number | null
   _valid?: boolean
   _invalid?: boolean
   disabled?: boolean

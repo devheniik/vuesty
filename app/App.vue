@@ -1,5 +1,10 @@
 <template>
   <div class="box">
+    <v-input type="number"></v-input>
+    <v-input readonly></v-input>
+
+  </div>
+  <div class="box">
     <v-menu></v-menu>
     <v-button color="secondary" size="small">Haaaw</v-button>
     <v-button color="secondary">Haaaw</v-button>
@@ -335,34 +340,33 @@
       {{v_select_value}}
       <v-select
         v-model="v_select_value"
-        :is-loading="isLoaded"
         label-key="title"
-        multiple
+        :multiple="false"
         value-key="id"
-        :options=" options"
+        :options="options"
         placeholder="Select"
         :auto-filter="false"
-        :delay="5000"
         @search="handleSearch">
 
       </v-select>
 
-    <v-select
+    <!-- <v-select
+      v-model="v_select_value"
+      :options="[1,2,3]"
+      @focus="handleFocus">
+
+    </v-select> -->
+
+
+
+
+    <!-- <v-select
       v-model="v_select_value"
       multiple
       :options="[1,2,3]"
       @focus="handleFocus">
 
-    </v-select>
-
-
-    <v-select
-      v-model="v_select_value"
-      multiple
-      :options="[1,2,3]"
-      @focus="handleFocus">
-
-    </v-select>
+    </v-select> -->
   </div>
 
 
@@ -456,14 +460,12 @@ import VAvatarGroup from '../src/components/AvatarGroup/VAvatarGroup.vue'
 import VCheckbox from '../src/components/Checkbox/VCheckbox.vue'
 import VPhoneInput from '../src/components/phone/VPhoneInput.vue'
 import VRadioButton from "../src/components/Radio/VRadioButton.vue"
-import VBadge from "../src/components/Badge/VBadge.vue"
 import { ChevronDownIcon } from "@devheniik/icons"
 
-import VTreeSelect from "../src/components/TreeSelect/VTreeSelect.vue"
-import { SettingsIcon } from '@devheniik/icons/dist'
+// import VTreeSelect from "../src/components/TreeSelect/VTreeSelect.vue"
 export default {
   name: "App",
-  components: {VTreeSelect,VInput, VToast, VTable, VPagination, VButton, VModal, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox, VPhoneInput, VRadioButton, VBadge, ChevronDownIcon },
+  components: {VInput, VToast, VTable, VPagination, VButton, VModal, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox, VPhoneInput, VRadioButton, ChevronDownIcon },
   data() {
     return {
       tree_value: [],
@@ -596,7 +598,26 @@ export default {
       isModalOpen: false,
       isModalOpen2: false,
       isLoaded: false,
-      options: [],
+      options: [
+    {
+        userId: 1,
+        id: 1,
+        title: "delectus aut autem",
+        completed: false
+    },
+    {
+        userId: 1,
+        id: 3,
+        title: "delectus aut autem",
+        completed: false
+    },
+    {
+        userId: 1,
+        id: 2,
+        title: "delectus aut autem",
+        completed: false
+    },
+],
       v_select_value: null,
       second_select_value: null,
       ttx: '123123',
@@ -614,9 +635,9 @@ export default {
       phone: '+38 (093) 711-99-99',
   }
 },
-  mounted() {
-    this.getOptions()
-  },
+  // mounted() {
+  //   this.getOptions()
+  // },
   methods: {
     handleP(value) {
       console.log(value)

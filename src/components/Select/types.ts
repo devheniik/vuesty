@@ -8,7 +8,7 @@ export interface VSelectEvents {
   onClear?: () => void
   onOpenPanel?: () => void
   onClosePanel?: () => void
-  ['onUpdate:modelValue']: (value: any) => void
+  ['onUpdate:modelValue']?: (value?: any) => void
 }
 
 export interface VSelectProps extends VSelectEvents {

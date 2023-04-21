@@ -3,7 +3,7 @@ import { ref, useSlots } from 'vue'
 
 const props = withDefaults(
   defineProps<{
-    modelValue: string | number
+    modelValue: string | number | null
     _valid?: boolean
     _invalid?: boolean
     disabled?: boolean
@@ -53,7 +53,7 @@ const inputRef = ref()
 const valid = ref<boolean>(props._valid)
 const invalid = ref<boolean>(props._invalid)
 
-const value = ref<string | number>(props.modelValue)
+const value = ref<string | number | null>(props.modelValue)
 const regex = ref<RegExp | false>(false)
 
 // const _placeholder = ref<string | false>(props.placeholder)
@@ -174,6 +174,7 @@ const handleClickRightSlot = () => {
       :aria-invalid="invalid"
       :aria-describedby="`${name}-description`"
       :disabled="disabled"
+      :readonly="readonly"
       v-bind="{ ...(invalid && { ariaDescribedby: `${name}-error` }) }"
       @input="handleInput($event)" />
     <div
