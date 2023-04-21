@@ -194,6 +194,7 @@ const handleKeyPress = (event: KeyboardEvent) => {
       :disabled="disabled"
       :readonly="readonly"
       :step="step"
+      :type="type === 'number' ? 'text' : type"
       v-bind="{ ...(invalid && { ariaDescribedby: `${name}-error` }) }"
       @keypress="handleKeyPress"
       @input="handleInput($event)" />
