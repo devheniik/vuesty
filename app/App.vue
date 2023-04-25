@@ -1,5 +1,14 @@
 <template>
   <div class="box">
+    {{ option2 }}
+    <v-switch v-model="option2">
+      <template #default>
+        <img src="../src/assets/components/Frame1455.svg">
+      </template>
+    </v-switch>
+
+    <v-switch v-model="option2" />
+    <v-switch v-model="option2" disabled />
     <v-input type="number" step="0.1"></v-input>
     <v-input readonly></v-input>
     <v-input  ></v-input>
@@ -118,7 +127,7 @@
       <v-checkbox label="label" disabled></v-checkbox>
       <v-checkbox label="label" error></v-checkbox>
       {{ option2 }}
-      <v-checkbox :can-change="checkCondition" label="Option 2" :model-value="option2" @change-checked="updateOption2"></v-checkbox>
+      <!-- <v-checkbox :can-change="checkCondition" label="Option 2" :model-value="option2" @change-checked="updateOption2"></v-checkbox> -->
     </div>
     <div class="box">
       <v-phone-input v-model="phone" />
@@ -305,9 +314,9 @@
   <div class="box">
     <v-pagination :last_page="10" @change="logger" />
   </div>
-  <div class="box">
+  <!-- <div class="box">
     <v-textarea v-model="ttf" placeholder="lalalalal"></v-textarea>
-  </div>
+  </div> -->
   <div class="box">
     <v-alert></v-alert>
   </div>
@@ -437,7 +446,7 @@
 
 
   <div class="box">
-    <VTreeNode />
+    <!-- <VTreeNode /> -->
   </div>
 
 
@@ -455,6 +464,7 @@ import VModal from "../src/components/Modal/VModal.vue"
 import VTextarea from "../src/components/Textarea/VTextarea.vue"
 import VAvatar from '../src/components/Avatar/VAvatar.vue'
 import VAlert from '../src/components/Alert/VAlert.vue'
+import VSwitch from '../src/components/Switch/VSwitch.vue'
 import VMenu from '../src/components/Menu/VMenu.vue'
 import VUTable from '../src/components/UTable/VUTable.vue'
 import VAvatarGroup from '../src/components/AvatarGroup/VAvatarGroup.vue'
@@ -466,7 +476,7 @@ import { ChevronDownIcon } from "@devheniik/icons"
 // import VTreeSelect from "../src/components/TreeSelect/VTreeSelect.vue"
 export default {
   name: "App",
-  components: {VInput, VToast, VTable, VPagination, VButton, VModal, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox, VPhoneInput, VRadioButton, ChevronDownIcon },
+  components: {VInput, VToast, VTable, VPagination, VButton, VModal, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox, VPhoneInput, VRadioButton, VSwitch, ChevronDownIcon },
   data() {
     return {
       tree_value: [],

@@ -11,7 +11,7 @@ import { VBadgeComponent, VBadgeProps, VBadgeSlots } from './components/Badge/ty
 import { VMenuComponent, VMenuSlots } from './components/Menu/types'
 import { VNotificationComponent, VNotificationProps, VNotificationSlots } from './components/Notification/types'
 import { VPaginationComponent, VPaginationProps } from './components/Pagination/types'
-import { VSwitchComponent, VSwitchSlots } from './components/Switch/types'
+import { VSwitchComponent, VSwitchSlots, VSwitchProps } from './components/Switch/types'
 import { VTabsComponent, VTabsProps, VTabsSlots } from './components/Tabs/types'
 import { VSelectComponent, VSelectProps, VSelectSlots } from './components/Select/types'
 import { VTableComponent, VTableProps } from './components/Table/types'
@@ -59,7 +59,7 @@ declare module '@vue/runtime-core' {
     VMenu: GlobalComponentConstructor<{}, VMenuSlots>
     VNotification: GlobalComponentConstructor<VNotificationProps, VNotificationSlots>
     VPagination: GlobalComponentConstructor<VPaginationProps, VNodeProps>
-    VSwitch: GlobalComponentConstructor<{}, VSwitchSlots>
+    VSwitch: GlobalComponentConstructor<VSwitchProps, VSwitchSlots>
     VTabs: GlobalComponentConstructor<VTabsProps, VTabsSlots>
     VSelect: GlobalComponentConstructor<VSelectProps, VSelectSlots>
     VTable: GlobalComponentConstructor<VTableProps, VNodeProps>
