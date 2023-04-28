@@ -1,5 +1,15 @@
 <template>
   <div class="box">
+    <v-button>
+      <template #icon>
+        <img src="../src/assets/components/Frame1455.svg">
+      </template>
+    </v-button>
+  </div>
+  <div class="box">
+    <v-avatar  size="gigantic" text="No Way"></v-avatar>
+  </div>
+  <div class="box">
     {{ option2 }}
     <v-switch v-model="option2">
       <template #default>

@@ -2,6 +2,10 @@
   @apply v-avatar_big relative;
 }
 
+.v-avatar:has(img) {
+  @apply bg-transparent;
+}
+
 .v-avatar > img {
   @apply h-full w-full rounded-full object-cover;
 }

@@ -1,13 +1,5 @@
-.v-menu__dot {
-  @apply inline-block h-[3px] w-[3px] bg-primary-500 rounded-full;
-}
-
 .v-menu__default-box {
   @apply flex items-center justify-center rounded-md ;
-}
-
-.v-menu__default-button {
-  @apply p-1 flex space-x-[3px];
 }
 
 .v-menu__items {
@@ -16,4 +8,12 @@
 
 .v-menu__items > * {
   @apply hover:bg-neutral-200 rounded py-1 px-2 cursor-pointer;
+}
+
+.v-menu__items span {
+  @apply whitespace-nowrap
+}
+
+.v-menu__items svg {
+  @apply w-5 h-5
 }

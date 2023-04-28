@@ -165,6 +165,7 @@ const handleKeyPress = (event: KeyboardEvent) => {
 <template>
   <div class="v-input">
     <div
+      v-if="leftIcon()"
       :class="[
         'v-input__icon-left-box',
         { 'v-input__icon-disabled': disabled },
@@ -199,6 +200,7 @@ const handleKeyPress = (event: KeyboardEvent) => {
       @keypress="handleKeyPress"
       @input="handleInput($event)" />
     <div
+      v-if="rightIcon()"
       :class="[
         'v-input__icon-right-box',
         { 'v-input__icon-disabled': disabled },

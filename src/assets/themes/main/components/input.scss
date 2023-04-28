@@ -1,7 +1,7 @@
 /* inputs */
 
 .v-input {
-  @apply relative mt-1 h-9 w-full  rounded-md;
+  @apply relative mt-1 h-8 w-full  rounded-md;
 }
 
 .v-input__input-danger {
@@ -21,7 +21,7 @@
 }
 
 .v-input__input {
-  @apply block h-9 w-full rounded-md border-neutral-300 shadow-none ring-0 hover:shadow-none focus:outline-none sm:text-sm;
+  @apply block h-full w-full rounded-md border-neutral-300 shadow-none ring-0 hover:shadow-none focus:outline-none sm:text-sm;
 }
 
 .v-input__input-pl {
