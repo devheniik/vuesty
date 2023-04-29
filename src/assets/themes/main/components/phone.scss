@@ -3,7 +3,7 @@
 }
 
 input.v-phone__input {
-  @apply rounded-r-md h-9 w-full border-neutral-300  placeholder-neutral-400  focus:border-neutral-300 shadow-none ring-0 text-sm
+  @apply rounded-r-md h-8 w-full border-neutral-300  placeholder-neutral-400  focus:border-neutral-300 shadow-none ring-0 text-sm
 }
 
 .v-phone__country {
@@ -26,5 +26,5 @@ input.v-phone__country__input {
   @apply w-5 mr-1.5
 }
 .country-input__container {
-  @apply flex overflow-y-auto overflow-x-hidden bg-white rounded-l-md text-center cursor-pointer h-9 border border-neutral-300 border-r-0 placeholder-neutral-400 shadow-sm
+  @apply flex overflow-y-auto overflow-x-hidden bg-white rounded-l-md text-center cursor-pointer h-8 border border-neutral-300 border-r-0 placeholder-neutral-400 shadow-sm
 }

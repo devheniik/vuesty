@@ -1,9 +1,9 @@
 .v-select {
-  @apply relative mt-1 h-9 w-full bg-white rounded-md sm:text-sm;
+  @apply relative mt-1 h-8 w-full bg-white rounded-md sm:text-sm;
 }
 
 .v-select__head {
-  @apply relative flex h-9 w-full flex-row items-center justify-between overflow-hidden rounded-md border border-gray-300 p-2 text-left sm:text-sm text-black placeholder-gray-400 shadow-sm;
+  @apply relative flex h-8 w-full flex-row items-center justify-between overflow-hidden rounded-md border border-gray-300 p-2 text-left sm:text-sm text-black placeholder-gray-400 shadow-sm;
 }
 
 .v-select__head_focus {
@@ -11,7 +11,7 @@
 }
 
 .v-select__head__main {
-  @apply flex h-9 w-full items-center text-left font-normal;
+  @apply flex h-8 w-full items-center text-left font-normal;
 }
 
 .v-select__head__start {
@@ -51,7 +51,7 @@
 }
 
 .v-select__placeholder-text{
-  @apply flex h-9 w-full pl-0 items-center sm:text-sm text-neutral-400;
+  @apply flex h-8 w-full pl-0 items-center sm:text-sm text-neutral-400;
 }
 
 /* TAGS */
