@@ -16,10 +16,11 @@
   background-color: #ccc;
   border-radius: 12.5px;
   transition: background-color 0.2s;
+  @apply text-neutral-500;
 }
 
 .switch-active {
-  background-color: #4caf50;
+  @apply bg-success-500;
 }
 
 .switch-circle {
@@ -35,4 +36,7 @@
 
 .switch-circle-active {
   transform: translateX(20px);
+  @apply text-success-500;
 }
+
+

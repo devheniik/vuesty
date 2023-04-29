@@ -17,8 +17,13 @@
       </template>
     </v-switch>
 
-    <v-switch v-model="option2" />
-    <v-switch v-model="option2" disabled />
+    <v-switch v-model="option2">
+      <ChevronDownIcon />
+    </v-switch>
+
+    <v-switch v-model="option2" disabled>
+      <ChevronDownIcon />
+    </v-switch>
     <v-input type="number" step="0.1"></v-input>
     <v-input readonly></v-input>
     <v-input  ></v-input>
