@@ -1,5 +1,5 @@
 .radio-button {
-  @apply   inline-block cursor-pointer
+  @apply flex cursor-pointer
 }
 
 input.radio-button__input {
@@ -7,5 +7,5 @@ input.radio-button__input {
 }
 
 .radio-button__label {
-  @apply ml-2
+  @apply ml-2.5
 }

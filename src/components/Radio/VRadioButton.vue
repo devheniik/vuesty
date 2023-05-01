@@ -1,14 +1,17 @@
 <template>
-  <label class="radio-button">
+  <div class="radio-button">
     <input
+      id="input"
       class="radio-button__input"
       type="radio"
       :value="value"
       :checked="modelValue === value"
       @input="updateValue"
     />
-    <span v-if="label" class="radio-button__label">{{ label }}</span>
-  </label>
+    <label v-if="$slots.default" class="radio-button__label" for="input">
+      <slot />
+    </label>
+  </div>
 </template>
 
 <script setup lang="ts">

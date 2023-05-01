@@ -1,7 +1,9 @@
 <template>
   <div class="box">
     <v-button>
+      <template #icon>
         <img src="../src/assets/components/Frame1455.svg">
+      </template>
     </v-button>
   </div>
   <div class="box">
@@ -170,6 +172,18 @@
       :value="color"
       :label="color"
     />
+    <v-radio-button>
+      <template #default>
+        <div class="text-sm">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto quasi eveniet alias dolor neque et fugiat recusandae nobis beatae? Similique amet optio modi sed neque, vero obcaecati sit aut commodi veniam maiores quasi culpa ipsam itaque inventore veritatis unde ut explicabo! Deleniti veritatis esse provident possimus beatae sequi ipsum alias expedita itaque ipsa iure laudantium, eaque quam reprehenderit ex molestiae assumenda fuga tenetur. Porro suscipit expedita vel illo dolorem!
+        </div>
+      </template>
+    </v-radio-button>
+        <v-radio-button>
+      <template #default>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid architecto quibusdam odio beatae veniam, fuga ipsam tempore et cum assumenda nemo! Adipisci molestiae distinctio, harum officia quam, blanditiis, eius temporibus impedit beatae deleniti repellat quasi. Quisquam, voluptatum. Quisquam, voluptatum.
+      </template>
+    </v-radio-button>
   </div>
   <div class="box">
     <v-phone-input v-model="phone" />
@@ -746,6 +760,11 @@ export default {
 
 .spacer {
   @apply space-y-4 bg-white
+}
+
+.text-sm {
+  font-size: 12px;
+  margin-top: 1px
 }
 
 .experiment {
