@@ -13,7 +13,7 @@
   position: relative;
   width: 44px;
   height: 24px;
-  background-color: #ccc;
+  @apply bg-neutral-500;
   border-radius: 12.5px;
   transition: background-color 0.2s;
   @apply text-neutral-500;
@@ -32,6 +32,7 @@
   background-color: white;
   border-radius: 50%;
   transition: transform 0.2s;
+  padding: 1px;
 }
 
 .switch-circle-active {

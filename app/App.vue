@@ -1,9 +1,7 @@
 <template>
   <div class="box">
     <v-button>
-      <template #icon>
         <img src="../src/assets/components/Frame1455.svg">
-      </template>
     </v-button>
   </div>
   <div class="box">
@@ -12,13 +10,11 @@
   <div class="box">
     {{ option2 }}
     <v-switch v-model="option2">
-      <template #default>
-        <img src="../src/assets/components/Frame1455.svg">
-      </template>
+      <PaperclipIcon />
     </v-switch>
 
     <v-switch v-model="option2">
-      <ChevronDownIcon />
+      <ArchiveBoxIcon />
     </v-switch>
 
     <v-switch v-model="option2" disabled>
@@ -486,12 +482,12 @@ import VAvatarGroup from '../src/components/AvatarGroup/VAvatarGroup.vue'
 import VCheckbox from '../src/components/Checkbox/VCheckbox.vue'
 import VPhoneInput from '../src/components/phone/VPhoneInput.vue'
 import VRadioButton from "../src/components/Radio/VRadioButton.vue"
-import { ChevronDownIcon } from "@devheniik/icons"
+import { ChevronDownIcon, ArchiveBoxIcon, PaperclipIcon } from "@devheniik/icons"
 
 // import VTreeSelect from "../src/components/TreeSelect/VTreeSelect.vue"
 export default {
   name: "App",
-  components: {VInput, VToast, VTable, VPagination, VButton, VModal, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox, VPhoneInput, VRadioButton, VSwitch, ChevronDownIcon },
+  components: {VInput, VToast, VTable, VPagination, VButton, VModal, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox, VPhoneInput, VRadioButton, VSwitch, ChevronDownIcon, PaperclipIcon, ArchiveBoxIcon},
   data() {
     return {
       tree_value: [],
