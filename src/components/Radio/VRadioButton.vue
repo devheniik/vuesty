@@ -1,7 +1,7 @@
 <template>
   <div class="radio-button">
     <input
-      id="input"
+      :id="inputId"
       class="radio-button__input"
       type="radio"
       :value="value"
@@ -15,11 +15,12 @@
 </template>
 
 <script setup lang="ts">
-
+import {computed} from 'vue'
 const props = defineProps<{
   value: string | number | boolean | null,
   label?: string | number,
   modelValue: string | number | boolean
+  id?: string
 }>()
 
 const emit = defineEmits(['update:modelValue'])
@@ -27,6 +28,8 @@ const emit = defineEmits(['update:modelValue'])
 const  updateValue = () => {
   emit('update:modelValue', props.value)
 }
+
+const inputId = computed(() => props.id || `radio-${Math.random().toString(36).slice(2, 12)}`)
 </script>
 
 <style scoped>
