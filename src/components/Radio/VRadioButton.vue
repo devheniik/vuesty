@@ -8,7 +8,7 @@
       :checked="modelValue === value"
       @input="updateValue"
     />
-    <label v-if="$slots.default" class="radio-button__label" for="input">
+    <label v-if="$slots.default" class="radio-button__label" :for="inputId">
       <slot />
     </label>
   </div>
