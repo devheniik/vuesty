@@ -14,35 +14,38 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed } from 'vue';
 
 const emits = defineEmits<{
-  (e: 'update:modelValue', value: boolean): void
-  (e: 'change-checked', value: boolean): void
+  (e: 'update:modelValue', value: boolean): void;
+  (e: 'change-checked', value: boolean): void;
 }>()
 
 const props = withDefaults(defineProps<{
-  label?: string
-  disabled?: boolean
-  error?: boolean
-  modelValue?: boolean
+  label?: string;
+  disabled?: boolean;
+  error?: boolean;
+  modelValue?: boolean;
 }>(), {
   label: '',
   disabled: false,
-  error: false
+  error: false,
 });
 
-const isChecked = ref(props.modelValue || false);
-
+const isChecked = computed({
+  get: () => props.modelValue || false,
+  set: (value: boolean) => {
+    emits('update:modelValue', value);
+    emits('change-checked', value);
+  },
+});
 
 async function handleClick() {
   if (props.disabled) return;
-    isChecked.value = !isChecked.value;
-
-    emits('update:modelValue', isChecked.value);
-    emits('change-checked', isChecked.value);
+  isChecked.value = !isChecked.value;
 }
 </script>
+
 
 <style scoped>
 @import '../../assets/themes/main/components/checkbox.scss';
