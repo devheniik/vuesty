@@ -14,7 +14,7 @@ export interface VInputProps extends VInputEvents {
   readonly?: boolean
   placeholder?: string
   type?: 'text' | 'email' | 'password' | 'number' | 'tel' | 'url' | 'search'
-  rules?: 'any' | 'stringNumbers' | 'string' | 'numbers' | 'integer' | 'volume' | 'currency' | RegExp
+  rules?: 'any' | 'stringNumbers' | 'email' | 'string' | 'numbers' | 'integer' | 'volume' | 'currency' | RegExp
   clearable?: boolean
   name?: string
   applyColorToLeftIcon?: boolean

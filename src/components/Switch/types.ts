@@ -1,7 +1,7 @@
 import type { ComponentPublicInstance, VNode } from 'vue'
 
 export interface VSwitchEvents {
-  (e?: 'update:modelValue', value?: boolean): void;
+  'update:modelValue'?: () => void
 }
 
 export interface VSwitchProps extends VSwitchEvents {
