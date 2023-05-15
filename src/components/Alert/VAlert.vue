@@ -65,7 +65,7 @@ const icon = computed<FunctionalComponent<HTMLAttributes & VNodeProps> | string>
 
 <template>
   <div class="v-alert">
-    <div :class="['v-alert__left-border', `bg-${variant}-medium`]"></div>
+    <div :class="['v-alert__left-border', `v_bg-${variant}-medium`]"></div>
     <slot name="icon">
       <component :is="icon" :class="['v-alert__icon', `v-text_${variant}_medium`]" />
     </slot>
@@ -85,7 +85,9 @@ const icon = computed<FunctionalComponent<HTMLAttributes & VNodeProps> | string>
       </div>
     </main>
     <button :class="[{ 'v-alert__close_flat': !$slots.default && !controls }, 'v-alert__close']" @click="close">
-      <CloseMdIcon class="v-alert__close-icon" />
+      <slot name="closeIcon">
+        <CloseMdIcon class="v-alert__close-icon" />
+      </slot>
     </button>
   </div>
 </template>

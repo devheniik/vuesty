@@ -1,5 +1,22 @@
 <template>
   <div class="box">
+    <v-alert :controls="false" >
+      <template #closeIcon>
+        <PaperclipIcon  class="icone"/>
+      </template>
+    </v-alert>
+    <v-alert>
+      <template #closeIcon>
+        <PaperclipIcon  class="icone"/>
+      </template>
+    </v-alert>
+    <v-alert />
+    <v-alert />
+    <v-alert />
+    <v-alert />
+  </div>
+
+  <div class="box">
     <v-button>
       <template #icon>
         <img src="../src/assets/components/Frame1455.svg">
