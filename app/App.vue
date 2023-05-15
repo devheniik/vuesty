@@ -1,6 +1,13 @@
 <template>
-  <div class="box">
+  <div class="box space-y-2">
     <v-alert :controls="false" >
+      a
+      <template #closeIcon>
+        <PaperclipIcon  class="icone"/>
+      </template>
+    </v-alert>
+    <v-alert label='' :controls="false" >
+      Some info
       <template #closeIcon>
         <PaperclipIcon  class="icone"/>
       </template>
@@ -795,5 +802,9 @@ export default {
 
 svg {
   stroke-width: 0px;
+}
+
+.space-y-2 > * {
+  margin-top: 15px;
 }
 </style>

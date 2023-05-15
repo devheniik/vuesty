@@ -7,14 +7,13 @@ import type { FunctionalComponent, HTMLAttributes, VNodeProps } from 'vue'
 const props = withDefaults(
   defineProps<{
     variant?: 'primary' | 'success' | 'warning' | 'danger'
-    label: string
+    label?: string
     acceptButton?: string
     cancelButton?: string
     controls?: boolean
   }>(),
   {
     variant: 'primary',
-    label: 'Label',
     acceptButton: 'Accept',
     cancelButton: 'Cancel',
     controls: true,
@@ -84,7 +83,10 @@ const icon = computed<FunctionalComponent<HTMLAttributes & VNodeProps> | string>
         </v-button>
       </div>
     </main>
-    <button :class="[{ 'v-alert__close_flat': !$slots.default && !controls }, 'v-alert__close']" @click="close">
+    <button
+    :class="[{ 'v-alert__close_flat': !$slots.default && !controls },
+    { 'v-alert__close_aligned': !props.label },
+    'v-alert__close']" @click="close">
       <slot name="closeIcon">
         <CloseMdIcon class="v-alert__close-icon" />
       </slot>

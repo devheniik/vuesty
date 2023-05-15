@@ -46,6 +46,10 @@
   @apply mt-4 self-start;
 }
 
+.v-alert__close_aligned {
+  @apply mt-2;
+}
+
 .v-alert__close_flat {
   @apply mt-2;
 }

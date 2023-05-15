@@ -8,7 +8,7 @@ export interface VAvatarEvents {
 
 export interface VAvatarProps extends VAvatarEvents {
   color?: 'primary' | 'success' | 'warning' | 'danger'
-  label: string
+  label?: string
   acceptButton?: string
   cancelButton?: string
   controls?: boolean
