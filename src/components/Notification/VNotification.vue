@@ -10,13 +10,13 @@ withDefaults(
 )
 
 interface Emits {
-  (e: 'onNotification'): void
+  (e: 'showNotifications'): void
 }
 
 const emit = defineEmits<Emits>()
 
 const onNotification = () => {
-  emit('onNotification')
+  emit('showNotifications')
 }
 </script>
 

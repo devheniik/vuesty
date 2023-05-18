@@ -1,6 +1,10 @@
 import type { ComponentPublicInstance, VNode } from 'vue'
 
-export interface VNotificationProps {
+export interface VNotificationEvents {
+  showNotifications?: () => void
+}
+
+export interface VNotificationProps extends VNotificationEvents {
   count?: number
 }
 
