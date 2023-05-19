@@ -9,7 +9,6 @@ const props = withDefaults(
     volume: number
     units: string
     height?: number
-    small?: boolean
     shipment?: boolean
     full?: boolean
   }>(),

@@ -1,4 +1,7 @@
 <template>
+  <div class="box">
+    <v-progress :ready="10" :volume="101" units="kg" :loaded="12"  />
+  </div>
   <div class="box space-y-2">
     <v-alert :controls="false" >
       a
@@ -520,12 +523,13 @@ import VAvatarGroup from '../src/components/AvatarGroup/VAvatarGroup.vue'
 import VCheckbox from '../src/components/Checkbox/VCheckbox.vue'
 import VPhoneInput from '../src/components/phone/VPhoneInput.vue'
 import VRadioButton from "../src/components/Radio/VRadioButton.vue"
+import VProgress from "../src/components/Progress/VProgress.vue"
 import { ChevronDownIcon, ArchiveBoxIcon, PaperclipIcon } from "@devheniik/icons"
 
 // import VTreeSelect from "../src/components/TreeSelect/VTreeSelect.vue"
 export default {
   name: "App",
-  components: {VInput, VToast, VTable, VPagination, VButton, VModal, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox, VPhoneInput, VRadioButton, VSwitch, ChevronDownIcon, PaperclipIcon, ArchiveBoxIcon},
+  components: {VInput, VToast, VTable, VPagination, VButton, VModal, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox, VPhoneInput, VRadioButton, VSwitch, ChevronDownIcon, PaperclipIcon, ArchiveBoxIcon, VProgress},
   data() {
     return {
       tree_value: [],
