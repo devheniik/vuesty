@@ -1,6 +1,6 @@
 <template>
   <div class="box">
-    <v-progress :ready="10" :volume="101" units="kg" :loaded="12"  />
+    <v-progress :ready="5" :volume="101"   />
   </div>
   <div class="box space-y-2">
     <v-alert :controls="false" >

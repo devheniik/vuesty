@@ -37,7 +37,8 @@
 }
 
 .v-progress__body__colored {
-  @apply relative block h-full overflow-hidden rounded-l-3xl bg-success-1000 bg-gradient-to-r;
+  @apply relative block h-full overflow-hidden rounded-l-3xl ;
+  background: linear-gradient(269.1deg, rgba(53, 224, 152, 0.7) 0%, rgba(10, 100, 236, 0.7) 100%);
 }
 
 .test {

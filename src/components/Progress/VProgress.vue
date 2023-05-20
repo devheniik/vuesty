@@ -4,10 +4,10 @@ import { computed } from 'vue'
 const props = withDefaults(
   defineProps<{
     ready: number
-    loaded: number
+    loaded?: number
     way?: number
     volume: number
-    units: string
+    units?: string
     height?: number
     shipment?: boolean
     full?: boolean
@@ -15,8 +15,8 @@ const props = withDefaults(
   {
     ready: 0,
     volume: 150,
-    units: 'т',
     way: 0,
+    loaded: 0,
     full: true,
     shipment: false,
   }
@@ -78,7 +78,7 @@ const percent_in_way = computed(() => {
       </div>
 
       <div>
-        <span class="v-progress__badge v-progress__badge_needed">
+        <span v-if="loaded" class="v-progress__badge v-progress__badge_needed">
           {{ volume_needed }}
         </span>
 
