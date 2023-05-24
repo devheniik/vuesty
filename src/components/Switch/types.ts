@@ -10,7 +10,8 @@ export interface VSwitchProps extends VSwitchEvents {
 }
 
 export interface VSwitchSlots {
-  default: () => VNode[]
+  component: () => VNode[]
+  tooltip: () => VNode[]
 }
 
 export type VSwitchComponent = ComponentPublicInstance<VSwitchProps>

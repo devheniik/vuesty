@@ -1,0 +1,85 @@
+.tooltip__container {
+  @apply absolute p-4  rounded-lg bg-white shadow-2xl z-20 opacity-0 transition-all duration-300 box-border;
+  display: flex;
+
+}
+
+.tooltip[data-placement="top"] .tooltip__container {
+  @apply bottom-10;
+  transform: translateX(-50%);
+  margin-left: 50%;
+}
+
+.tooltip[data-placement="top"] .tooltip__container::before {
+  content: "";
+  position: absolute;
+  transform: translate(-50%, 6px);
+  left: 50%;
+  bottom: 0;;
+  border-right: 7px solid transparent;
+  border-left: 7px solid transparent;
+  border-top: 7px solid white;
+}
+
+.tooltip[data-placement="right"] .tooltip__container {
+  @apply left-[100%] -top-4 ml-2
+}
+
+.tooltip[data-placement="right"] .tooltip__container::before {
+  content: "";
+  position: absolute;
+  transform: translateY(4px);
+  left: -6px;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-right: 7px solid white;
+}
+
+.tooltip[data-placement="bottom"] .tooltip__container {
+  @apply top-10;
+  transform: translateX(-50%);
+  margin-left:50%;
+}
+
+.tooltip[data-placement="bottom"] .tooltip__container::before {
+  content: "";
+  position: absolute;
+  transform: translate(7px, -6px);
+  top: 0;
+  right: 50%;
+  border-right: 7px solid transparent;
+  border-left: 7px solid transparent;
+  border-bottom: 7px solid white;
+
+}
+
+.tooltip[data-placement="left"] .tooltip__container {
+  @apply -left-2 top-0 translate-x-[-100%]
+}
+
+.tooltip[data-placement="left"] .tooltip__container::before {
+  content: "";
+  position: absolute;
+  transform: translateY(4px);
+  right: -6px;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 7px solid white;
+}
+
+
+.tooltip__component {
+  @apply relative inline-block
+}
+
+.tooltip__component:has(.tooltip__component__slot:hover) .tooltip__container {
+  @apply opacity-100
+}
+
+.show {
+  @apply block
+}
+
+.hide {
+  @apply hidden
+}

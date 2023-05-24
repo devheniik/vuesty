@@ -18,6 +18,7 @@
 @import 'components/switch.scss';
 @import 'components/checkbox.scss';
 @import 'components/phone.scss';
+@import 'components/tooltip.scss';
 
 @import './bg.css';
 @import './textColor.css';

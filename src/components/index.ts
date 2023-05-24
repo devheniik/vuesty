@@ -22,3 +22,4 @@ export const VCheckbox = defineAsyncComponent(() => import('./Checkbox/VCheckbox
 export const VPhoneInput = defineAsyncComponent(() => import('./phone/VPhoneInput.vue'))
 export const VRadioButton = defineAsyncComponent(() => import('./Radio/VRadioButton.vue'))
 export const VProgress = defineAsyncComponent(() => import('./Progress/VProgress.vue'))
+export const VTooltip = defineAsyncComponent(() => import('./Tooltip/VTooltip.vue'))

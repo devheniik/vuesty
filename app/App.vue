@@ -1,5 +1,86 @@
 <template>
   <div class="box">
+    <v-tooltip placement="top">
+      <template #tooltip>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas, soluta.</p>
+      </template>
+      <template #component>
+        Component
+      </template>
+    </v-tooltip>
+
+  </div>
+  <div class="box">
+
+    <v-tooltip placement="left">
+      <template #tooltip>
+        Tooltip
+      </template>
+      <template #component>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora deleniti minus asperiores molestiae vero velit ducimus mollitia numquam exercitationem, corporis maiores, natus, similique suscipit ipsam rerum aliquid architecto! Placeat nostrum corporis animi autem vel voluptate adipisci ab in. Obcaecati assumenda aliquid consequatur tempore architecto a nobis quis alias enim quos quaerat atque debitis beatae vitae saepe, modi at. Suscipit autem porro totam qui voluptas. Fuga voluptatibus minus distinctio molestiae quidem facilis in harum. Eius voluptatum, in porro debitis quo et impedit provident commodi expedita assumenda. Quisquam modi, dicta tempore adipisci, accusamus provident quo dolor distinctio porro pariatur assumenda tenetur fugit.</p>
+      </template>
+    </v-tooltip>
+
+
+  </div>  <div class="box">
+
+<v-tooltip placement="right">
+  <template #tooltip>
+    Lorem ipsum dolor sit amet.
+  </template>
+  <template #component>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora deleniti minus asperiores molestiae vero velit ducimus mollitia numquam exercitationem, corporis maiores, natus, similique suscipit ipsam rerum aliquid architecto! Placeat nostrum corporis animi autem vel voluptate adipisci ab in. Obcaecati assumenda aliquid consequatur tempore architecto a nobis quis alias enim quos quaerat atque debitis beatae vitae saepe, modi at. Suscipit autem porro totam qui voluptas. Fuga voluptatibus minus distinctio molestiae quidem facilis in harum. Eius voluptatum, in porro debitis quo et impedit provident commodi expedita assumenda. Quisquam modi, dicta tempore adipisci, accusamus provident quo dolor distinctio porro pariatur assumenda tenetur fugit.
+  </template>
+</v-tooltip>
+</div>
+  <div class="box">
+
+    <v-tooltip placement="right">
+      <template #tooltip>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora deleniti minus asperiores molestiae vero velit ducimus mollitia numquam exercitationem, corporis maiores, natus, similique suscipit ipsam rerum aliquid architecto! Placeat nostrum corporis animi autem vel voluptate adipisci ab in. Obcaecati assumenda aliquid consequatur tempore architecto a nobis quis alias enim quos quaerat atque debitis beatae vitae saepe, modi at. Suscipit autem porro totam qui voluptas. Fuga voluptatibus minus distinctio molestiae quidem facilis in harum. Eius voluptatum, in porro debitis quo et impedit provident commodi expedita assumenda. Quisquam modi, dicta tempore adipisci, accusamus provident quo dolor distinctio porro pariatur assumenda tenetur fugit.
+      </template>
+      <template #component>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo enim blanditiis earum ea mollitia neque accusamus sapiente magni consequatur eum!
+      </template>
+    </v-tooltip>
+  </div>
+  <div class="box">
+
+    <v-tooltip placement="bottom">
+      <template #tooltip>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas, soluta.</p>
+      </template>
+      <template #component>
+        Component
+      </template>
+    </v-tooltip>
+
+  </div>
+  <div class="box">
+
+<v-tooltip placement="bottom">
+  <template #tooltip>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ducimus nam ea impedit. Culpa commodi veniam asperiores nemo delectus nesciunt laudantium hic voluptatum. Reiciendis voluptate vero tempore incidunt aut? Modi, magnam excepturi aliquam mollitia aperiam porro corporis distinctio quaerat dolorum commodi eaque, illum pariatur totam nemo repellendus ipsum, eveniet velit possimus.</p>
+  </template>
+  <template #component>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, odio.
+  </template>
+</v-tooltip>
+
+</div>
+<div class="box">
+
+<v-tooltip placement="bottom">
+  <template #tooltip>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas, soluta.</p>
+  </template>
+  <template #component>
+    Component
+  </template>
+</v-tooltip>
+
+</div>
+  <div class="box">
     <v-progress :ready="5" :volume="101"   />
   </div>
   <div class="box space-y-2">
@@ -525,11 +606,12 @@ import VPhoneInput from '../src/components/phone/VPhoneInput.vue'
 import VRadioButton from "../src/components/Radio/VRadioButton.vue"
 import VProgress from "../src/components/Progress/VProgress.vue"
 import { ChevronDownIcon, ArchiveBoxIcon, PaperclipIcon } from "@devheniik/icons"
+import VTooltip from "../src/components/Tooltip/VTooltip.vue"
 
 // import VTreeSelect from "../src/components/TreeSelect/VTreeSelect.vue"
 export default {
   name: "App",
-  components: {VInput, VToast, VTable, VPagination, VButton, VModal, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox, VPhoneInput, VRadioButton, VSwitch, ChevronDownIcon, PaperclipIcon, ArchiveBoxIcon, VProgress},
+  components: {VInput, VToast, VTable, VPagination, VButton, VModal, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox, VPhoneInput, VRadioButton, VSwitch, ChevronDownIcon, PaperclipIcon, ArchiveBoxIcon, VProgress, VTooltip},
   data() {
     return {
       tree_value: [],

@@ -23,6 +23,7 @@ import type { VModalComponent, VModalProps, VModalSlots } from './components/Mod
 import type { VCheckboxComponent, VCheckboxProps } from './components/Checkbox/types'
 import type { VRadioButtonComponent, VRadioButtonProps } from './components/Radio/types'
 import type { VProgressComponent, VProgressProps } from './components/Progress/types'
+import type { VTooltipComponent, VTooltipProps, VTooltipSlots } from './components/Tooltip/types'
 
 import type {VNodeProps} from "vue";
 
@@ -48,6 +49,7 @@ export declare const VCheckbox: ComponentConstructor<VCheckboxComponent>
 export declare const VPhoneInput: ComponentConstructor<VPhoneInputComponent>
 export declare const VRadioButton: ComponentConstructor<VRadioButtonComponent>
 export declare const VProgress: ComponentConstructor<VProgressComponent>
+export declare const VTooltip: ComponentConstructor<VTooltipComponent>
 
 declare module '@vue/runtime-core' {
   interface GlobalComponents {
@@ -73,6 +75,7 @@ declare module '@vue/runtime-core' {
     VPhoneInput: GlobalComponentConstructor<VPhoneInputProps, VNodeProps>
     VRadioButton: GlobalComponentConstructor<VRadioButtonProps, VNodeProps>
     VProgress: GlobalComponentConstructor<VProgressProps, VNodeProps>
+    VTooltip: GlobalComponentConstructor<VTooltipProps, VTooltipSlots>
   }
 }
 
