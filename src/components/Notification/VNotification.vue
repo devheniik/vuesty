@@ -26,7 +26,7 @@ const onNotification = () => {
       <BellIcon />
     </slot>
 
-    <div class="notification" :class="`${String(count).length > 2 ? '-right-4' : '-right-1'}`">
+    <div v-if="count" class="notification" :class="`${String(count).length > 2 ? '-right-4' : '-right-1'}`">
       {{ count }}
     </div>
   </button>

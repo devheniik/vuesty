@@ -1,4 +1,7 @@
 <template>
+   <div class="box">
+    <v-notification :count="10"></v-notification>
+   </div>
   <div class="box">
     <v-tooltip placement="top">
       <template #tooltip>
@@ -605,13 +608,14 @@ import VCheckbox from '../src/components/Checkbox/VCheckbox.vue'
 import VPhoneInput from '../src/components/phone/VPhoneInput.vue'
 import VRadioButton from "../src/components/Radio/VRadioButton.vue"
 import VProgress from "../src/components/Progress/VProgress.vue"
+import VNotification from "../src/components/Notification/VNotification.vue"
 import { ChevronDownIcon, ArchiveBoxIcon, PaperclipIcon } from "@devheniik/icons"
 import VTooltip from "../src/components/Tooltip/VTooltip.vue"
 
 // import VTreeSelect from "../src/components/TreeSelect/VTreeSelect.vue"
 export default {
   name: "App",
-  components: {VInput, VToast, VTable, VPagination, VButton, VModal, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox, VPhoneInput, VRadioButton, VSwitch, ChevronDownIcon, PaperclipIcon, ArchiveBoxIcon, VProgress, VTooltip},
+  components: {VInput, VToast, VTable, VPagination, VButton, VModal, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox, VPhoneInput, VRadioButton, VSwitch, ChevronDownIcon, PaperclipIcon, ArchiveBoxIcon, VProgress, VTooltip, VNotification},
   data() {
     return {
       tree_value: [],
