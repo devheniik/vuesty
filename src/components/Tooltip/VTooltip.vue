@@ -1,11 +1,11 @@
 <template>
   <div :data-placement="placement" class="tooltip">
 
-    <div class="tooltip__component">
-      <div class="tooltip__component__slot">
+    <div class="tooltip__container">
+      <div class="tooltip__container__slot">
         <slot name="component"></slot>
       </div>
-      <div class="tooltip__container">
+      <div class="tooltip__box">
         <slot name="tooltip"></slot>
       </div>
     </div>

@@ -1,15 +1,15 @@
-.tooltip__container {
+.tooltip__box {
   @apply absolute p-4  rounded-lg bg-white shadow-2xl -z-10 opacity-0 transition-all duration-300 box-border flex ;
 
 }
 
-.tooltip[data-placement="top"] .tooltip__container {
-  @apply bottom-10;
+.tooltip[data-placement="top"] .tooltip__box {
+  @apply bottom-7;
   transform: translateX(-50%);
   margin-left: 50%;
 }
 
-.tooltip[data-placement="top"] .tooltip__container::before {
+.tooltip[data-placement="top"] .tooltip__box::before {
   content: "";
   position: absolute;
   transform: translate(-50%, 6px);
@@ -20,11 +20,11 @@
   border-top: 7px solid white;
 }
 
-.tooltip[data-placement="right"] .tooltip__container {
-  @apply left-[100%] -top-4 ml-2
+.tooltip[data-placement="right"] .tooltip__box {
+  @apply left-[100%] -top-4 ml-1
 }
 
-.tooltip[data-placement="right"] .tooltip__container::before {
+.tooltip[data-placement="right"] .tooltip__box::before {
   content: "";
   position: absolute;
   transform: translateY(4px);
@@ -34,13 +34,13 @@
   border-right: 7px solid white;
 }
 
-.tooltip[data-placement="bottom"] .tooltip__container {
-  @apply top-10;
+.tooltip[data-placement="bottom"] .tooltip__box {
+  @apply top-8;
   transform: translateX(-50%);
   margin-left:50%;
 }
 
-.tooltip[data-placement="bottom"] .tooltip__container::before {
+.tooltip[data-placement="bottom"] .tooltip__box::before {
   content: "";
   position: absolute;
   transform: translate(7px, -6px);
@@ -52,11 +52,11 @@
 
 }
 
-.tooltip[data-placement="left"] .tooltip__container {
-  @apply -left-2 top-0 translate-x-[-100%]
+.tooltip[data-placement="left"] .tooltip__box {
+  @apply -left-3 top-0 translate-x-[-100%]
 }
 
-.tooltip[data-placement="left"] .tooltip__container::before {
+.tooltip[data-placement="left"] .tooltip__box::before {
   content: "";
   position: absolute;
   transform: translateY(4px);
@@ -67,11 +67,15 @@
 }
 
 
-.tooltip__component {
+.tooltip__container {
   @apply relative inline-block
 }
 
-.tooltip__component:has(.tooltip__component__slot:hover) .tooltip__container {
+/* .tooltip__container:has(.tooltip__container__slot:hover) .tooltip__box {
+  @apply z-20 opacity-100
+} */
+
+.tooltip__container .tooltip__container__slot:hover + .tooltip__box {
   @apply z-20 opacity-100
 }
 
