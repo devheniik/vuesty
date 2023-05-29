@@ -56,7 +56,7 @@
 
 /* TAGS */
 .v-tag__box {
-  @apply flex h-auto w-full flex-row items-center flex-wrap justify-start space-x-1 overflow-x-auto;
+  @apply flex h-auto w-full flex-row items-center flex-nowrap justify-start space-x-1 overflow-x-auto;
 }
 
 .v-tag {

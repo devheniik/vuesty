@@ -1,4 +1,18 @@
 <template>
+    <div class="box w112">
+      {{v_select_value}}
+      <v-select
+        v-model="v_select_value"
+        label-key="title"
+        :multiple="true"
+        value-key="id"
+        :options="options"
+        placeholder="Select"
+        :auto-filter="false"
+        @search="handleSearch">
+
+      </v-select>
+      </div>
    <div class="box">
     <v-notification :count="10"></v-notification>
    </div>
@@ -487,7 +501,7 @@
       <v-select
         v-model="v_select_value"
         label-key="title"
-        :multiple="false"
+        :multiple="true"
         value-key="id"
         :options="options"
         placeholder="Select"
@@ -768,7 +782,7 @@ export default {
         completed: false
     },
 ],
-      v_select_value: null,
+      v_select_value: [1,2,3,4,5],
       second_select_value: null,
       ttx: '123123',
       hf: 10,
@@ -896,5 +910,9 @@ svg {
 
 .space-y-2 > * {
   margin-top: 15px;
+}
+
+.w112 {
+  width: 200px;
 }
 </style>
