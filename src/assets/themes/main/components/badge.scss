@@ -1,6 +1,6 @@
 .v-tag {
   @apply inline-flex items-center rounded px-2 py-1 text-[13px]
-  font-medium leading-3;
+  font-medium leading-3 max-w-full overflow-hidden text-ellipsis;
 }
 
 .v-tag-primary {
