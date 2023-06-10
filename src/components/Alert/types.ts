@@ -1,9 +1,9 @@
 import type { VNode, ComponentPublicInstance } from 'vue'
 
 export interface VAvatarEvents {
-  onCloseClicked?: () => void
-  okClicked?: () => void
-  cancelClicked?: () => void
+  close?: () => void
+  accept?: () => void
+  cancel?: () => void
 }
 
 export interface VAvatarProps extends VAvatarEvents {
