@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, useSlots } from 'vue'
+import { ref, useSlots, watchEffect } from 'vue'
 
 const props = withDefaults(
   defineProps<{
@@ -131,6 +131,13 @@ const handleInput = (input: Event) => {
     inputRef.value.value = value.value
   }
 }
+
+watchEffect(() => {
+  if (props.modelValue !== value.value) {
+    value.value = props.modelValue
+    inputRef.value.value = value.value
+  }
+})
 
 const slots = useSlots()
 

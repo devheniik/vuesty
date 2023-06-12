@@ -148,7 +148,7 @@
     </v-switch>
     <v-input type="number" step="0.1"></v-input>
     <v-input readonly></v-input>
-    <v-input  ></v-input>
+    <v-input ></v-input>
 
   </div>
   <div class="box">
@@ -530,6 +530,7 @@
 
 
   <div class="container mx-auto h-screen space-y-9">
+    <span @click="changeTextValue">CLickMe TO Change vinput</span>
     <VInput v-model="text">
       <template #icon-right>
 <!--        <AcademicCapIcon class="h-4 w-4"></AcademicCapIcon>-->
@@ -823,6 +824,10 @@ export default {
       this.hf = dat
       console.log(dat);
       console.log(this.hf)
+    },
+
+    changeTextValue() {
+      this.text = '00000'
     },
 
     updateOption2(value) {
