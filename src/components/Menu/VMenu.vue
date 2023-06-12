@@ -13,7 +13,7 @@ const show = ref(false)
 
 <template>
   <Menu>
-    <div :class="[{'relative' : notRelative}, 'v-menu__container']">
+    <div :class="[{'relative' : !notRelative}, 'v-menu__container']">
       <MenuButton class="v-menu__button" @click="show = true">
       <slot >
         <div class="v-menu__default-box" >
