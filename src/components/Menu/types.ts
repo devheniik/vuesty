@@ -5,4 +5,9 @@ export interface VMenuSlots {
   menuItems: () => VNode[]
 }
 
-export type VMenuComponent = ComponentPublicInstance<{}>
+export interface VMenuProps {
+  icons?: string
+  notRelative?: boolean
+}
+
+export type VMenuComponent = ComponentPublicInstance<VMenuProps>

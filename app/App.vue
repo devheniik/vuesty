@@ -14,7 +14,7 @@
       </v-select>
       </div>
    <div class="box">
-    <v-notification :count="10"></v-notification>
+    <v-notification :count="10" @show-notifications="console.log(10)"></v-notification>
    </div>
   <div class="box">
     <v-tooltip placement="top">
@@ -102,7 +102,6 @@
   </div>
   <div class="box space-y-2">
     <v-alert :controls="false" >
-      a
       <template #closeIcon>
         <PaperclipIcon  class="icone"/>
       </template>
@@ -113,7 +112,7 @@
         <PaperclipIcon  class="icone"/>
       </template>
     </v-alert>
-    <v-alert>
+    <v-alert @accept="tester">
       <template #closeIcon>
         <PaperclipIcon  class="icone"/>
       </template>
@@ -830,6 +829,10 @@ export default {
       console.log(value);
 
       this.option2 = !this.option2
+    },
+
+    tester() {
+      console.log('tester')
     },
 
     async handleSearch(value) {
