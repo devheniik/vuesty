@@ -187,7 +187,7 @@
     <v-button></v-button>
   </div>
 
-    <v-menu>
+    <v-menu vertical>
       <template #menuItems>
         <div>
           <ChevronDownIcon class="w-4"/>

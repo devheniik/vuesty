@@ -6,6 +6,7 @@ import { MoreHorizontalIcon } from '@devheniik/icons';
 defineProps<{
   icons?: boolean
   notRelative?: boolean
+  vertical?: boolean
 }>()
 
 const show = ref(false)
@@ -17,7 +18,7 @@ const show = ref(false)
       <MenuButton class="v-menu__button" @click="show = true">
       <slot >
         <div class="v-menu__default-box" >
-          <button class="v-menu__default-button">
+          <button :class="[{'vertical' : vertical}, 'v-menu__default-button']">
             <MoreHorizontalIcon class="w-5 h-5 text-primary-500" />
           </button>
         </div>
