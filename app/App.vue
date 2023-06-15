@@ -15,6 +15,8 @@
       </div>
    <div class="box">
     <v-notification :count="10" @show-notifications="console.log(10)"></v-notification>
+    <v-notification :count="1" @show-notifications="console.log(10)"></v-notification>
+    <v-notification :count="100" @show-notifications="console.log(10)"></v-notification>
    </div>
   <div class="box">
     <v-tooltip placement="top">
