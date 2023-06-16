@@ -272,6 +272,7 @@
       <v-phone-input v-model="phone" />
       <v-phone-input v-model="nullPhone" />
       <v-phone-input v-model="undefinedPhone" />
+      <v-button @click="addOneToPhone">+1</v-button>
         <!-- <v-input v-model="nullPhone"></v-input> -->
     </div>
   <div class="box spacer">
@@ -830,6 +831,10 @@ export default {
 
     changeTextValue() {
       this.text = '00000'
+    },
+
+    addOneToPhone() {
+      this.phone = this.phone + '1'
     },
 
     updateOption2(value) {

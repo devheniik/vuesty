@@ -9,9 +9,11 @@ const props = defineProps<{ modelValue: string }>()
 const propValue = ref<{ nationalNumber: string, countryCallingCode?: string }>({
   nationalNumber: props.modelValue || '',
 })
+
 const initialPhoneNumber = props.modelValue && typeof props.modelValue === 'string'
   ? parsePhoneNumberFromString(props.modelValue)
   : null
+
 const selectedCountry = ref<string>(initialPhoneNumber?.country || 'UA')
 
 const nationalNumber = computed({
@@ -49,6 +51,12 @@ watch(nationalNumber, (newValue, oldValue) => {
     if (newParsedNumber && newParsedNumber.isValid() && newParsedNumber.country) {
       selectedCountry.value = newParsedNumber.country
     }
+  }
+})
+
+watch(() => props.modelValue, (newValue, oldValue) => {
+  if (newValue !== oldValue && newValue !== null && newValue !== undefined) {
+    nationalNumber.value = newValue
   }
 })
 
