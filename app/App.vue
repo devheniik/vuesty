@@ -133,7 +133,11 @@
     </v-button>
   </div>
   <div class="box">
-    <v-avatar  size="gigantic" text="No Way"></v-avatar>
+    <v-avatar  size="big" status="primary" text="No Way"></v-avatar>
+    <v-avatar  size="huge" status="warning" text="Y Iy"></v-avatar>
+    <v-avatar  size="large" status="primary" text="No Way"></v-avatar>
+    <v-avatar   status="primary" text="No Way"></v-avatar>
+    <v-avatar color="warning"  size="gigantic" status="primary" text="No Way"></v-avatar>
   </div>
   <div class="box">
     {{ option2 }}
@@ -357,7 +361,7 @@
       <v-avatar text="FP PR"></v-avatar>
       <v-avatar text="FP PR"></v-avatar>
       <v-avatar text="FP PR"></v-avatar>
-      <v-avatar text="AA AA"></v-avatar>
+      <v-avatar status="primary" text="AA AA"></v-avatar>
     </v-avatar-group>
 
     <v-avatar-group size="huge" color="tertiary">

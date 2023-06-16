@@ -25,19 +25,19 @@
 }
 
 .v-avatar__status-circle_big {
-  @apply right-1;
+  @apply right-0 h-3 w-3;
 }
 
 .v-avatar__status-circle_large {
-  @apply right-1 h-2.5 w-2.5;
+  @apply right-0 h-3 w-3;
 }
 
 .v-avatar__status-circle_huge {
-  @apply right-1.5 h-3 w-3;
+  @apply right-1 bottom-0.5 h-4 w-4;
 }
 
 .v-avatar__status-circle_gigantic {
-  @apply right-1 bottom-2 h-3 w-3;
+  @apply right-1 bottom-1 h-5 w-5;
 }
 
 /* Avatar Sizes */
