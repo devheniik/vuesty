@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { parsePhoneNumberFromString, parsePhoneNumber, AsYouType,
-  type CountryCode } from 'libphonenumber-js'
+  type CountryCode,
+PhoneNumber} from 'libphonenumber-js'
 import { ref, watch, computed } from 'vue'
 import CountrySelect from './CountrySelect.vue'
 
@@ -37,8 +38,14 @@ const nationalNumber = computed({
 watch(selectedCountry, (newValue, oldValue) => {
   console.log('selectedCountryWatcher');
   if (newValue !== oldValue && newValue !== null && newValue !== undefined) {
-    const phoneNumber = parsePhoneNumber(nationalNumber.value, newValue)
-    const formattedNumber = phoneNumber?.format('E.164') || ''
+    let phoneNumber = ''
+    if (nationalNumber.value.length > 4) {
+      phoneNumber = parsePhoneNumber(nationalNumber.value, newValue)
+      console.log(phoneNumber);
+    }
+
+
+    const formattedNumber = phoneNumber ? phoneNumber?.format('E.164') : ''
     propValue.value.nationalNumber = nationalNumber.value
     emits('update:modelValue', formattedNumber)
   }
