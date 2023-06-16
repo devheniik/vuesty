@@ -313,7 +313,7 @@
     </v-radio-button>
   </div>
   <div class="box">
-    <v-phone-input v-model="phone" />
+    <!-- <v-phone-input v-model="phone" /> -->
     <v-input></v-input>
   </div>
 
@@ -834,7 +834,7 @@ export default {
     },
 
     addOneToPhone() {
-      this.phone = this.phone + '1'
+      this.phone = this.phone + '3'
     },
 
     updateOption2(value) {

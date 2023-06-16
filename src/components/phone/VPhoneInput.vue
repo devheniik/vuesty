@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { parsePhoneNumberFromString, parsePhoneNumber, AsYouType } from 'libphonenumber-js'
+import { parsePhoneNumberFromString, parsePhoneNumber, AsYouType,
+  type CountryCode } from 'libphonenumber-js'
 import { ref, watch, computed } from 'vue'
 import CountrySelect from './CountrySelect.vue'
 
@@ -14,25 +15,27 @@ const initialPhoneNumber = props.modelValue && typeof props.modelValue === 'stri
   ? parsePhoneNumberFromString(props.modelValue)
   : null
 
-const selectedCountry = ref<string>(initialPhoneNumber?.country || 'UA')
+const selectedCountry = ref<CountryCode>(initialPhoneNumber?.country || 'UA')
 
 const nationalNumber = computed({
   get: () => propValue.value.nationalNumber,
   set: (value: string) => {
-    let phoneNumber = parsePhoneNumberFromString(value)
+    let phoneNumber =  parsePhoneNumberFromString(value)
+
     if (!phoneNumber || !phoneNumber.isValid()) {
-      const formatter = new AsYouType(selectedCountry.value)
-      const formattedValue = formatter.input(value)
-      phoneNumber = parsePhoneNumberFromString(formattedValue)
+
+      phoneNumber = parsePhoneNumberFromString(value, selectedCountry.value)
     }
 
-    const formattedNumber = phoneNumber?.format('E.164') || ''
+    const formattedNumber =  phoneNumber?.format('E.164') || value
     propValue.value.nationalNumber = value
+
     emits('update:modelValue', formattedNumber)
   },
 })
 
 watch(selectedCountry, (newValue, oldValue) => {
+  console.log('selectedCountryWatcher');
   if (newValue !== oldValue && newValue !== null && newValue !== undefined) {
     const phoneNumber = parsePhoneNumber(nationalNumber.value, newValue)
     const formattedNumber = phoneNumber?.format('E.164') || ''
@@ -41,9 +44,14 @@ watch(selectedCountry, (newValue, oldValue) => {
   }
 })
 
+
+// Changing the country code
 watch(nationalNumber, (newValue, oldValue) => {
+  console.log('nationalNumberWatcher');
+
   if (newValue !== oldValue && newValue !== null && newValue !== undefined) {
     const formatter = new AsYouType(selectedCountry.value)
+    console.log(formatter);
 
     const formattedValue = formatter.input(newValue)
     const newParsedNumber = parsePhoneNumberFromString(formattedValue)
@@ -56,14 +64,18 @@ watch(nationalNumber, (newValue, oldValue) => {
 
 watch(() => props.modelValue, (newValue, oldValue) => {
   if (newValue !== oldValue && newValue !== null && newValue !== undefined) {
+    console.log(props.modelValue);
+
     nationalNumber.value = newValue
   }
 })
 
 const updateHandler = () => {
   if (nationalNumber.value !== null && nationalNumber.value !== undefined && selectedCountry.value !== null && selectedCountry.value !== undefined) {
+    console.log('updateHandler');
+
     const phoneNumber = parsePhoneNumber(nationalNumber.value, selectedCountry.value)
-    const formattedNumber = phoneNumber?.format('E.164') || ''
+    const formattedNumber = phoneNumber?.format('E.164') || nationalNumber.value
     emits('update:modelValue', formattedNumber)
   }
 }
