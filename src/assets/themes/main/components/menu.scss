@@ -7,7 +7,7 @@
 }
 
 .v-menu__items > * {
-  @apply hover:bg-neutral-200 rounded py-1 px-2 cursor-pointer;
+  @apply rounded py-1 px-2 cursor-pointer hover:bg-primary-800 hover:text-white;
 }
 
 .v-menu__items span {
