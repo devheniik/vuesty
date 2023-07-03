@@ -16,8 +16,8 @@
   @apply border-success-300  text-success-500 focus:border-success-500;
 }
 
-.v-input__input-disabled {
-  @apply border-gray-300  focus:border-gray-300;
+.v-input__input_disabled {
+  @apply bg-neutral-20;
 }
 
 .v-input__input {

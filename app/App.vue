@@ -1,4 +1,5 @@
 <template>
+  <v-input v-model="hf" disabled></v-input>
     <div class="box w112">
       {{v_select_value}}
       <v-select

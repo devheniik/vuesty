@@ -188,6 +188,7 @@ const handleKeyPress = (event: KeyboardEvent) => {
       :name="name"
       :class="[
         'v-input__input',
+        { 'v-input__input_disabled' : disabled},
         { 'v-input__input-pl': leftIcon() },
         { 'v-input__input-pr': rightIcon() },
         { 'v-input__icon-disabled': disabled },
