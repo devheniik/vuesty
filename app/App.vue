@@ -1,4 +1,11 @@
 <template>
+  <v-badge icon-right>
+    <PaperclipIcon  class="icone"/>
+  </v-badge>
+  <v-badge chip></v-badge>
+  <v-badge status color="danger"></v-badge>
+  <v-badge icon color="danger" />
+  <v-badge icon color="success" />
   <v-input v-model="hf" disabled></v-input>
     <div class="box w112">
       {{v_select_value}}
@@ -631,13 +638,14 @@ import VPhoneInput from '../src/components/phone/VPhoneInput.vue'
 import VRadioButton from "../src/components/Radio/VRadioButton.vue"
 import VProgress from "../src/components/Progress/VProgress.vue"
 import VNotification from "../src/components/Notification/VNotification.vue"
+import VBadge from "../src/components/Badge/VBadge.vue"
 import { ChevronDownIcon, ArchiveBoxIcon, PaperclipIcon } from "@devheniik/icons"
 import VTooltip from "../src/components/Tooltip/VTooltip.vue"
 
 // import VTreeSelect from "../src/components/TreeSelect/VTreeSelect.vue"
 export default {
   name: "App",
-  components: {VInput, VToast, VTable, VPagination, VButton, VModal, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox, VPhoneInput, VRadioButton, VSwitch, ChevronDownIcon, PaperclipIcon, ArchiveBoxIcon, VProgress, VTooltip, VNotification},
+  components: {VInput, VToast, VTable, VPagination, VButton, VModal, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox, VPhoneInput, VRadioButton, VSwitch, ChevronDownIcon, PaperclipIcon, ArchiveBoxIcon, VProgress, VTooltip, VNotification, VBadge},
   data() {
     return {
       tree_value: [],

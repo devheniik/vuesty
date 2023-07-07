@@ -17,7 +17,8 @@ const props = withDefaults(
       | 'neutral'
     status?: boolean
     label?: string | number
-    icon?: boolean
+    iconLeft?: boolean
+    iconRight?: boolean
     chip?: boolean
   }>(),
   {
@@ -44,14 +45,21 @@ const color = computed(() => `v-tag-${props.color}`)
 </script>
 
 <template>
-  <div :class="[color, { 'v-tag-status-text': status },  , 'v-tag']">
+  <div :class="[color, { 'v-tag-status-text': status }, {'v-tag__spacer' : (iconLeft || iconRight) }  , 'v-tag']">
     <div v-if="status" :class="['v-tag__status-circle', `v-tag__status-circle_${props.color}`]"></div>
 
-    <div v-if="icon" class="v-tag__icon">
+    <div v-if="iconLeft" class="v-tag__icon">
       <slot></slot>
     </div>
 
-    {{ label }}
+    <span>
+      {{ label }}
+    </span>
+
+    <div v-if="iconRight" class="v-tag__icon">
+      <slot></slot>
+    </div>
+
     <button v-if="chip" class="v-tag__chip" @click="onClose">
       <CloseMdIcon class="v-tag__chip__icon" />
     </button>
