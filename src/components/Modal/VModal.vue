@@ -6,7 +6,7 @@
       enter-to-class="v-modal__enter-to"
       leave-active-class="v-modal__leave-active">
       <div v-if="modelValue" :class="['v-modal']">
-        <div :class="['v-modal__inner',{'v-modal__inner_bg-white': bgWhite}, `${width}`]">
+        <div :class="['v-modal__inner',{'v-modal__inner_bg-white': bgWhite}, `${width} ${height}`]">
           <header class="v-modal__inner__header">
             <h3 class="v-modal__inner__header__heading">
               {{ heading }}
@@ -31,9 +31,11 @@ withDefaults(defineProps<{
   modelValue: boolean,
   heading?: string ,
   width: string,
+  height: string,
   bgWhite?: boolean,
 }>(), {
   width: 'w-auto',
+  height: 'h-auto',
   bgWhite: false
 })
 
