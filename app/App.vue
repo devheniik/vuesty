@@ -160,7 +160,9 @@
     <v-switch v-model="option2" disabled>
       <ChevronDownIcon />
     </v-switch>
-    <v-input type="number" step="0.1"></v-input>
+
+
+    <v-input v-model="nullNum" type="number" step="0.1"></v-input>
     <v-input readonly></v-input>
     <v-input ></v-input>
 
@@ -770,6 +772,7 @@ export default {
         per_page: 20,
         current_page: 1,
       },
+      nullNum: null,
       option2: true,
       selected: null,
       nullPhone: null,

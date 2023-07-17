@@ -58,13 +58,17 @@ const invalid = ref<boolean>(props._invalid)
 const value = ref<string | number | null>(props.modelValue)
 const regex = ref<RegExp | false>(false)
 
-// const _placeholder = ref<string | false>(props.placeholder)
+const _placeholder = ref(props.placeholder)
 
-// const fillPlaceholder = (value: string) => {
-//   if (!props.placeholder) {
-//     _placeholder.value = value
-//   }
-// }
+const fillPlaceholder = (value: string) => {
+  if (!props.placeholder) {
+    _placeholder.value = value
+  }
+}
+
+if(props.type === 'number') {
+  fillPlaceholder('100')
+}
 
 if (props.rules === 'any') {
   regex.value = false
@@ -97,7 +101,7 @@ const checkInput = (input: string) => {
   if (regex.value) {
     return regex.value.test(input)
   }
-
+handleInput
   if (props.min) {
     return Number(input) >= props.min
   }
@@ -196,7 +200,7 @@ const handleKeyPress = (event: KeyboardEvent) => {
         { 'v-input__input-success': valid && !invalid && allocateValid && !disabled },
         { 'v-input__input-danger': !valid && invalid && !disabled },
       ]"
-      :placeholder="placeholder"
+      :placeholder="_placeholder"
       :value="value"
       :aria-invalid="invalid"
       :aria-describedby="`${name}-description`"
