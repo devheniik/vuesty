@@ -520,11 +520,14 @@
         :multiple="true"
         value-key="id"
         :options="options"
+        disabled
         placeholder="Select"
         :auto-filter="false"
         @search="handleSearch">
 
       </v-select>
+      <v-input v-model="v_select_value" disabled></v-input>
+      <v-input v-model="v_select_value"></v-input>
 
     <!-- <v-select
       v-model="v_select_value"

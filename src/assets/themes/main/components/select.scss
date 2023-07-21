@@ -6,6 +6,10 @@
   @apply relative flex h-8 w-full flex-row items-center justify-between overflow-hidden rounded-md border border-gray-300 p-2 text-left sm:text-sm text-black placeholder-gray-400 shadow-sm;
 }
 
+.v-select__head_disabled {
+  @apply bg-neutral-20 cursor-not-allowed;
+}
+
 .v-select__head_focus {
   @apply border-primary-500 outline-none ring-1 ring-primary-500;
 }

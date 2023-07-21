@@ -28,6 +28,7 @@ const props = withDefaults(
     isLoading?: boolean
     delay?: number
     searchIcon?: boolean
+    disabled?: boolean
   }>(),
   {
     openDefault: false,
@@ -45,6 +46,7 @@ const props = withDefaults(
     isLoading: false,
     delay: 1000,
     searchIcon: false,
+    disabled: false
   }
 )
 
@@ -296,6 +298,9 @@ const closePanel = () => {
 // Focus emits
 
 const onFocus = () => {
+  if(props.disabled) {
+    return
+  }
   openPanel()
   visibleFocus()
   emit('focus')
@@ -339,7 +344,7 @@ onMounted(() => {
       type="button"
       :aria-expanded="open"
       aria-haspopup="menu"
-      :class="['v-select__head scrollbar group', { 'v-select__head_focus': isFocused }]"
+      :class="['v-select__head scrollbar group', { 'v-select__head_focus': isFocused }, { 'v-select__head_disabled': disabled }]"
       @click="onFocus">
       <span v-if="searchIcon" class="v-select__icon-box_left">
         <SearchMagnifyingGlassIcon :class="[ 'v-select__icon', { 'v-select__icon_focus' : isFocused }]" />
@@ -351,6 +356,7 @@ onMounted(() => {
           :placeholder="searchPlaceholder"
           type="text"
           class="v-select__main__input"
+          :disabled="disabled"
           @focus.stop
           @input="handleSearch($event)" />
         <div v-if="isMultipleFilledWithoutFocus()" class="v-tag__box scrollbar">

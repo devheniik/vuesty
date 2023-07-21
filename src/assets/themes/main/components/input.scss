@@ -17,7 +17,7 @@
 }
 
 .v-input__input_disabled {
-  @apply bg-neutral-20;
+  @apply bg-neutral-20 cursor-not-allowed;
 }
 
 .v-input__input {
