@@ -116,8 +116,8 @@
         <PaperclipIcon  class="icone"/>
       </template>
     </v-alert>
-    <v-alert label='' :controls="false" >
-      Some info
+    <v-alert class="w100" label='' :controls="false" >
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati recusandae at veniam labore sunt architecto deleniti illum tenetur voluptatem, reprehenderit dolorem mollitia aspernatur laborum quo natus, eum fuga possimus est laudantium dolore dicta aut modi? Suscipit odit minima expedita, molestias quos atque, fugiat dignissimos omnis aliquid aliquam perferendis, dolor maxime?
       <template #closeIcon>
         <PaperclipIcon  class="icone"/>
       </template>
@@ -948,5 +948,9 @@ svg {
 
 .w112 {
   width: 200px;
+}
+
+.w100 {
+  width: 100% !important;
 }
 </style>

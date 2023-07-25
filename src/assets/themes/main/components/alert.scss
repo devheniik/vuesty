@@ -1,5 +1,5 @@
 .v-alert {
-  @apply flex w-[500px] justify-between rounded bg-white pr-4 shadow-md;
+  @apply flex w-[500px] justify-between  rounded bg-white pr-4 shadow-md;
 }
 
 .v-toast > .v-alert__close {
@@ -11,15 +11,15 @@
 }
 
 .v-alert__left-border {
-  @apply w-1 rounded-tl-md rounded-bl-md;
+  @apply w-1 rounded-tl-md rounded-bl-md shrink-0;
 }
 
 .v-alert__icon {
-  @apply mt-2 ml-1.5 mr-2.5 w-5 self-start;
+  @apply ml-1.5 mr-2.5 w-5 self-start;
 }
 
 .v-alert__main {
-  @apply flex w-10/12 flex-col py-2;
+  @apply flex w-10/12 flex-col ;
 }
 
 .v-alert__label {
@@ -31,7 +31,7 @@
 }
 
 .v-alert__controls {
-  @apply mt-2 flex;
+  @apply flex;
 }
 
 .v-alert__controls__cancel {

@@ -64,25 +64,28 @@ const icon = computed<FunctionalComponent<HTMLAttributes & VNodeProps> | string>
 
 <template>
   <div class="v-alert">
-    <div :class="['v-alert__left-border', `v_bg-${variant}-medium`]"></div>
-    <slot name="icon">
-      <component :is="icon" :class="['v-alert__icon', `v-text_${variant}_medium`]" />
-    </slot>
-    <main class="v-alert__main">
-      <h4 class="v-alert__label">{{ label }}</h4>
-      <p class="v-alert__text">
-        <slot />
-      </p>
-      <div v-if="controls" class="v-alert__controls">
-        <v-button size="small" @click="accept">
-          {{ acceptButton }}
-        </v-button>
-
-        <v-button color="light" size="small" class="v-alert__controls__cancel" @click="cancel">
-          {{ cancelButton }}
-        </v-button>
+    <div class="flex">
+      <div :class="['v-alert__left-border', `v_bg-${variant}-medium`]"></div>
+      <div class="flex py-2">
+        <slot name="icon">
+          <component :is="icon" :class="['v-alert__icon', `v-text_${variant}_medium`]" />
+        </slot>
+        <main class="v-alert__main">
+          <h4 class="v-alert__label">{{ label }}</h4>
+          <p class="v-alert__text">
+            <slot />
+          </p>
+          <div v-if="controls" class="v-alert__controls">
+            <v-button size="small" @click="accept">
+              {{ acceptButton }}
+            </v-button>
+            <v-button color="light" size="small" class="v-alert__controls__cancel" @click="cancel">
+              {{ cancelButton }}
+            </v-button>
+          </div>
+        </main>
       </div>
-    </main>
+    </div>
     <button
     :class="[{ 'v-alert__close_flat': !$slots.default && !controls },
     { 'v-alert__close_aligned': !props.label },
