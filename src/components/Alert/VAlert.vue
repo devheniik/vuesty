@@ -11,12 +11,14 @@ const props = withDefaults(
     acceptButton?: string
     cancelButton?: string
     controls?: boolean
+    width?: string
   }>(),
   {
     variant: 'primary',
     acceptButton: 'Accept',
     cancelButton: 'Cancel',
     controls: true,
+    width: 'w-[500px]'
   }
 )
 
@@ -63,10 +65,10 @@ const icon = computed<FunctionalComponent<HTMLAttributes & VNodeProps> | string>
 </script>
 
 <template>
-  <div class="v-alert">
-    <div class="flex">
+  <div :class="['v-alert', width]">
+    <div class="v-alert__outer-container">
       <div :class="['v-alert__left-border', `v_bg-${variant}-medium`]"></div>
-      <div class="flex py-2">
+      <div class="v-alert__inner-container">
         <slot name="icon">
           <component :is="icon" :class="['v-alert__icon', `v-text_${variant}_medium`]" />
         </slot>

@@ -1,5 +1,13 @@
 .v-alert {
-  @apply flex w-[500px] justify-between  rounded bg-white pr-4 shadow-md;
+  @apply flex  justify-between  rounded bg-white pr-4 shadow-md;
+}
+
+.v-alert__inner-container {
+  @apply flex py-2;
+}
+
+.v-alert__outer-container {
+  @apply flex;
 }
 
 .v-toast > .v-alert__close {
