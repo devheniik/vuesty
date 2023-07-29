@@ -163,8 +163,6 @@ const rightIcon = () => {
   return !!slots['icon-right']
 }
 
-console.log(leftIcon())
-
 const handleClickLeftSlot = () => {
   emit('leftClick')
 }

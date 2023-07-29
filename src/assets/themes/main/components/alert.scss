@@ -3,11 +3,11 @@
 }
 
 .v-alert__inner-container {
-  @apply flex py-2;
+  @apply flex py-2 grow;
 }
 
 .v-alert__outer-container {
-  @apply flex;
+  @apply flex grow;
 }
 
 .v-toast > .v-alert__close {
