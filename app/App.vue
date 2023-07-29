@@ -162,7 +162,7 @@
     </v-switch>
 
 
-    <v-input v-model="nullNum" type="number" step="0.1"></v-input>
+    <v-input v-model="nullNum" ></v-input>
     <v-input readonly></v-input>
     <v-input ></v-input>
 
@@ -263,7 +263,6 @@
     <div class="box spacer">
     <v-pagination
       v-model:limit="limit"
-      v-model:page="page"
       v-bind="{
         current_page: 1,
         from: 10,
@@ -328,11 +327,11 @@
   </div>
   <div class="box">
     <!-- <v-phone-input v-model="phone" /> -->
-    <v-input></v-input>
+    <v-input v-model="page"></v-input>
   </div>
 
   <div class="box">
-    <v-input type="number">input</v-input>
+    <v-input v-model="page"></v-input>
   </div>
   <div class="black">
     <v-avatar-group size="tiny" color="success">
@@ -384,7 +383,6 @@
 
   </div>
   <div class="box">
-    <v-pagination :last_page="20" :page="page" :limit="limit"  />
   </div>
   <div class="box">
     <v-input placeholder="jljl"></v-input>
@@ -601,7 +599,6 @@
   <div class="box">
     <v-pagination
       v-model:limit="limit"
-      v-model:page="page"
       v-bind="{
         current_page: 2,
         from: 10,

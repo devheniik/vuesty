@@ -119,29 +119,39 @@ handleInput
 
 
 const handleInput = (input: Event) => {
-  const inputElement = input.target as HTMLInputElement
+  const inputElement = input.target as HTMLInputElement;
   const targetValue = inputElement.value;
-  valid.value = checkInput(targetValue)
-  invalid.value = !valid.value
+
+  // Save the current caret position before updating the input value
+  const selectionStart = inputElement.selectionStart;
+  const selectionEnd = inputElement.selectionEnd;
+
+  valid.value = checkInput(targetValue);
+  invalid.value = !valid.value;
 
   if (valid.value && !props.readonly && !props.disabled) {
-    value.value = targetValue
-    inputRef.value.value = value.value
-    emit('update:modelValue', value.value)
-  } else if (props.prevent) {
-    inputRef.value.value = value.value
-  } else if (!props.prevent) {
-    value.value = targetValue
-    inputRef.value.value = value.value
-  }
-}
+    value.value = targetValue;
 
-watchEffect(() => {
-  if (props.modelValue !== value.value) {
-    value.value = props.modelValue
-    inputRef.value.value = value.value
+    if (inputRef.value) {
+      inputRef.value.value = value.value;
+    }
+    emit('update:modelValue', value.value);
+  } else if (props.prevent) {
+    if (inputRef.value) {
+      inputRef.value.value = (value.value as string);
+    }
+  } else if (!props.prevent) {
+    value.value = targetValue;
+    if (inputRef.value) {
+      inputRef.value.value = value.value;
+    }
   }
-})
+
+  // Restore the caret position after updating the input value
+  if (inputElement.setSelectionRange) {
+    inputElement.setSelectionRange(selectionStart, selectionEnd);
+  }
+};
 
 const slots = useSlots()
 
