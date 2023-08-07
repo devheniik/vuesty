@@ -50,7 +50,7 @@ interface Emits {
 
 const emit = defineEmits<Emits>()
 
-const inputRef = ref()
+const inputRef = ref(null)
 
 const valid = ref<boolean>(props._valid)
 const invalid = ref<boolean>(props._invalid)
@@ -101,7 +101,8 @@ const checkInput = (input: string) => {
   if (regex.value) {
     return regex.value.test(input)
   }
-handleInput
+
+
   if (props.min) {
     return Number(input) >= props.min
   }
@@ -135,6 +136,7 @@ const handleInput = (input: Event) => {
     if (inputRef.value) {
       inputRef.value.value = value.value;
     }
+
     emit('update:modelValue', value.value);
   } else if (props.prevent) {
     if (inputRef.value) {
@@ -197,6 +199,7 @@ const handleKeyPress = (event: KeyboardEvent) => {
     <input
       :id="name"
       ref="inputRef"
+      :value="modelValue"
       :name="name"
       :class="[
         'v-input__input',
@@ -209,7 +212,6 @@ const handleKeyPress = (event: KeyboardEvent) => {
         { 'v-input__input-danger': !valid && invalid && !disabled },
       ]"
       :placeholder="_placeholder"
-      :value="value"
       :aria-invalid="invalid"
       :aria-describedby="`${name}-description`"
       :disabled="disabled"
@@ -218,7 +220,7 @@ const handleKeyPress = (event: KeyboardEvent) => {
       :type="type === 'number' ? 'text' : type"
       v-bind="{ ...(invalid && { ariaDescribedby: `${name}-error` }) }"
       @keypress="handleKeyPress"
-      @input="handleInput($event)" />
+      @input="handleInput" />
     <div
       v-if="rightIcon()"
       :class="[

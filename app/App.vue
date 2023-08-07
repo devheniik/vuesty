@@ -1,4 +1,16 @@
 <template>
+  <div class="box">
+    <v-input v-model="phone" />
+    <v-input v-model="phone" />
+    <v-input v-model="phone" disabled />
+    <v-input v-model="phone" readonly/>
+    <v-input v-model="phone" type="number"/>
+  </div>
+  <div class="box">
+    <!-- <input v-model="phone" />
+    <input v-model="phone" /> -->
+  </div>
+
   <v-badge icon-right>
     <PaperclipIcon  class="icone"/>
   </v-badge>
@@ -162,10 +174,6 @@
     </v-switch>
 
 
-    <v-input v-model="nullNum" ></v-input>
-    <v-input readonly></v-input>
-    <v-input ></v-input>
-
   </div>
   <div class="box">
     <v-menu></v-menu>
@@ -221,14 +229,6 @@
     </v-menu>
   <div class="box">
   <v-button @click="isModalOpen = true">+</v-button>
-  <v-modal v-model="isModalOpen" height="h-full"  heading="Some Heading">
-    <h3>Stop doing it</h3>
-    <v-input></v-input>
-    <v-input></v-input>
-    <v-input></v-input>
-    <v-input></v-input>
-    <v-input></v-input>
-  </v-modal>
 </div>
   <!--
   <div class="box">
@@ -261,17 +261,6 @@
     </v-badge>
      <v-badge color="success" :value="true"> -->
     <div class="box spacer">
-    <v-pagination
-      v-model:limit="limit"
-      v-bind="{
-        current_page: 1,
-        from: 10,
-        last_page: 150,
-        per_page: 10,
-        to: 20,
-        total: 50
-      }"
-      @change="handleP"></v-pagination>
   </div>
     <div class="box">
       {{ check }}
@@ -279,14 +268,11 @@
       <v-checkbox label="label" disabled></v-checkbox>
       <v-checkbox label="label" error></v-checkbox>
       {{ option2 }}
-      <!-- <v-checkbox :can-change="checkCondition" label="Option 2" :model-value="option2" @change-checked="updateOption2"></v-checkbox> -->
     </div>
     <div class="box">
-      <v-phone-input v-model="phone" />
-      <v-phone-input v-model="nullPhone" />
-      <v-phone-input v-model="undefinedPhone" />
+      <!-- <v-phone-input v-model="phone" />
+      <v-phone-input v-model="nullPhone" /> -->
       <v-button @click="addOneToPhone">+1</v-button>
-        <!-- <v-input v-model="nullPhone"></v-input> -->
     </div>
   <div class="box spacer">
     <div>
@@ -304,7 +290,7 @@
   </div>
   <div class="box">
     <h2>Select your favorite color:</h2>
-    <v-radio-button
+    <!-- <v-radio-button
       v-for="color in colors"
       :key="color"
       v-model="selectedColor"
@@ -323,15 +309,7 @@
       <template #default>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid architecto quibusdam odio beatae veniam, fuga ipsam tempore et cum assumenda nemo! Adipisci molestiae distinctio, harum officia quam, blanditiis, eius temporibus impedit beatae deleniti repellat quasi. Quisquam, voluptatum. Quisquam, voluptatum.
       </template>
-    </v-radio-button>
-  </div>
-  <div class="box">
-    <!-- <v-phone-input v-model="phone" /> -->
-    <v-input v-model="page"></v-input>
-  </div>
-
-  <div class="box">
-    <v-input v-model="page"></v-input>
+    </v-radio-button> -->
   </div>
   <div class="black">
     <v-avatar-group size="tiny" color="success">
@@ -383,9 +361,6 @@
 
   </div>
   <div class="box">
-  </div>
-  <div class="box">
-    <v-input placeholder="jljl"></v-input>
   </div>
   <div class="box">
     <v-avatar size="gigantic"></v-avatar>
@@ -472,12 +447,6 @@
     </div>
 
   </div>
-  <div class="box">
-    <v-input></v-input>
-  </div>
-  <div class="box">
-    <v-pagination :last_page="10" @change="logger" />
-  </div>
   <!-- <div class="box">
     <v-textarea v-model="ttf" placeholder="lalalalal"></v-textarea>
   </div> -->
@@ -498,10 +467,6 @@
 <v-avatar size="small"></v-avatar>
 
 
-<div class="box">
-  <v-input></v-input>
-  <v-select></v-select>
-</div>
 
 
 
@@ -524,9 +489,6 @@
         @search="handleSearch">
 
       </v-select>
-      <v-input v-model="v_select_value" disabled></v-input>
-      <v-input v-model="v_select_value"></v-input>
-
     <!-- <v-select
       v-model="v_select_value"
       :options="[1,2,3]"
@@ -558,7 +520,7 @@
     <VToast class="my-2" variant="primary" text="Some crazy piece of text" />
     <VToast class="my-2" variant="success" text="Some crazy piece of text" />
     <VToast class="my-2" variant="warning"  text="Some crazy piece of text" />
-    <VToast class="my-2" variant="danger" text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus et dolores sit nostrum nemo excepturi voluptatibus, saepe, dolorem corrupti magni, incidunt nesciunt officia qui facilis rem obcaecati facere exercitationem laudantium." @shown="shown" />
+    <VToast class="my-2" variant="danger" text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus et dolores sit nostrum nemo excepturi voluptatibus, saepe, dolorem corrupti magni, incidunt nesciunt officia qui facilis rem obcaecati facere exercitationem laudantium." />
   </div>
 
   <div class="buttonContainer">
@@ -596,20 +558,6 @@
     </VTable>
   </div>
 
-  <div class="box">
-    <v-pagination
-      v-model:limit="limit"
-      v-bind="{
-        current_page: 2,
-        from: 10,
-        last_page: 5,
-        per_page: 10,
-        to: 20,
-        total: 50
-      }"
-      @change="handleP"></v-pagination>
-  </div>
-
 
 
   <div class="box">
@@ -626,8 +574,8 @@ import VInput from '../src/components/Input/VInput.vue'
 import VToast from '../src/components/Toast/VToast.vue'
 import VButton from '../src/components/Button/VButton.vue'
 import VSelect from '../src/components/Select/VSelect.vue'
-import VPagination from '../src/components/Pagination/VPagination.vue'
-import VModal from "../src/components/Modal/VModal.vue"
+// import VPagination from '../src/components/Pagination/VPagination.vue'
+// import VModal from "../src/components/Modal/VModal.vue"
 import VTextarea from "../src/components/Textarea/VTextarea.vue"
 import VAvatar from '../src/components/Avatar/VAvatar.vue'
 import VAlert from '../src/components/Alert/VAlert.vue'
@@ -636,18 +584,19 @@ import VMenu from '../src/components/Menu/VMenu.vue'
 import VUTable from '../src/components/UTable/VUTable.vue'
 import VAvatarGroup from '../src/components/AvatarGroup/VAvatarGroup.vue'
 import VCheckbox from '../src/components/Checkbox/VCheckbox.vue'
-import VPhoneInput from '../src/components/phone/VPhoneInput.vue'
-import VRadioButton from "../src/components/Radio/VRadioButton.vue"
+// import VPhoneInput from '../src/components/phone/VPhoneInput.vue'
+// import VRadioButton from "../src/components/Radio/VRadioButton.vue"
 import VProgress from "../src/components/Progress/VProgress.vue"
 import VNotification from "../src/components/Notification/VNotification.vue"
 import VBadge from "../src/components/Badge/VBadge.vue"
 import { ChevronDownIcon, ArchiveBoxIcon, PaperclipIcon } from "@devheniik/icons"
 import VTooltip from "../src/components/Tooltip/VTooltip.vue"
+// import VInputTest from "../src/components/Input/VInputTest.vue"
 
 // import VTreeSelect from "../src/components/TreeSelect/VTreeSelect.vue"
 export default {
   name: "App",
-  components: {VInput, VToast, VTable, VPagination, VButton, VModal, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox, VPhoneInput, VRadioButton, VSwitch, ChevronDownIcon, PaperclipIcon, ArchiveBoxIcon, VProgress, VTooltip, VNotification, VBadge},
+  components: {VInput, VToast, VTable,  VButton, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox,  VSwitch, ChevronDownIcon, PaperclipIcon, ArchiveBoxIcon, VProgress, VTooltip, VNotification, VBadge},
   data() {
     return {
       tree_value: [],
@@ -776,7 +725,6 @@ export default {
       option2: true,
       selected: null,
       nullPhone: null,
-      undefinedPhone: undefined,
       text: 'text123123',
       isModalOpen: false,
       isModalOpen2: false,
@@ -816,6 +764,7 @@ export default {
       ],
       tableHeaders: ['Name', 'Role', 'Email', 'Team'],
       phone: '+38 (093) 711-99-99',
+      rando: 0,
   }
 },
   // mounted() {
@@ -824,9 +773,6 @@ export default {
   methods: {
     handleP(value) {
       console.log(value)
-    },
-    shown() {
-      console.log('shown')
     },
     async getOptions(text) {
       this.isLoaded = true

@@ -6,7 +6,7 @@ import { ref, watch, computed } from 'vue'
 import CountrySelect from './CountrySelect.vue'
 
 const emits = defineEmits(['update:modelValue'])
-const props = defineProps<{ modelValue: string }>()
+const props = defineProps<{ modelValue: string | null}>()
 
 const propValue = ref<{ nationalNumber: string, countryCallingCode?: string }>({
   nationalNumber: props.modelValue || '',
@@ -36,12 +36,12 @@ const nationalNumber = computed({
 })
 
 watch(selectedCountry, (newValue, oldValue) => {
-  console.log('selectedCountryWatcher');
+  // console.log('selectedCountryWatcher');
   if (newValue !== oldValue && newValue !== null && newValue !== undefined) {
     let phoneNumber = ''
     if (nationalNumber.value.length > 4) {
       phoneNumber = parsePhoneNumber(nationalNumber.value, newValue)
-      console.log(phoneNumber);
+      // console.log(phoneNumber);
     }
 
 
@@ -54,11 +54,11 @@ watch(selectedCountry, (newValue, oldValue) => {
 
 // Changing the country code
 watch(nationalNumber, (newValue, oldValue) => {
-  console.log('nationalNumberWatcher');
+  // console.log('nationalNumberWatcher');
 
   if (newValue !== oldValue && newValue !== null && newValue !== undefined) {
     const formatter = new AsYouType(selectedCountry.value)
-    console.log(formatter);
+    // console.log(formatter);
 
     const formattedValue = formatter.input(newValue)
     const newParsedNumber = parsePhoneNumberFromString(formattedValue)
@@ -71,7 +71,7 @@ watch(nationalNumber, (newValue, oldValue) => {
 
 watch(() => props.modelValue, (newValue, oldValue) => {
   if (newValue !== oldValue && newValue !== null && newValue !== undefined) {
-    console.log(props.modelValue);
+    // console.log(props.modelValue);
 
     nationalNumber.value = newValue
   }
@@ -79,7 +79,7 @@ watch(() => props.modelValue, (newValue, oldValue) => {
 
 const updateHandler = () => {
   if (nationalNumber.value !== null && nationalNumber.value !== undefined && selectedCountry.value !== null && selectedCountry.value !== undefined) {
-    console.log('updateHandler');
+    // console.log('updateHandler');
 
     const phoneNumber = parsePhoneNumber(nationalNumber.value, selectedCountry.value)
     const formattedNumber = phoneNumber?.format('E.164') || nationalNumber.value
