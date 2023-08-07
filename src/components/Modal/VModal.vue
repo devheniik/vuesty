@@ -35,7 +35,7 @@ withDefaults(defineProps<{
   bgWhite?: boolean,
 }>(), {
   width: 'w-auto',
-  height: 'h-auto',
+  height: 'h-full',
   bgWhite: false
 })
 

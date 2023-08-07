@@ -6,6 +6,11 @@
     <v-input v-model="phone" readonly/>
     <v-input v-model="phone" type="number"/>
   </div>
+
+  <div class="box">
+    <v-modal v-model="phone" width="w-[50px]">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, rerum.</v-modal>
+  </div>
   <div class="box">
     <!-- <input v-model="phone" />
     <input v-model="phone" /> -->
@@ -111,7 +116,7 @@
 
 <v-tooltip placement="bottom">
   <template #tooltip>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas, soluta.</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas, w100soluta.</p>
   </template>
   <template #component>
     Component
@@ -575,7 +580,7 @@ import VToast from '../src/components/Toast/VToast.vue'
 import VButton from '../src/components/Button/VButton.vue'
 import VSelect from '../src/components/Select/VSelect.vue'
 // import VPagination from '../src/components/Pagination/VPagination.vue'
-// import VModal from "../src/components/Modal/VModal.vue"
+import VModal from "../src/components/Modal/VModal.vue"
 import VTextarea from "../src/components/Textarea/VTextarea.vue"
 import VAvatar from '../src/components/Avatar/VAvatar.vue'
 import VAlert from '../src/components/Alert/VAlert.vue'
@@ -596,7 +601,7 @@ import VTooltip from "../src/components/Tooltip/VTooltip.vue"
 // import VTreeSelect from "../src/components/TreeSelect/VTreeSelect.vue"
 export default {
   name: "App",
-  components: {VInput, VToast, VTable,  VButton, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox,  VSwitch, ChevronDownIcon, PaperclipIcon, ArchiveBoxIcon, VProgress, VTooltip, VNotification, VBadge},
+  components: {VInput, VToast, VTable,  VButton, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox,  VSwitch, ChevronDownIcon, PaperclipIcon, ArchiveBoxIcon, VProgress, VTooltip, VNotification, VBadge, VModal},
   data() {
     return {
       tree_value: [],
