@@ -14,7 +14,7 @@ const props = withDefaults(
   }>(),
   {
     ready: 0,
-    volume: 150,
+    volume: 0,
     way: 0,
     loaded: 0,
     full: true,
