@@ -8,7 +8,7 @@
   </div>
 
   <div class="box">
-    <v-modal v-model="phone" width="w-[50px]">
+    <v-modal v-model="phone" width="w-[50px]" full-height>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, rerum.</v-modal>
   </div>
   <div class="box">
