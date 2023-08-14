@@ -12,6 +12,7 @@ const props = withDefaults(
     shipment?: boolean
     payment?: boolean
     full?: boolean
+    unitForPrice: string
   }>(),
   {
     ready: 0,
@@ -22,6 +23,7 @@ const props = withDefaults(
     shipment: false,
     payment: false,
     units: '',
+    unitForPrice: '',
   }
 )
 
@@ -82,7 +84,7 @@ const percent_in_way = computed(() => {
 
       <div>
         <span v-if="loaded" class="v-progress__badge v-progress__badge_needed">
-          {{ payment ? (loaded + '/' + units) : volume_needed }}
+          {{ payment ? (loaded + '/' + unitForPrice) : volume_needed }}
         </span>
 
         <span v-if="!shipment" class="v-progress__badge v-progress__badge_total"> {{ volume }} {{ units }} </span>
