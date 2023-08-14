@@ -3,13 +3,14 @@ import { computed } from 'vue'
 
 const props = withDefaults(
   defineProps<{
-    ready: number
-    loaded?: number
+    ready: number | string
+    loaded?: number | string
     way?: number
-    volume: number
+    volume: number | string
     units?: string
     height?: number
     shipment?: boolean
+    payment?: boolean
     full?: boolean
   }>(),
   {
@@ -19,19 +20,21 @@ const props = withDefaults(
     loaded: 0,
     full: true,
     shipment: false,
+    payment: false,
+    units: '',
   }
 )
 
 const ready_width = () => {
   if (props.shipment) {
-    const p = (props.ready / props.loaded) * 100
+    const p = (Number(props.ready) / Number(props.loaded)) * 100
     if (p > 100) {
       return 100
     } else {
       return p
     }
   } else {
-    const p = (props.ready / props.volume) * 100
+    const p = (Number(props.ready) / Number(props.volume)) * 100
     if (p > 100) {
       return 100
     } else {
@@ -41,8 +44,8 @@ const ready_width = () => {
 }
 
 const volume_needed = computed(() => {
-  if (props.volume > props.loaded) {
-    const res = (props.volume - props.loaded).toFixed(2)
+  if (Number(props.volume) > Number(props.loaded)) {
+    const res = (Number(props.volume) - Number(props.loaded)).toFixed(2)
     if (!props.full) {
       return res.length < 5 ? res : '...'
     } else return res
@@ -50,11 +53,11 @@ const volume_needed = computed(() => {
 })
 
 const percent_volume_lost = computed(() => {
-  return `${(((props.loaded - props.ready) / props.volume) * 100).toFixed(2)}%`
+  return `${(((Number(props.loaded) - Number(props.ready)) / Number(props.volume)) * 100).toFixed(2)}%`
 })
 
 const percent_in_way = computed(() => {
-  return `${((props.way / props.volume) * 100).toFixed(2)}%`
+  return `${((props.way / Number(props.volume)) * 100).toFixed(2)}%`
 })
 </script>
 
@@ -79,7 +82,7 @@ const percent_in_way = computed(() => {
 
       <div>
         <span v-if="loaded" class="v-progress__badge v-progress__badge_needed">
-          {{ volume_needed }}
+          {{ payment ? (loaded + '/' + units) : volume_needed }}
         </span>
 
         <span v-if="!shipment" class="v-progress__badge v-progress__badge_total"> {{ volume }} {{ units }} </span>

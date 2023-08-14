@@ -125,7 +125,7 @@
 
 </div>
   <div class="box">
-    <v-progress :ready="5" :volume="101"   />
+    <v-progress :ready="'2100'" :volume="'2000'" :loaded="15" payment units="kg"   />
   </div>
   <div class="box space-y-2">
     <v-alert :controls="false" >
