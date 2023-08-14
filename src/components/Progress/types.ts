@@ -14,6 +14,7 @@ export interface VProgressProps {
   shipment?: boolean
   payment?: boolean
   full?: boolean
+  unitForPrice?: string
 }
 
 export type VProgressComponent = ComponentPublicInstance<VProgressProps>
