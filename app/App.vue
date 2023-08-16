@@ -1,4 +1,9 @@
 <template>
+    <div class="box">
+    <v-progress
+    :ready="'1700'" :volume="'2000'" price="9021"
+     units="kg"    />
+  </div>
   <div class="box">
     <v-input v-model="phone" />
     <v-input v-model="phone" />

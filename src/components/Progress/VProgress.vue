@@ -4,76 +4,59 @@ import { computed } from 'vue'
 const props = withDefaults(
   defineProps<{
     ready: number | string
-    loaded?: number | string
-    way?: number
     volume: number | string
     units?: string
     height?: number
-    shipment?: boolean
-    payment?: boolean
-    full?: boolean
+    lost?: number | string
+    price?: number | string
+    showUnitsInPrice?: boolean
   }>(),
   {
     ready: 0,
     volume: 0,
-    way: 0,
-    loaded: 0,
-    full: true,
-    shipment: false,
-    payment: false,
     units: '',
+    showUnitsInPrice: false,
+
   }
 )
 
 const ready_width = () => {
-  if (props.shipment) {
-    const p = (Number(props.ready) / Number(props.loaded)) * 100
-    if (p > 100) {
-      return 100
-    } else {
-      return p
-    }
+  const p = (Number(props.ready) / Number(props.volume)) * 100
+  if (p > 100) {
+    return 100
   } else {
-    const p = (Number(props.ready) / Number(props.volume)) * 100
-    if (p > 100) {
-      return 100
-    } else {
-      return p
-    }
+    return p
   }
 }
 
-const volume_needed = computed(() => {
-  if (Number(props.volume) > Number(props.loaded)) {
-    const res = (Number(props.volume) - Number(props.loaded)).toFixed(2)
-    if (!props.full) {
-      return res.length < 5 ? res : '...'
-    } else return res
-  } else return 0
-})
-
 const percent_volume_lost = computed(() => {
-  return `${(((Number(props.loaded) - Number(props.ready)) / Number(props.volume)) * 100).toFixed(2)}%`
+  return `${ ( (Number(props.lost) / Number(props.volume)) * 100).toFixed(2)}%`
 })
 
-const percent_in_way = computed(() => {
-  return `${((props.way / Number(props.volume)) * 100).toFixed(2)}%`
-})
+
 </script>
 
 <template>
+
+
   <div
-    :class="` v-progress z-10  flex  h-full w-full cursor-pointer items-center  overflow-hidden rounded-lg text-center text-white`"
+    :class="`v-progress z-10  flex  h-full w-full cursor-pointer items-center  overflow-hidden rounded-lg text-center text-white`"
     :style="`height: ${height ? height : 20}px;`">
+<!-- Colored part -->
     <div
-      v-if="ready_width() > 0"
-      :class="[{ 'v-progress_full': ready_width() >= 100 }, 'v-progress__body__colored z-10']"
-      :style="`width: ${ready_width()}%;height: ${height ? height : 20}px;`">
+    v-if="ready_width() > 0"
+    :class="[{ 'v-progress_full': ready_width() >= 100 }, 'v-progress__body__colored z-10']"
+    :style="`width: ${ready_width()}%;height: ${height ? height : 20}px;`">
       <span class="opacity-0">1</span>
     </div>
-    <div class="bg-danger-1000" :style="`width: ${percent_volume_lost};height: ${height ? height : 20}px;`"></div>
-    <div class="test" :style="`width: ${percent_in_way};height: ${height ? height : 20}px;`"></div>
+<!-- Red Part of Lost volume -->
+    <div
+    class="bg-danger-200"
+    :style="`width: ${percent_volume_lost};height: ${height ? height : 20}px;`">
+    </div>
+<!-- Units and Numbers -->
     <div class="absolute z-10 flex h-full w-full items-center justify-between px-1 text-xs">
+
       <div>
         <span class="v-progress__badge v-progress__badge_current">
           {{ ready }}
@@ -81,11 +64,19 @@ const percent_in_way = computed(() => {
       </div>
 
       <div>
-        <span v-if="loaded" class="v-progress__badge v-progress__badge_needed">
-          {{ payment ? (loaded + '/' + units) : volume_needed }}
+
+        <span v-if="price" class="v-progress__badge v-progress__badge_needed">
+          {{ price }}{{ showUnitsInPrice ? '/' + units : ''  }}
         </span>
 
-        <span v-if="!shipment" class="v-progress__badge v-progress__badge_total"> {{ volume }} {{ units }} </span>
+        <span v-else-if="lost" class="v-progress__badge v-progress__badge_needed">
+          {{ lost }}
+        </span>
+
+        <span class="v-progress__badge v-progress__badge_total">
+          {{ volume }} {{ units }}
+        </span>
+
       </div>
     </div>
   </div>
