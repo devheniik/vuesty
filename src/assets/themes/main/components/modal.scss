@@ -24,7 +24,7 @@
 }
 
 .v-modal__inner {
-  @apply inline-block overflow-hidden z-50 align-bottom bg-neutral-20 rounded-lg text-left shadow-xl transform transition-all sm:my-8 sm:align-middle
+  @apply inline-block  z-50 align-bottom bg-neutral-20 rounded-lg text-left shadow-xl transform transition-all sm:my-8 sm:align-middle
 }
 
 .v-modal__inner_bg-white {
@@ -45,7 +45,7 @@
 }
 
 .v-modal__inner__main {
-  @apply p-5 h-[85%] overflow-y-auto
+  @apply p-5 h-[85%] overflow-visible
 }
 
 .v-modal__outside {
