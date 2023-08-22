@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { debounce } from 'lodash'
 
 const props = withDefaults(
   defineProps<{
@@ -21,12 +22,14 @@ const props = withDefaults(
     to?: string | Record<string, any>
     target?: '_self' | '_blank' | '_parent' | '_top'
     loading?: boolean
+    awaitTime?: number
   }>(),
   {
     disabled: false,
     size: 'medium',
     color: 'primary',
     fontWeight: 500,
+    awaitTime: 1000,
   }
 )
 
@@ -50,9 +53,12 @@ interface Emits {
 
 const emit = defineEmits<Emits>()
 
-const onClick = () => {
-  emit('click')
-}
+const onClick = debounce(() => {
+  if (props.disabled) {
+    return;
+  }
+  emit('click');
+}, props.awaitTime, {leading: true});
 
 interface AttributesInterface {
   href?: string

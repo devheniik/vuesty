@@ -1,4 +1,7 @@
 <template>
+      <div class="box">
+        <v-button @click="handleP(1)"></v-button>
+      </div>
     <div class="box">
     <v-progress
     :ready="'1700'" :volume="'2000'" price="9021"
@@ -12,15 +15,6 @@
     <v-input v-model="phone" type="number"/>
   </div>
 
-  <div class="box">
-    <v-modal v-model="phone" width="w-[50px]" full-height>
-      <v-menu>
-        <template #menuItems>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum vitae laboriosam nobis, dolorum culpa necessitatibus odit dolores quas dicta, quis repellat iusto id, ex nostrum repudiandae corporis delectus veniam. Quasi rerum velit dicta laudantium doloribus labore tempora, impedit obcaecati, vero laborum eaque eum provident porro cumque ea odit nostrum, quos vitae. Totam, enim omnis repellendus eveniet rem fuga deserunt ullam qui velit consectetur! Reprehenderit quos repellendus, similique quo quidem tenetur accusamus dolorem. Quidem numquam inventore qui minima! Optio repellendus, officiis alias non sunt suscipit hic nesciunt deleniti maxime numquam quae nam doloribus inventore culpa quo repudiandae minima odit reiciendis et.
-        </template>
-      </v-menu>
-    </v-modal>
-  </div>
   <div class="box">
     <!-- <input v-model="phone" />
     <input v-model="phone" /> -->

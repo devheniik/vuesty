@@ -23,6 +23,7 @@ export interface VButtonProps extends VButtonEvents {
   to?: string | Record<string, any>
   target?: '_self' | '_blank' | '_parent' | '_top'
   loading?: boolean
+  awaitTime?: number
 }
 
 export interface VButtonSlots {
