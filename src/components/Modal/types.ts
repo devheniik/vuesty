@@ -9,6 +9,8 @@ export interface VModalProps extends VModalEvents {
   modelValue: boolean
   width: string
   bgWhite?: boolean
+  height?: string
+  fullHeight?: boolean
 }
 
 export interface VModalSlots {
