@@ -1,4 +1,15 @@
 <template>
+        <v-select
+        v-model="v_select_value"
+        label-key="title"
+        :multiple="true"
+        value-key="id"
+        :options="options"
+        placeholder="Select"
+        :auto-filter="false"
+        @search="handleSearch">
+
+      </v-select>
       <div class="box">
         <v-button @click="handleP(1)"></v-button>
       </div>
