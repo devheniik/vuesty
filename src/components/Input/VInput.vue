@@ -55,6 +55,11 @@ const inputRef = ref(null)
 const valid = ref<boolean>(props._valid)
 const invalid = ref<boolean>(props._invalid)
 
+watchEffect(() => {
+  valid.value = props._valid
+  invalid.value = props._invalid
+})
+
 const value = ref<string | number | null>(props.modelValue)
 const regex = ref<RegExp | false>(false)
 

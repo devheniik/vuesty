@@ -29,6 +29,7 @@ const props = withDefaults(
     delay?: number
     searchIcon?: boolean
     disabled?: boolean
+    invalid?: boolean
   }>(),
   {
     openDefault: false,
@@ -46,7 +47,8 @@ const props = withDefaults(
     isLoading: false,
     delay: 1000,
     searchIcon: false,
-    disabled: false
+    disabled: false,
+    invalid: false
   }
 )
 
@@ -338,13 +340,17 @@ onMounted(() => {
 </script>
 
 <template>
-  <div v-if="isLabelsReady" ref="selectRef" class="v-select" @focus.stop>
+  <div v-if="isLabelsReady" ref="selectRef" :class="v-select" @focus.stop>
     <div
       ref="headRef"
       type="button"
       :aria-expanded="open"
       aria-haspopup="menu"
-      :class="['v-select__head scrollbar group', { 'v-select__head_focus': isFocused }, { 'v-select__head_disabled': disabled }]"
+      :class="['v-select__head scrollbar group',
+      { 'v-select__head_focus': isFocused && !invalid },
+      { 'v-select__head_disabled': disabled },
+      , {'v-select__main__input_error': invalid}
+      ]"
       @click="onFocus">
       <span v-if="searchIcon" class="v-select__icon-box_left">
         <SearchMagnifyingGlassIcon :class="[ 'v-select__icon', { 'v-select__icon_focus' : isFocused }]" />
@@ -355,7 +361,7 @@ onMounted(() => {
           :value="search"
           :placeholder="searchPlaceholder"
           type="text"
-          class="v-select__main__input"
+          :class="['v-select__main__input']"
           :disabled="disabled"
           @focus.stop
           @input="handleSearch($event)" />

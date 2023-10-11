@@ -1,15 +1,24 @@
 <template>
-        <v-select
-        v-model="v_select_value"
-        label-key="title"
-        :multiple="true"
-        value-key="id"
-        :options="options"
-        placeholder="Select"
-        :auto-filter="false"
-        @search="handleSearch">
+  {{ !v_select_value.length }}
+        <div class="w112">
+          <v-select
+          v-model="v_select_value"
+          label-key="title"
+          :multiple="true"
+          value-key="id"
+          :options="options"
+          placeholder="Select"
+          :auto-filter="false"
+          :invalid="!v_select_value.length"
+          @search="handleSearch" />
 
-      </v-select>
+        </div>
+
+        <div class="w112">
+          <v-input v-model="page" :_invalid="!page" />
+          <v-button @click="decreasePage">decreasePage</v-button>
+
+        </div>
       <div class="box">
         <v-button @click="handleP(1)"></v-button>
       </div>
@@ -616,7 +625,7 @@ import VTooltip from "../src/components/Tooltip/VTooltip.vue"
 // import VTreeSelect from "../src/components/TreeSelect/VTreeSelect.vue"
 export default {
   name: "App",
-  components: {VInput, VToast, VTable,  VButton, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox,  VSwitch, ChevronDownIcon, PaperclipIcon, ArchiveBoxIcon, VProgress, VTooltip, VNotification, VBadge, VModal},
+  components: {VInput, VToast, VTable,  VButton, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox,  VSwitch, ChevronDownIcon, PaperclipIcon, ArchiveBoxIcon, VProgress, VTooltip, VNotification, VBadge},
   data() {
     return {
       tree_value: [],
@@ -793,6 +802,11 @@ export default {
   methods: {
     handleP(value) {
       console.log(value)
+    },
+    decreasePage() {
+      if (this.page > 0) {
+        this.page--
+      }
     },
     async getOptions(text) {
       this.isLoaded = true

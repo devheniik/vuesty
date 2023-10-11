@@ -26,6 +26,10 @@
   @apply h-full w-full sm:text-sm border-0 border-gray-900 pl-0 placeholder-gray-400 focus:outline-none focus:ring-0;
 }
 
+.v-select__main__input_error {
+  @apply border border-danger-500;
+}
+
 ._select {
   @apply border p-2 sm:text-sm text-black;
 }
