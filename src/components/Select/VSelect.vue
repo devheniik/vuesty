@@ -340,7 +340,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div v-if="isLabelsReady" ref="selectRef" :class="v-select" @focus.stop>
+  <div v-if="isLabelsReady" ref="selectRef" class="v-select" @focus.stop>
     <div
       ref="headRef"
       type="button"
@@ -349,7 +349,7 @@ onMounted(() => {
       :class="['v-select__head scrollbar group',
       { 'v-select__head_focus': isFocused && !invalid },
       { 'v-select__head_disabled': disabled },
-      , {'v-select__main__input_error': invalid}
+      {'v-select__main__input_error': invalid}
       ]"
       @click="onFocus">
       <span v-if="searchIcon" class="v-select__icon-box_left">
@@ -361,7 +361,7 @@ onMounted(() => {
           :value="search"
           :placeholder="searchPlaceholder"
           type="text"
-          :class="['v-select__main__input']"
+          class="v-select__main__input"
           :disabled="disabled"
           @focus.stop
           @input="handleSearch($event)" />
