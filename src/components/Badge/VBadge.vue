@@ -52,7 +52,7 @@ const color = computed(() => `v-tag-${props.color}`)
       <slot></slot>
     </div>
 
-    <span>
+    <span class="v-tag__label">
       {{ label }}
     </span>
 
