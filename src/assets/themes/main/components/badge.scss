@@ -3,6 +3,10 @@
   font-medium leading-3 max-w-full overflow-hidden text-ellipsis;
 }
 
+.v-tag__label {
+  @apply whitespace-nowrap text-ellipsis overflow-hidden;
+}
+
 .v-tag-primary {
   @apply bg-primary-50 text-primary-500;
 }

@@ -131,7 +131,7 @@ const isMultipleFilled = () => {
 }
 
 const isSingleFilledWithoutFocus = () => {
-  return !props.multiple && !isFocused.value && (props.modelValue !== undefined && props.modelValue !== null);
+  return !props.multiple && !isFocused.value && (props.modelValue !== undefined && props.modelValue !== null && props.modelValue !== "");
 }
 
 const isOptionObject = () => {
