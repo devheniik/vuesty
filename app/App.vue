@@ -1,4 +1,8 @@
 <template>
+  <v-modal v-model="isModalOpen" heading="someLabel" is-slide >
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates inventore dolore, iste laudantium, aliquam officiis omnis ipsum a beatae in nam voluptatum delectus, aliquid doloribus eos? Corrupti dolorum, maxime officia fuga magni alias. Ullam impedit cum ab a maxime sequi. Consectetur voluptatum nisi at aliquid quibusdam totam perferendis atque repellendus.
+  </v-modal>
+  <v-button @click="isModalOpen = !isModalOpen">here</v-button>
   {{ !v_select_value.length }}
         <div class="w112">
           <v-select
@@ -625,7 +629,7 @@ import VTooltip from "../src/components/Tooltip/VTooltip.vue"
 // import VTreeSelect from "../src/components/TreeSelect/VTreeSelect.vue"
 export default {
   name: "App",
-  components: {VInput, VToast, VTable,  VButton, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox,  VSwitch, ChevronDownIcon, PaperclipIcon, ArchiveBoxIcon, VProgress, VTooltip, VNotification, VBadge},
+  components: {VInput, VToast, VTable,  VButton, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox,  VSwitch, ChevronDownIcon, PaperclipIcon, ArchiveBoxIcon, VProgress, VTooltip, VNotification, VBadge, VModal},
   data() {
     return {
       tree_value: [],
@@ -925,6 +929,10 @@ svg {
 
 .w112 {
   width: 200px;
+}
+
+.w102 {
+  width: 50%;
 }
 
 .w100 {

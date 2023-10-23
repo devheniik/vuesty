@@ -11,6 +11,7 @@ export interface VModalProps extends VModalEvents {
   bgWhite?: boolean
   height?: string
   fullHeight?: boolean
+  isSlide?: boolean
 }
 
 export interface VModalSlots {

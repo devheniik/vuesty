@@ -2,12 +2,12 @@
   <teleport to="#modals">
     <transition
       enter-active-class="v-modal__enter-active"
-      enter-from-class="v-modal__enter-from"
-      enter-to-class="v-modal__enter-to"
-      leave-active-class="v-modal__leave-active">
-      <div v-if="modelValue" :class="['v-modal']">
-        <div :class="['v-modal__inner',{'v-modal__inner_bg-white': bgWhite}, `${width} ${height}`, {'h-[90%]' : fullHeight}]">
-          <header class="v-modal__inner__header">
+      :enter-from-class="isSlide ? 'v-modal__enter-from_slide' : 'v-modal__enter-from'"
+      :enter-to-class="isSlide ? 'v-modal__enter-to_slide' : 'v-modal__enter-to'"
+      :leave-active-class="isSlide ? 'v-modal__leave-active_slide' : 'v-modal__leave-active'">
+      <div v-if="modelValue" :class="isSlide ? 'v-modal_slide' : 'v-modal'">
+        <div :class="[isSlide ? 'v-modal__inner_slide' : 'v-modal__inner',{'v-modal__inner_bg-white': bgWhite}, `${width ? width : 'w-1/2'} ${height}`, {'h-[90%]' : fullHeight}]">
+          <header :class="isSlide ? 'v-modal__inner__header_slide' : 'v-modal__inner__header'">
             <h3 class="v-modal__inner__header__heading">
               {{ heading }}
             </h3>
@@ -34,11 +34,13 @@ withDefaults(defineProps<{
   height: string,
   fullHeight?: boolean,
   bgWhite?: boolean,
+  isSlide: boolean,
 }>(), {
   width: 'w-auto',
   height: 'h-auto',
   fullHeight: false,
-  bgWhite: false
+  bgWhite: false,
+  isSlide: false,
 })
 
 defineEmits(['update:modelValue'])
