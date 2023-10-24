@@ -1,4 +1,14 @@
 <template>
+      <div class="box">
+        <v-checkbox>
+          Hallo
+        </v-checkbox>
+      {{ check }}
+      <v-checkbox v-model="check" @request-server="handleRequest"></v-checkbox>
+      <v-checkbox label="label" disabled></v-checkbox>
+      <v-checkbox label="label" error></v-checkbox>
+      {{ option2 }}
+    </div>
   <v-modal v-model="isModalOpen" heading="someLabel" is-slide >
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates inventore dolore, iste laudantium, aliquam officiis omnis ipsum a beatae in nam voluptatum delectus, aliquid doloribus eos? Corrupti dolorum, maxime officia fuga magni alias. Ullam impedit cum ab a maxime sequi. Consectetur voluptatum nisi at aliquid quibusdam totam perferendis atque repellendus.
   </v-modal>
@@ -295,13 +305,7 @@
      <v-badge color="success" :value="true"> -->
     <div class="box spacer">
   </div>
-    <div class="box">
-      {{ check }}
-      <v-checkbox v-model="check" @request-server="handleRequest"></v-checkbox>
-      <v-checkbox label="label" disabled></v-checkbox>
-      <v-checkbox label="label" error></v-checkbox>
-      {{ option2 }}
-    </div>
+
     <div class="box">
       <!-- <v-phone-input v-model="phone" />
       <v-phone-input v-model="nullPhone" /> -->

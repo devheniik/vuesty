@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flex gap-2">
     <label class="v-checkbox__label">
       <input
         :disabled="disabled"
@@ -10,6 +10,7 @@
       />
       <span v-if="label" class="v-checkbox__label__text">{{ label }}</span>
     </label>
+    <slot></slot>
   </div>
 </template>
 
