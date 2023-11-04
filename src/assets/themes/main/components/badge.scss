@@ -3,6 +3,41 @@
   font-medium leading-3 max-w-full overflow-hidden text-ellipsis;
 }
 
+.v-tag__border-primary {
+  @apply border border-primary-500;
+}
+
+.v-tag__border-success {
+  @apply border border-success-500;
+}
+
+.v-tag__border-warning {
+  @apply border border-warning-500;
+}
+
+.v-tag__border-danger {
+  @apply border border-danger-500;
+}
+
+.v-tag__border-tertiary {
+  @apply border border-tertiary-500;
+}
+
+.v-tag__border-info {
+  @apply border border-info-500;
+}
+
+.v-tag__border-upgrade {
+  @apply border border-upgrade-500;
+}
+
+.v-tag__border-neutral {
+  @apply border border-neutral-500;
+}
+
+
+
+
 .v-tag__label {
   @apply whitespace-nowrap text-ellipsis overflow-hidden;
 }

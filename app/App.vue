@@ -59,7 +59,7 @@
   </v-badge>
   <v-badge chip></v-badge>
   <v-badge status color="danger"></v-badge>
-  <v-badge icon color="danger" />
+  <v-badge has-border icon color="danger" />
   <v-badge icon color="success" />
   <v-input v-model="hf" disabled></v-input>
     <div class="box w112">

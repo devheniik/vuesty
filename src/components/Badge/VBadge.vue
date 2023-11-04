@@ -20,6 +20,7 @@ const props = withDefaults(
     iconLeft?: boolean
     iconRight?: boolean
     chip?: boolean
+    hasBorder?: boolean
   }>(),
   {
     size: 'small',
@@ -28,6 +29,7 @@ const props = withDefaults(
     label: 'Label',
     icon: false,
     chip: false,
+    hasBorder: false,
   }
 )
 
@@ -42,10 +44,12 @@ const onClose = () => {
 }
 
 const color = computed(() => `v-tag-${props.color}`)
+const borderColor = computed(() => `v-tag__border-${props.color}`)
+
 </script>
 
 <template>
-  <div :class="[color, { 'v-tag-status-text': status }, {'v-tag__spacer' : (iconLeft || iconRight) }  , 'v-tag']">
+  <div :class="[color, { 'v-tag-status-text': status }, {'v-tag__spacer' : (iconLeft || iconRight) }  , 'v-tag', hasBorder ? borderColor : '']">
     <div v-if="status" :class="['v-tag__status-circle', `v-tag__status-circle_${props.color}`]"></div>
 
     <div v-if="iconLeft" class="v-tag__icon">
