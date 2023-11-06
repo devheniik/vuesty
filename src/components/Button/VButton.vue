@@ -54,7 +54,7 @@ interface Emits {
 const emit = defineEmits<Emits>()
 
 const onClick = debounce(() => {
-  if (props.disabled) {
+  if (props.disabled || props.loading) {
     return;
   }
   emit('click');

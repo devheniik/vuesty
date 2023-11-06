@@ -1,4 +1,5 @@
 <template>
+  <v-button loading color="secondary">Hello</v-button>
       <div class="box">
         <v-checkbox>
           Hallo
