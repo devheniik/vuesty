@@ -5,7 +5,7 @@
       :enter-from-class="isSlide ? 'v-modal__enter-from_slide' : 'v-modal__enter-from'"
       :enter-to-class="isSlide ? 'v-modal__enter-to_slide' : 'v-modal__enter-to'"
       :leave-active-class="isSlide ? 'v-modal__leave-active_slide' : 'v-modal__leave-active'">
-      <div v-if="modelValue" :class="isSlide ? 'v-modal_slide' : 'v-modal'">
+      <div v-if="modelValue && !isLoading" :class="isSlide ? 'v-modal_slide' : 'v-modal'">
         <div :class="[isSlide ? 'v-modal__inner_slide' : 'v-modal__inner',{'v-modal__inner_bg-white': bgWhite}, `${width ? width : 'w-1/2'} ${height}`, {'h-[90%]' : fullHeight}]">
           <header :class="isSlide ? 'v-modal__inner__header_slide' : 'v-modal__inner__header'">
             <h3 class="v-modal__inner__header__heading">
@@ -26,7 +26,8 @@
 </template>
 
 <script setup lang="ts">
-import { CloseMdIcon } from '@devheniik/icons';
+import { CloseMdIcon } from '@devheniik/icons'
+
 withDefaults(defineProps<{
   modelValue: boolean,
   heading?: string ,
@@ -35,12 +36,14 @@ withDefaults(defineProps<{
   fullHeight?: boolean,
   bgWhite?: boolean,
   isSlide: boolean,
+  isLoading: boolean,
 }>(), {
   width: 'w-auto',
   height: 'h-auto',
   fullHeight: false,
   bgWhite: false,
   isSlide: false,
+  isLoading: false,
 })
 
 defineEmits(['update:modelValue'])

@@ -16,16 +16,20 @@
 <script setup lang="ts">
 
 const props = defineProps<{
-  modelValue: boolean;
-  disabled?: boolean;
+  modelValue: boolean | number
+  disabled?: boolean
 }>();
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: boolean): void;
+  (e: 'update:modelValue', value: boolean | number): void;
 }>();
 
 const toggleSwitch = () => {
   if (!props.disabled) {
+    if(typeof(props.modelValue) === 'number') {
+      emit('update:modelValue', props.modelValue ? 0 : 1);
+      return;
+    }
     emit('update:modelValue', !props.modelValue);
   }
 };
