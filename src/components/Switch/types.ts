@@ -5,7 +5,7 @@ export interface VSwitchEvents {
 }
 
 export interface VSwitchProps extends VSwitchEvents {
-  modelValue: boolean
+  modelValue: boolean | number
   disabled?: boolean
 }
 
