@@ -136,7 +136,7 @@ const isSingleFilledWithoutFocus = () => {
 
 const isOptionObject = () => {
   if (props.options) {
-    if (props.options.length > 0) {
+    if (props.options?.length > 0) {
       return typeof props.options[0] === 'object'
     }
   }
@@ -206,7 +206,7 @@ const clear = () => {
 
 const onSelect = (option: any) => {
   if (props.multiple) {
-    if (props.modelValue.length || props.multiple) {
+    if (props.modelValue?.length || props.multiple) {
       if (isSelected(option)) {
         emit(
           'update:modelValue',
@@ -244,7 +244,7 @@ const deselectItem = (value: any) => {
 
 const filteredOptions = computed(() => {
 
-  if (search.value === '' || search.value.length === 0) {
+  if (search.value === '' || search.value?.length === 0) {
     return props.options
   }
 
@@ -261,7 +261,7 @@ const visibleTags = computed(() => {
   let response = []
 
   if (props.modelValue) {
-    if (props.modelValue.length > props.maxShow) {
+    if (props.modelValue?.length > props.maxShow) {
       response = props.modelValue.slice(0, props.maxShow)
     } else {
       response = props.modelValue
@@ -273,7 +273,7 @@ const visibleTags = computed(() => {
 
 const excessQuantity = () => {
   if (props.modelValue) {
-    if (props.modelValue.length > props.maxShow) {
+    if (props.modelValue?.length > props.maxShow) {
       return props.modelValue.length - props.maxShow
     }
   }
@@ -331,7 +331,7 @@ onMounted(() => {
     if (props.modelValue === null || props.modelValue === undefined) {
       emit('update:modelValue', [])
     } else if (String(typeof props.modelValue) !== 'array') {
-      if (props.modelValue.length === 0) {
+      if (props.modelValue?.length === 0) {
         emit('update:modelValue', [])
       }
     }
@@ -419,7 +419,7 @@ onMounted(() => {
             </div>
           </slot>
         </div>
-        <div v-if="!filteredOptions.length" class="v-select__empty-box">
+        <div v-if="!filteredOptions?.length" class="v-select__empty-box">
           <FileRemoveIcon class="v-select__icon_empty" />
           <span>
             {{ emptyText }}
