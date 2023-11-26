@@ -15,7 +15,9 @@ jobs:
         uses: actions/github-script@v5
         with:
           script: |
-            const tags = await github.repos.listTags({
+            const github = require('@actions/github');
+            const octokit = github.getOctokit(process.env.GITHUB_TOKEN);
+            const tags = await octokit.repos.listTags({
               owner: context.repo.owner,
               repo: context.repo.repo,
             });
@@ -24,6 +26,8 @@ jobs:
             const [major, minor, patch] = version.split('.');
             const newVersion = `${major}.${minor}.${parseInt(patch) + 1}`;
             return `v${newVersion}-${preRelease}`;
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
