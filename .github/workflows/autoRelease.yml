@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Get version from package.json
         id: pkg
-        run: echo "::set-output name=version::$(node -p "require('./package.json').version")"
+        run: echo "::set-output name=version::$(node -p "require('./../package.json').version")"
       - name: Prepare new version
         id: prepare_version
         uses: actions/github-script@v5
