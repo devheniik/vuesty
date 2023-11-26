@@ -6,35 +6,23 @@ on:
       - completed
 
 jobs:
-  release:
+  build:
+    name: Create Release
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Get latest tag
-        id: latesttag
-        uses: actions/github-script@v5
-        with:
-          script: |
-            const githubV = require('@actions/github');
-            const octokit = githubV.getOctokit(process.env.GITHUB_TOKEN);
-            const tags = await octokit.repos.listTags({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-            });
-            const latestTag = tags.data[0].name;
-            const [version, preRelease] = latestTag.substring(1).split('-'); // remove the 'v' prefix and split version and pre-release
-            const [major, minor, patch] = version.split('.');
-            const newVersion = `${major}.${minor}.${parseInt(patch) + 1}`;
-            return `v${newVersion}-${preRelease}`;
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checkout code
+        uses: actions/checkout@v2
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
-          tag_name: ${{ steps.latesttag.outputs.result }}
-          release_name: Release ${{ steps.latesttag.outputs.result }}
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            Changes in this Release
+            - First Change
+            - Second Change
           draft: false
           prerelease: false
