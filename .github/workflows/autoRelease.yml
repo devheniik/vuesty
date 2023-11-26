@@ -19,6 +19,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
             });
+            console.log(tags.data[0].name)
             const latestTag = tags.data[0].name;
             const [version, preRelease] = latestTag.substring(1).split('-'); // remove the 'v' prefix and split version and pre-release
             const [preReleaseName, preReleaseVersion] = preRelease.split('.');
