@@ -13,7 +13,7 @@ dist/
 dist-ssr
 *.local
 
-update-version-and-release.sh
+update-version.sh
 
 # Editor directories and files
 .vscode/*
