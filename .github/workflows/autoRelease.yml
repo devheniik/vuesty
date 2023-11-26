@@ -1,0 +1,38 @@
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+name: Auto Release
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  # This workflow contains a single job called "build"
+  release:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - uses: actions/checkout@v2
+      - name: Get latest tag
+        id: latesttag
+        uses: actions/github-script@v5
+        with:
+          script: |
+            const tags = await github.repos.listTags({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            });
+            const latestTag = tags.data[0].name;
+            const [version, preRelease] = latestTag.substring(1).split('-'); // remove the 'v' prefix and split version and pre-release
+            const [major, minor, patch] = version.split('.');
+            const newVersion = `${major}.${minor}.${parseInt(patch) + 1}`;
+            return `v${newVersion}-${preRelease}`;
+      - uses: CupOfTea696/gh-action-auto-release@v1.0.0
+        with:
+          title: "${{ steps.latesttag.outputs.result }}"
+          tag: "${{ steps.latesttag.outputs.result }}"
+          draft: false
+          regex: "/^#{semver}-#{preRelease}$/i"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
