@@ -3,7 +3,7 @@ name: Auto Release
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   # This workflow contains a single job called "build"
