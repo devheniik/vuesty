@@ -10,21 +10,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Get latest tag
-        id: latesttag
+      - name: Get version from package.json
+        id: pkg
+        run: echo "::set-output name=version::$(node -p "require('./package.json').version")"
+      - name: Prepare new version
+        id: prepare_version
         uses: actions/github-script@v5
         with:
           script: |
-            const tags = await github.rest.repos.listTags({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-            });
-            console.log(tags.data[0].name)
-            const latestTag = tags.data[0].name;
-            const [version, preRelease] = latestTag.substring(1).split('-'); // remove the 'v' prefix and split version and pre-release
-            const [preReleaseName, preReleaseVersion] = preRelease.split('.');
-            const newPreReleaseVersion = `${preReleaseName}.${parseInt(preReleaseVersion) + 1}`;
-            return `${version}-${newPreReleaseVersion}`.replace(/"/g, '');
+            const version = "${{ steps.pkg.outputs.version }}";
+            const [major, minor, patch] = version.split('.');
+            const newVersion = `${major}.${minor}.${parseInt(patch) + 1}`;
+            return newVersion.replace(/"/g, '');
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Create Release
@@ -33,7 +30,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ steps.latesttag.outputs.result }}
-          release_name: ${{ steps.latesttag.outputs.result }}
+          tag_name: ${{ steps.prepare_version.outputs.result }}
+          release_name: ${{ steps.prepare_version.outputs.result }}
           draft: false
           prerelease: false
