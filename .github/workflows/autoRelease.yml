@@ -16,7 +16,7 @@ jobs:
         with:
           script: |
             const tags = await github.rest.repos.listTags({
-              owner: "Oleksandr"
+              owner: context.repo.owner,
               repo: context.repo.repo,
             });
             console.log(tags.data[0].name)
