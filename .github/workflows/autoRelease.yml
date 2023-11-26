@@ -21,9 +21,9 @@ jobs:
             });
             const latestTag = tags.data[0].name;
             const [version, preRelease] = latestTag.substring(1).split('-'); // remove the 'v' prefix and split version and pre-release
-            const [major, minor, patch] = version.split('.');
-            const newVersion = `${major}.${minor}.${parseInt(patch) + 1}`;
-            return `v${newVersion}-${preRelease}`;
+            const [preReleaseName, preReleaseVersion] = preRelease.split('.');
+            const newPreReleaseVersion = `${preReleaseName}.${parseInt(preReleaseVersion) + 1}`;
+            return `v${version}-${newPreReleaseVersion}`;
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Create Release
