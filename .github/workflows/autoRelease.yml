@@ -23,7 +23,7 @@ jobs:
             const [version, preRelease] = latestTag.substring(1).split('-'); // remove the 'v' prefix and split version and pre-release
             const [preReleaseName, preReleaseVersion] = preRelease.split('.');
             const newPreReleaseVersion = `${preReleaseName}.${parseInt(preReleaseVersion) + 1}`;
-            return `v${version}-${newPreReleaseVersion}`;
+            return `${version}-${newPreReleaseVersion}`;
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Create Release
@@ -33,6 +33,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ steps.latesttag.outputs.result }}
-          release_name: Release ${{ steps.latesttag.outputs.result }}
+          release_name: ${{ steps.latesttag.outputs.result }}
           draft: false
           prerelease: false
