@@ -16,7 +16,7 @@ jobs:
         with:
           script: |
             const tags = await github.rest.repos.listTags({
-              owner: context.repo.owner,
+              owner: "Oleksandr"
               repo: context.repo.repo,
             });
             console.log(tags.data[0].name)
@@ -24,7 +24,7 @@ jobs:
             const [version, preRelease] = latestTag.substring(1).split('-'); // remove the 'v' prefix and split version and pre-release
             const [preReleaseName, preReleaseVersion] = preRelease.split('.');
             const newPreReleaseVersion = `${preReleaseName}.${parseInt(preReleaseVersion) + 1}`;
-            return `${version}-${newPreReleaseVersion}`;
+            return `${version}-${newPreReleaseVersion}`.replace(/"/g, '');
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Create Release
