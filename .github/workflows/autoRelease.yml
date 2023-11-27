@@ -9,29 +9,10 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Get version from package.json
-        id: pkg
-        run: echo "::set-output name=version::$(node -p "require('./package.json').version")"
-      - name: Prepare new version
-        id: prepare_version
-        uses: actions/github-script@v5
-        with:
-          script: |
-            const version = "${{ steps.pkg.outputs.version }}";
-            const [majorMinorPatch, preRelease] = version.split('-');
-            const [preReleaseName, preReleaseVersion] = preRelease.split('.');
-            const newPreReleaseVersion = `${preReleaseName}.${parseInt(preReleaseVersion)}`;
-            return `${majorMinorPatch}-${newPreReleaseVersion}`.replace(/"/g, '');
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run release-it
+        run: npm run release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Create Release
-        id: create_release
-        uses: elgohr/Github-Release-Action@v5
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          title: ${{ steps.prepare_version.outputs.result }}
-          # release_name:
-          # draft: false
-          # prerelease: false
