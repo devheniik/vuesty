@@ -1,5 +1,5 @@
 <script setup lang="ts">
-type Sizes = 'tiny' | 'small' | 'medium' | 'big' | 'large' | 'huge' | 'gigantic'
+type Sizes = 'tiny' | 'small' | 'medium' | 'big' | 'large' | 'huge' | 'gigantic';
 
 withDefaults(
   defineProps<{
