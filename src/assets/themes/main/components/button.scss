@@ -50,7 +50,7 @@ button.v-button_upgrade {
   @apply bg-upgrade-500 text-white  focus:ring-upgrade-500 hover:bg-upgrade-600;
 }
 
-button.v-button-success {
+button.v-button_success {
   @apply bg-success-500  text-white shadow-sm  focus:ring-success-500 hover:bg-success-600;
 }
 
@@ -123,9 +123,18 @@ button.v-button_light_disabled {
 } */
 
 .v-button_icon {
-  @apply px-2
+  @apply px-2;
 }
 
 .v-button_icon_sm {
-  @apply px-1.5
+  @apply px-1.5;
+}
+
+
+.v-button__loading_slot {
+  @apply ml-2;
+}
+
+.v-button_loading {
+  @apply opacity-70;
 }

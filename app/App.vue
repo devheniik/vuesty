@@ -1,5 +1,5 @@
 <template>
-  <v-button loading color="secondary">Hello</v-button>
+  <v-button @click="logger">Hello</v-button>
       <div class="box">
         <v-checkbox>
           Hallo
@@ -828,10 +828,8 @@ export default {
       this.isLoaded = false
     },
 
-    logger(dat) {
-      this.hf = dat
-      console.log(dat);
-      console.log(this.hf)
+    logger() {
+      console.log(34)
     },
 
     changeTextValue() {
