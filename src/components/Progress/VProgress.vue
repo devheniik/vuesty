@@ -55,18 +55,18 @@ const percent_volume_lost = computed(() => {
     :style="`width: ${percent_volume_lost};height: ${height ? height : 20}px;`">
     </div>
 <!-- Units and Numbers -->
-    <div class="absolute z-10 flex h-full w-full items-center justify-between px-1 text-xs">
+    <div class="absolute z-10 flex h-full w-full items-center justify-between px-1 text-xs space-x-1">
 
-      <div>
+      <div class="v-progress__numbers-container">
         <span class="v-progress__badge v-progress__badge_current">
           {{ ready }}
         </span>
       </div>
 
-      <div>
+      <div class="v-progress__numbers-container space-x-1">
 
         <span v-if="price" class="v-progress__badge v-progress__badge_needed">
-          {{ price }}{{ showUnitsInPrice ? '/' + units : ''  }}
+          {{ price }}{{ showUnitsInPrice ? units : ''  }}
         </span>
 
         <span v-else-if="lost" class="v-progress__badge v-progress__badge_needed">
@@ -74,7 +74,7 @@ const percent_volume_lost = computed(() => {
         </span>
 
         <span class="v-progress__badge v-progress__badge_total">
-          {{ volume }} {{ units }}
+          {{ volume }}{{ units }}
         </span>
 
       </div>

@@ -1,6 +1,7 @@
 .v-tag {
   @apply inline-flex items-center rounded px-2 py-1 text-[13px]
-  font-medium leading-3 max-w-full overflow-hidden text-ellipsis;
+  font-medium  max-w-full overflow-x-hidden overflow-y-visible text-ellipsis;
+  /* leading-3 */
 }
 
 .v-tag__border-primary {
@@ -39,7 +40,7 @@
 
 
 .v-tag__label {
-  @apply whitespace-nowrap text-ellipsis overflow-hidden;
+  @apply whitespace-nowrap text-ellipsis overflow-x-hidden overflow-y-visible;
 }
 
 .v-tag-primary {

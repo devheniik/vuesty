@@ -1,5 +1,9 @@
 <template>
-  <v-button @click="logger">Hello</v-button>
+  <div class="box">
+    <div class="test-box">
+      <v-progress :ready="10" volume="22131.000" units="$" show-units-in-price price="100"/>
+    </div>
+  </div>
       <div class="box">
         <v-checkbox>
           Hallo
@@ -940,5 +944,9 @@ svg {
 
 .w100 {
   width: 100% !important;
+}
+
+.test-box {
+  width: 150px;
 }
 </style>

@@ -17,15 +17,19 @@
 }
 
 .v-progress__badge_current {
-  @apply left-0.5 bg-white text-success-1000;
+  @apply left-0.5 bg-white text-success-1000 truncate;
 }
 
 .v-progress__badge_total {
-  @apply right-0.5 bg-gray-800 text-white;
+  @apply right-0.5 bg-gray-800 text-white truncate;
 }
 
 .v-progress__badge_needed {
-  @apply mr-1 bg-white text-gray-800;
+  @apply mr-1 bg-white text-gray-800 truncate;
+}
+
+.v-progress__numbers-container {
+  @apply flex items-center flex-nowrap overflow-hidden;
 }
 
 .v-progress__body {
