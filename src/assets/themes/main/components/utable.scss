@@ -23,7 +23,7 @@
 }
 
 .v-utable__table-head__item {
-  @apply w-auto  py-3 px-4 text-center text-sm  font-semibold text-gray-700;
+  @apply w-auto  py-3 px-4 text-left text-sm  font-semibold text-gray-700;
 }
 
 .v-utable__table-head__item:first-child {
@@ -36,9 +36,6 @@
 }
 
 .v-utable__body__row__cell {
-  @apply border-y px-4 py-2.5 text-center text-sm text-gray-700;
+  @apply border-y px-4 py-2.5 text-sm text-gray-700;
 }
 
-.v-utable__body__row__cell:first-child {
-  @apply text-left;
-}
