@@ -1,8 +1,13 @@
 <template>
   <div class="box">
-    <div class="test-box">
-      <v-progress :ready="100" volume="200" units="$" show-units-in-price />
-    </div>
+      <!-- <v-progress :ready="100" volume="200" units="$" show-units-in-price /> -->
+      <v-pagination
+            v-bind="meta"
+            :page="1"
+            :limit="20"
+            :to="50"
+            :last_page="50"
+             />
   </div>
       <div class="box">
         <v-checkbox>
@@ -616,7 +621,7 @@ import VInput from '../src/components/Input/VInput.vue'
 import VToast from '../src/components/Toast/VToast.vue'
 import VButton from '../src/components/Button/VButton.vue'
 import VSelect from '../src/components/Select/VSelect.vue'
-// import VPagination from '../src/components/Pagination/VPagination.vue'
+import VPagination from '../src/components/Pagination/VPagination.vue'
 import VModal from "../src/components/Modal/VModal.vue"
 import VTextarea from "../src/components/Textarea/VTextarea.vue"
 import VAvatar from '../src/components/Avatar/VAvatar.vue'
@@ -638,7 +643,7 @@ import VTooltip from "../src/components/Tooltip/VTooltip.vue"
 // import VTreeSelect from "../src/components/TreeSelect/VTreeSelect.vue"
 export default {
   name: "App",
-  components: {VInput, VToast, VTable,  VButton, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox,  VSwitch, ChevronDownIcon, PaperclipIcon, ArchiveBoxIcon, VProgress, VTooltip, VNotification, VBadge, VModal},
+  components: {VInput, VToast, VTable,  VButton, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox,  VSwitch, ChevronDownIcon, PaperclipIcon, ArchiveBoxIcon, VProgress, VTooltip, VNotification, VBadge, VModal, VPagination},
   data() {
     return {
       tree_value: [],
