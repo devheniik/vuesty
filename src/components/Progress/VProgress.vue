@@ -10,13 +10,14 @@ const props = withDefaults(
     lost?: number | string
     price?: number | string
     showUnitsInPrice?: boolean
+    noColor?: boolean
   }>(),
   {
     ready: 0,
     volume: 0,
     units: '',
     showUnitsInPrice: false,
-
+    noColor: false,
   }
 )
 
@@ -45,7 +46,8 @@ const percent_volume_lost = computed(() => {
 <!-- Colored part -->
     <div
     v-if="ready_width() > 0"
-    :class="[{ 'v-progress_full': ready_width() >= 100 }, 'v-progress__body__colored z-10']"
+    :class="[{ 'v-progress_full': ready_width() >= 100 }, 'z-10',
+  {'v-progress__body__colored' : !noColor}]"
     :style="`width: ${ready_width()}%;height: ${height ? height : 20}px;`">
       <span class="opacity-0">1</span>
     </div>

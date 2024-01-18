@@ -1,7 +1,7 @@
 <template>
   <div class="box">
     <div class="test-box">
-      <v-progress :ready="10" volume="22131.000" units="$" show-units-in-price price="100"/>
+      <v-progress :ready="100" volume="200" units="$" show-units-in-price />
     </div>
   </div>
       <div class="box">

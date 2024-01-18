@@ -9,6 +9,7 @@ export interface VProgressProps {
   lost?: number | string
   price?: number | string
   showUnitsInPrice?: boolean
+  noColor?: boolean
 }
 
 export type VProgressComponent = ComponentPublicInstance<VProgressProps>
