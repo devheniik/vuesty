@@ -391,7 +391,7 @@ onMounted(() => {
       </div>
       <div v-else class="v-select__icon-box">
         <CloseMdIcon
-          v-if="modelValue && deselect"
+          v-if="(modelValue !== null && modelValue !== undefined) && deselect"
           :class="[ 'v-select__icon focus-none', { 'v-select__icon_focus' : isFocused }]"
           @click.stop="clear"
           @focus.stop="clear" />
