@@ -23,10 +23,10 @@ const props = withDefaults(
     units: '',
     showUnitsInPrice: false,
     noColor: false,
-    readyLabel: 'Ready',
-    lostLabel: 'Lost',
-    volumeLabel: 'Volume',
-    priceLabel: 'Price',
+    readyLabel: 'Готово',
+    lostLabel: 'Втрачено',
+    volumeLabel: "Об'єм",
+    priceLabel: 'Ціна',
   }
 )
 
@@ -130,21 +130,21 @@ const percent_volume_lost = computed(() => {
 
     <PopoverPanel class="absolute z-50 bg-primary-500 text-white p-5 rounded-lg">
       <div v-if="price" class="flex justify-between gap-4">
-        <span class="text-sm font-bold">{{ priceLabel }}:</span>
-        <span class="text-sm font-bold">{{ price }} {{ showUnitsInPrice ? units : ''  }}</span>
+        <span class="text-sm font-bold whitespace-nowrap">{{ priceLabel }}:</span>
+        <span class="text-sm font-bold whitespace-nowrap">{{ price }} {{ showUnitsInPrice ? units : ''  }}</span>
       </div>
       <div v-if="formattedVolume" class="flex justify-between gap-4">
-          <span class="text-sm font-bold">{{ volumeLabel }}:</span>
-          <span class="text-sm font-bold">{{ formattedVolume }} {{ units }}</span>
+          <span class="text-sm font-bold whitespace-nowrap">{{ volumeLabel }}:</span>
+          <span class="text-sm font-bold whitespace-nowrap">{{ formattedVolume }} {{ units }}</span>
         </div>
       <div class="grid gap-4">
         <div v-if="formattedReady" class="flex justify-between gap-4">
-          <span class="text-sm font-bold">{{ readyLabel }}:</span>
-          <span class="text-sm font-bold">{{ formattedReady }} {{ units }}</span>
+          <span class="text-sm font-bold whitespace-nowrap">{{ readyLabel }}:</span>
+          <span class="text-sm font-bold whitespace-nowrap">{{ formattedReady }} {{ units }}</span>
         </div>
         <div v-if="formattedLost" class="flex justify-between gap-4">
-          <span class="text-sm font-bold">{{ lostLabel }}:</span>
-          <span class="text-sm font-bold">{{ formattedLost }} {{ units }}</span>
+          <span class="text-sm font-bold whitespace-nowrap">{{ lostLabel }}:</span>
+          <span class="text-sm font-bold whitespace-nowrap">{{ formattedLost }} {{ units }}</span>
         </div>
       </div>
     </PopoverPanel>
