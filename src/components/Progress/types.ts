@@ -10,6 +10,9 @@ export interface VProgressProps {
   price?: number | string
   showUnitsInPrice?: boolean
   noColor?: boolean
+  readyLabel?: string
+  lostLabel?: string
+  volumeLabel?: string
 }
 
 export type VProgressComponent = ComponentPublicInstance<VProgressProps>

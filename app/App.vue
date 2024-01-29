@@ -1,15 +1,15 @@
 <template>
   <div class="box">
-      <!-- <v-progress :ready="100" volume="200" units="$" show-units-in-price /> -->
-      <v-pagination
-            v-bind="meta"
-            :page="1"
-            :limit="20"
-            :to="50"
-            :last_page="50"
-             />
+    <v-progress :ready="10024.00567" volume="2200.039009" units="$" show-units-in-price ready-label="Готово"  volume-label="Повний побем" />
+    <!-- <v-pagination
+      v-bind="meta"
+      :page="1"
+      :limit="20"
+      :to="50"
+      :last_page="50"
+        /> -->
   </div>
-      <div class="box">
+      <!-- <div class="box">
         <v-checkbox>
           Hallo
         </v-checkbox>
@@ -59,10 +59,6 @@
     <v-input v-model="phone" type="number"/>
   </div>
 
-  <div class="box">
-    <!-- <input v-model="phone" />
-    <input v-model="phone" /> -->
-  </div>
 
   <v-badge icon-right>
     <PaperclipIcon  class="icone"/>
@@ -282,7 +278,7 @@
     </v-menu>
   <div class="box">
   <v-button @click="isModalOpen = true">+</v-button>
-</div>
+</div> -->
   <!--
   <div class="box">
     <v-select
@@ -313,13 +309,10 @@
     <v-badge icon color="success">
     </v-badge>
      <v-badge color="success" :value="true"> -->
-    <div class="box spacer">
-  </div>
 
-    <div class="box">
       <!-- <v-phone-input v-model="phone" />
       <v-phone-input v-model="nullPhone" /> -->
-      <v-button @click="addOneToPhone">+1</v-button>
+      <!-- <v-button @click="addOneToPhone">+1</v-button>
     </div>
   <div class="box spacer">
     <div>
@@ -336,7 +329,7 @@
     </div>
   </div>
   <div class="box">
-    <h2>Select your favorite color:</h2>
+    <h2>Select your favorite color:</h2> -->
     <!-- <v-radio-button
       v-for="color in colors"
       :key="color"
@@ -357,8 +350,7 @@
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid architecto quibusdam odio beatae veniam, fuga ipsam tempore et cum assumenda nemo! Adipisci molestiae distinctio, harum officia quam, blanditiis, eius temporibus impedit beatae deleniti repellat quasi. Quisquam, voluptatum. Quisquam, voluptatum.
       </template>
     </v-radio-button> -->
-  </div>
-  <div class="black">
+  <!-- <div class="black">
     <v-avatar-group size="tiny" color="success">
       <v-avatar text="o a"></v-avatar>
       <v-avatar text="FP PR"></v-avatar>
@@ -494,9 +486,7 @@
     </div>
 
   </div>
-  <!-- <div class="box">
-    <v-textarea v-model="ttf" placeholder="lalalalal"></v-textarea>
-  </div> -->
+
   <div class="box">
     <v-alert></v-alert>
   </div>
@@ -536,23 +526,7 @@
         @search="handleSearch">
 
       </v-select>
-    <!-- <v-select
-      v-model="v_select_value"
-      :options="[1,2,3]"
-      @focus="handleFocus">
 
-    </v-select> -->
-
-
-
-
-    <!-- <v-select
-      v-model="v_select_value"
-      multiple
-      :options="[1,2,3]"
-      @focus="handleFocus">
-
-    </v-select> -->
   </div>
 
 
@@ -560,7 +534,6 @@
     <span @click="changeTextValue">CLickMe TO Change vinput</span>
     <VInput v-model="text">
       <template #icon-right>
-<!--        <AcademicCapIcon class="h-4 w-4"></AcademicCapIcon>-->
       </template>
     </VInput>
     <VInput v-model="text" :required="true"></VInput>
@@ -603,47 +576,41 @@
         {{data.name}}
       </template>
     </VTable>
-  </div>
-
-
-
-  <div class="box">
-    <!-- <VTreeNode /> -->
-  </div>
+  </div> -->
 
 
 </template>
 
 <script>
 import axios from "axios"
-import VTable from '../src/components/Table/VTable.vue'
-import VInput from '../src/components/Input/VInput.vue'
-import VToast from '../src/components/Toast/VToast.vue'
-import VButton from '../src/components/Button/VButton.vue'
-import VSelect from '../src/components/Select/VSelect.vue'
-import VPagination from '../src/components/Pagination/VPagination.vue'
-import VModal from "../src/components/Modal/VModal.vue"
-import VTextarea from "../src/components/Textarea/VTextarea.vue"
-import VAvatar from '../src/components/Avatar/VAvatar.vue'
-import VAlert from '../src/components/Alert/VAlert.vue'
-import VSwitch from '../src/components/Switch/VSwitch.vue'
-import VMenu from '../src/components/Menu/VMenu.vue'
-import VUTable from '../src/components/UTable/VUTable.vue'
-import VAvatarGroup from '../src/components/AvatarGroup/VAvatarGroup.vue'
-import VCheckbox from '../src/components/Checkbox/VCheckbox.vue'
+// import VTable from '../src/components/Table/VTable.vue'
+// import VInput from '../src/components/Input/VInput.vue'
+// import VToast from '../src/components/Toast/VToast.vue'
+// import VButton from '../src/components/Button/VButton.vue'
+// import VSelect from '../src/components/Select/VSelect.vue'
+// import VPagination from '../src/components/Pagination/VPagination.vue'
+// import VModal from "../src/components/Modal/VModal.vue"
+// import VTextarea from "../src/components/Textarea/VTextarea.vue"
+// import VAvatar from '../src/components/Avatar/VAvatar.vue'
+// import VAlert from '../src/components/Alert/VAlert.vue'
+// import VSwitch from '../src/components/Switch/VSwitch.vue'
+// import VMenu from '../src/components/Menu/VMenu.vue'
+// import VUTable from '../src/components/UTable/VUTable.vue'
+// import VAvatarGroup from '../src/components/AvatarGroup/VAvatarGroup.vue'
+// import VCheckbox from '../src/components/Checkbox/VCheckbox.vue'
 // import VPhoneInput from '../src/components/phone/VPhoneInput.vue'
 // import VRadioButton from "../src/components/Radio/VRadioButton.vue"
 import VProgress from "../src/components/Progress/VProgress.vue"
-import VNotification from "../src/components/Notification/VNotification.vue"
-import VBadge from "../src/components/Badge/VBadge.vue"
-import { ChevronDownIcon, ArchiveBoxIcon, PaperclipIcon } from "@devheniik/icons"
-import VTooltip from "../src/components/Tooltip/VTooltip.vue"
+// import VNotification from "../src/components/Notification/VNotification.vue"
+// import VBadge from "../src/components/Badge/VBadge.vue"
+// import { ChevronDownIcon, ArchiveBoxIcon, PaperclipIcon } from "@devheniik/icons"
+// import VTooltip from "../src/components/Tooltip/VTooltip.vue"
 // import VInputTest from "../src/components/Input/VInputTest.vue"
 
 // import VTreeSelect from "../src/components/TreeSelect/VTreeSelect.vue"
 export default {
   name: "App",
-  components: {VInput, VToast, VTable,  VButton, VSelect, VTextarea, VAvatar, VAvatarGroup, VAlert, VMenu, VUTable,VCheckbox,  VSwitch, ChevronDownIcon, PaperclipIcon, ArchiveBoxIcon, VProgress, VTooltip, VNotification, VBadge, VModal, VPagination},
+  components: {VProgress},
   data() {
     return {
       tree_value: [],
@@ -888,7 +855,7 @@ export default {
 <style scoped>
 
 .box {
-  @apply p-10 m-5 bg-neutral-100;
+  @apply p-10 m-5 bg-neutral-100 w-[500px];
 }
 .container {
   width: 30%;
