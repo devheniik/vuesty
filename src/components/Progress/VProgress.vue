@@ -78,7 +78,7 @@ const percent_volume_lost = computed(() => {
 
 <template>
 
-  <Popover class="relative">
+  <Popover class="relative w-full">
     <PopoverButton class="w-full focus:outline-none">
       <div
         :class="`v-progress z-10  flex  h-full w-full cursor-pointer items-center  overflow-hidden rounded-lg text-center text-white`"
