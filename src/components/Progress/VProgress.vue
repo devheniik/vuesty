@@ -26,6 +26,7 @@ const props = withDefaults(
     readyLabel: 'Ready',
     lostLabel: 'Lost',
     volumeLabel: 'Volume',
+    priceLabel: 'Price',
   }
 )
 
