@@ -83,7 +83,7 @@ const percent_volume_lost = computed(() => {
   <Popover class="relative">
     <PopoverButton class="w-full focus:outline-none">
       <div
-        :class="`v-progress z-10  flex  h-full w-full cursor-pointer items-center  overflow-hidden rounded-lg text-center text-white`"
+        :class="`v-progress z-50  flex  h-full w-full cursor-pointer items-center  overflow-hidden rounded-lg text-center text-white`"
         :style="`height: ${height ? height : 20}px;`">
     <!-- Colored part -->
         <div
