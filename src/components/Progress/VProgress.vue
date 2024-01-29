@@ -124,7 +124,7 @@ const percent_volume_lost = computed(() => {
       </div>
     </PopoverButton>
 
-    <PopoverPanel class="absolute z-50 bg-primary-500 text-white p-5 rounded-lg">
+    <PopoverPanel class="absolute z-50 bg-primary-500 text-white p-5 rounded-lg top-[25px]">
       <div v-if="price" class="flex justify-between gap-4">
         <span class="text-sm font-bold whitespace-nowrap">{{ priceLabel }}:</span>
         <span class="text-sm font-bold whitespace-nowrap">{{ price }} {{ showUnitsInPrice ? units : ''  }}</span>
