@@ -35,15 +35,11 @@ const formatNumber = (value: number | string) => {
   const numStr = value.toString();
   const decimalIndex = numStr.indexOf('.');
 
-  console.log(numStr);
-
-
   if (decimalIndex !== -1) {
     const decimalPart = numStr.slice(decimalIndex + 1);
 
     // If there are non-zero digits after the decimal point, show 2 decimal places
     const firstTwoDecimals = decimalPart.slice(0,2);
-    console.log(firstTwoDecimals)
     if (firstTwoDecimals !== '00') {
       return numStr.split('.')[0] + '.' + firstTwoDecimals;
     }
