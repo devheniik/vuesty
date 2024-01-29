@@ -15,6 +15,7 @@ const props = withDefaults(
     readyLabel?: string
     lostLabel?: string
     volumeLabel?: string
+    priceLabel?: string
   }>(),
   {
     ready: 0,
@@ -127,6 +128,14 @@ const percent_volume_lost = computed(() => {
     </PopoverButton>
 
     <PopoverPanel class="absolute z-50 bg-primary-500 text-white p-5 rounded-lg">
+      <div v-if="price" class="flex justify-between gap-4">
+        <span class="text-sm font-bold">{{ priceLabel }}:</span>
+        <span class="text-sm font-bold">{{ price }} {{ showUnitsInPrice ? units : ''  }}</span>
+      </div>
+      <div v-if="formattedVolume" class="flex justify-between gap-4">
+          <span class="text-sm font-bold">{{ volumeLabel }}:</span>
+          <span class="text-sm font-bold">{{ formattedVolume }} {{ units }}</span>
+        </div>
       <div class="grid gap-4">
         <div v-if="formattedReady" class="flex justify-between gap-4">
           <span class="text-sm font-bold">{{ readyLabel }}:</span>
@@ -135,10 +144,6 @@ const percent_volume_lost = computed(() => {
         <div v-if="formattedLost" class="flex justify-between gap-4">
           <span class="text-sm font-bold">{{ lostLabel }}:</span>
           <span class="text-sm font-bold">{{ formattedLost }} {{ units }}</span>
-        </div>
-        <div v-if="formattedVolume" class="flex justify-between gap-4">
-          <span class="text-sm font-bold">{{ volumeLabel }}:</span>
-          <span class="text-sm font-bold">{{ formattedVolume }} {{ units }}</span>
         </div>
       </div>
     </PopoverPanel>

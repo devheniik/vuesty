@@ -13,6 +13,7 @@ export interface VProgressProps {
   readyLabel?: string
   lostLabel?: string
   volumeLabel?: string
+  priceLabel?: string
 }
 
 export type VProgressComponent = ComponentPublicInstance<VProgressProps>
