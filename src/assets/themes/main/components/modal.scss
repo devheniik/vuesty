@@ -2,6 +2,7 @@
   min-height: 150px;
 }
 
+
 .pin {
   top: 0;
   right: 0;
@@ -23,8 +24,8 @@
   @apply w-full h-full fixed z-50 top-0 hide-scroll left-0 overflow-y-auto flex items-start justify-center
 }
 
-.v-modal_slide {
-  @apply w-full h-full fixed z-50 top-0 hide-scroll left-0 overflow-y-auto flex items-start justify-end
+.v-modal__slide {
+  @apply h-full z-50 top-0 hide-scroll left-0 overflow-y-auto flex items-start justify-end
 }
 
 .v-modal__inner {
@@ -32,7 +33,7 @@
 }
 
 .v-modal__inner_slide {
-  @apply inline-block  z-50 align-bottom bg-neutral-20  text-left shadow-xl transform transition-all sm:align-middle
+  @apply inline-block relative  z-50 align-bottom bg-neutral-20  text-left shadow-xl transform transition-all sm:align-middle
 }
 
 .v-modal__inner_bg-white {
@@ -66,16 +67,20 @@
 }
 
 .v-modal__enter-active {
-  @apply transform ease-out duration-300 transition
+  @apply transform ease-out
 }
 
 
 .v-modal__enter-from_slide {
-  @apply translate-x-[100vw]
+  @apply opacity-100 translate-x-[100vw]
 }
 
+/* .v-modal__enter-from_slide .v_modal_outside {
+  @apply bg-gray-600
+} */
+
 .v-modal__enter-to_slide {
-  @apply opacity-100 translate-x-0
+  @apply opacity-100 translate-x-0 duration-300
 }
 
 .v-modal__leave-active_slide {

@@ -1,7 +1,16 @@
 <template>
   <div class="box">
     <!-- <v-progress :ready="10024.00567" volume="2200.039009" units="$" show-units-in-price ready-label="Готово"  lost="+0.002" volume-label="Повний побем"   /> -->
-    <v-checkbox v-model="check" label="label" />
+    <!-- <v-checkbox v-model="check" label="label" /> -->
+    <button @click="isModalOpen = !isModalOpen">modal1</button>
+    <v-modal v-model="isModalOpen" heading="someLabel" is-slide >
+    <div class="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates inventore dolore, iste laudantium, aliquam officiis omnis ipsum a beatae in nam voluptatum delectus, aliquid doloribus eos? Corrupti dolorum, maxime officia fuga magni alias. Ullam impedit cum ab a maxime sequi. Consectetur voluptatum nisi at aliquid quibusdam totam perferendis atque repellendus.</div>
+  </v-modal>
+  <v-modal v-model="isModalOpen1" heading="someLabel"  >
+    <div class="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates inventore dolore, iste laudantium, aliquam officiis omnis ipsum a beatae in nam voluptatum delectus, aliquid doloribus eos? Corrupti dolorum, maxime officia fuga magni alias. Ullam impedit cum ab a maxime sequi. Consectetur voluptatum nisi at aliquid quibusdam totam perferendis atque repellendus.</div>
+  </v-modal>
+
+  <button @click="isModalOpen1 = !isModalOpen1">modal2</button>
     <!-- <v-pagination
       v-bind="meta"
       :page="1"
@@ -605,6 +614,7 @@ import VProgress from "../src/components/Progress/VProgress.vue"
 // import VCheckbox from "../src/components/Checkbox/VCheckbox.vue"
 // import VNotification from "../src/components/Notification/VNotification.vue"
 // import VBadge from "../src/components/Badge/VBadge.vue"
+import VModal from "../src/components/Modal/VModal.vue"
 // import { ChevronDownIcon, ArchiveBoxIcon, PaperclipIcon } from "@devheniik/icons"
 // import VTooltip from "../src/components/Tooltip/VTooltip.vue"
 // import VInputTest from "../src/components/Input/VInputTest.vue"
@@ -612,7 +622,7 @@ import VProgress from "../src/components/Progress/VProgress.vue"
 // import VTreeSelect from "../src/components/TreeSelect/VTreeSelect.vue"
 export default {
   name: "App",
-  components: { VProgress, VCheckbox },
+  components: { VProgress, VCheckbox, VModal },
   data() {
     return {
       tree_value: [],
@@ -768,6 +778,7 @@ export default {
       v_select_value: [1,2,3,4,5],
       second_select_value: null,
       ttx: '123123',
+      isModalOpen1: false,
       hf: 10,
       colors: ['Red', 'Green', 'Blue', 'Yellow'],
       selectedColor: '',
