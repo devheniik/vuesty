@@ -1,6 +1,6 @@
 <template>
   <div class="box">
-    <v-progress :ready="10024.00567" volume="2200.039009" units="$" show-units-in-price ready-label="Готово"  volume-label="Повний побем" />
+    <v-progress :ready="10024.00567" volume="2200.039009" units="$" show-units-in-price ready-label="Готово"  lost="+0.002" volume-label="Повний побем"   />
     <!-- <v-pagination
       v-bind="meta"
       :page="1"
@@ -855,7 +855,7 @@ export default {
 <style scoped>
 
 .box {
-  @apply p-10 m-5 bg-neutral-100 w-[500px];
+  @apply p-10 m-5 bg-neutral-100 w-[600px];
 }
 .container {
   width: 30%;

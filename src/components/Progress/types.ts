@@ -14,6 +14,7 @@ export interface VProgressProps {
   lostLabel?: string
   volumeLabel?: string
   priceLabel?: string
+  threeDecimals?: boolean
 }
 
 export type VProgressComponent = ComponentPublicInstance<VProgressProps>

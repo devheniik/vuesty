@@ -16,6 +16,7 @@ const props = withDefaults(
     lostLabel?: string
     volumeLabel?: string
     priceLabel?: string
+    threeDecimals?: boolean
   }>(),
   {
     ready: 0,
@@ -27,10 +28,11 @@ const props = withDefaults(
     lostLabel: 'Втрачено',
     volumeLabel: "Об'єм",
     priceLabel: 'Ціна',
+    threeDecimals: false
   }
 )
 
-const formatNumber = (value: number | string) => {
+const formatNumber = (value: number | string, keepString?: boolean) => {
   // return Number.isInteger(Number(value)) ? Number(value) : Number(Number(value).toFixed(2))
   const numStr = value.toString();
   const decimalIndex = numStr.indexOf('.');
@@ -39,14 +41,20 @@ const formatNumber = (value: number | string) => {
     const decimalPart = numStr.slice(decimalIndex + 1);
 
     // If there are non-zero digits after the decimal point, show 2 decimal places
-    const firstTwoDecimals = decimalPart.slice(0,2);
-    if (firstTwoDecimals !== '00') {
-      return numStr.split('.')[0] + '.' + firstTwoDecimals;
+    const twoDecimals = decimalPart.slice(0,2);
+    const firstThreeDecimals = decimalPart.slice(0,3);
+    if(!props.threeDecimals && twoDecimals !== '00') {
+      const result = numStr.split('.')[0] + '.' + twoDecimals;
+      return  keepString ? result : Number(result);
+    }
+    else if (props.threeDecimals && firstThreeDecimals !== '000') {
+      const result = numStr.split('.')[0] + '.' + firstThreeDecimals;
+      return  keepString ? result : Number(result);
     }
   }
 
   // If no decimal point or only trailing zeros after the decimal point, show the whole number
-  return numStr.split('.')[0];
+  return Number(numStr.split('.')[0]);
 }
 
 const formattedVolume = computed(() => {
@@ -57,8 +65,12 @@ const formattedReady = computed(() => {
   return formatNumber(props.ready)
 })
 
+const formattedPrice = computed(() => {
+  return props.price ? formatNumber(props.price) : 0
+})
+
 const formattedLost = computed(() => {
-  return props.lost ?  formatNumber(props.lost) : 0
+  return props.lost ?  formatNumber(props.lost, true) : 0
 })
 
 const ready_width = () => {
@@ -71,7 +83,7 @@ const ready_width = () => {
 }
 
 const percent_volume_lost = computed(() => {
-  return `${ ( (formattedLost.value  / formattedVolume.value as number) * 100).toFixed(2)}%`
+  return `${ ( (Number(formattedLost.value)  / Number(formattedVolume.value)) * 100).toFixed(2)}%`
 })
 
 </script>
@@ -107,11 +119,11 @@ const percent_volume_lost = computed(() => {
 
           <div class="v-progress__numbers-container space-x-1">
 
-            <span v-if="price" class="v-progress__badge v-progress__badge_needed">
-              {{ price }} {{ showUnitsInPrice ? units : ''  }}
+            <span v-if="formattedPrice" class="v-progress__badge v-progress__badge_needed">
+              {{ formattedPrice }} {{ showUnitsInPrice ? units : ''  }}
             </span>
 
-            <span v-else-if="lost" class="v-progress__badge v-progress__badge_needed">
+            <span v-else-if="formattedLost" class="v-progress__badge v-progress__badge_needed">
               {{ formattedLost }}
             </span>
 
@@ -124,22 +136,23 @@ const percent_volume_lost = computed(() => {
       </div>
     </PopoverButton>
 
-    <PopoverPanel class="absolute z-50 bg-primary-500 text-white p-5 rounded-lg top-[25px]">
-      <div v-if="price" class="flex justify-between gap-4">
-        <span class="text-sm font-bold whitespace-nowrap">{{ priceLabel }}:</span>
+    <PopoverPanel class="absolute z-50 bg-primary-50 text-primary-600 p-5 rounded-lg top-[32px] text-sm font-normal border-primary-200 border grid gap-1">
+        <div class="absolute triangle-left   border-r-[10px] border-l-[10px] border-transparent border-b-[15px] border-b-primary-200 -top-4 left-8"></div>
+      <div v-if="price" class="flex justify-between gap-6">
+        <span class="text-sm  whitespace-nowrap">{{ priceLabel }}:</span>
         <span class="text-sm font-bold whitespace-nowrap">{{ price }} {{ showUnitsInPrice ? units : ''  }}</span>
       </div>
-      <div v-if="formattedVolume" class="flex justify-between gap-4">
-          <span class="text-sm font-bold whitespace-nowrap">{{ volumeLabel }}:</span>
+      <div v-if="formattedVolume" class="flex justify-between gap-6">
+          <span class="text-sm  whitespace-nowrap">{{ volumeLabel }}:</span>
           <span class="text-sm font-bold whitespace-nowrap">{{ formattedVolume }} {{ units }}</span>
         </div>
-      <div class="grid gap-4">
-        <div v-if="formattedReady" class="flex justify-between gap-4">
-          <span class="text-sm font-bold whitespace-nowrap">{{ readyLabel }}:</span>
+      <div class="grid gap-6">
+        <div v-if="formattedReady" class="flex justify-between gap-6">
+          <span class="text-sm  whitespace-nowrap">{{ readyLabel }}:</span>
           <span class="text-sm font-bold whitespace-nowrap">{{ formattedReady }} {{ units }}</span>
         </div>
-        <div v-if="formattedLost" class="flex justify-between gap-4">
-          <span class="text-sm font-bold whitespace-nowrap">{{ lostLabel }}:</span>
+        <div v-if="formattedLost" class="flex justify-between gap-6">
+          <span class="text-sm whitespace-nowrap">{{ lostLabel }}:</span>
           <span class="text-sm font-bold whitespace-nowrap">{{ formattedLost }} {{ units }}</span>
         </div>
       </div>
@@ -149,4 +162,17 @@ const percent_volume_lost = computed(() => {
 
 <style lang="scss" scoped>
 @import '../../assets/themes/main/components/progress.scss';
+
+.triangle-left:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-right: 9px solid transparent;
+  border-left: 9px solid transparent;
+  border-bottom: 14px solid;
+  position: absolute;
+  top: 2px;
+  left: -9px;
+  @apply border-b-primary-50;
+}
 </style>
