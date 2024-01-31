@@ -1,5 +1,5 @@
 <template>
-  <div class="flex gap-2">
+  <div class="inline-block">
     <label class="v-checkbox__label">
       <input
         :disabled="disabled"

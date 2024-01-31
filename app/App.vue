@@ -1,6 +1,7 @@
 <template>
   <div class="box">
-    <v-progress :ready="10024.00567" volume="2200.039009" units="$" show-units-in-price ready-label="Готово"  lost="+0.002" volume-label="Повний побем"   />
+    <!-- <v-progress :ready="10024.00567" volume="2200.039009" units="$" show-units-in-price ready-label="Готово"  lost="+0.002" volume-label="Повний побем"   /> -->
+    <v-checkbox v-model="check" label="label" />
     <!-- <v-pagination
       v-bind="meta"
       :page="1"
@@ -597,10 +598,11 @@ import axios from "axios"
 // import VMenu from '../src/components/Menu/VMenu.vue'
 // import VUTable from '../src/components/UTable/VUTable.vue'
 // import VAvatarGroup from '../src/components/AvatarGroup/VAvatarGroup.vue'
-// import VCheckbox from '../src/components/Checkbox/VCheckbox.vue'
+import VCheckbox from '../src/components/Checkbox/VCheckbox.vue'
 // import VPhoneInput from '../src/components/phone/VPhoneInput.vue'
 // import VRadioButton from "../src/components/Radio/VRadioButton.vue"
 import VProgress from "../src/components/Progress/VProgress.vue"
+// import VCheckbox from "../src/components/Checkbox/VCheckbox.vue"
 // import VNotification from "../src/components/Notification/VNotification.vue"
 // import VBadge from "../src/components/Badge/VBadge.vue"
 // import { ChevronDownIcon, ArchiveBoxIcon, PaperclipIcon } from "@devheniik/icons"
@@ -610,7 +612,7 @@ import VProgress from "../src/components/Progress/VProgress.vue"
 // import VTreeSelect from "../src/components/TreeSelect/VTreeSelect.vue"
 export default {
   name: "App",
-  components: {VProgress},
+  components: { VProgress, VCheckbox },
   data() {
     return {
       tree_value: [],
