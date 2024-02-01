@@ -4,11 +4,15 @@
 
 .v-progress {
   background-color: #dde0e2;
-  @apply relative;
+  @apply relative z-10  flex  h-full w-full cursor-pointer items-center  overflow-hidden rounded-lg text-center text-white;
 }
 
 .v-progress_full {
   @apply rounded-3xl;
+}
+
+.v-progress__numbers {
+  @apply absolute z-10 flex h-full w-full items-center justify-between px-1 text-xs space-x-1
 }
 
 .v-progress__badge {
@@ -43,4 +47,47 @@
 .v-progress__body__colored {
   @apply relative block h-full overflow-hidden rounded-l-3xl ;
   background: linear-gradient(269.1deg, rgba(53, 224, 152, 0.7) 0%, rgba(10, 100, 236, 0.7) 100%);
+}
+
+.v-progress__popover {
+  @apply relative w-full
+}
+
+.v-progress__popover__btn {
+  @apply w-full focus:outline-none
+}
+
+.v-progress__popover__panel {
+  @apply absolute z-50 bg-primary-50 text-primary-600 p-5 rounded-lg top-[32px] text-sm font-normal border-primary-200 border grid gap-1
+}
+
+.v-progress__popover__triangle {
+  @apply absolute  border-r-[10px] border-l-[10px] border-transparent border-b-[15px] border-b-primary-200 -top-4 left-8
+}
+
+.v-progress__popover__triangle:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-right: 9px solid transparent;
+  border-left: 9px solid transparent;
+  border-bottom: 14px solid;
+  position: absolute;
+  top: 2px;
+  left: -9px;
+  @apply border-b-primary-50;
+}
+
+.v-progress__popover__row {
+  @apply flex justify-between gap-6;
+}
+
+
+
+.v-progress__popover__row__label {
+  @apply text-sm  whitespace-nowrap
+}
+
+.v-progress__popover__row__value {
+  @apply text-sm font-bold whitespace-nowrap
 }

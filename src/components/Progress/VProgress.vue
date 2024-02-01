@@ -90,10 +90,10 @@ const percent_volume_lost = computed(() => {
 
 <template>
 
-  <Popover class="relative w-full">
-    <PopoverButton class="w-full focus:outline-none">
+  <Popover class="v-progress__popover">
+    <PopoverButton class="v-progress__popover__btn">
       <div
-        :class="`v-progress z-10  flex  h-full w-full cursor-pointer items-center  overflow-hidden rounded-lg text-center text-white`"
+        class="v-progress"
         :style="`height: ${height ? height : 20}px;`">
     <!-- Colored part -->
         <div
@@ -109,7 +109,7 @@ const percent_volume_lost = computed(() => {
         :style="`width: ${percent_volume_lost};height: ${height ? height : 20}px;`">
         </div>
     <!-- Units and Numbers -->
-        <div class="absolute z-10 flex h-full w-full items-center justify-between px-1 text-xs space-x-1">
+        <div class="v-progress__numbers">
 
           <div class="v-progress__numbers-container">
             <span class="v-progress__badge v-progress__badge_current">
@@ -136,24 +136,26 @@ const percent_volume_lost = computed(() => {
       </div>
     </PopoverButton>
 
-    <PopoverPanel class="absolute z-50 bg-primary-50 text-primary-600 p-5 rounded-lg top-[32px] text-sm font-normal border-primary-200 border grid gap-1">
-        <div class="absolute triangle-left   border-r-[10px] border-l-[10px] border-transparent border-b-[15px] border-b-primary-200 -top-4 left-8"></div>
-      <div v-if="price" class="flex justify-between gap-6">
-        <span class="text-sm  whitespace-nowrap">{{ priceLabel }}:</span>
-        <span class="text-sm font-bold whitespace-nowrap">{{ price }} {{ showUnitsInPrice ? units : ''  }}</span>
+    <PopoverPanel class="v-progress__popover__panel">
+      <div class="v-progress__popover__triangle"></div>
+      <div v-if="price" class="v-progress__popover__row">
+        <span class="v-progress__popover__row__label">{{ priceLabel }}:</span>
+        <span class="v-progress__popover__row__value">{{ price }} {{ showUnitsInPrice ? units : ''  }}</span>
       </div>
-      <div v-if="formattedVolume" class="flex justify-between gap-6">
-          <span class="text-sm  whitespace-nowrap">{{ volumeLabel }}:</span>
-          <span class="text-sm font-bold whitespace-nowrap">{{ formattedVolume }} {{ units }}</span>
-        </div>
+      <div v-if="formattedVolume" class="v-progress__popover__row">
+        <span class="v-progress__popover__row__label">{{ volumeLabel }}:</span>
+        <span class="v-progress__popover__row__value">
+          {{ formattedVolume }} {{ units }}
+        </span>
+      </div>
       <div class="grid gap-6">
-        <div v-if="formattedReady" class="flex justify-between gap-6">
-          <span class="text-sm  whitespace-nowrap">{{ readyLabel }}:</span>
-          <span class="text-sm font-bold whitespace-nowrap">{{ formattedReady }} {{ units }}</span>
+        <div v-if="formattedReady" class="v-progress__popover__row">
+          <span class="v-progress__popover__row__label">{{ readyLabel }}:</span>
+          <span class="v-progress__popover__row__value">{{ formattedReady }} {{ units }}</span>
         </div>
-        <div v-if="formattedLost" class="flex justify-between gap-6">
-          <span class="text-sm whitespace-nowrap">{{ lostLabel }}:</span>
-          <span class="text-sm font-bold whitespace-nowrap">{{ formattedLost }} {{ units }}</span>
+        <div v-if="formattedLost" class="v-progress__popover__row">
+          <span class="v-progress__popover__row__label">{{ lostLabel }}:</span>
+          <span class="v-progress__popover__row__value">{{ formattedLost }} {{ units }}</span>
         </div>
       </div>
     </PopoverPanel>
@@ -162,17 +164,4 @@ const percent_volume_lost = computed(() => {
 
 <style lang="scss" scoped>
 @import '../../assets/themes/main/components/progress.scss';
-
-.triangle-left:after {
-  content: '';
-  width: 0;
-  height: 0;
-  border-right: 9px solid transparent;
-  border-left: 9px solid transparent;
-  border-bottom: 14px solid;
-  position: absolute;
-  top: 2px;
-  left: -9px;
-  @apply border-b-primary-50;
-}
 </style>

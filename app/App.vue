@@ -1,23 +1,17 @@
 <template>
-  <div class="box">
-    <!-- <v-progress :ready="10024.00567" volume="2200.039009" units="$" show-units-in-price ready-label="Готово"  lost="+0.002" volume-label="Повний побем"   /> -->
-    <!-- <v-checkbox v-model="check" label="label" /> -->
-    <button @click="isModalOpen = !isModalOpen">modal1</button>
-    <v-modal v-model="isModalOpen" heading="someLabel" is-slide >
-    <div class="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates inventore dolore, iste laudantium, aliquam officiis omnis ipsum a beatae in nam voluptatum delectus, aliquid doloribus eos? Corrupti dolorum, maxime officia fuga magni alias. Ullam impedit cum ab a maxime sequi. Consectetur voluptatum nisi at aliquid quibusdam totam perferendis atque repellendus.</div>
-  </v-modal>
-  <v-modal v-model="isModalOpen1" heading="someLabel"  >
-    <div class="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates inventore dolore, iste laudantium, aliquam officiis omnis ipsum a beatae in nam voluptatum delectus, aliquid doloribus eos? Corrupti dolorum, maxime officia fuga magni alias. Ullam impedit cum ab a maxime sequi. Consectetur voluptatum nisi at aliquid quibusdam totam perferendis atque repellendus.</div>
-  </v-modal>
-
-  <button @click="isModalOpen1 = !isModalOpen1">modal2</button>
-    <!-- <v-pagination
-      v-bind="meta"
-      :page="1"
-      :limit="20"
-      :to="50"
-      :last_page="50"
-        /> -->
+  <div class="">
+    <div class="box">
+      <v-progress :ready="10024.00567" volume="2200.039009" units="$" show-units-in-price ready-label="Готово"  lost="+0.002" volume-label="Повний побем"   />
+      <!-- <v-checkbox v-model="check" label="label" /> -->
+      <button @click="isModalOpen = !isModalOpen">modal1</button>
+      <v-modal v-model="isModalOpen" heading="someLabel" is-slide >
+      <div class="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates inventore dolore, iste laudantium, aliquam officiis omnis ipsum a beatae in nam voluptatum delectus, aliquid doloribus eos? Corrupti dolorum, maxime officia fuga magni alias. Ullam impedit cum ab a maxime sequi. Consectetur voluptatum nisi at aliquid quibusdam totam perferendis atque repellendus.</div>
+    </v-modal>
+    <v-modal v-model="isModalOpen1" heading="someLabel"  >
+      <div class="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates inventore dolore, iste laudantium, aliquam officiis omnis ipsum a beatae in nam voluptatum delectus, aliquid doloribus eos? Corrupti dolorum, maxime officia fuga magni alias. Ullam impedit cum ab a maxime sequi. Consectetur voluptatum nisi at aliquid quibusdam totam perferendis atque repellendus.</div>
+    </v-modal>
+    <button @click="isModalOpen1 = !isModalOpen1">modal2</button>
+    </div>
   </div>
       <!-- <div class="box">
         <v-checkbox>
@@ -871,8 +865,8 @@ export default {
   @apply p-10 m-5 bg-neutral-100 w-[600px];
 }
 .container {
-  width: 30%;
-  height: 100vh;
+  /* width: 30%; */
+  height: 400vh;
   display: flex;
   flex-direction: column;
   align-items: center;
