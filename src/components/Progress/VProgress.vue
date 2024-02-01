@@ -148,15 +148,13 @@ const percent_volume_lost = computed(() => {
           {{ formattedVolume }} {{ units }}
         </span>
       </div>
-      <div class="grid gap-6">
-        <div v-if="formattedReady" class="v-progress__popover__row">
-          <span class="v-progress__popover__row__label">{{ readyLabel }}:</span>
-          <span class="v-progress__popover__row__value">{{ formattedReady }} {{ units }}</span>
-        </div>
-        <div v-if="formattedLost" class="v-progress__popover__row">
-          <span class="v-progress__popover__row__label">{{ lostLabel }}:</span>
-          <span class="v-progress__popover__row__value">{{ formattedLost }} {{ units }}</span>
-        </div>
+      <div v-if="formattedReady" class="v-progress__popover__row">
+        <span class="v-progress__popover__row__label">{{ readyLabel }}:</span>
+        <span class="v-progress__popover__row__value">{{ formattedReady }} {{ units }}</span>
+      </div>
+      <div v-if="formattedLost" class="v-progress__popover__row">
+        <span class="v-progress__popover__row__label">{{ lostLabel }}:</span>
+        <span class="v-progress__popover__row__value">{{ formattedLost }} {{ units }}</span>
       </div>
     </PopoverPanel>
   </Popover>
