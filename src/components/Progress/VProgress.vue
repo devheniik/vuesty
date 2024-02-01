@@ -136,7 +136,7 @@ const percent_volume_lost = computed(() => {
       </div>
     </PopoverButton>
 
-    <PopoverPanel class="v-progress__popover__panel">
+    <PopoverPanel v-if="price || formattedVolume || formattedReady || formattedLost" class="v-progress__popover__panel">
       <div class="v-progress__popover__triangle"></div>
       <div v-if="price" class="v-progress__popover__row">
         <span class="v-progress__popover__row__label">{{ priceLabel }}:</span>
