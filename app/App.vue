@@ -12,6 +12,19 @@
     </v-modal>
     <button @click="isModalOpen1 = !isModalOpen1">modal2</button>
     </div>
+    <div class="w112">
+          <v-select
+          v-model="v_select_value"
+          label-key="title"
+          :multiple="true"
+          value-key="id"
+          :options="options"
+          placeholder="Select"
+          :auto-filter="false"
+          :invalid="!v_select_value.length"
+          @search="handleSearch" />
+
+        </div>
   </div>
       <!-- <div class="box">
         <v-checkbox>
@@ -591,7 +604,7 @@ import axios from "axios"
 // import VInput from '../src/components/Input/VInput.vue'
 // import VToast from '../src/components/Toast/VToast.vue'
 // import VButton from '../src/components/Button/VButton.vue'
-// import VSelect from '../src/components/Select/VSelect.vue'
+ import VSelect from '../src/components/Select/VSelect.vue'
 // import VPagination from '../src/components/Pagination/VPagination.vue'
 // import VModal from "../src/components/Modal/VModal.vue"
 // import VTextarea from "../src/components/Textarea/VTextarea.vue"
@@ -616,7 +629,7 @@ import VModal from "../src/components/Modal/VModal.vue"
 // import VTreeSelect from "../src/components/TreeSelect/VTreeSelect.vue"
 export default {
   name: "App",
-  components: { VProgress, VCheckbox, VModal },
+  components: { VProgress, VCheckbox, VModal, VSelect },
   data() {
     return {
       tree_value: [],

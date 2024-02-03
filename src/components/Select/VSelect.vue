@@ -373,7 +373,7 @@ onMounted(() => {
           </slot>
           <template v-if="excessQuantity()">
             <slot name="excess" :quantity="excessQuantity()">
-              <div class="v-tag">+ {{ excessQuantity() }}</div>
+              <div class="v-tag v-tag__excess-quantity">+{{ excessQuantity() }}</div>
             </slot>
           </template>
         </div>

@@ -68,11 +68,15 @@
 }
 
 .v-tag {
-  @apply whitespace-nowrap rounded-sm bg-primary-500 py-0.5 px-1.5 text-sm font-medium text-gray-50;
+  @apply whitespace-nowrap  bg-primary-500 py-0.5 px-1.5 text-sm font-medium text-gray-50 rounded-md;
+}
+
+.v-tag__excess-quantity {
+  @apply min-w-[2rem] max-w-[3rem];
 }
 
 .v-tag-in-selected-box {
-  @apply flex flex-row items-center whitespace-nowrap rounded-sm bg-primary-500 py-0.5 px-1.5 text-sm font-medium text-gray-50 mb-2 mr-2;
+  @apply flex flex-row items-center whitespace-nowrap rounded-md bg-primary-500 py-0.5 px-1.5 text-sm font-medium text-gray-50 mb-2 mr-2;
 }
 
 /* Icons */
