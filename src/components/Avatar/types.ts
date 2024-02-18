@@ -24,6 +24,7 @@ export interface VAvatarProps extends VAvatarEvents {
   width?: number
   height?: number
   text?: string
+  status?: 'primary' | 'warning' | 'success' | 'danger'
 }
 
 export type VAvatarComponent = ComponentPublicInstance<VAvatarProps>
