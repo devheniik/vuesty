@@ -214,7 +214,7 @@ const handleKeyPress = (event: KeyboardEvent) => {
         { 'v-input__icon-disabled': disabled },
         { 'v-input__input-default': !valid && !invalid },
         { 'v-input__input-success': valid && !invalid && allocateValid && !disabled },
-        { 'v-input__input-danger': !valid && invalid && !disabled },
+        { 'v-input__input-danger': (!valid && invalid) && !disabled && modelValue },
       ]"
       :placeholder="_placeholder"
       :aria-invalid="invalid"
