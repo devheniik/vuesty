@@ -155,7 +155,7 @@ const handleInput = (input: Event) => {
   }
 
   // Restore the caret position after updating the input value
-  if (inputElement.setSelectionRange) {
+  if (inputElement.setSelectionRange && props.type !== 'email') {
     inputElement.setSelectionRange(selectionStart, selectionEnd);
   }
 };
