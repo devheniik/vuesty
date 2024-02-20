@@ -74,9 +74,9 @@ const icon = computed<FunctionalComponent<HTMLAttributes & VNodeProps> | string>
         </slot>
         <main class="v-alert__main">
           <h4 class="v-alert__label">{{ label }}</h4>
-          <p class="v-alert__text">
+          <div class="v-alert__text">
             <slot />
-          </p>
+          </div>
           <div v-if="controls" class="v-alert__controls">
             <v-button size="small" @click="accept">
               {{ acceptButton }}

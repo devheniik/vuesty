@@ -3,11 +3,11 @@
 }
 
 .v-alert__inner-container {
-  @apply flex py-2 grow;
+  @apply flex py-2 grow max-w-full;
 }
 
 .v-alert__outer-container {
-  @apply flex grow;
+  @apply flex grow max-w-[calc(100%-1rem)];
 }
 
 .v-toast > .v-alert__close {

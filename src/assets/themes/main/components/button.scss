@@ -31,7 +31,7 @@ button.v-button_light {
 }
 
 button.v-button_secondary {
-  @apply v-button-common   border-solid border-transparent bg-primary-50  text-primary-500 hover:border-transparent hover:bg-primary-50 hover:text-primary-600;
+  @apply v-button-common shadow-none   border-solid border-transparent bg-primary-50  text-primary-500 hover:border-transparent hover:bg-primary-50 hover:text-primary-600;
 }
 
 button.v-button_danger {
