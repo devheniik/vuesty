@@ -3,8 +3,15 @@
     <div class="box">
     <v-button color="secondary">hallo</v-button>
     <v-alert label="Some label" >And a lots of diferenet text Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt voluptates ullam dolorum possimus corporis adipisci harum recusandae debitis tenetur tempora voluptate vel illo reiciendis consectetur expedita eveniet, sit magnam ad error, nobis itaque est. Cupiditate, quisquam libero quod sed consequatur vitae minus modi culpa quos obcaecati beatae blanditiis esse, ratione recusandae eum voluptatibus error commodi itaque sequi enim quibusdam. Iure, officia fugiat. Libero at assumenda sed dignissimos a, ducimus ullam enim. Harum ea atque asperiores aut dicta quam sapiente, non obcaecati architecto laborum accusantium libero placeat modi at molestias, porro rerum. Labore nihil minima necessitatibus praesentium recusandae suscipit laudantium aliquam.</v-alert>
-      <!-- <v-progress :ready="10024.00567" volume="2200.039009" units="$" show-units-in-price ready-label="Готово"  lost="+0.002" volume-label="Повний побем"   />
-      <button @click="isModalOpen = !isModalOpen">modal1</button>
+       <v-progress :ready="10024.00567" volume="2200.039009" units="$" show-units-in-price ready-label="Готово"  lost="+0.002" volume-label="Повний побем" >
+        <template #ready>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Linecons_small-cloud.svg" />
+        </template>
+        <template #volume>
+          <ArchiveBoxIcon />
+        </template>
+      </v-progress>
+     <!-- <button @click="isModalOpen = !isModalOpen">modal1</button>
       <v-modal v-model="isModalOpen" heading="someLabel" is-slide >
       <div class="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates inventore dolore, iste laudantium, aliquam officiis omnis ipsum a beatae in nam voluptatum delectus, aliquid doloribus eos? Corrupti dolorum, maxime officia fuga magni alias. Ullam impedit cum ab a maxime sequi. Consectetur voluptatum nisi at aliquid quibusdam totam perferendis atque repellendus.</div>
     </v-modal> -->
@@ -623,14 +630,14 @@ import VProgress from "../src/components/Progress/VProgress.vue"
 // import VNotification from "../src/components/Notification/VNotification.vue"
 // import VBadge from "../src/components/Badge/VBadge.vue"
 import VModal from "../src/components/Modal/VModal.vue"
-// import { ChevronDownIcon, ArchiveBoxIcon, PaperclipIcon } from "@devheniik/icons"
+import { ChevronDownIcon, ArchiveBoxIcon, PaperclipIcon } from "@devheniik/icons"
 // import VTooltip from "../src/components/Tooltip/VTooltip.vue"
 // import VInputTest from "../src/components/Input/VInputTest.vue"
 
 // import VTreeSelect from "../src/components/TreeSelect/VTreeSelect.vue"
 export default {
   name: "App",
-  components: { VProgress, VCheckbox, VModal, VSelect, VButton, VAlert },
+  components: { VProgress, VCheckbox, VModal, VSelect, VButton, VAlert,  },
   data() {
     return {
       tree_value: [],

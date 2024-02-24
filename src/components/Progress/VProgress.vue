@@ -113,22 +113,26 @@ const percent_volume_lost = computed(() => {
 
           <div class="v-progress__numbers-container">
             <span class="v-progress__badge v-progress__badge_current">
-              {{ formattedReady }}
+              <slot name="ready"></slot>
+              <span>{{ formattedReady }}</span>
             </span>
           </div>
 
           <div class="v-progress__numbers-container space-x-1">
 
             <span v-if="formattedPrice" class="v-progress__badge v-progress__badge_needed">
-              {{ formattedPrice }} {{ showUnitsInPrice ? units : ''  }}
+              <slot name="price"></slot>
+              <span>{{ formattedPrice }} {{ showUnitsInPrice ? units : ''  }}</span>
             </span>
 
             <span v-else-if="formattedLost" class="v-progress__badge v-progress__badge_needed">
-              {{ formattedLost }}
+              <slot name="lost"></slot>
+              <span>{{ formattedLost }}</span>
             </span>
 
             <span class="v-progress__badge v-progress__badge_total">
-              {{ formattedVolume }} {{ units }}
+              <slot name="volume"></slot>
+              <span>{{ formattedVolume }} {{ units }}</span>
             </span>
 
           </div>

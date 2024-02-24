@@ -22,7 +22,7 @@ import { VPhoneInputComponent, VPhoneInputProps } from './components/types'
 import type { VModalComponent, VModalProps, VModalSlots } from './components/Modal/types'
 import type { VCheckboxComponent, VCheckboxProps } from './components/Checkbox/types'
 import type { VRadioButtonComponent, VRadioButtonProps } from './components/Radio/types'
-import type { VProgressComponent, VProgressProps } from './components/Progress/types'
+import type { VProgressComponent, VProgressProps, VProgressSlots } from './components/Progress/types'
 import type { VTooltipComponent, VTooltipProps, VTooltipSlots } from './components/Tooltip/types'
 
 import type {VNodeProps} from "vue";
@@ -74,7 +74,7 @@ declare module '@vue/runtime-core' {
     VCheckbox: GlobalComponentConstructor<VCheckboxProps, VNodeProps>
     VPhoneInput: GlobalComponentConstructor<VPhoneInputProps, VNodeProps>
     VRadioButton: GlobalComponentConstructor<VRadioButtonProps, VNodeProps>
-    VProgress: GlobalComponentConstructor<VProgressProps, VNodeProps>
+    VProgress: GlobalComponentConstructor<VProgressProps, VProgressSlots>
     VTooltip: GlobalComponentConstructor<VTooltipProps, VTooltipSlots>
   }
 }

@@ -15,9 +15,14 @@
   @apply absolute z-10 flex h-full w-full items-center justify-between px-1 text-xs space-x-1
 }
 
+.v-progress__numbers svg,
+.v-progress__numbers img {
+  @apply h-3 w-3;
+}
+
 .v-progress__badge {
   line-height: 14px;
-  @apply z-10  rounded-lg px-1.5;
+  @apply z-10  rounded-lg px-1.5 flex items-center gap-1;
 }
 
 .v-progress__badge_current {
