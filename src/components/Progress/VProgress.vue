@@ -119,7 +119,7 @@ const percent_volume_lost = computed(() => {
             </span>
           </div>
 
-          <div class="v-progress__numbers-container space-x-1">
+          <div :class="['v-progress__numbers-container space-x-1', {'!overflow-visible': removeHiddenOverflow}]">
 
             <span v-if="formattedPrice" class="v-progress__badge v-progress__badge_needed">
               <slot name="price"></slot>
