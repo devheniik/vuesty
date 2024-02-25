@@ -15,6 +15,7 @@ export interface VProgressProps {
   volumeLabel?: string
   priceLabel?: string
   threeDecimals?: boolean
+  removeHiddenOverflow?: boolean
 }
 
 export interface VProgressSlots {

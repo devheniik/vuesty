@@ -17,6 +17,7 @@ const props = withDefaults(
     volumeLabel?: string
     priceLabel?: string
     threeDecimals?: boolean
+    removeHiddenOverflow?: boolean
   }>(),
   {
     ready: 0,
@@ -93,7 +94,7 @@ const percent_volume_lost = computed(() => {
   <Popover class="v-progress__popover">
     <PopoverButton class="v-progress__popover__btn">
       <div
-        class="v-progress"
+        :class="['v-progress', {'!overflow-visible': removeHiddenOverflow}]"
         :style="`height: ${height ? height : 20}px;`">
     <!-- Colored part -->
         <div
@@ -111,8 +112,8 @@ const percent_volume_lost = computed(() => {
     <!-- Units and Numbers -->
         <div class="v-progress__numbers">
 
-          <div class="v-progress__numbers-container">
-            <span class="v-progress__badge v-progress__badge_current">
+          <div :class="['v-progress__numbers-container', {'!overflow-visible': removeHiddenOverflow}]">
+            <span :class="['v-progress__badge v-progress__badge_current', {'!overflow-visible': removeHiddenOverflow}]">
               <slot name="ready"></slot>
               <span>{{ formattedReady }}</span>
             </span>
@@ -125,12 +126,12 @@ const percent_volume_lost = computed(() => {
               <span>{{ formattedPrice }} {{ showUnitsInPrice ? units : ''  }}</span>
             </span>
 
-            <span v-else-if="formattedLost" class="v-progress__badge v-progress__badge_needed">
+            <span v-else-if="formattedLost" :class="['v-progress__badge v-progress__badge_needed', {'!overflow-visible': removeHiddenOverflow}]">
               <slot name="lost"></slot>
               <span>{{ formattedLost }}</span>
             </span>
 
-            <span class="v-progress__badge v-progress__badge_total">
+            <span :class="['v-progress__badge v-progress__badge_total', {'!overflow-visible': removeHiddenOverflow}]">
               <slot name="volume"></slot>
               <span>{{ formattedVolume }} {{ units }}</span>
             </span>

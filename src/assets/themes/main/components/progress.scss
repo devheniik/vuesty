@@ -4,7 +4,7 @@
 
 .v-progress {
   background-color: #dde0e2;
-  @apply relative z-10  flex  h-full w-full cursor-pointer items-center  overflow-hidden rounded-lg text-center text-white;
+  @apply relative z-10  flex  h-full w-full cursor-pointer items-center   rounded-lg text-center text-white overflow-hidden;
 }
 
 .v-progress_full {
@@ -38,11 +38,11 @@
 }
 
 .v-progress__numbers-container {
-  @apply flex items-center flex-nowrap overflow-hidden;
+  @apply flex items-center flex-nowrap overflow-hidden ;
 }
 
 .v-progress__body {
-  @apply relative h-5 overflow-hidden rounded-3xl  bg-gray-200;
+  @apply relative h-5 rounded-3xl  bg-gray-200 overflow-hidden;
 }
 
 .v-progress__body__indicator {
@@ -50,7 +50,7 @@
 }
 
 .v-progress__body__colored {
-  @apply relative block h-full overflow-hidden rounded-l-3xl ;
+  @apply relative block h-full rounded-l-3xl overflow-hidden;
   background: linear-gradient(269.1deg, rgba(53, 224, 152, 0.7) 0%, rgba(10, 100, 236, 0.7) 100%);
 }
 
