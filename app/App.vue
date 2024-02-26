@@ -1,6 +1,8 @@
 <template>
   <div class="">
     <div class="box">
+      <v-switch v-model="option2"/>
+      <v-switch v-model="option2" is-small alternative-color />
     <v-button color="secondary">hallo</v-button>
     <v-alert label="Some label" >And a lots of diferenet text Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt voluptates ullam dolorum possimus corporis adipisci harum recusandae debitis tenetur tempora voluptate vel illo reiciendis consectetur expedita eveniet, sit magnam ad error, nobis itaque est. Cupiditate, quisquam libero quod sed consequatur vitae minus modi culpa quos obcaecati beatae blanditiis esse, ratione recusandae eum voluptatibus error commodi itaque sequi enim quibusdam. Iure, officia fugiat. Libero at assumenda sed dignissimos a, ducimus ullam enim. Harum ea atque asperiores aut dicta quam sapiente, non obcaecati architecto laborum accusantium libero placeat modi at molestias, porro rerum. Labore nihil minima necessitatibus praesentium recusandae suscipit laudantium aliquam.</v-alert>
        <v-progress :ready="10024.00567" volume="2200.039009" units="$" show-units-in-price ready-label="Готово"  lost="+0.002" volume-label="Повний побем" remove-hidden-overflow >
@@ -618,7 +620,7 @@ import axios from "axios"
 // import VTextarea from "../src/components/Textarea/VTextarea.vue"
 // import VAvatar from '../src/components/Avatar/VAvatar.vue'
 import VAlert from '../src/components/Alert/VAlert.vue'
-// import VSwitch from '../src/components/Switch/VSwitch.vue'
+import VSwitch from '../src/components/Switch/VSwitch.vue'
 // import VMenu from '../src/components/Menu/VMenu.vue'
 // import VUTable from '../src/components/UTable/VUTable.vue'
 // import VAvatarGroup from '../src/components/AvatarGroup/VAvatarGroup.vue'
@@ -637,7 +639,7 @@ import VTooltip from "../src/components/Tooltip/VTooltip.vue"
 // import VTreeSelect from "../src/components/TreeSelect/VTreeSelect.vue"
 export default {
   name: "App",
-  components: { VProgress, VCheckbox, VModal, VSelect, VButton, VAlert, VTooltip  },
+  components: { VProgress, VCheckbox, VModal, VSelect, VButton, VAlert, VTooltip, VSwitch  },
   data() {
     return {
       tree_value: [],

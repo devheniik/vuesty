@@ -19,8 +19,24 @@
   @apply text-neutral-500;
 }
 
+.switch-wrapper_alternative .switch {
+  @apply bg-primary-500;
+  @apply text-neutral-200;
+}
+
+.switch_small {
+  width: 31px !important;
+  height: 17px !important;
+}
+
+
+
 .switch-active {
   @apply bg-success-500;
+}
+
+.switch-wrapper_alternative .switch-active {
+  @apply bg-tertiary-500;
 }
 
 .switch-circle {
@@ -35,9 +51,20 @@
   padding: 1px;
 }
 
+.switch_small .switch-circle {
+  width: 14px !important;
+  height: 14px !important;
+  top: 1.5px;
+  left: 1.5px;
+}
+
 .switch-circle-active {
   transform: translateX(20px);
   @apply text-success-500;
+}
+
+.switch_small .switch-circle-active {
+  transform: translateX(14px);
 }
 
 

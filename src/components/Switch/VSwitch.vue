@@ -1,10 +1,10 @@
 <template>
     <div
     class="switch-wrapper"
-    :class="{ 'switch-wrapper-disabled': disabled }"
+    :class="[{ 'switch-wrapper-disabled': disabled }, {'switch-wrapper_alternative': alternativeColor}]"
     @click="toggleSwitch"
   >
-    <div class="switch" :class="{ 'switch-active': modelValue }">
+    <div :class="['switch', {'switch_small' : isSmall}, { 'switch-active': modelValue }]">
       <div class="switch-circle" :class="{ 'switch-circle-active': modelValue }">
         <slot></slot>
       </div>
@@ -18,6 +18,8 @@
 const props = defineProps<{
   modelValue: boolean | number
   disabled?: boolean
+  isSmall?: boolean
+  alternativeColor?: boolean
 }>();
 
 const emit = defineEmits<{
@@ -32,7 +34,9 @@ const toggleSwitch = () => {
     }
     emit('update:modelValue', !props.modelValue);
   }
-};
+}
+
+
 </script>
 
 <style scoped>

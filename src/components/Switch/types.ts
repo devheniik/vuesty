@@ -7,6 +7,8 @@ export interface VSwitchEvents {
 export interface VSwitchProps extends VSwitchEvents {
   modelValue: boolean | number
   disabled?: boolean
+  isSmall?: boolean
+  alternativeColors?: boolean
 }
 
 export interface VSwitchSlots {
