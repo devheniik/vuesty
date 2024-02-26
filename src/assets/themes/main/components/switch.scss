@@ -3,6 +3,16 @@
   cursor: pointer;
 }
 
+.switch-wrapper:has(.switch) {
+  height: 24px;
+  width: 44px;
+}
+
+.switch-wrapper:has(.switch_small) {
+  height: 17px;
+  width: 31px;
+}
+
 .switch-wrapper-disabled {
   cursor: not-allowed;
   opacity: 0.5;
