@@ -15,8 +15,8 @@ const props = withDefaults(
   }>(),
   {
     variant: 'primary',
-    acceptButton: 'Accept',
-    cancelButton: 'Cancel',
+    acceptButton: '',
+    cancelButton: '',
     controls: true,
     width: 'w-[500px]'
   }
