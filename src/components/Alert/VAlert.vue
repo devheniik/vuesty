@@ -77,11 +77,11 @@ const icon = computed<FunctionalComponent<HTMLAttributes & VNodeProps> | string>
           <div class="v-alert__text">
             <slot />
           </div>
-          <div v-if="controls" class="v-alert__controls">
-            <v-button size="small" @click="accept">
+          <div v-if="controls || acceptButton || cancelButton" class="v-alert__controls">
+            <v-button v-if="acceptButton" size="small" @click="accept">
               {{ acceptButton }}
             </v-button>
-            <v-button color="light" size="small" class="v-alert__controls__cancel" @click="cancel">
+            <v-button v-if="cancelButton" color="light" size="small" class="v-alert__controls__cancel" @click="cancel">
               {{ cancelButton }}
             </v-button>
           </div>
