@@ -1,6 +1,12 @@
 <template>
   <div class="">
     <div class="box">
+      <v-menu>
+        <template #menuItems>
+          <span v-if="!ttx">1</span>
+          <div  v-if="hf"><span>2</span></div>
+        </template>
+      </v-menu>
       <v-switch v-model="option2"/>
       <v-switch v-model="option2" is-small alternative-color />
     <v-button color="secondary">hallo</v-button>
@@ -621,7 +627,7 @@ import axios from "axios"
 // import VAvatar from '../src/components/Avatar/VAvatar.vue'
 import VAlert from '../src/components/Alert/VAlert.vue'
 import VSwitch from '../src/components/Switch/VSwitch.vue'
-// import VMenu from '../src/components/Menu/VMenu.vue'
+ import VMenu from '../src/components/Menu/VMenu.vue'
 // import VUTable from '../src/components/UTable/VUTable.vue'
 // import VAvatarGroup from '../src/components/AvatarGroup/VAvatarGroup.vue'
 import VCheckbox from '../src/components/Checkbox/VCheckbox.vue'
@@ -639,7 +645,7 @@ import VTooltip from "../src/components/Tooltip/VTooltip.vue"
 // import VTreeSelect from "../src/components/TreeSelect/VTreeSelect.vue"
 export default {
   name: "App",
-  components: { VProgress, VCheckbox, VModal, VSelect, VButton, VAlert, VTooltip, VSwitch  },
+  components: { VProgress, VCheckbox, VModal, VSelect, VButton, VAlert, VTooltip, VSwitch, VMenu  },
   data() {
     return {
       tree_value: [],
