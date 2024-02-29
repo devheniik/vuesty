@@ -3,7 +3,7 @@
 }
 
 .tooltip__box {
-  @apply absolute p-4  rounded-lg bg-white shadow-2xl -z-10 opacity-0 transition-all duration-300 box-border flex text-black;
+  @apply absolute p-4 pointer-events-none rounded-lg bg-white shadow-2xl -z-10 opacity-0 transition-all duration-300 box-border flex text-black;
 }
 
 .tooltip[data-placement="top"] .tooltip__box {
