@@ -32,7 +32,8 @@
 }
 
 .v-modal__inner_slide {
-  @apply inline-block  z-50 align-bottom bg-neutral-20  text-left shadow-xl transform transition-all sm:align-middle
+  @apply inline-block  z-50 align-bottom bg-neutral-20  text-left shadow-xl transform transition-all sm:align-middle;
+  animation: slideInFromLeft 0.3s ease-in-out;
 }
 
 .v-modal__inner_bg-white {
@@ -64,22 +65,44 @@
 .v-modal__outside {
   @apply fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full
 }
-
+/*
 .v-modal__enter-active {
   @apply transform ease-out duration-300 transition
-}
+} */
 
 
-.v-modal__enter-from_slide {
+/*  Slide Animation  */
+
+ .v-modal__enter-from_slide .v-modal__inner__slide {
   @apply translate-x-[100vw]
 }
 
-.v-modal__enter-to_slide {
+.v-modal__enter-to_slide .v-modal__inner__slide {
   @apply opacity-100 translate-x-0
 }
 
+.v-modal__enter-active {
+  @apply  duration-300
+
+}
+
 .v-modal__leave-active_slide {
-  @apply opacity-0 duration-300
+  @apply duration-300
+}
+
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter-from, .slide-fade-leave-to {
+  transform: translateX(100%);
+  opacity: 0;
+}
+.slide-fade-enter-to, .slide-fade-leave-from {
+  transform: translateX(0);
+  opacity: 1;
 }
 
 
@@ -94,4 +117,13 @@
 
 .v-modal__leave-active {
   @apply opacity-0 duration-300
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }

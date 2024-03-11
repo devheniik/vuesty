@@ -19,10 +19,10 @@
           </v-tooltip>
         </template>
       </v-progress>
-     <!-- <button @click="isModalOpen = !isModalOpen">modal1</button>
+     <button @click="isModalOpen = !isModalOpen">modal1</button>
       <v-modal v-model="isModalOpen" heading="someLabel" is-slide >
       <div class="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates inventore dolore, iste laudantium, aliquam officiis omnis ipsum a beatae in nam voluptatum delectus, aliquid doloribus eos? Corrupti dolorum, maxime officia fuga magni alias. Ullam impedit cum ab a maxime sequi. Consectetur voluptatum nisi at aliquid quibusdam totam perferendis atque repellendus.</div>
-    </v-modal> -->
+    </v-modal>
     <v-modal v-model="isModalOpen1" heading="someLabel"  >
       <div class="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates inventore dolore, iste laudantium, aliquam officiis omnis ipsum a beatae in nam voluptatum delectus, aliquid doloribus eos? Corrupti dolorum, maxime officia fuga magni alias. Ullam impedit cum ab a maxime sequi. Consectetur voluptatum nisi at aliquid quibusdam totam perferendis atque repellendus.</div>
     </v-modal>
