@@ -6,8 +6,8 @@ import { MoreHorizontalIcon } from '@devheniik/icons';
 const slots = useSlots()
 
 const slotsLength = computed(() => {
-  if(!slots?.menuItems()) return false
-  return slots?.menuItems()?.some((item) => item.children !== undefined && item.children !== 'v-if')
+  if(slots?.menuItems && !slots?.menuItems()) return false
+  return slots?.menuItems && slots?.menuItems()?.some((item) => item.children !== undefined && item.children !== 'v-if')
 })
 // .find((item) => item.children !== undefined && item.children.length !== 'v-if')
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import type { Ref } from 'vue'
 import { ChevronRightIcon, ChevronLeftIcon } from '@devheniik/icons'
 
@@ -54,6 +54,11 @@ const handleUpdateLimit = (event: Event) => {
 const emit = defineEmits<Emits>()
 
 const activePage = ref<number>(props.page)
+
+watch(() => props.page, (value) => {
+  activePage.value = value
+})
+
 const selectedLimit = ref<number>(props.limit)
 
 const paginationArr = computed(() => {

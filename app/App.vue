@@ -1,10 +1,10 @@
 <template>
   <div class="">
     <div class="box">
-      <v-menu>
+      <!-- <v-menu>
         <template #menuItems>
           <span v-if="!ttx">1</span>
-          <div  v-if="hf"><span>2</span></div>
+          <div  v-if="!hf"><span>2</span></div>
         </template>
       </v-menu>
       <v-switch v-model="option2"/>
@@ -18,10 +18,10 @@
             <template #tooltip>Готово</template>
           </v-tooltip>
         </template>
-      </v-progress>
-     <button @click="isModalOpen = !isModalOpen">modal1</button>
+      </v-progress> -->
+     <button @click="startProcessing">modal1</button>
       <v-modal v-model="isModalOpen" heading="someLabel" is-slide >
-      <div class="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates inventore dolore, iste laudantium, aliquam officiis omnis ipsum a beatae in nam voluptatum delectus, aliquid doloribus eos? Corrupti dolorum, maxime officia fuga magni alias. Ullam impedit cum ab a maxime sequi. Consectetur voluptatum nisi at aliquid quibusdam totam perferendis atque repellendus.</div>
+      <div v-if="!isProcessing" class="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates inventore dolore, iste laudantium, aliquam officiis omnis ipsum a beatae in nam voluptatum delectus, aliquid doloribus eos? Corrupti dolorum, maxime officia fuga magni alias. Ullam impedit cum ab a maxime sequi. Consectetur voluptatum nisi at aliquid quibusdam totam perferendis atque repellendus.</div>
     </v-modal>
     <v-modal v-model="isModalOpen1" heading="someLabel"  >
       <div class="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates inventore dolore, iste laudantium, aliquam officiis omnis ipsum a beatae in nam voluptatum delectus, aliquid doloribus eos? Corrupti dolorum, maxime officia fuga magni alias. Ullam impedit cum ab a maxime sequi. Consectetur voluptatum nisi at aliquid quibusdam totam perferendis atque repellendus.</div>
@@ -777,6 +777,7 @@ export default {
       text: 'text123123',
       isModalOpen: false,
       isModalOpen2: false,
+      isProcessing: false,
       isLoaded: false,
       options: [
     {
@@ -823,6 +824,13 @@ export default {
   methods: {
     handleP(value) {
       console.log(value)
+    },
+    startProcessing() {
+      this.isProcessing = true
+      this.isModalOpen = !this.isModalOpen
+      setTimeout(() => {
+        this.isProcessing = false
+      }, 3000);
     },
     decreasePage() {
       if (this.page > 0) {

@@ -1,11 +1,12 @@
 <template>
+
   <teleport to="#modals">
     <transition
       enter-active-class="v-modal__enter-active"
       enter-from-class="v-modal__enter-from"
       enter-to-class="v-modal__enter-to"
       leave-active-class="v-modal__leave-active">
-      <div v-if="modelValue && !isLoading" :class="isSlide ? 'v-modal_slide' : 'v-modal'">
+      <div v-if="modelValue" :class="isSlide ? 'v-modal_slide' : 'v-modal'">
         <div :class="[isSlide ? 'v-modal__inner_slide' : 'v-modal__inner',{'v-modal__inner_bg-white': bgWhite}, `${width ? width : 'w-1/2'} ${height}`, {'h-[90%]' : fullHeight}]">
           <header :class="isSlide ? 'v-modal__inner__header_slide' : 'v-modal__inner__header'">
             <h3 class="v-modal__inner__header__heading">
@@ -16,7 +17,7 @@
             @click="$emit('update:modelValue', false)"  />
           </header>
           <main class="v-modal__inner__main">
-            <slot></slot>
+            <slot ></slot>
           </main>
         </div>
         <div class="v-modal__outside" @click="$emit('update:modelValue', false)"></div>
@@ -36,14 +37,12 @@ withDefaults(defineProps<{
   fullHeight?: boolean,
   bgWhite?: boolean,
   isSlide: boolean,
-  isLoading: boolean,
 }>(), {
   width: 'w-auto',
   height: 'h-auto',
   fullHeight: false,
   bgWhite: false,
   isSlide: false,
-  isLoading: false,
 })
 
 defineEmits(['update:modelValue'])
