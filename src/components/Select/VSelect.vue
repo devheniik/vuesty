@@ -79,9 +79,9 @@ const emit = defineEmits<Emits>()
 
 // Select
 const selectRef = ref()
-const lastUpdatedSearch = ref<string>('')
+// const lastUpdatedSearch = ref<string>('')
 const search = ref<string>(props.search)
-const canUpdateSearch = ref<boolean>(true)
+// const canUpdateSearch = ref<boolean>(true)
 
 const singleLabel = () => {
   if (isOptionObject()) {
@@ -98,25 +98,27 @@ const isFocused = ref(false)
 
 const handleSearch = (e: any) => {
   search.value = e.target.value
-  if (canUpdateSearch.value) {
+  // if (canUpdateSearch.value) {
     emit('search', search.value)
-    canUpdateSearch.value = false
-    changeCanUpdateSearch()
-  }
+    // canUpdateSearch.value = false
+    // changeCanUpdateSearch()
+  // }
+  // console.log('search', search.value)
+
 
 }
 
-const changeCanUpdateSearch = () => {
-  if (!canUpdateSearch.value) {
-    setTimeout(() => {
-      canUpdateSearch.value = true
-      if (search.value !== lastUpdatedSearch.value) {
-        lastUpdatedSearch.value = search.value
-        emit('search', search.value)
-      }
-    }, props.delay)
-  }
-}
+// const changeCanUpdateSearch = () => {
+//   if (!canUpdateSearch.value) {
+//     setTimeout(() => {
+//       canUpdateSearch.value = true
+//       if (search.value !== lastUpdatedSearch.value) {
+//         lastUpdatedSearch.value = search.value
+//         emit('search', search.value)
+//       }
+//     }, props.delay)
+//   }
+// }
 
 onClickOutside(selectRef, () => {
   if (open.value) {
