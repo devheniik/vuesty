@@ -52,7 +52,6 @@
           placeholder="Select"
           :auto-filter="false"
           :invalid="!v_select_value.length"
-          no-empty-text-on-empty-input
           @search="handleSearch" />
 
       <!-- <div class="box">

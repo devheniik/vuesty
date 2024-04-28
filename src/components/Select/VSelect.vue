@@ -423,7 +423,7 @@ onMounted(() => {
             </div>
           </slot>
         </div>
-        <div v-if="!filteredOptions?.length && (noEmptyTextOnEmptyInput && search.length > 0)" class="v-select__empty-box">
+        <div v-if="(!filteredOptions?.length && !noEmptyTextOnEmptyInput) || (noEmptyTextOnEmptyInput && search.length > 0 && !filteredOptions?.length)" class="v-select__empty-box">
           <FileRemoveIcon class="v-select__icon_empty" />
           <span>
             {{ emptyText }}
