@@ -30,6 +30,7 @@ const props = withDefaults(
     searchIcon?: boolean
     disabled?: boolean
     invalid?: boolean
+    noEmptyTextOnEmptyInput?: boolean
   }>(),
   {
     openDefault: false,
@@ -48,7 +49,8 @@ const props = withDefaults(
     delay: 1000,
     searchIcon: false,
     disabled: false,
-    invalid: false
+    invalid: false,
+    noEmptyTextOnEmptyInput: false
   }
 )
 
@@ -355,34 +357,34 @@ onMounted(() => {
       <span v-if="searchIcon" class="v-select__icon-box_left">
         <SearchMagnifyingGlassIcon :class="[ 'v-select__icon', { 'v-select__icon_focus' : isFocused }]" />
       </span>
-        <input
-          v-show="isFocused"
-          ref="inputRef"
-          :value="search"
-          :placeholder="searchPlaceholder"
-          type="text"
-          class="v-select__main__input"
-          :disabled="disabled"
-          @focus.stop
-          @input="handleSearch($event)" />
-        <div v-if="isMultipleFilledWithoutFocus()" class="v-tag__box scrollbar">
-          <slot v-for="(value, index) in visibleTags" :key="index" name="tag" :option="value">
-            <div class="v-tag">
-              {{ getLabelByValue(value) }}
-            </div>
+      <input
+        v-show="isFocused"
+        ref="inputRef"
+        :value="search"
+        :placeholder="searchPlaceholder"
+        type="text"
+        class="v-select__main__input"
+        :disabled="disabled"
+        @focus.stop
+        @input="handleSearch($event)" />
+      <div v-if="isMultipleFilledWithoutFocus() && !isLoading" class="v-tag__box scrollbar">
+        <slot v-for="(value, index) in visibleTags" :key="index" name="tag" :option="value">
+          <div class="v-tag">
+            {{ getLabelByValue(value) }}
+          </div>
+        </slot>
+        <template v-if="excessQuantity()">
+          <slot name="excess" :quantity="excessQuantity()">
+            <div class="v-tag v-tag__excess-quantity">+{{ excessQuantity() }}</div>
           </slot>
-          <template v-if="excessQuantity()">
-            <slot name="excess" :quantity="excessQuantity()">
-              <div class="v-tag v-tag__excess-quantity">+{{ excessQuantity() }}</div>
-            </slot>
-          </template>
-        </div>
-        <span v-else-if="isSingleFilledWithoutFocus()" class="v-select__text">
-          {{ singleLabel() }}
-        </span>
-        <span v-else-if="!isFocused" class="v-select__placeholder-text">
-          {{ placeholder }}
-        </span>
+        </template>
+      </div>
+      <span v-else-if="isSingleFilledWithoutFocus() && !isLoading" class="v-select__text">
+        {{ singleLabel() }}
+      </span>
+      <span v-else-if="!isFocused" class="v-select__placeholder-text">
+        {{ placeholder }}
+      </span>
       <div v-if="isLoading" class="v-select__icon-box">
         <svg class="v-select__icon-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
           <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -419,7 +421,7 @@ onMounted(() => {
             </div>
           </slot>
         </div>
-        <div v-if="!filteredOptions?.length" class="v-select__empty-box">
+        <div v-if="!filteredOptions?.length && (noEmptyTextOnEmptyInput && search.length > 0)" class="v-select__empty-box">
           <FileRemoveIcon class="v-select__icon_empty" />
           <span>
             {{ emptyText }}

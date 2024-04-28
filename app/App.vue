@@ -28,7 +28,8 @@
     </v-modal>
     <button @click="isModalOpen1 = !isModalOpen1">modal2</button>
     </div>
-    <div class="w112">
+    <button @click="isSelectOpen = true">open select</button>
+    <div v-if="isSelectOpen" class="w112">
           <v-select
           v-model="v_select_value"
           label-key="title"
@@ -42,6 +43,18 @@
 
         </div>
   </div>
+  <v-select
+          v-model="v_select_value"
+          label-key="title"
+          :multiple="true"
+          value-key="id"
+          :options="[]"
+          placeholder="Select"
+          :auto-filter="false"
+          :invalid="!v_select_value.length"
+          no-empty-text-on-empty-input
+          @search="handleSearch" />
+
       <!-- <div class="box">
         <v-checkbox>
           Hallo
@@ -648,6 +661,7 @@ export default {
   components: { VProgress, VCheckbox, VModal, VSelect, VButton, VAlert, VTooltip, VSwitch, VMenu  },
   data() {
     return {
+      isSelectOpen: false,
       tree_value: [],
       tree: [
         {
