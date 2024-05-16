@@ -249,16 +249,16 @@ const deselectItem = (value: any) => {
 const filteredOptions = computed(() => {
 
   if (search.value === '' || search.value?.length === 0) {
-    return props.options
+    return props.options.filter((option) => getLabel(option) !== '')
   }
 
   if (props.autoFilter) {
     return props.options.filter(option => {
-      return getLabel(option).toLowerCase().includes(search.value.toLowerCase())
+      return getLabel(option).toLowerCase().includes(search.value.toLowerCase() && getLabel(option) !== '')
     })
   }
 
-  return props.options
+  return props.options.filter((option) => getLabel(option) !== '')
 })
 
 const visibleTags = computed(() => {
@@ -371,7 +371,7 @@ onMounted(() => {
         @input="handleSearch($event)" />
       <div v-if="isMultipleFilledWithoutFocus() && !isLoading" class="v-tag__box scrollbar">
         <slot v-for="(value, index) in visibleTags" :key="index" name="tag" :option="value">
-          <div class="v-tag">
+          <div v-if="getLabelByValue(value) !== ''" class="v-tag">
             {{ getLabelByValue(value) }}
           </div>
         </slot>
@@ -417,7 +417,7 @@ onMounted(() => {
             class="group"
             :deselect-item="deselectItem"
             @click.stop="deselectItem(value)">
-            <div class="v-tag-in-selected-box">
+            <div v-if="getLabelByValue(value) !== ''" class="v-tag-in-selected-box">
               {{ getLabelByValue(value) }}
               <CloseMdIcon  :class="['v-select__icon-deselect focus-none']" @click.stop="deselectItem(value)" />
             </div>
