@@ -6,6 +6,10 @@ const props = withDefaults(
   defineProps<{
     ready: number | string
     volume: number | string
+    estimatedLoad?: number | string
+    estimatedUnload?: number | string
+    loaded?: number | string
+    isShipping?: boolean
     units?: string
     height?: number
     lost?: number | string
@@ -16,6 +20,9 @@ const props = withDefaults(
     lostLabel?: string
     volumeLabel?: string
     priceLabel?: string
+    estimatedLoadLabel?: string
+    estimatedUnloadLabel?: string
+    loadedLabel?: string
     threeDecimals?: boolean
     removeHiddenOverflow?: boolean
   }>(),
@@ -29,9 +36,35 @@ const props = withDefaults(
     lostLabel: 'Втрачено',
     volumeLabel: "Об'єм",
     priceLabel: 'Ціна',
+    estimatedLoadLabel: 'Оцінка завантаження',
+    estimatedUnloadLabel: 'Оцінка розвантаження',
+    loadedLabel: 'Завантажено',
     threeDecimals: false
   }
 )
+
+const areEstimatedEqual = computed(() => {
+  return Number(props.estimatedLoad) === Number(props.estimatedUnload)
+})
+
+const isEstimatedLoadBigger = computed(() => {
+  return Number(props.estimatedLoad) > Number(props.estimatedUnload)
+})
+
+const shippingVolume = computed(() => {
+  if(props.isShipping) {
+
+    if(areEstimatedEqual.value) {
+      return props.estimatedLoad
+    } else if(isEstimatedLoadBigger.value) {
+      return props.estimatedLoad
+    } else {
+      return props.estimatedUnload
+    }
+  } else {
+    return null
+  }
+})
 
 const formatNumber = (value: number | string, keepString?: boolean) => {
   // return Number.isInteger(Number(value)) ? Number(value) : Number(Number(value).toFixed(2))
@@ -62,6 +95,22 @@ const formattedVolume = computed(() => {
   return formatNumber(props.volume)
 })
 
+const formattedEsimatedLoad = computed(() => {
+  return props.estimatedLoad ? formatNumber(props.estimatedLoad) : 0
+})
+
+const formattedEsimatedUnload = computed(() => {
+  return props.estimatedUnload ? formatNumber(props.estimatedUnload) : 0
+})
+
+const formattedShippingVolume = computed(() => {
+  return props.isShipping ? formatNumber(shippingVolume.value as number) : 0
+})
+
+const formattedUnload = computed(() => {
+  return props.loaded ? formatNumber(props.loaded) : 0
+})
+
 const formattedReady = computed(() => {
   return formatNumber(props.ready)
 })
@@ -75,16 +124,26 @@ const formattedLost = computed(() => {
 })
 
 const ready_width = () => {
-  const p = (Number(props.ready) / Number(props.volume)) * 100
-  if (p > 100) {
-    return 100
-  } else {
-    return p
-  }
+    const p =
+      props.isShipping ?
+      ((Number(props.ready) / (shippingVolume.value as number) * 100))
+      : ((Number(props.ready) / Number(props.volume)) * 100)
+
+    if (p > 100) {
+      return 100
+    } else {
+      return p
+    }
+
+
 }
 
 const percent_volume_lost = computed(() => {
   return `${ ( (Number(formattedLost.value)  / Number(formattedVolume.value)) * 100).toFixed(2)}%`
+})
+
+const percent_unload = computed(() => {
+  return `${ (( (Number(formattedUnload.value)  / Number(formattedShippingVolume.value)) * 100) - ready_width()).toFixed(2)}`
 })
 
 </script>
@@ -94,7 +153,7 @@ const percent_volume_lost = computed(() => {
   <Popover class="v-progress__popover">
     <PopoverButton class="v-progress__popover__btn">
       <div
-        :class="['v-progress', {'!overflow-visible': removeHiddenOverflow}]"
+        :class="['v-progress']"
         :style="`height: ${height ? height : 20}px;`">
     <!-- Colored part -->
         <div
@@ -104,8 +163,15 @@ const percent_volume_lost = computed(() => {
         :style="`width: ${ready_width()}%;height: ${height ? height : 20}px;`">
           <span class="opacity-0">1</span>
         </div>
-    <!-- Red Part of Lost volume -->
+        <!-- Orange part of loaded -->
         <div
+          v-if="isShipping"
+          class="bg-warning-400"
+          :style="`width: ${percent_unload}%;height: ${height ? height : 20}px;`">
+        </div>
+    <!-- Red Part of Lost volume -->
+      <div
+      v-if="percent_volume_lost"
         class="bg-danger-200"
         :style="`width: ${percent_volume_lost};height: ${height ? height : 20}px;`">
         </div>
@@ -131,9 +197,15 @@ const percent_volume_lost = computed(() => {
               <span>{{ formattedLost }}</span>
             </span>
 
-            <span :class="['v-progress__badge v-progress__badge_total', {'!overflow-visible': removeHiddenOverflow}]">
+            <span v-if="!isShipping" :class="['v-progress__badge v-progress__badge_total', {'!overflow-visible': removeHiddenOverflow}]">
               <slot name="volume"></slot>
               <span>{{ formattedVolume }} {{ units }}</span>
+            </span>
+
+            <span v-else :class="['v-progress__badge v-progress__badge_total', {'!overflow-visible': removeHiddenOverflow}]">
+              <slot name="volume"></slot>
+              <span v-if="areEstimatedEqual">{{ formattedEsimatedLoad }} {{ units }}</span>
+              <span v-else>{{ formattedEsimatedLoad }} / {{ formattedEsimatedUnload  }} {{ units }}</span>
             </span>
 
           </div>
