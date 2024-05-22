@@ -2,8 +2,11 @@ import type { ComponentPublicInstance, VNode } from 'vue'
 
 export interface VProgressProps {
   ready: number | string
-  loaded?: number | string
   volume: number | string
+  estimatedLoad?: number | string
+  estimatedUnload?: number | string
+  loaded?: number | string
+  isShipping?: boolean
   units?: string
   height?: number
   lost?: number | string
@@ -15,6 +18,9 @@ export interface VProgressProps {
   volumeLabel?: string
   priceLabel?: string
   threeDecimals?: boolean
+  estimatedLoadLabel?: string
+  estimatedUnloadLabel?: string
+  loadedLabel?: string
   removeHiddenOverflow?: boolean
 }
 
