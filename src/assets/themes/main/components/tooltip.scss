@@ -6,6 +6,10 @@
   @apply absolute p-4 pointer-events-none rounded-lg bg-white shadow-2xl -z-10 opacity-0 transition-all duration-300 box-border flex text-black;
 }
 
+.tooltip__box .tooltip__box_small {
+  @apply  p-1;
+}
+
 .tooltip[data-placement="top"] .tooltip__box {
   @apply bottom-7;
   transform: translateX(-50%);

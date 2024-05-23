@@ -5,7 +5,7 @@
       <div class="tooltip__container__slot">
         <slot name="component"></slot>
       </div>
-      <div class="tooltip__box">
+      <div :class="[small ? 'tooltip__box tooltip__box_small' : 'tooltip__box']">
         <slot name="tooltip"></slot>
       </div>
     </div>
@@ -15,6 +15,7 @@
 <script setup lang="ts">
 defineProps<{
   placement: 'top' | 'bottom' | 'left' | 'right'
+  small?: boolean
 }>()
 
 </script>

@@ -12,6 +12,32 @@
     <v-button color="secondary">hallo</v-button>
     <v-alert label="Some label" >And a lots of diferenet text Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt voluptates ullam dolorum possimus corporis adipisci harum recusandae debitis tenetur tempora voluptate vel illo reiciendis consectetur expedita eveniet, sit magnam ad error, nobis itaque est. Cupiditate, quisquam libero quod sed consequatur vitae minus modi culpa quos obcaecati beatae blanditiis esse, ratione recusandae eum voluptatibus error commodi itaque sequi enim quibusdam. Iure, officia fugiat. Libero at assumenda sed dignissimos a, ducimus ullam enim. Harum ea atque asperiores aut dicta quam sapiente, non obcaecati architecto laborum accusantium libero placeat modi at molestias, porro rerum. Labore nihil minima necessitatibus praesentium recusandae suscipit laudantium aliquam.</v-alert>-->
        <v-progress
+       :ready="50"
+       units="$"
+       show-units-in-price
+       ready-label="Готово"
+       lost="50"
+       volume-label="Повний побем"
+       remove-hidden-overflow
+       is-shipping
+       three-decimals
+       estimated-load="2000.291"
+       estimated-unload="1000.092"
+       loaded="3"
+       >
+        <template #ready>
+          <v-tooltip placement="right" small>
+
+            <template #component>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Linecons_small-cloud.svg" />
+            </template>
+
+            <template #tooltip><span class="white-space-nowrap">Рахунки по інвойспм не спідвать</span></template>
+          </v-tooltip>
+        </template>
+      </v-progress>
+
+      <v-progress
        :ready="800.239"
        units="$"
        show-units-in-price

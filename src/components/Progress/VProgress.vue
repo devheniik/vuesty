@@ -94,11 +94,11 @@ const formattedVolume = computed(() => {
   return  props.isShipping ? formatNumber(shippingVolume.value as number) : formatNumber(props.volume)
 })
 
-const formattedEsimatedLoad = computed(() => {
+const formattedEstimatedLoad = computed(() => {
   return props.estimatedLoad ? formatNumber(props.estimatedLoad) : 0
 })
 
-const formattedEsimatedUnload = computed(() => {
+const formattedEstimatedUnload = computed(() => {
   return props.estimatedUnload ? formatNumber(props.estimatedUnload) : 0
 })
 
@@ -142,19 +142,19 @@ const percent_load = computed(() => {
   return `${ (( (Number(formattedLoad.value)  / Number(formattedVolume.value)) * 100)).toFixed(2)}`
 })
 
+
 </script>
 
 <template>
-
   <Popover class="v-progress__popover">
     <PopoverButton class="v-progress__popover__btn">
       <div
-        :class="['v-progress']"
+        :class="['v-progress overflow-hidden']"
         :style="`height: ${height ? height : 20}px;`">
     <!-- Colored part -->
         <div
         v-if="ready_width() > 0"
-        :class="[{ 'v-progress_full': ready_width() >= 98.5 }, 'z-10',
+        :class="[{ 'v-progress_full': ready_width() >= 98.5 }, 'z-10 overflow-hidden',
       {'v-progress__body__colored' : !noColor}]"
         :style="`width: ${ready_width()}%;height: ${height ? height : 20}px;`">
           <span class="opacity-0">1</span>
@@ -162,13 +162,13 @@ const percent_load = computed(() => {
         <!-- Orange part of loaded -->
         <div
           v-if="isShipping"
-          :class="['v-progress_color-warning absolute', {'v-progress_full': (Number(percent_load) >= 98.5 )}]"
+          :class="['v-progress_color-warning absolute overflow-hidden', {'v-progress_full': (Number(percent_load) >= 98.5 )}]"
           :style="`width: ${percent_load}%;height: ${height ? height : 20}px;`">
         </div>
     <!-- Red Part of Lost volume -->
       <div
       v-if="percent_volume_lost"
-        :class="['v-progress_color-danger', {'v-progress_full': (Number(Number(percent_volume_lost) + ready_width()) >= 98.5 )}]"
+        :class="['v-progress_color-danger overflow-hidden', {'v-progress_full': (Number(Number(percent_volume_lost) + ready_width()) >= 98.5 )}]"
         :style="`width: ${percent_volume_lost}%;height: ${height ? height : 20}px;`">
         </div>
     <!-- Units and Numbers -->
@@ -200,8 +200,15 @@ const percent_load = computed(() => {
 
             <span v-else :class="['v-progress__badge v-progress__badge_total']">
               <slot name="volume"></slot>
-              <span v-if="areEstimatedEqual">{{ formattedEsimatedLoad }} {{ units }}</span>
-              <span v-else>{{ formattedEsimatedLoad }} | {{ formattedEsimatedUnload  }} {{ units }}</span>
+              <span v-if="areEstimatedEqual">
+                {{ formattedEstimatedLoad }} {{ units }}
+              </span>
+              <span v-else-if="isEstimatedLoadBigger">
+                {{ formattedEstimatedLoad }} {{ units }}
+              </span>
+              <span v-else>
+                {{ formattedEstimatedUnload }} {{ units }}
+              </span>
             </span>
 
           </div>

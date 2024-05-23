@@ -4,7 +4,7 @@
 
 .v-progress {
   background-color: #dde0e2;
-  @apply relative z-10  flex  h-full w-full cursor-pointer items-center   rounded-3xl text-center text-white ;
+  @apply relative z-10  flex  h-full w-full cursor-pointer items-center   rounded-3xl text-center text-white hover:z-20 ;
 }
 
 .v-progress_color-danger {
