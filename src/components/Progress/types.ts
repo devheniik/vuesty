@@ -21,7 +21,6 @@ export interface VProgressProps {
   estimatedLoadLabel?: string
   estimatedUnloadLabel?: string
   loadedLabel?: string
-  removeHiddenOverflow?: boolean
 }
 
 export interface VProgressSlots {

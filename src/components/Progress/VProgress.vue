@@ -24,7 +24,6 @@ const props = withDefaults(
     estimatedUnloadLabel?: string
     loadedLabel?: string
     threeDecimals?: boolean
-    removeHiddenOverflow?: boolean
   }>(),
   {
     ready: 0,
@@ -92,7 +91,7 @@ const formatNumber = (value: number | string, keepString?: boolean) => {
 }
 
 const formattedVolume = computed(() => {
-  return formatNumber(props.volume)
+  return  props.isShipping ? formatNumber(shippingVolume.value as number) : formatNumber(props.volume)
 })
 
 const formattedEsimatedLoad = computed(() => {
@@ -103,11 +102,8 @@ const formattedEsimatedUnload = computed(() => {
   return props.estimatedUnload ? formatNumber(props.estimatedUnload) : 0
 })
 
-const formattedShippingVolume = computed(() => {
-  return props.isShipping ? formatNumber(shippingVolume.value as number) : 0
-})
 
-const formattedUnload = computed(() => {
+const formattedLoad = computed(() => {
   return props.loaded ? formatNumber(props.loaded) : 0
 })
 
@@ -139,11 +135,11 @@ const ready_width = () => {
 }
 
 const percent_volume_lost = computed(() => {
-  return `${ ( (Number(formattedLost.value)  / Number(formattedVolume.value)) * 100).toFixed(2)}%`
+  return `${ ( (Number(formattedLost.value)  / Number(formattedVolume.value)) * 100).toFixed(2)}`
 })
 
-const percent_unload = computed(() => {
-  return `${ (( (Number(formattedUnload.value)  / Number(formattedShippingVolume.value)) * 100) - ready_width()).toFixed(2)}`
+const percent_load = computed(() => {
+  return `${ (( (Number(formattedLoad.value)  / Number(formattedVolume.value)) * 100)).toFixed(2)}`
 })
 
 </script>
@@ -158,7 +154,7 @@ const percent_unload = computed(() => {
     <!-- Colored part -->
         <div
         v-if="ready_width() > 0"
-        :class="[{ 'v-progress_full': ready_width() >= 100 }, 'z-10',
+        :class="[{ 'v-progress_full': ready_width() >= 98.5 }, 'z-10',
       {'v-progress__body__colored' : !noColor}]"
         :style="`width: ${ready_width()}%;height: ${height ? height : 20}px;`">
           <span class="opacity-0">1</span>
@@ -166,46 +162,46 @@ const percent_unload = computed(() => {
         <!-- Orange part of loaded -->
         <div
           v-if="isShipping"
-          class="bg-warning-400"
-          :style="`width: ${percent_unload}%;height: ${height ? height : 20}px;`">
+          :class="['v-progress_color-warning absolute', {'v-progress_full': (Number(percent_load) >= 98.5 )}]"
+          :style="`width: ${percent_load}%;height: ${height ? height : 20}px;`">
         </div>
     <!-- Red Part of Lost volume -->
       <div
       v-if="percent_volume_lost"
-        class="bg-danger-200"
-        :style="`width: ${percent_volume_lost};height: ${height ? height : 20}px;`">
+        :class="['v-progress_color-danger', {'v-progress_full': (Number(Number(percent_volume_lost) + ready_width()) >= 98.5 )}]"
+        :style="`width: ${percent_volume_lost}%;height: ${height ? height : 20}px;`">
         </div>
     <!-- Units and Numbers -->
         <div class="v-progress__numbers">
 
-          <div :class="['v-progress__numbers-container', {'!overflow-visible': removeHiddenOverflow}]">
-            <span :class="['v-progress__badge v-progress__badge_current', {'!overflow-visible': removeHiddenOverflow}]">
+          <div :class="['v-progress__numbers-container']">
+            <span :class="['v-progress__badge v-progress__badge_current']">
               <slot name="ready"></slot>
               <span>{{ formattedReady }}</span>
             </span>
           </div>
 
-          <div :class="['v-progress__numbers-container space-x-1', {'!overflow-visible': removeHiddenOverflow}]">
+          <div :class="['v-progress__numbers-container space-x-1']">
 
             <span v-if="formattedPrice" class="v-progress__badge v-progress__badge_needed">
               <slot name="price"></slot>
               <span>{{ formattedPrice }} {{ showUnitsInPrice ? units : ''  }}</span>
             </span>
 
-            <span v-else-if="formattedLost" :class="['v-progress__badge v-progress__badge_needed', {'!overflow-visible': removeHiddenOverflow}]">
+            <span v-else-if="formattedLost" :class="['v-progress__badge v-progress__badge_needed']">
               <slot name="lost"></slot>
               <span>{{ formattedLost }}</span>
             </span>
 
-            <span v-if="!isShipping" :class="['v-progress__badge v-progress__badge_total', {'!overflow-visible': removeHiddenOverflow}]">
+            <span v-if="!isShipping" :class="['v-progress__badge v-progress__badge_total']">
               <slot name="volume"></slot>
               <span>{{ formattedVolume }} {{ units }}</span>
             </span>
 
-            <span v-else :class="['v-progress__badge v-progress__badge_total', {'!overflow-visible': removeHiddenOverflow}]">
+            <span v-else :class="['v-progress__badge v-progress__badge_total']">
               <slot name="volume"></slot>
               <span v-if="areEstimatedEqual">{{ formattedEsimatedLoad }} {{ units }}</span>
-              <span v-else>{{ formattedEsimatedLoad }} / {{ formattedEsimatedUnload  }} {{ units }}</span>
+              <span v-else>{{ formattedEsimatedLoad }} | {{ formattedEsimatedUnload  }} {{ units }}</span>
             </span>
 
           </div>
@@ -232,6 +228,22 @@ const percent_unload = computed(() => {
       <div v-if="formattedLost" class="v-progress__popover__row">
         <span class="v-progress__popover__row__label">{{ lostLabel }}:</span>
         <span class="v-progress__popover__row__value">{{ formattedLost }} {{ units }}</span>
+      </div>
+      <div v-if="loaded" class="v-progress__popover__row">
+        <span class="v-progress__popover__row__label">{{ loadedLabel }}:</span>
+        <span class="v-progress__popover__row__value">{{ loaded }} {{ units }}</span>
+      </div>
+      <div v-if="estimatedLoad" class="v-progress__popover__row">
+        <span class="v-progress__popover__row__label">{{ estimatedLoadLabel }}:</span>
+        <span class="v-progress__popover__row__value">
+          {{ estimatedLoad }} {{ units }}
+        </span>
+      </div>
+      <div v-if="estimatedUnload" class="v-progress__popover__row">
+        <span class="v-progress__popover__row__label">{{ estimatedUnloadLabel }}:</span>
+        <span class="v-progress__popover__row__value">
+          {{ estimatedUnload }} {{ units }}
+        </span>
       </div>
     </PopoverPanel>
   </Popover>

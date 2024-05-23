@@ -1,10 +1,18 @@
 /* .v-progress__body__colored {
-  @apply block h-full relative overflow-hidden rounded-l-3xl bg-gradient-to-r from-primary-500 to-info-400
+  @apply block h-full relative rounded-l-3xl bg-gradient-to-r from-primary-500 to-info-400
 } */
 
 .v-progress {
   background-color: #dde0e2;
-  @apply relative z-10  flex  h-full w-full cursor-pointer items-center   rounded-3xl text-center text-white overflow-hidden;
+  @apply relative z-10  flex  h-full w-full cursor-pointer items-center   rounded-3xl text-center text-white ;
+}
+
+.v-progress_color-danger {
+  @apply bg-danger-200 z-10
+}
+
+.v-progress_color-warning {
+  @apply bg-warning-400 rounded-l-3xl
 }
 
 .v-progress_full {
@@ -22,27 +30,27 @@
 
 .v-progress__badge {
   /* line-height: 14px; */
-  @apply z-10  rounded-3xl px-1.5 flex items-center gap-1;
+  @apply z-10  rounded-3xl px-1.5 flex items-center gap-1 overflow-visible;
 }
 
 .v-progress__badge_current {
-  @apply left-0.5 bg-white text-success-1000 truncate;
+  @apply left-0.5 bg-white text-success-1000 ;
 }
 
 .v-progress__badge_total {
-  @apply right-0.5 bg-gray-800 text-white truncate;
+  @apply right-0.5 bg-gray-800 text-white ;
 }
 
 .v-progress__badge_needed {
-  @apply mr-1 bg-white text-gray-800 truncate;
+  @apply mr-1 bg-white text-gray-800 ;
 }
 
 .v-progress__numbers-container {
-  @apply flex items-center flex-nowrap overflow-hidden ;
+  @apply flex items-center flex-nowrap  ;
 }
 
 .v-progress__body {
-  @apply relative h-5 rounded-3xl  bg-gray-200 overflow-hidden;
+  @apply relative h-5 rounded-3xl  bg-gray-200 ;
 }
 
 .v-progress__body__indicator {
@@ -50,7 +58,7 @@
 }
 
 .v-progress__body__colored {
-  @apply relative block h-full rounded-l-3xl overflow-hidden;
+  @apply relative block h-full rounded-l-3xl ;
   background: linear-gradient(269.1deg, rgba(53, 224, 152, 0.7) 0%, rgba(10, 100, 236, 0.7) 100%);
 }
 

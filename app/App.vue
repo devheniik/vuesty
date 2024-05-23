@@ -12,17 +12,18 @@
     <v-button color="secondary">hallo</v-button>
     <v-alert label="Some label" >And a lots of diferenet text Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt voluptates ullam dolorum possimus corporis adipisci harum recusandae debitis tenetur tempora voluptate vel illo reiciendis consectetur expedita eveniet, sit magnam ad error, nobis itaque est. Cupiditate, quisquam libero quod sed consequatur vitae minus modi culpa quos obcaecati beatae blanditiis esse, ratione recusandae eum voluptatibus error commodi itaque sequi enim quibusdam. Iure, officia fugiat. Libero at assumenda sed dignissimos a, ducimus ullam enim. Harum ea atque asperiores aut dicta quam sapiente, non obcaecati architecto laborum accusantium libero placeat modi at molestias, porro rerum. Labore nihil minima necessitatibus praesentium recusandae suscipit laudantium aliquam.</v-alert>-->
        <v-progress
-       :ready="500"
+       :ready="800.239"
        units="$"
        show-units-in-price
        ready-label="Готово"
-       lost="+0.02"
+       lost="119.331"
        volume-label="Повний побем"
        remove-hidden-overflow
        is-shipping
-       estimated-load="3000"
-       estimated-unload="2000"
-       loaded="1000"
+       three-decimals
+       estimated-load="2000.291"
+       estimated-unload="1000.092"
+       loaded="1200.98"
        >
         <template #ready>
           <v-tooltip>
@@ -924,7 +925,7 @@ export default {
 <style scoped>
 
 .box {
-  @apply p-10 m-5 bg-neutral-100 w-[600px];
+  @apply p-10 m-5 bg-neutral-100 w-[350px];
 }
 .container {
   /* width: 30%; */
