@@ -23,7 +23,7 @@
        three-decimals
        estimated-load="2000.291"
        estimated-unload="1000.092"
-       loaded="3"
+       loaded="900"
        >
         <template #ready>
           <v-tooltip placement="right" small>

@@ -193,6 +193,11 @@ const percent_load = computed(() => {
               <span>{{ formattedLost }}</span>
             </span>
 
+            <span v-if="formattedLoad" :class="['v-progress__badge v-progress__badge_needed']">
+              <slot name="loaded"></slot>
+              <span>{{ formattedLoad }}</span>
+            </span>
+
             <span v-if="!isShipping" :class="['v-progress__badge v-progress__badge_total']">
               <slot name="volume"></slot>
               <span>{{ formattedVolume }} {{ units }}</span>
@@ -216,13 +221,13 @@ const percent_load = computed(() => {
       </div>
     </PopoverButton>
 
-    <PopoverPanel v-if="price || formattedVolume || formattedReady || formattedLost" class="v-progress__popover__panel">
+    <PopoverPanel v-if="price || volume || formattedReady || formattedLost || estimatedLoad || estimatedUnload" class="v-progress__popover__panel">
       <div class="v-progress__popover__triangle"></div>
       <div v-if="price" class="v-progress__popover__row">
         <span class="v-progress__popover__row__label">{{ priceLabel }}:</span>
         <span class="v-progress__popover__row__value">{{ price }} {{ showUnitsInPrice ? units : ''  }}</span>
       </div>
-      <div v-if="formattedVolume" class="v-progress__popover__row">
+      <div v-if="volume" class="v-progress__popover__row">
         <span class="v-progress__popover__row__label">{{ volumeLabel }}:</span>
         <span class="v-progress__popover__row__value">
           {{ formattedVolume }} {{ units }}
