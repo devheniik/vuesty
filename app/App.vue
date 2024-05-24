@@ -21,9 +21,9 @@
        remove-hidden-overflow
        is-shipping
        three-decimals
-       estimated-load="2000.291"
-       estimated-unload="1000.092"
-       loaded="900"
+       estimated-load="903"
+       estimated-unload="902"
+       loaded="903"
        >
         <template #ready>
           <v-tooltip placement="right" small>

@@ -50,6 +50,17 @@ const isEstimatedLoadBigger = computed(() => {
   return Number(props.estimatedLoad) > Number(props.estimatedUnload)
 })
 
+const showOnlyEstimates = computed(() => {
+  if(areEstimatedEqual.value) {
+    return props.estimatedLoad == props.loaded
+  } else if (isEstimatedLoadBigger.value) {
+    return props.estimatedLoad == props.loaded
+  } else {
+    return props.estimatedUnload == props.loaded
+  }
+
+})
+
 const shippingVolume = computed(() => {
   if(props.isShipping) {
 
@@ -193,7 +204,7 @@ const percent_load = computed(() => {
               <span>{{ formattedLost }}</span>
             </span>
 
-            <span v-if="formattedLoad" :class="['v-progress__badge v-progress__badge_needed']">
+            <span v-if="formattedLoad  && !showOnlyEstimates" :class="['v-progress__badge v-progress__badge_needed']">
               <slot name="loaded"></slot>
               <span>{{ formattedLoad }}</span>
             </span>
@@ -208,9 +219,11 @@ const percent_load = computed(() => {
               <span v-if="areEstimatedEqual">
                 {{ formattedEstimatedLoad }} {{ units }}
               </span>
+
               <span v-else-if="isEstimatedLoadBigger">
                 {{ formattedEstimatedLoad }} {{ units }}
               </span>
+
               <span v-else>
                 {{ formattedEstimatedUnload }} {{ units }}
               </span>
