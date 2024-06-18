@@ -16,14 +16,14 @@
 <script setup lang="ts">
 
 const props = defineProps<{
-  modelValue: boolean | number
+  modelValue: boolean | null | number
   disabled?: boolean
   isSmall?: boolean
   alternativeColor?: boolean
 }>();
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: boolean | number): void;
+  (e: 'update:modelValue', value: boolean | number | null): void;
 }>();
 
 const toggleSwitch = () => {

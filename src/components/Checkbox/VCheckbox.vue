@@ -26,7 +26,7 @@ const props = withDefaults(defineProps<{
   label?: string;
   disabled?: boolean;
   error?: boolean;
-  modelValue?: boolean;
+  modelValue?: boolean | null;
 }>(), {
   label: '',
   disabled: false,
