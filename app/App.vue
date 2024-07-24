@@ -93,6 +93,26 @@
           :invalid="!v_select_value.length"
           @search="handleSearch" />
 
+          <v-select
+          v-model="v_select_value_solo"
+          label-key="title"
+          value-key="id"
+          :options="[]"
+          placeholder="Select"
+          :auto-filter="false"
+          :invalid="!v_select_value.length"
+          @search="handleSearch" />
+
+
+
+          <v-avatar-group size="giant" color="upgrade">
+      <v-avatar text="a b"></v-avatar>
+      <v-avatar text="Buer (seller)"></v-avatar>
+      <v-avatar text="EE FF"></v-avatar>
+      <v-avatar text="GG HH"></v-avatar>
+      <v-avatar text="David (Jordan) Asdad"></v-avatar>
+    </v-avatar-group>
+
       <!-- <div class="box">
         <v-checkbox>
           Hallo
@@ -675,12 +695,12 @@ import axios from "axios"
 // import VPagination from '../src/components/Pagination/VPagination.vue'
 // import VModal from "../src/components/Modal/VModal.vue"
 // import VTextarea from "../src/components/Textarea/VTextarea.vue"
-// import VAvatar from '../src/components/Avatar/VAvatar.vue'
+import VAvatar from '../src/components/Avatar/VAvatar.vue'
 import VAlert from '../src/components/Alert/VAlert.vue'
 import VSwitch from '../src/components/Switch/VSwitch.vue'
  import VMenu from '../src/components/Menu/VMenu.vue'
 // import VUTable from '../src/components/UTable/VUTable.vue'
-// import VAvatarGroup from '../src/components/AvatarGroup/VAvatarGroup.vue'
+ import VAvatarGroup from '../src/components/AvatarGroup/VAvatarGroup.vue'
 import VCheckbox from '../src/components/Checkbox/VCheckbox.vue'
 // import VPhoneInput from '../src/components/phone/VPhoneInput.vue'
 // import VRadioButton from "../src/components/Radio/VRadioButton.vue"
@@ -696,7 +716,7 @@ import VTooltip from "../src/components/Tooltip/VTooltip.vue"
 // import VTreeSelect from "../src/components/TreeSelect/VTreeSelect.vue"
 export default {
   name: "App",
-  components: { VProgress, VCheckbox, VModal, VSelect, VButton, VAlert, VTooltip, VSwitch, VMenu  },
+  components: { VProgress, VCheckbox, VModal, VSelect, VButton, VAlert, VTooltip, VSwitch, VMenu , VAvatar, VAvatarGroup },
   data() {
     return {
       isSelectOpen: false,
@@ -852,6 +872,7 @@ export default {
     },
 ],
       v_select_value: [1,2,3,4,5],
+      v_select_value_solo: undefined,
       second_select_value: null,
       ttx: '123123',
       isModalOpen1: false,
