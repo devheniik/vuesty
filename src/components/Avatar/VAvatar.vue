@@ -78,15 +78,15 @@ const formatter = (text: string) => {
     return `${firstLetter}${secondLetter}`;
   }
   // Check if text matches a pattern with a word followed by a word in parentheses
-  else if (/^[а-яёА-ЯЁa-zA-Z]+ \([а-яёА-ЯЁa-zA-Z]+\)$/.test(text)) {
-    const match = text.match(/^([а-яёА-ЯЁa-zA-Z]+) \(([а-яёА-ЯЁa-zA-Z]+)\)$/);
+  else if (/^[а-яёіїєґА-ЯЁІЇЄҐa-zA-Z]+ \([а-яёіїєґА-ЯЁІЇЄҐa-zA-Z]+\)$/.test(text)) {
+    const match = text.match(/^([а-яёіїєґА-ЯЁІЇЄҐa-zA-Z]+) \(([а-яёіїєґА-ЯЁІЇЄҐa-zA-Z]+)\)$/);
     const firstLetter = match ? match[1].charAt(0).toUpperCase() : '';
     const secondLetter = match ? match[2].charAt(0).toUpperCase() : '';
 
     return `${firstLetter}${secondLetter}`;
   }
   // Check if text contains more than two words
-  else if (/^[а-яёА-ЯЁa-zA-Z\s]+$/.test(text)) {
+  else if (/^[а-яёіїєґА-ЯЁІЇЄҐa-zA-Z\s]+$/.test(text)) {
     const words = text.split(' ').filter(word => word.length > 0);
     const firstLetter = words[0].charAt(0).toUpperCase();
     const secondLetter = words[1] ? words[1].charAt(0).toUpperCase() : '';
@@ -96,7 +96,7 @@ const formatter = (text: string) => {
   // Check if text is a single word (English or Cyrillic)
   else if (
     /^[A-Za-z]+$/.test(text) ||
-    /^[А-ЯІЇЄа-яёА-ЯЁ]{2,}$/i.test(text)
+    /^[а-яёіїєґА-ЯЁІЇЄҐa-zA-Z]{2,}$/i.test(text)
   ) {
     let count = 0;
     let result = '';

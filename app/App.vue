@@ -110,7 +110,7 @@
       <v-avatar text="Buer (seller)"></v-avatar>
       <v-avatar text="EE FF"></v-avatar>
       <v-avatar text="GG HH"></v-avatar>
-      <v-avatar text="David (Jordan) Asdad"></v-avatar>
+      <v-avatar text="Олена Каалашнікова"></v-avatar>
     </v-avatar-group>
 
       <!-- <div class="box">
